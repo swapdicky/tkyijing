@@ -262,7 +262,7 @@ export default function Home() {
               <span 
                 className="absolute top-2 left-2 text-[10px] font-mono" 
                 style={{ 
-                  color: mode === 'overview' && !isPanelOpen ? '#888881' : '#000000'
+                  color: mode === 'overview' && !isPanelOpen ? 'red' : '#000000'
                 }}
               >
                 {String(index + 1).padStart(2, '0')}
