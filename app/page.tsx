@@ -73,15 +73,32 @@ export default function Home() {
   useEffect(() => {
     if (!moduleRef.current || isPanelOpen) return;
 
+    // Calculate border width to maintain visual 1px at different scales
+    // At scale 1 (150%), use 1px
+    // At scale 0.57 (100%), use 1/0.57 ≈ 1.75px
+    // At scale 0.228 (50%), use 1/0.228 ≈ 4.4px
     let borderWidth = 1;
-    if (zoom === 150) borderWidth = 1;
-    else if (zoom === 100) borderWidth = 2;
-    else if (zoom === 50) borderWidth = 4;
+    let scale = 1;
+    
+    if (zoom === 150) {
+      borderWidth = 1;
+      scale = 1;
+    } else if (zoom === 100) {
+      scale = 0.57;
+      borderWidth = 1 / scale;
+    } else if (zoom === 50) {
+      scale = 0.57 * 0.4;
+      borderWidth = 1 / scale;
+    }
 
-    gridItemsRef.current.forEach((item) => {
+    gridItemsRef.current.forEach((item, index) => {
       if (item) {
+        // Archived boxes get 2px visual thickness
+        const isArchived = archivedBoxes.has(index + 1);
+        const finalWidth = isArchived ? borderWidth * 2 : borderWidth;
+        
         gsap.to(item, {
-          borderWidth: `${borderWidth}px`,
+          borderWidth: `${finalWidth}px`,
           duration: 1.5,
           ease: "power3.inOut",
         });
@@ -131,7 +148,7 @@ export default function Home() {
         });
       }
     }
-  }, [mode, zoom, isPanelOpen]);
+  }, [mode, zoom, isPanelOpen, archivedBoxes]);
 
   useEffect(() => {
     if (zoom === 150) {
@@ -171,9 +188,9 @@ export default function Home() {
                 selectedBox === index + 1 ? 'active' : ''
               } ${archivedBoxes.has(index + 1) && selectedBox !== index + 1 ? 'archive-active' : ''}`}
               style={{ 
-                borderWidth: selectedBox === index + 1 ? '2px' : archivedBoxes.has(index + 1) ? '2px' : '1px',
+                borderWidth: archivedBoxes.has(index + 1) ? '2px' : '1px',
                 borderStyle: 'solid', 
-                borderColor: mode === 'overview' && !isPanelOpen ? (selectedBox === index + 1 ? '#ffffff' : archivedBoxes.has(index + 1) ? 'rgba(255, 255, 255, 0.7)' : '#888888') : '#000000',
+                borderColor: mode === 'overview' && !isPanelOpen ? (archivedBoxes.has(index + 1) ? 'rgba(255, 255, 255, 0.7)' : '#888888') : '#000000',
                 backgroundColor: 'transparent'
               }}
               onClick={(e) => {
@@ -262,7 +279,7 @@ export default function Home() {
               <span 
                 className="absolute top-2 left-2 text-[10px] font-mono" 
                 style={{ 
-                  color: mode === 'overview' && !isPanelOpen ? 'red' : '#000000'
+                  color: mode === 'overview' && !isPanelOpen ? '#888888' : '#000000'
                 }}
               >
                 {String(index + 1).padStart(2, '0')}
