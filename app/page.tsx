@@ -12,6 +12,7 @@ export default function Home() {
   const [isPanelOpen, setIsPanelOpen] = useState(false);
   const [isMousePaused, setIsMousePaused] = useState(false);
   const [archivedBoxes, setArchivedBoxes] = useState<Set<number>>(new Set());
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     if (moduleRef.current) {
@@ -113,11 +114,18 @@ export default function Home() {
       let scaleValue = 0.57 * (zoom / 100);
       if (zoom === 50) {
         scaleValue = 0.57 * 0.4;
+      } else if (zoom === 100) {
+        // Reduce scale to add 20px margin on each side
+        // Original width at 100% zoom: window.innerWidth
+        // New width: window.innerWidth - 40px
+        // Scale adjustment: (innerWidth - 40) / innerWidth
+        const scaleAdjustment = (window.innerWidth - 40) / window.innerWidth;
+        scaleValue = 0.57 * scaleAdjustment;
       }
       
       gsap.to(moduleRef.current, {
         x: 0,
-        y: 0,
+        y: zoom === 100 ? 15 : 0,
         xPercent: -50,
         yPercent: -50,
         scale: scaleValue,
@@ -170,6 +178,74 @@ export default function Home() {
 
   return (
     <div className="min-h-screen">
+      {/* Logo placeholder */}
+      <div 
+        className="fixed z-50 transition-all duration-700 ease-out"
+        style={{ 
+          width: '215px', 
+          height: '36px', 
+          backgroundColor: '#EEE',
+          top: '27px',
+          left: isPanelOpen ? '20px' : '50%',
+          transform: isPanelOpen ? 'translateX(0)' : 'translateX(-50%)'
+        }}
+      >
+        {/* Logo will go here */}
+      </div>
+
+      {/* Burger menu button */}
+      <button
+        onClick={() => {
+          setIsMenuOpen(!isMenuOpen);
+          if (!isMenuOpen) {
+            setIsPanelOpen(false);
+          }
+        }}
+        className="fixed top-[20px] right-[20px] w-[50px] h-[50px] z-[100] flex flex-col items-center justify-center gap-1.5 bg-black hover:bg-gray-800 transition-colors"
+      >
+        {isMenuOpen ? (
+          <span className="text-3xl text-white leading-none">×</span>
+        ) : (
+          <>
+            <span className="w-6 h-1 bg-white"></span>
+            <span className="w-6 h-1 bg-white"></span>
+            <span className="w-6 h-1 bg-white"></span>
+          </>
+        )}
+      </button>
+
+      {/* Menu panel */}
+      <div 
+        className="fixed top-0 right-0 w-1/2 h-screen bg-black z-[90] transition-transform duration-700 ease-out"
+        style={{ 
+          transform: isMenuOpen ? 'translateX(0)' : 'translateX(100%)'
+        }}
+      >
+        <div className="p-12 text-white flex flex-col justify-center h-full">
+          <div className="space-y-8">
+            <a href="/exhibition" onClick={() => setIsMenuOpen(false)}>
+              <div className="border-b border-white pb-6 cursor-pointer hover:opacity-70 transition-opacity">
+                <h2 className="text-2xl font-bold">展覽Exhibition</h2>
+              </div>
+            </a>
+            <a href="/yijing" onClick={() => setIsMenuOpen(false)}>
+              <div className="border-b border-white pb-6 cursor-pointer hover:opacity-70 transition-opacity">
+                <h2 className="text-2xl font-bold">易經Yijing</h2>
+              </div>
+            </a>
+            <a href="/about" onClick={() => setIsMenuOpen(false)}>
+              <div className="border-b border-white pb-6 cursor-pointer hover:opacity-70 transition-opacity">
+                <h2 className="text-2xl font-bold">關於About</h2>
+              </div>
+            </a>
+            <a href="/creative-team" onClick={() => setIsMenuOpen(false)}>
+              <div className="pb-6 cursor-pointer hover:opacity-70 transition-opacity">
+                <h2 className="text-2xl font-bold">團隊Creative Team</h2>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
       
       <div className={`w-full ${mode === "overview" ? (zoom === 50 ? "min-h-screen" : "min-h-[200vh]") : "h-screen overflow-hidden"} relative`}>
         <div 
@@ -198,6 +274,7 @@ export default function Home() {
                 setSelectedBox(boxNumber);
                 setIsPanelOpen(true);
                 setIsMousePaused(true);
+                setIsMenuOpen(false);
                 
                 // Add to archived boxes immediately when clicked
                 setArchivedBoxes(prev => {
@@ -233,7 +310,7 @@ export default function Home() {
                   const boxCenterXVw = (col - 3.5) * boxSizeVw;
                   const boxCenterYVw = (row - 3.5) * boxSizeVw;
                   
-                  const finalX = -boxCenterXVw * vwToPx - 350;
+                  const finalX = -boxCenterXVw * vwToPx - 425;
                   // Y uses vw units but needs to center in vh viewport
                   let finalY = -boxCenterYVw * vwToPx;
                   
@@ -288,29 +365,112 @@ export default function Home() {
           ))}
         </div>
 
+        {/* Brown image box */}
         <div 
-          className="fixed top-0 w-[700px] h-screen bg-white border-l border-[#888888] z-40 transition-transform duration-700 ease-out"
+          className="fixed top-0 w-[300px] h-screen z-40 transition-transform duration-700 ease-out"
+          style={{ 
+            pointerEvents: 'auto',
+            right: '550px',
+            backgroundColor: '#8B4513',
+            transform: isPanelOpen ? 'translateX(0)' : 'translateX(850px)'
+          }}
+        >
+          {/* Image will go here */}
+        </div>
+
+        {/* White info panel */}
+        <div 
+          className="fixed top-0 w-[550px] h-screen bg-white border-l border-[#888888] transition-transform duration-700 ease-out"
           style={{ 
             pointerEvents: 'auto',
             right: 0,
+            zIndex: 110,
             transform: isPanelOpen ? 'translateX(0)' : 'translateX(100%)'
           }}
         >
-          <div className="p-8">
+          <div className="h-full overflow-y-auto text-black">
             <button
               onClick={() => {
                 setIsPanelOpen(false);
                 setIsMousePaused(false);
                 setSelectedBox(null);
               }}
-              className="absolute top-8 right-8 text-2xl text-black hover:text-gray-600 transition-colors"
+              className="fixed top-[20px] right-[20px] w-[50px] h-[50px] z-[70] flex items-center justify-center text-3xl text-black bg-white border border-black hover:bg-gray-100 transition-colors"
             >
               ×
             </button>
-            <h2 className="text-2xl font-bold text-black mb-4">
-              Box {selectedBox ? String(selectedBox).padStart(2, '0') : '--'}
-            </h2>
-            {/* Information content goes here */}
+            
+            <div className="px-12 pb-20 min-h-screen flex flex-col" style={{ paddingTop: '7.5rem' }}>
+              <div className="flex items-start justify-between mb-16">
+                <div className="text-[24px] font-bold leading-none">{selectedBox || '--'}</div>
+                <div className="flex gap-3 items-start">
+                  <div className="text-[14px] tracking-wide relative" style={{ writingMode: 'vertical-rl', textOrientation: 'upright', letterSpacing: '0.05em', paddingTop: '2.5em' }}>
+                    君子由此領悟，要努力經營籌畫。
+                  </div>
+                  <div className="text-[14px] tracking-wide relative" style={{ writingMode: 'vertical-rl', textOrientation: 'upright', letterSpacing: '0.05em', paddingTop: '2.5em' }}>
+                    ︽象傳︾說：雷風相與，恒也。
+                  </div>
+                  <div className="text-[16px] tracking-wide relative font-bold" style={{ writingMode: 'vertical-rl', textOrientation: 'upright', letterSpacing: '0.05em', paddingTop: '2.5em' }}>
+                    <span className="absolute top-0">象曰</span>：雷風，恒。
+                  </div>
+                  <div className="text-[14px]  tracking-wide relative" style={{ writingMode: 'vertical-rl', textOrientation: 'upright', letterSpacing: '0.05em', paddingTop: '2.5em' }}>
+                    ︽象傳︾說：雷風相與，恒也。
+                  </div>                  
+                  <div className="text-[16px] tracking-wide relative font-bold" style={{ writingMode: 'vertical-rl', textOrientation: 'upright', letterSpacing: '0.05em', paddingTop: '2.5em' }}>
+                    <span className="absolute top-0">恒：</span>亨，無咎，利貞，利有攸往。
+                  </div>
+                  <h2 className="text-[56px] font-bold leading-none ml-4" style={{ writingMode: 'vertical-rl' }}>恒</h2>
+                </div>
+              </div>
+
+              <div className="pt-10 mt-auto">
+                <div className="flex items-start gap-8">
+                  <div className="w-20 flex-shrink-0">
+                    <div className="w-20 h-20 mb-6" style={{ backgroundColor: '#EEE' }}>
+                      {/* Hexagram image will go here */}
+                    </div>
+                    <div className="flex gap-1 mb-4 text-[16px]">
+                      <p style={{ writingMode: 'vertical-rl' }}>震上</p>
+                      <p style={{ writingMode: 'vertical-rl' }}>巽下</p>
+                    </div>
+                    
+                    <div className="text-[13px]">
+                      <div className="mb-4">
+                        <p className="font-bold mb-1">above Zhen /</p>
+                        <p className="text-gray-700">The Arousing,<br/>Thunder</p>
+                      </div>
+                      <div>
+                        <p className="font-bold mb-1">below Xun /</p>
+                        <p className="text-gray-700">The Gentle,<br/>Wind</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-[22px] font-bold leading-tight mb-8">Heng /<br/>Duration</h3>
+                    
+                    <div className="space-y-4">
+                      <div>
+                        <h4 className="font-bold text-[15px] mb-1">The Judgement</h4>
+                        <p className="text-black leading-relaxed text-[14px]">
+                          Duration. Success. No blame.<br />
+                          Perseverance furthers.<br />
+                          It furthers one to have somewhere to go.
+                        </p>
+                      </div>
+
+                      <div>
+                        <h4 className="font-bold text-[15px] mb-1">The Image</h4>
+                        <p className="text-black leading-relaxed text-[14px]">
+                          Thunder and wind: the image of Duration.<br />
+                          Thus the superior man stands firm<br />
+                          And does not change his direction.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
