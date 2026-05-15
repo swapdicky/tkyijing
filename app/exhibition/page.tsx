@@ -35,7 +35,7 @@ export default function Exhibition() {
 
       // Use deltaY (vertical scroll) to control horizontal movement
       // Multiply by 0.5 to slow down the scroll speed
-      targetX -= e.deltaY * 0.7;
+      targetX -= e.deltaY * 0.5;
       targetX = Math.max(-maxScroll, Math.min(0, targetX));
     };
 
@@ -123,15 +123,15 @@ export default function Exhibition() {
     };
 
     const animate = () => {
-      // Smooth lerp animation - balanced for smooth but responsive feel
-      currentX += (targetX - currentX) * 0.1;
+      // Smooth lerp animation with consistent speed
+      currentX += (targetX - currentX) * 0.09;
       
       gsap.set(sections, { x: currentX });
       setScrollX(currentX);
       
-      // Update parallax effect every 2 frames for better performance
+      // Update parallax effect every 4 frames to reduce lag
       frameCount++;
-      if (frameCount % 2 === 0) {
+      if (frameCount % 4 === 0) {
         updateParallax();
       }
       
