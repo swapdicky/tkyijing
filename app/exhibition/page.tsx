@@ -189,9 +189,9 @@ export default function Exhibition() {
           >
           </div>
 
-          {/* Section 1 - Red */}
-          <div className="h-screen flex bg-red-500 relative flex-shrink-0" style={{ zIndex: 2, borderTopLeftRadius: "40px", borderBottomLeftRadius: "40px", overflow: "hidden", marginLeft: "-40px" }}>
-            <div className="flex items-center justify-center bg-red-700" style={{ width: "900px" }}>
+          {/* Section 1 */}
+          <div className="h-screen flex relative flex-shrink-0" style={{ backgroundColor: "#DDDDDD", zIndex: 2, borderTopLeftRadius: "40px", borderBottomLeftRadius: "40px", overflow: "hidden", marginLeft: "-40px" }}>
+            <div className="flex items-center justify-center" style={{ backgroundColor: "#CCCCCC", width: "900px" }}>
               <h3 className="text-4xl font-bold text-white">Section 1 Intro</h3>
             </div>
             <div className="flex-1 flex items-center" style={{ paddingTop: "90px", paddingBottom: "60px", paddingLeft: "30px", paddingRight: "70px", gap: "30px" }}>
@@ -258,9 +258,9 @@ export default function Exhibition() {
           >
           </div>
 
-          {/* Section 2 - Blue */}
-          <div className="h-screen flex bg-blue-500 relative flex-shrink-0" style={{ zIndex: 3, borderTopLeftRadius: "40px", borderBottomLeftRadius: "40px", overflow: "hidden" }}>
-            <div className="flex items-center justify-center bg-blue-700" style={{ width: "900px" }}>
+          {/* Section 2 */}
+          <div className="h-screen flex relative flex-shrink-0" style={{ backgroundColor: "#330E07", zIndex: 3, borderTopLeftRadius: "40px", borderBottomLeftRadius: "40px", overflow: "hidden" }}>
+            <div className="flex items-center justify-center" style={{ backgroundColor: "#220905", width: "900px" }}>
               <h3 className="text-4xl font-bold text-white">Section 2 Intro</h3>
             </div>
             <div className="flex-1 flex items-start" style={{ paddingTop: "90px", paddingBottom: "60px", paddingLeft: "30px", paddingRight: "70px", gap: "30px" }}>
@@ -310,9 +310,9 @@ export default function Exhibition() {
           >
           </div>
 
-          {/* Section 3 - Green */}
-          <div className="h-screen flex bg-green-500 relative flex-shrink-0" style={{ zIndex: 4, borderTopLeftRadius: "40px", borderBottomLeftRadius: "40px", overflow: "hidden" }}>
-            <div className="flex items-center justify-center bg-green-700" style={{ width: "900px" }}>
+          {/* Section 3 */}
+          <div className="h-screen flex relative flex-shrink-0" style={{ backgroundColor: "#000000", zIndex: 4, borderTopLeftRadius: "40px", borderBottomLeftRadius: "40px", overflow: "hidden" }}>
+            <div className="flex items-center justify-center" style={{ width: "900px" }}>
               <h3 className="text-4xl font-bold text-white">Section 3 Intro</h3>
             </div>
             <div className="flex-1 flex items-start" style={{ paddingTop: "90px", paddingBottom: "60px", paddingLeft: "30px", paddingRight: "70px", gap: "30px" }}>
@@ -362,9 +362,9 @@ export default function Exhibition() {
           >
           </div>
 
-          {/* Section 4 - Purple */}
-          <div className="h-screen flex bg-purple-500 relative flex-shrink-0" style={{ zIndex: 5, borderTopLeftRadius: "40px", borderBottomLeftRadius: "40px", overflow: "hidden" }}>
-            <div className="flex items-center justify-center bg-purple-700" style={{ width: "900px" }}>
+          {/* Section 4 */}
+          <div className="h-screen flex relative flex-shrink-0" style={{ backgroundColor: "#1A3B45", zIndex: 5, borderTopLeftRadius: "40px", borderBottomLeftRadius: "40px", overflow: "hidden" }}>
+            <div className="flex items-center justify-center" style={{ width: "900px" }}>
               <h3 className="text-4xl font-bold text-white">Section 4 Intro</h3>
             </div>
             <div className="flex-1 flex items-start" style={{ paddingTop: "90px", paddingBottom: "60px", paddingLeft: "30px", paddingRight: "70px", gap: "30px" }}>

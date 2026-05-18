@@ -54,8 +54,8 @@ export default function Home() {
         gsap.to(moduleRef.current, {
           x: `${moveX}vw`,
           y: `${moveY}vw`,
-          duration: 2.5,
-          ease: "power2.out",
+          duration: 4,
+          ease: "power1.out",
           overwrite: "auto",
         });
       });
