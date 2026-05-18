@@ -79,38 +79,27 @@ export default function Exhibition() {
       innerSectionRefs.current.forEach((innerEl, index) => {
         if (!innerEl) return;
         
-        // Add smooth transition
-        innerEl.style.transition = 'height 0.3s ease-out, margin 0.3s ease-out';
+        // Add smooth transition for snap effect
+        innerEl.style.transition = 'height 0.4s ease-out, margin 0.4s ease-out';
         
         const rect = innerEl.getBoundingClientRect();
         const elementCenter = rect.left + rect.width / 2;
         const distanceFromCenter = Math.abs(elementCenter - viewportCenter);
         
-        // Only scale the closest one
         const baseHeight = window.innerHeight - 150;
-        const targetHeight = window.innerHeight; // Target full viewport height
+        const targetHeight = window.innerHeight;
         
-        if (index === closestIndex) {
-          // Scale based on how close to center - smaller range for faster, more direct transition
-          const maxDistance = window.innerWidth / 8; // Shorter range for quicker transition
-          const normalizedDistance = Math.min(distanceFromCenter / maxDistance, 1);
+        // Snap to full size when within zone, otherwise stay at base size
+        const snapZone = 200; // 200px zone for snapping to full height
+        
+        if (index === closestIndex && distanceFromCenter < snapZone) {
+          // Snap to full height
+          innerEl.style.height = `${targetHeight}px`;
           
-          // Add hold zone at center - if very close to center, stay at full height
-          const holdZone = 100; // 100px zone where it stays at full height
-          let currentHeight;
-          if (distanceFromCenter < holdZone) {
-            currentHeight = targetHeight; // Hold at full height
-          } else {
-            currentHeight = targetHeight - (normalizedDistance * (targetHeight - baseHeight));
-          }
-          
-          innerEl.style.height = `${currentHeight}px`;
-          
-          // Adjust margin to compensate for padding when at full height
-          // Top padding is 90px, bottom is 60px, so we need asymmetric margins
-          const heightIncrease = currentHeight - baseHeight;
-          const marginTop = heightIncrease * 0.6; // More margin on top (90/(90+60) = 0.6)
-          const marginBottom = heightIncrease * 0.4; // Less margin on bottom (60/(90+60) = 0.4)
+          // Adjust margin to compensate for padding
+          const heightIncrease = targetHeight - baseHeight;
+          const marginTop = heightIncrease * 0.6;
+          const marginBottom = heightIncrease * 0.4;
           innerEl.style.marginTop = `-${marginTop}px`;
           innerEl.style.marginBottom = `-${marginBottom}px`;
         } else {
@@ -123,15 +112,18 @@ export default function Exhibition() {
     };
 
     const animate = () => {
-      // Smooth lerp animation with consistent speed
-      currentX += (targetX - currentX) * 0.09;
+      // Smooth lerp animation with natural easing
+      const distance = Math.abs(targetX - currentX);
+      // Use adaptive lerp: faster when far, slower when close
+      const adaptiveLerp = distance > 100 ? 0.12 : 0.08;
+      currentX += (targetX - currentX) * adaptiveLerp;
       
       gsap.set(sections, { x: currentX });
       setScrollX(currentX);
       
-      // Update parallax effect every 4 frames to reduce lag
+      // Update parallax effect every 2 frames for better performance
       frameCount++;
-      if (frameCount % 4 === 0) {
+      if (frameCount % 2 === 0) {
         updateParallax();
       }
       
