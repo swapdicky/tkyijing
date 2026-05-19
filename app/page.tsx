@@ -13,6 +13,23 @@ export default function Home() {
   const [isMousePaused, setIsMousePaused] = useState(false);
   const [archivedBoxes, setArchivedBoxes] = useState<Set<number>>(new Set());
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isLanding, setIsLanding] = useState(true); // Disable mouse effect on landing
+  const [scrollProgress, setScrollProgress] = useState(0); // 0 = center, 1 = left-center, 2 = slide off
+  const [hideOverlay, setHideOverlay] = useState(false); // Hide overlay after box slides off
+  const scrollLockRef = useRef(false);
+  const [previousZoom, setPreviousZoom] = useState<150 | 100 | 50>(150); // Remember zoom before opening panel
+
+  // Custom order for 8x8 grid
+  const gridOrder = [
+    2, 23, 8, 20, 16, 35, 45, 12,
+    15, 52, 39, 53, 62, 56, 31, 33,
+    7, 4, 29, 59, 40, 64, 47, 6,
+    46, 18, 48, 57, 32, 50, 28, 44,
+    24, 27, 3, 42, 51, 21, 17, 25,
+    36, 22, 63, 37, 55, 30, 49, 13,
+    19, 41, 60, 61, 54, 38, 58, 10,
+    11, 26, 5, 9, 34, 14, 43, 1
+  ];
 
   useEffect(() => {
     if (moduleRef.current) {
@@ -23,13 +40,48 @@ export default function Home() {
     }
   }, []);
 
+  // Wheel effect for info box transformation
+  useEffect(() => {
+    const handleWheel = (e: WheelEvent) => {
+      if (e.deltaY > 0 && !scrollLockRef.current) {
+        scrollLockRef.current = true;
+        
+        setScrollProgress(prev => {
+          if (prev === 0) {
+            // First scroll: move to left-center
+            console.log('First scroll: moving to left-center');
+            return 1;
+          } else if (prev === 1) {
+            // Second scroll: slide off to the left
+            console.log('Second scroll: sliding off');
+            // Wait for box to slide off screen, then hide overlay and enable mouse
+            setTimeout(() => {
+              setHideOverlay(true); // Hide overlay after box is off screen
+              setIsLanding(false); // Enable mouse effect
+            }, 800); // Wait for slide animation to complete
+            return 2;
+          }
+          return prev;
+        });
+        
+        // Prevent multiple triggers - wait for animation to complete
+        setTimeout(() => {
+          scrollLockRef.current = false;
+        }, 1500); // Match the transition duration
+      }
+    };
+
+    window.addEventListener('wheel', handleWheel, { passive: true });
+    return () => window.removeEventListener('wheel', handleWheel);
+  }, []);
+
   useEffect(() => {
     let rafId: number | null = null;
     let lastTime = 0;
     const throttleDelay = 50;
 
     const handleMouseMove = (e: MouseEvent) => {
-      if (!moduleRef.current || mode === "overview" || isMousePaused) return;
+      if (!moduleRef.current || mode === "overview" || isMousePaused || isLanding) return;
 
       const currentTime = Date.now();
       if (currentTime - lastTime < throttleDelay) return;
@@ -69,7 +121,7 @@ export default function Home() {
         cancelAnimationFrame(rafId);
       }
     };
-  }, [mode, isMousePaused]);
+  }, [mode, isMousePaused, isLanding]);
 
   useEffect(() => {
     if (!moduleRef.current || isPanelOpen) return;
@@ -112,20 +164,32 @@ export default function Home() {
       gsap.killTweensOf(moduleRef.current);
       
       let scaleValue = 0.57 * (zoom / 100);
+      let targetX = 0;
+      let targetY = 0;
+      
       if (zoom === 50) {
         scaleValue = 0.57 * 0.4;
+        targetX = 0;
+        targetY = 0;
       } else if (zoom === 100) {
         // Reduce scale to add 20px margin on each side
-        // Original width at 100% zoom: window.innerWidth
-        // New width: window.innerWidth - 40px
-        // Scale adjustment: (innerWidth - 40) / innerWidth
         const scaleAdjustment = (window.innerWidth - 40) / window.innerWidth;
         scaleValue = 0.57 * scaleAdjustment;
+        
+        // Scroll to center of the page (middle of 8x8 grid)
+        targetX = 0;
+        targetY = 15;
+        
+        // Immediately scroll to middle position without animation
+        const pageHeight = document.documentElement.scrollHeight;
+        const viewportHeight = window.innerHeight;
+        const scrollToMiddle = (pageHeight - viewportHeight) / 2;
+        window.scrollTo({ top: scrollToMiddle, behavior: 'instant' });
       }
       
       gsap.to(moduleRef.current, {
-        x: 0,
-        y: zoom === 100 ? 15 : 0,
+        x: targetX,
+        y: targetY,
         xPercent: -50,
         yPercent: -50,
         scale: scaleValue,
@@ -178,6 +242,36 @@ export default function Home() {
 
   return (
     <div className="min-h-screen">
+      {/* Fixed overlay layer */}
+      <div 
+        className="fixed top-0 left-0 flex items-center justify-center"
+        style={{ 
+          width: '100vw',
+          height: '100vh',
+          backgroundColor: 'rgba(0, 0, 0, 0.1)',
+          zIndex: 110,
+          opacity: hideOverlay ? 0 : 1,
+          pointerEvents: hideOverlay ? 'none' : 'auto',
+          transition: 'opacity 0.5s ease-out'
+        }}
+      >
+        {/* White info box */}
+        <div 
+          style={{
+            width: scrollProgress >= 1 ? '50vw' : '524px',
+            height: scrollProgress >= 1 ? '100vh' : '720px',
+            backgroundColor: 'white',
+            position: 'absolute',
+            top: '50%',
+            left: scrollProgress === 2 ? '-50vw' : (scrollProgress === 1 ? '0' : '50%'),
+            transform: scrollProgress >= 1 ? 'translateY(-50%)' : 'translate(-50%, -50%)',
+            transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)'
+          }}
+        >
+          {/* Info box content */}
+        </div>
+      </div>
+
       {/* Logo placeholder */}
       <div 
         className="fixed z-50 transition-all duration-700 ease-out"
@@ -256,21 +350,22 @@ export default function Home() {
             transformStyle: "preserve-3d"
           }}
         >
-          {Array.from({ length: 64 }).map((_, index) => (
+          {Array.from({ length: 64 }).map((_, index) => {
+            const boxNumber = gridOrder[index];
+            return (
             <div
               key={index}
               ref={(el) => { gridItemsRef.current[index] = el; }}
               className={`w-[22vw] h-[22vw] flex-shrink-0 relative group cursor-pointer ${
-                selectedBox === index + 1 ? 'active' : ''
-              } ${archivedBoxes.has(index + 1) && selectedBox !== index + 1 ? 'archive-active' : ''}`}
+                selectedBox === boxNumber ? 'active' : ''
+              } ${archivedBoxes.has(boxNumber) && selectedBox !== boxNumber ? 'archive-active' : ''}`}
               style={{ 
-                borderWidth: archivedBoxes.has(index + 1) ? '2px' : '1px',
+                borderWidth: archivedBoxes.has(boxNumber) ? '2px' : '1px',
                 borderStyle: 'solid', 
-                borderColor: mode === 'overview' && !isPanelOpen ? (archivedBoxes.has(index + 1) ? 'rgba(255, 255, 255, 0.7)' : '#888888') : '#000000',
+                borderColor: mode === 'overview' && !isPanelOpen ? (archivedBoxes.has(boxNumber) ? 'rgba(255, 255, 255, 0.7)' : '#888888') : '#000000',
                 backgroundColor: 'transparent'
               }}
               onClick={(e) => {
-                const boxNumber = index + 1;
                 setSelectedBox(boxNumber);
                 setIsPanelOpen(true);
                 setIsMousePaused(true);
@@ -283,8 +378,8 @@ export default function Home() {
                   return newSet;
                 });
                 
-                // Get current zoom level to determine calculation method
-                const currentZoom = zoom;
+                // Save current zoom level before switching
+                setPreviousZoom(zoom);
                 
                 // Scroll to top and disable scrolling
                 window.scrollTo({ top: 0, behavior: 'instant' });
@@ -300,6 +395,10 @@ export default function Home() {
                   
                   gsap.killTweensOf(moduleRef.current);
                   
+                  // Always switch to 150% (explore mode) when clicking
+                  setMode("explore");
+                  setZoom(150);
+                  
                   const targetScale = 1; // 150%
                   const vwToPx = window.innerWidth / 100;
                   const vhToPx = window.innerHeight / 100;
@@ -312,12 +411,7 @@ export default function Home() {
                   
                   const finalX = -boxCenterXVw * vwToPx - 425;
                   // Y uses vw units but needs to center in vh viewport
-                  let finalY = -boxCenterYVw * vwToPx;
-                  
-                  // Special offset for 100% zoom
-                  if (currentZoom === 100) {
-                    finalY = finalY - (50 * vhToPx);
-                  }
+                  const finalY = -boxCenterYVw * vwToPx;
                   
                   gsap.to(moduleRef.current, {
                     x: finalX,
@@ -335,44 +429,48 @@ export default function Home() {
               <div 
                 className="absolute inset-0 transition-all duration-500 ease-out"
                 style={{
-                  backgroundImage: `url('/images/hex-32.svg')`,
+                  backgroundImage: `url('/images/Hex64_SVG/hex-${String(boxNumber).padStart(2, '0')}.svg')`,
                   backgroundPosition: 'center',
                   backgroundRepeat: 'no-repeat',
                   backgroundSize: '50%',
-                  opacity: selectedBox === index + 1 ? 1 : archivedBoxes.has(index + 1) ? 0.7 : 0.4,
+                  opacity: selectedBox === boxNumber ? 1 : archivedBoxes.has(boxNumber) ? 0.7 : 0.4,
+                  filter: 'invert(1) brightness(2)',
                 }}
                 onMouseEnter={(e) => {
-                  if (selectedBox !== index + 1) {
+                  if (selectedBox !== boxNumber) {
                     e.currentTarget.style.opacity = '1';
                   }
                 }}
                 onMouseLeave={(e) => {
-                  if (selectedBox !== index + 1) {
-                    const opacity = archivedBoxes.has(index + 1) ? '0.7' : '0.4';
+                  if (selectedBox !== boxNumber) {
+                    const opacity = archivedBoxes.has(boxNumber) ? '0.7' : '0.4';
                     e.currentTarget.style.opacity = opacity;
                   }
                 }}
               />
               <span 
-                className="absolute top-2 left-2 text-[10px] font-mono" 
+                className="absolute top-2 left-2 text-[14px] font-mono" 
                 style={{ 
                   color: mode === 'overview' && !isPanelOpen ? '#888888' : '#000000'
                 }}
               >
-                {String(index + 1).padStart(2, '0')}
+                {String(boxNumber).padStart(2, '0')}
               </span>
             </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* Brown image box */}
         <div 
-          className="fixed top-0 w-[300px] h-screen z-40 transition-transform duration-700 ease-out"
+          className="fixed top-0 z-40 transition-all duration-700 ease-out"
           style={{ 
             pointerEvents: 'auto',
-            right: '550px',
+            left: isPanelOpen ? '50%' : 'calc(100% + 300px)',
+            transform: isPanelOpen ? 'translateX(-50%)' : 'translateX(0)',
             backgroundColor: '#8B4513',
-            transform: isPanelOpen ? 'translateX(0)' : 'translateX(850px)'
+            height: '100vh',
+            width: 'calc(100vh * 349 / 1024)'
           }}
         >
           {/* Image will go here */}
@@ -380,20 +478,24 @@ export default function Home() {
 
         {/* White info panel */}
         <div 
-          className="fixed top-0 w-[550px] h-screen bg-white border-l border-[#888888] transition-transform duration-700 ease-out"
+          className="fixed top-0 h-screen bg-white border-l border-[#888888] transition-all duration-700 ease-out"
           style={{ 
             pointerEvents: 'auto',
             right: 0,
             zIndex: 110,
-            transform: isPanelOpen ? 'translateX(0)' : 'translateX(100%)'
+            transform: isPanelOpen ? 'translateX(0)' : 'translateX(100%)',
+            width: isPanelOpen ? 'calc(50% - (100vh * 349 / 1024 / 2))' : '550px'
           }}
         >
-          <div className="h-full overflow-y-auto text-black">
+          <div className="h-full overflow-hidden text-black">
             <button
               onClick={() => {
                 setIsPanelOpen(false);
                 setIsMousePaused(false);
                 setSelectedBox(null);
+                // Restore previous zoom level
+                setZoom(previousZoom);
+                setMode(previousZoom === 150 ? "explore" : "overview");
               }}
               className="fixed top-[20px] right-[20px] w-[50px] h-[50px] z-[70] flex items-center justify-center text-3xl text-black bg-white border border-black hover:bg-gray-100 transition-colors"
             >

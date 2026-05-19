@@ -1,0 +1,16 @@
+<svg width="75" height="75" viewBox="0 0 75 75" fill="none" xmlns="http://www.w3.org/2000/svg">
+<mask id="mask0_871_3351" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="75" height="75">
+<path d="M74.9999 0H0V75H74.9999V0Z" fill="white"/>
+</mask>
+<g mask="url(#mask0_871_3351)">
+<path d="M74.9975 52.5283H42.1736V59.0959H74.9975V52.5283Z" fill="black"/>
+<path d="M32.8224 52.5283H-0.00146484V59.0959H32.8224V52.5283Z" fill="black"/>
+<path d="M32.8224 28.1553H-0.00146484V34.7229H32.8224V28.1553Z" fill="black"/>
+<path d="M74.9985 3.74023H-0.00146484V10.3078H74.9985V3.74023Z" fill="black"/>
+<path d="M74.9985 40.3457H-0.00146484V46.9133H74.9985V40.3457Z" fill="black"/>
+<path d="M74.9975 15.9746H42.1736V22.5422H74.9975V15.9746Z" fill="black"/>
+<path d="M74.9985 64.7178H-0.00146484V71.2853H74.9985V64.7178Z" fill="black"/>
+<path d="M32.8224 15.9746H-0.00146484V22.5422H32.8224V15.9746Z" fill="black"/>
+<path d="M74.9975 28.1553H42.1736V34.7229H74.9975V28.1553Z" fill="black"/>
+</g>
+</svg>
