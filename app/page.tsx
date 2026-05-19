@@ -184,7 +184,7 @@ export default function Home() {
         style={{ 
           width: '215px', 
           height: '36px', 
-          backgroundColor: '#EEE',
+          backgroundColor: 'red',
           top: '27px',
           left: isPanelOpen ? '20px' : '50%',
           transform: isPanelOpen ? 'translateX(0)' : 'translateX(-50%)'
@@ -417,7 +417,7 @@ export default function Home() {
                     ︽象傳︾說：雷風相與，恒也。
                   </div>                  
                   <div className="text-[16px] tracking-wide relative font-bold" style={{ writingMode: 'vertical-rl', textOrientation: 'upright', letterSpacing: '0.05em', paddingTop: '2.5em' }}>
-                    <span className="absolute top-0">恒：</span>亨，無咎，利貞，利有攸往。
+                    <span className="absolute top-0">恆：</span>亨，無咎，利貞，利有攸往。
                   </div>
                   <h2 className="text-[56px] font-bold leading-none ml-4" style={{ writingMode: 'vertical-rl' }}>恒</h2>
                 </div>
