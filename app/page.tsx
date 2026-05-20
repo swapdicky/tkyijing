@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
+import Header from "@/components/Header";
 
 export default function Home() {
   const moduleRef = useRef<HTMLDivElement>(null);
@@ -12,7 +13,6 @@ export default function Home() {
   const [isPanelOpen, setIsPanelOpen] = useState(false);
   const [isMousePaused, setIsMousePaused] = useState(false);
   const [archivedBoxes, setArchivedBoxes] = useState<Set<number>>(new Set());
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLanding, setIsLanding] = useState(true); // Disable mouse effect on landing
   const [scrollProgress, setScrollProgress] = useState(0); // 0 = center, 1 = left-center, 2 = slide off
   const [hideOverlay, setHideOverlay] = useState(false); // Hide overlay after box slides off
@@ -242,6 +242,66 @@ export default function Home() {
 
   return (
     <div className="min-h-screen">
+      {/* Logo at top left - stays in place */}
+      <div style={{
+        position: 'fixed',
+        top: scrollProgress >= 1 ? '30px' : '50%',
+        left: scrollProgress >= 1 ? '30px' : '50%',
+        width: '36px',
+        height: '36px',
+        transform: scrollProgress >= 1 ? 'none' : 'translate(calc(-262px + 30px), calc(-360px + 30px))',
+        transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)',
+        zIndex: 111,
+        opacity: hideOverlay ? 0 : 1,
+        pointerEvents: 'none'
+      }}>
+        <img src="/images/logo-icon.svg" alt="Logo" style={{ width: '100%', height: '100%' }} />
+      </div>
+      {/* Scroll to explore text - shows before overlay hides */}
+      <div
+        style={{
+          position: 'fixed',
+          right: '1px',
+          top: '50%',
+          transform: 'rotate(90deg)',
+          transformOrigin: 'center center',
+          fontSize: '12px',
+          color: '#888',
+          fontFamily: '"neue-haas-unica", sans-serif',
+          fontWeight: 400,
+          whiteSpace: 'nowrap',
+          zIndex: 99,
+          pointerEvents: 'none',
+          opacity: !hideOverlay ? 1 : 0,
+          transition: 'opacity 0.5s ease-out'
+        }}
+      >
+        Scroll to explore
+      </div>
+      
+      {/* Move over to explore text - shows after overlay hides and zoom is 150% */}
+      <div
+        style={{
+          position: 'fixed',
+          right: '-12px',
+          top: '50%',
+          transform: 'rotate(90deg)',
+          transformOrigin: 'center center',
+          fontSize: '12px',
+          color: '#888',
+          fontFamily: '"neue-haas-unica", sans-serif',
+          fontWeight: 400,
+          whiteSpace: 'nowrap',
+          zIndex: 99,
+          pointerEvents: 'none',
+          opacity: (hideOverlay && zoom === 150) ? 1 : 0,
+          transition: 'opacity 0.5s ease-out'
+        }}
+      >
+        Move over to explore
+      </div>
+
+
       {/* Fixed overlay layer */}
       <div 
         className="fixed top-0 left-0 flex items-center justify-center"
@@ -265,81 +325,125 @@ export default function Home() {
             top: '50%',
             left: scrollProgress === 2 ? '-50vw' : (scrollProgress === 1 ? '0' : '50%'),
             transform: scrollProgress >= 1 ? 'translateY(-50%)' : 'translate(-50%, -50%)',
-            transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)'
+            transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'space-between',
+            padding: ' 40px 30px'
           }}
         >
-          {/* Info box content */}
-        </div>
-      </div>
 
-      {/* Logo placeholder */}
-      <div 
-        className="fixed z-50 transition-all duration-700 ease-out"
-        style={{ 
-          width: '215px', 
-          height: '36px', 
-          backgroundColor: 'red',
-          top: '27px',
-          left: isPanelOpen ? '20px' : '50%',
-          transform: isPanelOpen ? 'translateX(0)' : 'translateX(-50%)'
-        }}
-      >
-        {/* Logo will go here */}
-      </div>
+          {/* Chinese text section - aligned to top right */}
+          <div style={{
+            display: 'flex',
+            flexDirection: 'row-reverse',
+            justifyContent: 'flex-start',
+            alignItems: 'flex-start',
+            alignSelf: 'flex-end',
+            transform: scrollProgress === 0 ? 'scale(0.7)' : 'scale(1)',
+            transformOrigin: 'top right',
+            transition: 'transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)'
+          }}>
+            {/* Chinese Title Line 1 - 易經 */}
+            <div style={{ 
+              writingMode: 'vertical-rl',
+              textOrientation: 'upright',
+              fontSize: '40px',
+              fontWeight: 'bold',
+              letterSpacing: '0.2em',
+              color: '#000',
+              margin: 0
+            }}>
+              易經
+            </div>
+            
+            {/* Chinese Title Line 2 - 昕聞鮑皓昕攝影藝術 */}
+            <div style={{ 
+              writingMode: 'vertical-rl',
+              textOrientation: 'upright',
+              fontSize: '40px',
+              fontWeight: 'bold',
+              letterSpacing: '0.2em',
+              color: '#000',
+              margin: 0
+            }}>
+              昕聞鮑皓昕攝影藝術
+            </div>
+            
+            {/* Chinese Content - Vertical */}
+            <div style={{ 
+              writingMode: 'vertical-rl',
+              textOrientation: 'upright',
+              fontSize: '24px',
+              lineHeight: '1.2',
+              fontWeight: 'normal',
+              letterSpacing: '0.1em',
+              color: '#000'
+            }}>
+              互動讓與藝展鮑易動思觀創覽寶<br />興古眾力透過合籍體方過，，<br />一的中闡天地是凸的中國古代哲學概念。
+            </div>
+          </div>
 
-      {/* Burger menu button */}
-      <button
-        onClick={() => {
-          setIsMenuOpen(!isMenuOpen);
-          if (!isMenuOpen) {
-            setIsPanelOpen(false);
-          }
-        }}
-        className="fixed top-[20px] right-[20px] w-[50px] h-[50px] z-[100] flex flex-col items-center justify-center gap-1.5 bg-black hover:bg-gray-800 transition-colors"
-      >
-        {isMenuOpen ? (
-          <span className="text-3xl text-white leading-none">×</span>
-        ) : (
-          <>
-            <span className="w-6 h-1 bg-white"></span>
-            <span className="w-6 h-1 bg-white"></span>
-            <span className="w-6 h-1 bg-white"></span>
-          </>
-        )}
-      </button>
+          {/* English section - aligned to bottom */}
+          <div style={{
+            transform: scrollProgress === 0 ? 'scale(0.7)' : 'scale(1)',
+            transformOrigin: 'bottom left',
+            transition: 'transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)',
+            width: scrollProgress === 0 ? '140%' : '100%',
+            position: 'relative',
+            bottom: '90px'
+          }}>
+            {/* English Title */}
+            <div style={{ 
+              fontSize: '24px',
+              marginBottom: '10px',
+              lineHeight: '1.2',
+              color: '#000',
+              fontFamily: '"neue-haas-unica", sans-serif',
+              fontWeight: 'bold',
+              fontStyle: 'normal'
+            }}>
+              Book of Changes: The Art of Basil Pao
+            </div>
 
-      {/* Menu panel */}
-      <div 
-        className="fixed top-0 right-0 w-1/2 h-screen bg-black z-[90] transition-transform duration-700 ease-out"
-        style={{ 
-          transform: isMenuOpen ? 'translateX(0)' : 'translateX(100%)'
-        }}
-      >
-        <div className="p-12 text-white flex flex-col justify-center h-full">
-          <div className="space-y-8">
-            <a href="/exhibition" onClick={() => setIsMenuOpen(false)}>
-              <div className="border-b border-white pb-6 cursor-pointer hover:opacity-70 transition-opacity">
-                <h2 className="text-2xl font-bold">展覽Exhibition</h2>
-              </div>
-            </a>
-            <a href="/yijing" onClick={() => setIsMenuOpen(false)}>
-              <div className="border-b border-white pb-6 cursor-pointer hover:opacity-70 transition-opacity">
-                <h2 className="text-2xl font-bold">易經Yijing</h2>
-              </div>
-            </a>
-            <a href="/about" onClick={() => setIsMenuOpen(false)}>
-              <div className="border-b border-white pb-6 cursor-pointer hover:opacity-70 transition-opacity">
-                <h2 className="text-2xl font-bold">關於About</h2>
-              </div>
-            </a>
-            <a href="/creative-team" onClick={() => setIsMenuOpen(false)}>
-              <div className="pb-6 cursor-pointer hover:opacity-70 transition-opacity">
-                <h2 className="text-2xl font-bold">團隊Creative Team</h2>
-              </div>
-            </a>
+            {/* English Content */}
+            <div style={{ 
+              fontSize: '20px',
+              lineHeight: '1.2',
+              color: '#000',
+              textAlign: 'left',
+              fontFamily: '"neue-haas-unica", sans-serif',
+              fontWeight: 400,
+              fontStyle: 'normal'
+            }}>
+              The exhibition highlights the continued relevance of the Book of Changes through the artistic interpretation of Hong Kong photo artist Basil Pao. It invites contemplation on the interaction and unity of Heaven, Earth, and Humanity—an ancient Chinese philosophical concept presented in the classic.
+            </div>
+          </div>
+
+          {/* Bottom logo bar */}
+          <div style={{
+            position: 'absolute',
+            bottom: 0,
+            left: 0,
+            width: '100%',
+            height: '90px',
+            backgroundColor: '#D3D3D3',
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            padding: '0 30px'
+          }}>
+            <div style={{ width: '60px', height: '40px', backgroundColor: '#000' }}>
+              {/* Tai Kwun logo */}
+            </div>
+            <div style={{ width: '100px', height: '40px', backgroundColor: '#000' }}>
+              {/* HKJC logo */}
+            </div>
           </div>
         </div>
       </div>
+
+      <Header isPanelOpen={isPanelOpen} hideOverlay={hideOverlay} />
       
       <div className={`w-full ${mode === "overview" ? (zoom === 50 ? "min-h-screen" : "min-h-[200vh]") : "h-screen overflow-hidden"} relative`}>
         <div 
@@ -369,7 +473,6 @@ export default function Home() {
                 setSelectedBox(boxNumber);
                 setIsPanelOpen(true);
                 setIsMousePaused(true);
-                setIsMenuOpen(false);
                 
                 // Add to archived boxes immediately when clicked
                 setArchivedBoxes(prev => {
@@ -577,9 +680,12 @@ export default function Home() {
         </div>
 
         <div 
-          className={`fixed bottom-5 left-1/2 -translate-x-1/2 flex items-center gap-4 z-50 transition-opacity duration-500 ${
-            isPanelOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'
-          }`}
+          className="fixed bottom-5 left-1/2 -translate-x-1/2 flex items-center gap-4 z-20"
+          style={{
+            opacity: isPanelOpen ? 0 : (hideOverlay ? 1 : 0),
+            pointerEvents: isPanelOpen || !hideOverlay ? 'none' : 'auto',
+            transition: isPanelOpen ? 'opacity 0s' : (hideOverlay ? 'opacity 0.5s ease-out 1s' : 'opacity 0.5s ease-out')
+          }}
         >
           <button
             onClick={toggleMode}
