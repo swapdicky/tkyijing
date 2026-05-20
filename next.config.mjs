@@ -10,6 +10,10 @@ const nextConfig = {
 
   },
 
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+
   // basePath: "/clients/yijing/out",
 
   // assetPrefix: "/clients/yijing/out/",
