@@ -28,7 +28,9 @@ export default function Header({ isPanelOpen = false, hideOverlay = false }: { i
             left: (isHomePage && hideOverlay && !isPanelOpen) ? '50%' : '30px',
             transform: (isHomePage && hideOverlay && !isPanelOpen) ? 'translateX(-50%)' : 'none',
             opacity: (isHomePage && !hideOverlay) ? 0 : 1,
-            transition: 'left 0.7s ease-out 1s, transform 0.7s ease-out 1s, opacity 0.7s ease-out'
+            transition: (isHomePage && hideOverlay)
+              ? 'left 0.7s ease-out, transform 0.7s ease-out, opacity 0.7s ease-out'
+              : 'left 0.7s ease-out 1s, transform 0.7s ease-out 1s, opacity 0.7s ease-out'
           }}
         >
         </div>
