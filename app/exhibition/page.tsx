@@ -16,12 +16,20 @@ export default function Exhibition() {
   // Preload images and fade in animation on mount
   useEffect(() => {
     const imagesToPreload = [
-      '/images/ss1-landing.jpg',
-      '/images/ss1a.jpg',
-      '/images/ss1b.jpg',
-      '/images/ss1c.jpg',
-      '/images/ss2-landing.jpg',
-      '/images/exhibition-frame-02.jpg'
+      '/images/exhibition/ss1-landing.webp',
+      '/images/exhibition/ss1a.webp',
+      '/images/exhibition/ss1b.webp',
+      '/images/exhibition/ss1c.webp',
+      '/images/exhibition/ss2-landing.webp',
+      '/images/exhibition/ss2a.webp',
+      '/images/exhibition/ss2b.webp',
+      '/images/exhibition/ss2c.webp',
+      '/images/exhibition/ss2d.webp',
+      '/images/exhibition/ss3-landing.webp',
+      '/images/exhibition/ss3a.webp',
+      '/images/exhibition/ss3b.webp',
+      '/images/exhibition/ss3c.webp',
+      '/images/exhibition/ss4a.webp'
     ];
 
     let loadedCount = 0;
@@ -94,23 +102,27 @@ export default function Exhibition() {
 
     const updateInnerSectionScale = () => {
       const viewportCenter = window.innerWidth / 2;
+      const viewportWidth = window.innerWidth;
+      const baseHeight = window.innerHeight - 150;
+      const targetHeight = window.innerHeight;
+      const scaleZone = 1200;
       
       // Update all inner-sections with gradual scaling
-      innerSectionRefs.current.forEach((innerEl, index) => {
+      innerSectionRefs.current.forEach((innerEl) => {
         if (!innerEl) return;
+        
+        const rect = innerEl.getBoundingClientRect();
+        
+        // Skip elements far outside viewport for performance
+        if (rect.right < -scaleZone || rect.left > viewportWidth + scaleZone) {
+          return;
+        }
         
         // Remove transition for smooth animation
         innerEl.style.transition = 'none';
         
-        const rect = innerEl.getBoundingClientRect();
         const elementCenter = rect.left + rect.width / 2;
         const distanceFromCenter = Math.abs(elementCenter - viewportCenter);
-        
-        const baseHeight = window.innerHeight - 150;
-        const targetHeight = window.innerHeight;
-        
-        // Gradual scale zone - elements scale up as they approach center
-        const scaleZone = 1200; // Distance over which scaling happens (increased for smoother transition)
         
         // Calculate scale factor based on distance (0 = far, 1 = at center)
         const scaleFactor = Math.max(0, 1 - (distanceFromCenter / scaleZone));
@@ -166,9 +178,9 @@ export default function Exhibition() {
       gsap.set(sections, { x: currentX });
       setScrollX(currentX);
       
-      // Update parallax effect every 2 frames for better performance
+      // Update parallax effect every 3 frames for better performance
       frameCount++;
-      if (frameCount % 2 === 0) {
+      if (frameCount % 3 === 0) {
         updateParallax();
         updateImageParallax();
       }
@@ -301,7 +313,7 @@ export default function Exhibition() {
                 left: 0,
                 width: "140vw",
                 height: "100%",
-                backgroundImage: "url('/images/ss1-landing.jpg')",
+                backgroundImage: "url('/images/exhibition/ss1-landing.webp')",
                 backgroundSize: "auto 100%",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat"
@@ -399,7 +411,7 @@ export default function Exhibition() {
                   borderRadius: "40px",
                   overflow: "hidden",
                   position: "relative",
-                  backgroundImage: "url('/images/ss1a.jpg')",
+                  backgroundImage: "url('/images/exhibition/ss1a.webp')",
                   backgroundSize: "auto 100%",
                   backgroundPosition: "left center",
                   backgroundRepeat: "no-repeat"
@@ -412,7 +424,7 @@ export default function Exhibition() {
                 style={{ 
                   aspectRatio: "1311/874", 
                   height: "calc(100vh - 150px)",
-                  backgroundImage: "url('/images/ss1b.jpg')",
+                  backgroundImage: "url('/images/exhibition/ss1b.webp')",
                   backgroundSize: "auto 100%",
                   backgroundPosition: "center",
                   backgroundRepeat: "no-repeat",
@@ -426,7 +438,7 @@ export default function Exhibition() {
                 style={{ 
                   aspectRatio: "656/874", 
                   height: "calc(100vh - 150px)",
-                  backgroundImage: "url('/images/ss1c.jpg')",
+                  backgroundImage: "url('/images/exhibition/ss1c.webp')",
                   backgroundSize: "auto 100%",
                   backgroundPosition: "center",
                   backgroundRepeat: "no-repeat",
@@ -457,7 +469,7 @@ export default function Exhibition() {
                 left: 0,
                 width: "140vw",
                 height: "100%",
-                backgroundImage: "url('/images/ss2-landing.jpg')",
+                backgroundImage: "url('/images/exhibition/ss2-landing.webp')",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat"
@@ -549,7 +561,7 @@ export default function Exhibition() {
                 style={{ 
                   aspectRatio: "1311/874", 
                   height: "calc(100vh - 150px)",
-                  backgroundImage: "url('/images/ss2a.jpg')",
+                  backgroundImage: "url('/images/exhibition/ss2a.webp')",
                   backgroundSize: "auto 100%",
                   backgroundPosition: "center",
                   backgroundRepeat: "no-repeat",
@@ -562,7 +574,7 @@ export default function Exhibition() {
                 style={{ 
                   aspectRatio: "1311/874", 
                   height: "calc(100vh - 150px)",
-                  backgroundImage: "url('/images/ss2b.jpg')",
+                  backgroundImage: "url('/images/exhibition/ss2b.webp')",
                   backgroundSize: "auto 100%",
                   backgroundPosition: "center",
                   backgroundRepeat: "no-repeat",
@@ -575,7 +587,7 @@ export default function Exhibition() {
                 style={{ 
                   aspectRatio: "656/874", 
                   height: "calc(100vh - 150px)",
-                  backgroundImage: "url('/images/ss2c.jpg')",
+                  backgroundImage: "url('/images/exhibition/ss2c.webp')",
                   backgroundSize: "auto 100%",
                   backgroundPosition: "center",
                   backgroundRepeat: "no-repeat",
@@ -588,7 +600,7 @@ export default function Exhibition() {
                 style={{ 
                   aspectRatio: "1311/874", 
                   height: "calc(100vh - 150px)",
-                  backgroundImage: "url('/images/ss2d.jpg')",
+                  backgroundImage: "url('/images/exhibition/ss2d.webp')",
                   backgroundSize: "auto 100%",
                   backgroundPosition: "center",
                   backgroundRepeat: "no-repeat",
@@ -618,7 +630,7 @@ export default function Exhibition() {
                 left: 0,
                 width: "140vw",
                 height: "100%",
-                backgroundImage: "url('/images/exhibition-frame-02.jpg')",
+                backgroundImage: "url('/images/exhibition/exhibition-frame-02.webp')",
                 backgroundSize: "auto 100%",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat"
@@ -710,7 +722,7 @@ export default function Exhibition() {
                 style={{ 
                   aspectRatio: "656/874", 
                   height: "calc(100vh - 150px)",
-                  backgroundImage: "url('/images/ss3a.jpg')",
+                  backgroundImage: "url('/images/exhibition/ss3a.webp')",
                   backgroundSize: "100% auto",
                   backgroundPosition: "center",
                   borderRadius: "40px"
@@ -722,7 +734,7 @@ export default function Exhibition() {
                 style={{ 
                   aspectRatio: "656/874", 
                   height: "calc(100vh - 150px)",
-                  backgroundImage: "url('/images/ss3b.jpg')",
+                  backgroundImage: "url('/images/exhibition/ss3b.webp')",
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                   borderRadius: "40px"
@@ -734,7 +746,7 @@ export default function Exhibition() {
                 style={{ 
                   aspectRatio: "656/874", 
                   height: "calc(100vh - 150px)",
-                  backgroundImage: "url('/images/ss3c.jpg')",
+                  backgroundImage: "url('/images/exhibition/ss3c.webp')",
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                   borderRadius: "40px"
@@ -763,7 +775,7 @@ export default function Exhibition() {
                 left: 0,
                 width: "140vw",
                 height: "100%",
-                backgroundImage: "url('/images/ss3-landing.jpg')",
+                backgroundImage: "url('/images/exhibition/ss3-landing.webp')",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat"
@@ -855,7 +867,7 @@ export default function Exhibition() {
                 style={{ 
                   aspectRatio: "1748/874", 
                   height: "calc(100vh - 150px)",
-                  backgroundImage: "url('/images/ss4a.jpg')",
+                  backgroundImage: "url('/images/exhibition/ss4a.webp')",
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                   borderRadius: "40px"
