@@ -1,10 +1,33 @@
 'use client';
 
 import Header from "@/components/Header";
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 export default function CreativeTeam() {
   const [showLightbox, setShowLightbox] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const leftContentRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!leftContentRef.current) return;
+      
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? scrollTop / docHeight : 0;
+      
+      // Calculate how much the left content should move
+      const leftContentHeight = leftContentRef.current.scrollHeight;
+      const viewportHeight = window.innerHeight - 90; // minus header height
+      const maxScroll = leftContentHeight - viewportHeight;
+      
+      setScrollProgress(progress * maxScroll);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Initial calculation
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
   return (
     <div className="min-h-screen">
       <Header />
@@ -25,6 +48,7 @@ export default function CreativeTeam() {
 
       {/* Left fixed content block */}
       <div
+        ref={leftContentRef}
         style={{
           position: 'fixed',
           top: '90px',
@@ -35,13 +59,20 @@ export default function CreativeTeam() {
           zIndex: 1,
           borderRight: '1px solid #888',
           display: 'flex',
-          flexDirection: 'column'
+          flexDirection: 'column',
+          overflow: 'hidden'
         }}
       >
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            transform: `translateY(-${scrollProgress}px)`
+          }}
+        >
         {/* Top half */}
         <div style={{ 
           height: '50%',
-          borderBottom: '1px solid #888',
           display: 'flex',
           flexDirection: 'column'
         }}>
@@ -56,40 +87,6 @@ export default function CreativeTeam() {
           }}>
             <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1.2, fontWeight: 400, color: '#fff' }}>鳴謝</h1>
           </div>
-          
-          <div style={{ 
-            flex: 1,
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'flex-end',
-            paddingLeft: '80px',
-            paddingBottom: '30px',
-            paddingRight: '30px'
-          }}>
-            <div style={{
-              fontSize: '16px',
-              lineHeight: '1.4',
-              fontWeight: 300,
-              color: '#fff',
-              textAlign: 'left'
-            }}>
-              <p style={{ marginBottom: '1em' }}>
-                 我們向所有協助及參與本次展覽的人士致以最誠摯的謝意。特別感謝鮑皓昕先生設計的展覽海報，以及Teresa Coleman女士借出其收藏的道教宗師法衣。
-              </p>
-
-              <p style={{ margin: 0 }}>
-                展覽及其內容並不反映香港賽馬會慈善信託基金或大館的立場或意見。                 
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom half */}
-        <div style={{ 
-          height: '50%',
-          display: 'flex',
-          flexDirection: 'column'
-        }}>
         <div style={{ 
             height: '90px',
             paddingLeft: '30px',
@@ -102,6 +99,83 @@ export default function CreativeTeam() {
             <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1.2,  fontFamily:'neue-haas-unica, sans-serif', fontWeight: 300, color: '#fff' }}>Acknowledgement</h1>
           </div>
           
+
+
+          <div style={{ 
+            flex: 1,
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'flex-end',
+            paddingLeft: '80px',
+            paddingBottom: '30px',
+            paddingRight: '30px',
+            paddingTop: '120px'
+            
+          }}>
+            <div style={{
+              fontSize: '16px',
+              lineHeight: '1.4',
+              fontWeight: 300,
+              color: '#fff',
+              textAlign: 'left',
+              marginBottom: '20px'
+            }}>
+              <p style={{ marginBottom: '1em' }}>
+                我們向所有協助及參與本次展覽的人士致以最誠摯的謝意。特別感謝鮑皓昕先生設計的展覽海報，以及Teresa Coleman女士借出其收藏的道教宗師法衣。
+              </p>
+              <p style={{ margin: 0 }}>
+                展覽及其內容並不反映香港賽馬會慈善信託基金或大館的立場或意見。                            
+              </p>
+            </div>
+            <div style={{
+              fontSize: '14px',
+              lineHeight: '1.4',
+              fontWeight: 300,
+              color: '#fff',
+              textAlign: 'left',
+              fontFamily: '"neue-haas-unica", sans-serif',
+              marginBottom: '40px'
+            }}>
+              <p style={{ marginBottom: '1em' }}>
+                We offer our thanks and warmest appreciation to everyone involved in realising this exhibition. Special thanks to Mr. Basil Pao for designing the key promotional image for the exhibition and to Ms. Teresa Coleman for lending a Daoist priest's robe from her collection.
+              </p>
+              <p style={{ margin: 0 }}>
+                The exhibition and its contents do not reflect the views or opinions of The Hong Kong Jockey Club Charities Trust or Tai Kwun.
+              </p>
+            </div>
+
+            <div style={{
+              fontSize: '16px',
+              lineHeight: '1.4',
+              fontWeight: 300,
+              color: '#888',
+              textAlign: 'left',
+              marginBottom: '20px'
+            }}>
+              <p >
+註: 是次展覽中引用《傅佩榮解讀易經》（台北，2022）的白話中文譯解；英文版本根據衛禮賢（Richard Wilhelm）的譯本，由卡利‧貝恩斯（Cary F. Baynes）翻譯成英文（普林斯頓，1997）。              </p>
+
+            </div>
+            <div style={{
+              fontSize: '14px',
+              lineHeight: '1.4',
+              fontWeight: 300,
+              color: '#888',
+              textAlign: 'left',
+              fontFamily: '"neue-haas-unica", sans-serif',
+              marginBottom: '40px'
+            }}>
+              <p style={{ marginBottom: '1em' }}>
+Notes: In this exhibition, the modern Chinese interpretation of the classical text is cited from Fu Peirong jiedu Yijing (Fu Peirong's nterpretation of the Yijing) (Taibei, 2022) and the English version is based on Richard Wilhelm's translation which was rendered into English by Cary F. Baynes (Princeton, 1997).              </p>
+            </div>
+
+
+          </div>
+
+
+        </div>
+
+
           <div style={{ 
             flex: 1,
             display: 'flex',
@@ -111,26 +185,9 @@ export default function CreativeTeam() {
             paddingBottom: '30px',
             paddingRight: '30px'
           }}>
-            <div style={{
-              fontSize: '14px',
-              lineHeight: '1.4',
-              fontWeight: 300,
-              color: '#fff',
-              textAlign: 'left',
-              fontFamily: '"neue-haas-unica", sans-serif'
-            }}>
-              <p style={{ marginBottom: '1em' }}>
-                We offer our thanks and warmest appreciation to everyone involved in realising this exhibition. Special thanks to Mr. Basil Pao for designing the key promotional image for the exhibition and to Ms. Teresa Coleman for lending a Daoist priest's robe from her collection.
-              </p>
-              <p style={{ margin: 0 }}>
-                The exhibition and its contents do not reflect the views or opinions of The Hong Kong Jockey Club Charities Trust or Tai Kwun.
-              </p>
-            </div>
+
           </div>
         </div>
-
-
-
       </div> 
 
       {/* Right scrollable content block */}

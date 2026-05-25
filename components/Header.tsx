@@ -39,7 +39,7 @@ export default function Header({ isPanelOpen = false, hideOverlay = false }: { i
       {/* Burger menu button */}
       <button
         onClick={() => setIsMenuOpen(!isMenuOpen)}
-        className="fixed top-[20px] right-[20px] w-[50px] h-[50px] z-[100] flex flex-col items-center justify-center gap-1.5 bg-black hover:bg-gray-800"
+        className="fixed top-[20px] right-[20px] w-[50px] h-[50px] z-[100] flex flex-col items-center justify-center gap-1.5  hover:bg-black"
         style={{
           opacity: (isHomePage && !hideOverlay) ? 0 : 1,
           transition: (isHomePage && hideOverlay) ? 'opacity 0.5s ease-out 1s, background-color 0.3s' : 'opacity 0.5s ease-out, background-color 0.3s'
@@ -104,13 +104,17 @@ export default function Header({ isPanelOpen = false, hideOverlay = false }: { i
           {/* Footer */}
           <div className="">
             {/* Logos */}
-            <div className="flex justify-between items-center mb-6 px-6">
-              <div style={{ width: '60px', height: '60px', backgroundColor: '#fff' }}>
-                {/* Tai Kwun logo */}
-              </div>
-              <div style={{ width: '100px', height: '40px', backgroundColor: '#fff' }}>
-                {/* HKJC logo */}
-              </div>
+            <div className="flex justify-between items-start mb-6 px-6">
+              <img 
+                src="/images/TK-logo.svg" 
+                alt="Tai Kwun" 
+                style={{ height: '60px', width: 'auto' }}
+              />
+              <img 
+                src="/images/HKJC-logo.svg" 
+                alt="HKJC" 
+                style={{ height: '60px', width: 'auto' }}
+              />
             </div>
 
             {/* Footer links and copyright */}

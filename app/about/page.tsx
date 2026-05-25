@@ -1,10 +1,33 @@
 'use client';
 
 import Header from "@/components/Header";
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 export default function About() {
   const [showLightbox, setShowLightbox] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const leftContentRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!leftContentRef.current) return;
+      
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? scrollTop / docHeight : 0;
+      
+      // Calculate how much the left content should move
+      const leftContentHeight = leftContentRef.current.scrollHeight;
+      const viewportHeight = window.innerHeight - 90; // minus header height
+      const maxScroll = leftContentHeight - viewportHeight;
+      
+      setScrollProgress(progress * maxScroll);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Initial calculation
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
   return (
     <div className="min-h-screen">
       <Header />
@@ -25,6 +48,7 @@ export default function About() {
 
       {/* Left fixed content block */}
       <div
+        ref={leftContentRef}
         style={{
           position: 'fixed',
           top: '90px',
@@ -35,16 +59,18 @@ export default function About() {
           zIndex: 1,
           borderRight: '1px solid #888',
           display: 'flex',
-          flexDirection: 'column'
+          flexDirection: 'column',
+          overflow: 'hidden'
         }}
       >
-        {/* Top half */}
-        <div style={{ 
-          height: '50%',
-          borderBottom: '1px solid #888',
-          display: 'flex',
-          flexDirection: 'column'
-        }}>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            transform: `translateY(-${scrollProgress}px)`
+          }}
+        >
+
           <div style={{ 
             height: '90px',
             paddingLeft: '30px',
@@ -56,15 +82,27 @@ export default function About() {
           }}>
             <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1.2, fontWeight: 400, color: '#fff' }}>策展人的話</h1>
           </div>
-          
+        <div style={{ 
+            height: '90px',
+            paddingLeft: '30px',
+            display: 'flex',
+            alignItems: 'center',
+            textAlign: 'left',
+            borderBottom: '1px solid #888',
+            minHeight: '90px'
+          }}>
+            <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1.2,  fontFamily:'neue-haas-unica, sans-serif', fontWeight: 300, color: '#fff' }}>Curatorial Statement</h1>
+          </div>
+                    
           <div style={{ 
             flex: 1,
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'flex-end',
             paddingLeft: '80px',
-            paddingBottom: '30px',
-            paddingRight: '30px'
+            paddingBottom: '40px',
+            paddingRight: '30px',
+            paddingTop: '120px'
           }}>
             <div style={{
               fontSize: '16px',
@@ -87,33 +125,15 @@ export default function About() {
               </p>
             </div>
           </div>
-        </div>
 
-        {/* Bottom half */}
-        <div style={{ 
-          height: '50%',
-          display: 'flex',
-          flexDirection: 'column'
-        }}>
-        <div style={{ 
-            height: '90px',
-            paddingLeft: '30px',
-            display: 'flex',
-            alignItems: 'center',
-            textAlign: 'left',
-            borderBottom: '1px solid #888',
-            minHeight: '90px'
-          }}>
-            <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1.2,  fontFamily:'neue-haas-unica, sans-serif', fontWeight: 300, color: '#fff' }}>Curatorial Statement</h1>
-          </div>
-          
+
           <div style={{ 
             flex: 1,
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'flex-end',
             paddingLeft: '80px',
-            paddingBottom: '30px',
+            paddingBottom: '60px',
             paddingRight: '30px'
           }}>
             <div style={{
@@ -139,9 +159,6 @@ export default function About() {
             </div>
           </div>
         </div>
-
-
-
       </div> 
 
       {/* Right scrollable content block */}
@@ -398,20 +415,6 @@ export default function About() {
           }}>
             <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1.2, fontWeight: 400, color: '#fff' }}>藝術家簡介</h1>
           </div>
-          {/* Artist Bio Content */}
-          <div style={{
-            padding: '60px 30px 30px 80px',
-            backgroundColor: '#000'
-          }}>
-            <div style={{
-              fontSize: '16px',
-              lineHeight: '1.8',
-              color: '#fff',
-              fontWeight: 300
-            }}>
-              鮑皓昕自1980年從美國回流返港，開展其攝影生涯。旅美十年期間，他曾為紐約的大西洋唱片公司及唱片封套設計公司、洛杉磯的華納兄弟唱片公司擔任美術總監。他為電影《踎低噴飯：萬世魔星》設計書籍、唱片封套及海報時，首次與米高沛林合作。自此，兩人攜手製作了11本以英國廣播公司BBC旅遊特輯為藍本的圖冊，包括《兩極之旅》、《環太平洋之旅》、《海明威歷險記》、《撒哈拉》、《喜馬拉雅》、《新歐洲》，以及《巴西》等。鮑氏本人的著作包括《手》、《中國探秘》、《易經—中國牆城》、《山水》、《環球吶喊》、《平凡時刻》、《夢之旅》，以及《末代皇帝．幕後剪影》。鮑氏為其於倫敦的福克斯·塔爾博特博物館及皇家地理學會的展覽出版了圖錄《與米高沛林同遊世界》，以及香港海事博物館的展覽圖錄《八千日環遊世界》。他還為公司企業製作的限量版書籍，包括華光海運的《雙船記》，安縵度假酒店的《安縵》、《不丹》及《安縵2》，意大利書籍印刷商特蘭提諾的《平凡時刻》、《四原色—中國》及《耀眼的陰影—黑白光影之國度》。鮑氏的旅行遊記及其他攝影作品曾在世界各大出版物及展覽中亮相，包括為貝托魯奇的電影《末代皇帝溥儀》及《小活佛》、泰利鍾斯的《海盗埃里克》、泰利基咸的《殺了堂吉訶德的男人》等拍攝的特別劇照。
-            </div>
-          </div>
           <div style={{ 
             height: '90px',
             paddingLeft: '30px',
@@ -424,9 +427,26 @@ export default function About() {
           }}>
             <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1.2, fontFamily:'neue-haas-unica, sans-serif', fontWeight: 300, color: '#fff' }}>Artist Bio</h1>
           </div>
+
+
           {/* Artist Bio Content */}
           <div style={{
-            padding: '60px 30px 30px 80px',
+            padding: '60px 30px 40px 80px',
+            backgroundColor: '#000'
+          }}>
+            <div style={{
+              fontSize: '16px',
+              lineHeight: '1.8',
+              color: '#fff',
+              fontWeight: 300
+            }}>
+              鮑皓昕自1980年從美國回流返港，開展其攝影生涯。旅美十年期間，他曾為紐約的大西洋唱片公司及唱片封套設計公司、洛杉磯的華納兄弟唱片公司擔任美術總監。他為電影《踎低噴飯：萬世魔星》設計書籍、唱片封套及海報時，首次與米高沛林合作。自此，兩人攜手製作了11本以英國廣播公司BBC旅遊特輯為藍本的圖冊，包括《兩極之旅》、《環太平洋之旅》、《海明威歷險記》、《撒哈拉》、《喜馬拉雅》、《新歐洲》，以及《巴西》等。鮑氏本人的著作包括《手》、《中國探秘》、《易經—中國牆城》、《山水》、《環球吶喊》、《平凡時刻》、《夢之旅》，以及《末代皇帝．幕後剪影》。鮑氏為其於倫敦的福克斯·塔爾博特博物館及皇家地理學會的展覽出版了圖錄《與米高沛林同遊世界》，以及香港海事博物館的展覽圖錄《八千日環遊世界》。他還為公司企業製作的限量版書籍，包括華光海運的《雙船記》，安縵度假酒店的《安縵》、《不丹》及《安縵2》，意大利書籍印刷商特蘭提諾的《平凡時刻》、《四原色—中國》及《耀眼的陰影—黑白光影之國度》。鮑氏的旅行遊記及其他攝影作品曾在世界各大出版物及展覽中亮相，包括為貝托魯奇的電影《末代皇帝溥儀》及《小活佛》、泰利鍾斯的《海盗埃里克》、泰利基咸的《殺了堂吉訶德的男人》等拍攝的特別劇照。
+            </div>
+          </div>
+
+          {/* Artist Bio Content */}
+          <div style={{
+            padding: '0 30px 30px 80px',
             backgroundColor: '#000'
           }}>
             <div style={{

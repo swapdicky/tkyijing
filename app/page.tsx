@@ -4,6 +4,50 @@ import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import Header from "@/components/Header";
 
+// I Ching hexagram mapping (1-64) to binary representation
+// 0 = yin (broken line), 1 = yang (solid line)
+// Lines are ordered from bottom to top
+const hexagramMap: { [key: number]: string } = {
+  1: '111111', 2: '000000', 3: '010001', 4: '100010', 5: '010111', 6: '111010',
+  7: '000010', 8: '010000', 9: '110111', 10: '111011', 11: '000111', 12: '111000',
+  13: '111101', 14: '101111', 15: '000100', 16: '001000', 17: '011001', 18: '100110',
+  19: '000011', 20: '110000', 21: '101001', 22: '100101', 23: '100000', 24: '000001',
+  25: '111001', 26: '100111', 27: '100001', 28: '011110', 29: '010010', 30: '101101',
+  31: '011100', 32: '001110', 33: '111100', 34: '001111', 35: '101000', 36: '000101',
+  37: '110101', 38: '101011', 39: '010100', 40: '001010', 41: '100011', 42: '110001',
+  43: '011111', 44: '111110', 45: '011000', 46: '000110', 47: '011010', 48: '010110',
+  49: '011101', 50: '101110', 51: '001001', 52: '100100', 53: '110100', 54: '001011',
+  55: '001101', 56: '101100', 57: '110110', 58: '011011', 59: '110010', 60: '010011',
+  61: '110011', 62: '100100', 63: '010101', 64: '101010'
+};
+
+// Function to generate hexagram SVG based on number (1-64)
+const generateHexagramSVG = (number: number, color: string = 'black') => {
+  // Get the hexagram pattern from the map
+  const pattern = hexagramMap[number] || '111111';
+  const lines = pattern.split(''); // Lines from bottom to top
+  
+  return (
+    <svg width="100%" height="100%" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+      {lines.map((bit, index) => {
+        const y = 8 + (index * 11); // Start from top, 11px spacing between lines
+        if (bit === '1') {
+          // Yang line (solid) - full width
+          return <rect key={index} x="4" y={y} width="72" height="7" fill={color} />;
+        } else {
+          // Yin line (broken) - two segments with gap in middle
+          return (
+            <g key={index}>
+              <rect x="4" y={y} width="33" height="7" fill={color} />
+              <rect x="43" y={y} width="33" height="7" fill={color} />
+            </g>
+          );
+        }
+      })}
+    </svg>
+  );
+};
+
 export default function Home() {
   const moduleRef = useRef<HTMLDivElement>(null);
   const gridItemsRef = useRef<(HTMLDivElement | null)[]>([]);
@@ -48,16 +92,16 @@ export default function Home() {
         
         setScrollProgress(prev => {
           if (prev === 0) {
-            // First scroll: move to left-center
+            // First scroll: move to left-center and hide footer
             console.log('First scroll: moving to left-center');
+            setIsLanding(false); // Hide footer immediately on first scroll
             return 1;
           } else if (prev === 1) {
             // Second scroll: slide off to the left
             console.log('Second scroll: sliding off');
-            // Wait for box to slide off screen, then hide overlay and enable mouse
+            // Wait for box to slide off screen, then hide overlay
             setTimeout(() => {
               setHideOverlay(true); // Hide overlay after box is off screen
-              setIsLanding(false); // Enable mouse effect
             }, 800); // Wait for slide animation to complete
             return 2;
           }
@@ -348,8 +392,9 @@ export default function Home() {
             <div style={{ 
               writingMode: 'vertical-rl',
               textOrientation: 'upright',
-              fontSize: '40px',
-              fontWeight: 'bold',
+              fontSize: '28px',
+              lineHeight: '1',
+              fontWeight: '400',
               letterSpacing: '0.2em',
               color: '#000',
               margin: 0
@@ -361,26 +406,32 @@ export default function Home() {
             <div style={{ 
               writingMode: 'vertical-rl',
               textOrientation: 'upright',
-              fontSize: '40px',
-              fontWeight: 'bold',
+              fontSize: '28px',
+              lineHeight: '1.25',
+              fontWeight: '300',
               letterSpacing: '0.2em',
               color: '#000',
-              margin: 0
+              marginLeft: '20px'
             }}>
-              昕聞鮑皓昕攝影藝術
+              鮑皓昕攝影藝術
             </div>
             
             {/* Chinese Content - Vertical */}
             <div style={{ 
               writingMode: 'vertical-rl',
               textOrientation: 'upright',
-              fontSize: '24px',
-              lineHeight: '1.2',
-              fontWeight: 'normal',
+              fontSize: '18px',
+              lineHeight: '1.4',
+              fontWeight: '300',
               letterSpacing: '0.1em',
               color: '#000'
             }}>
-              互動讓與藝展鮑易動思觀創覽寶<br />興古眾力透過合籍體方過，，<br />一的中闡天地是凸的中國古代哲學概念。
+              展覽透過香港攝影藝術家鮑皓昕的<br/>
+              藝術詮釋，凸顯︽易經︾無盡的關聯性<br/>
+              與創造力。這是一場視覺盛宴，<br/>
+              讓觀眾體會天地造化之中氣的微妙變化，<br/>
+              沉思古籍中闡述的﹁天、地、人﹂<br/>
+              互動與合一的中國古代哲學概念。
             </div>
           </div>
 
@@ -389,9 +440,9 @@ export default function Home() {
             transform: scrollProgress === 0 ? 'scale(0.7)' : 'scale(1)',
             transformOrigin: 'bottom left',
             transition: 'transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)',
-            width: scrollProgress === 0 ? '140%' : '100%',
+            width: scrollProgress === 0 ? '680px' : '43vw',
             position: 'relative',
-            bottom: '90px'
+            bottom: '0'
           }}>
             {/* English Title */}
             <div style={{ 
@@ -400,10 +451,10 @@ export default function Home() {
               lineHeight: '1.2',
               color: '#000',
               fontFamily: '"neue-haas-unica", sans-serif',
-              fontWeight: 'bold',
-              fontStyle: 'normal'
+              fontStyle: 'normal',
+              fontWeight: '400' 
             }}>
-              Book of Changes: The Art of Basil Pao
+              <span style={{ fontWeight: 'bold' }}>Book of Changes:</span> The Art of Basil Pao
             </div>
 
             {/* English Content */}
@@ -413,34 +464,41 @@ export default function Home() {
               color: '#000',
               textAlign: 'left',
               fontFamily: '"neue-haas-unica", sans-serif',
-              fontWeight: 400,
+              fontWeight: '400',
               fontStyle: 'normal'
             }}>
               The exhibition highlights the continued relevance of the Book of Changes through the artistic interpretation of Hong Kong photo artist Basil Pao. It invites contemplation on the interaction and unity of Heaven, Earth, and Humanity—an ancient Chinese philosophical concept presented in the classic.
             </div>
           </div>
-
-          {/* Bottom logo bar */}
-          <div style={{
-            position: 'absolute',
-            bottom: 0,
-            left: 0,
-            width: '100%',
-            height: '90px',
-            backgroundColor: '#D3D3D3',
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            padding: '0 30px'
-          }}>
-            <div style={{ width: '60px', height: '40px', backgroundColor: '#000' }}>
-              {/* Tai Kwun logo */}
-            </div>
-            <div style={{ width: '100px', height: '40px', backgroundColor: '#000' }}>
-              {/* HKJC logo */}
-            </div>
-          </div>
         </div>
+      </div>
+
+      {/* Landing footer */}
+      <div style={{
+        position: 'fixed',
+        bottom: '0',
+        left: 0,
+        width: '100%',
+        padding: '25px',
+        backgroundColor: 'transparent',
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        opacity: isLanding ? 1 : 0,
+        transition: 'opacity 0.5s ease-out',
+        pointerEvents: isLanding ? 'auto' : 'none',
+        zIndex: 10
+      }}>
+        <img 
+          src="/images/TK-logo.svg" 
+          alt="Tai Kwun" 
+          style={{ height: '60px', width: 'auto' }}
+        />
+        <img 
+          src="/images/HKJC-logo.svg" 
+          alt="HKJC" 
+          style={{ height: '60px', width: 'auto' }}
+        />
       </div>
 
       <Header isPanelOpen={isPanelOpen} hideOverlay={hideOverlay} />
@@ -552,7 +610,7 @@ export default function Home() {
                 }}
               />
               <span 
-                className="absolute top-2 left-2 text-[14px] font-mono" 
+                className="absolute top-2 left-2 text-[24px] neue-haas-unica" 
                 style={{ 
                   color: mode === 'overview' && !isPanelOpen ? '#888888' : '#000000'
                 }}
@@ -573,10 +631,13 @@ export default function Home() {
             transform: isPanelOpen ? 'translateX(-50%)' : 'translateX(0)',
             backgroundColor: '#8B4513',
             height: '100vh',
-            width: 'calc(100vh * 349 / 1024)'
+            width: 'calc(100vh * 349 / 1024)',
+            backgroundImage: 'url(/images/banner.jpg)',
+            backgroundSize: '100% 100%',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
           }}
         >
-          {/* Image will go here */}
         </div>
 
         {/* White info panel */}
@@ -600,63 +661,67 @@ export default function Home() {
                 setZoom(previousZoom);
                 setMode(previousZoom === 150 ? "explore" : "overview");
               }}
-              className="fixed top-[20px] right-[20px] w-[50px] h-[50px] z-[70] flex items-center justify-center text-3xl text-black bg-white border border-black hover:bg-gray-100 transition-colors"
+              className="fixed top-[20px] right-[20px] w-[50px] h-[50px] z-[70] flex items-center justify-center text-black bg-white transition-colors"
+              style={{ 
+                border: '1px solid #000',
+                fontSize: '32px',
+                lineHeight: '1'
+              }}
             >
               ×
             </button>
             
-            <div className="px-12 pb-20 min-h-screen flex flex-col" style={{ paddingTop: '7.5rem' }}>
-              <div className="flex items-start justify-between mb-16">
-                <div className="text-[24px] font-bold leading-none">{selectedBox || '--'}</div>
+            <div className="px-12 min-h-screen flex flex-col relative" style={{ paddingTop: '7.5rem', paddingBottom: '280px' }}>
+              <div className="flex items-start justify-between mb-8">
+                <div className="text-[24px] font-medium leading-none neue-haas-unica">{selectedBox || '--'}</div>
                 <div className="flex gap-3 items-start">
-                  <div className="text-[14px] tracking-wide relative" style={{ writingMode: 'vertical-rl', textOrientation: 'upright', letterSpacing: '0.05em', paddingTop: '2.5em' }}>
-                    君子由此領悟，要努力經營籌畫。
+
+                  <div className="text-[16px] tracking-wide relative font-medium" style={{ writingMode: 'vertical-rl', textOrientation: 'upright', letterSpacing: '0.05em', paddingTop: '2.8em' }}>
+                    ︽象傳︾說：雷與風相互配合，這就是恆卦。<br/>君子由此領悟，要立身處世不改變自己的正道。
                   </div>
-                  <div className="text-[14px] tracking-wide relative" style={{ writingMode: 'vertical-rl', textOrientation: 'upright', letterSpacing: '0.05em', paddingTop: '2.5em' }}>
-                    ︽象傳︾說：雷風相與，恒也。
+                  <div className="text-[20px] tracking-wide relative font-bold" style={{ writingMode: 'vertical-rl', textOrientation: 'upright', letterSpacing: '0.05em'}}>
+                    象曰：雷風，恆。君子以立不易方。
                   </div>
-                  <div className="text-[16px] tracking-wide relative font-bold" style={{ writingMode: 'vertical-rl', textOrientation: 'upright', letterSpacing: '0.05em', paddingTop: '2.5em' }}>
-                    <span className="absolute top-0">象曰</span>：雷風，恒。
-                  </div>
-                  <div className="text-[14px]  tracking-wide relative" style={{ writingMode: 'vertical-rl', textOrientation: 'upright', letterSpacing: '0.05em', paddingTop: '2.5em' }}>
-                    ︽象傳︾說：雷風相與，恒也。
+
+                  <div className="text-[16px] tracking-wide relative font-medium" style={{ writingMode: 'vertical-rl', textOrientation: 'upright', letterSpacing: '0.05em', paddingTop: '2.8em' }}>
+                    恆卦。通達，沒有災難，適宜正固。<br/>適宜有所前往。
                   </div>                  
-                  <div className="text-[16px] tracking-wide relative font-bold" style={{ writingMode: 'vertical-rl', textOrientation: 'upright', letterSpacing: '0.05em', paddingTop: '2.5em' }}>
-                    <span className="absolute top-0">恆：</span>亨，無咎，利貞，利有攸往。
+                  <div className="text-[20px] tracking-wide relative font-bold" style={{ writingMode: 'vertical-rl', textOrientation: 'upright', letterSpacing: '0.05em' }}>
+                    恆：亨，无咎，利貞。利有攸往。
                   </div>
-                  <h2 className="text-[56px] font-bold leading-none ml-4" style={{ writingMode: 'vertical-rl' }}>恒</h2>
+                  <h2 className="text-[56px] font-bold leading-none ml-4" style={{ writingMode: 'vertical-rl' }}>恆</h2>
                 </div>
               </div>
 
-              <div className="pt-10 mt-auto">
+              <div className="fixed bottom-0 left-0 right-0 px-12 pb-8">
                 <div className="flex items-start gap-8">
-                  <div className="w-20 flex-shrink-0">
-                    <div className="w-20 h-20 mb-6" style={{ backgroundColor: '#EEE' }}>
-                      {/* Hexagram image will go here */}
+                  <div className="w-28 flex-shrink-0">
+                    <div className="w-20 h-20 mb-6 flex items-center justify-center">
+                      {selectedBox && generateHexagramSVG(selectedBox)}
                     </div>
-                    <div className="flex gap-1 mb-4 text-[16px]">
-                      <p style={{ writingMode: 'vertical-rl' }}>震上</p>
-                      <p style={{ writingMode: 'vertical-rl' }}>巽下</p>
+                    <div className="flex gap-2 mb-4">
+                      <p className="leading-tight text-[16px]" style={{ writingMode: 'vertical-rl', letterSpacing: '0.3em' }}>震上</p>
+                      <p className="leading-tight text-[16px]" style={{ writingMode: 'vertical-rl', letterSpacing: '0.3em' }}>巽下</p>
                     </div>
                     
                     <div className="text-[13px]">
                       <div className="mb-4">
-                        <p className="font-bold mb-1">above Zhen /</p>
-                        <p className="text-gray-700">The Arousing,<br/>Thunder</p>
+                        <p className="font-normal leading-tight neue-haas-unica">above Zhen /</p>
+                        <p className="font-normal neue-haas-unica leading-tight">The Arousing,<br/>Thunder</p>
                       </div>
                       <div>
-                        <p className="font-bold mb-1">below Xun /</p>
-                        <p className="text-gray-700">The Gentle,<br/>Wind</p>
+                        <p className="font-normal leading-tight neue-haas-unica">below Xun /</p>
+                        <p className="font-normal neue-haas-unica leading-tight">The Gentle,<br/>Wind</p>
                       </div>
                     </div>
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-[22px] font-bold leading-tight mb-8">Heng /<br/>Duration</h3>
+                    <h3 className="text-[22px] font-normal leading-tight mb-4 neue-haas-unica">Heng /<br/>Duration</h3>
                     
                     <div className="space-y-4">
                       <div>
-                        <h4 className="font-bold text-[15px] mb-1">The Judgement</h4>
-                        <p className="text-black leading-relaxed text-[14px]">
+                        <h4 className="font-bold text-[12px] mb-1 neue-haas-unica">The Judgement</h4>
+                        <p className="text-black leading-snug text-[14px]  neue-haas-unica font-normal">
                           Duration. Success. No blame.<br />
                           Perseverance furthers.<br />
                           It furthers one to have somewhere to go.
@@ -664,8 +729,8 @@ export default function Home() {
                       </div>
 
                       <div>
-                        <h4 className="font-bold text-[15px] mb-1">The Image</h4>
-                        <p className="text-black leading-relaxed text-[14px]">
+                        <h4 className="font-bold text-[12px] mb-1 neue-haas-unica">The Image</h4>
+                        <p className="text-black leading-snug text-[14px] font-normal neue-haas-unica">
                           Thunder and wind: the image of Duration.<br />
                           Thus the superior man stands firm<br />
                           And does not change his direction.
@@ -680,34 +745,52 @@ export default function Home() {
         </div>
 
         <div 
-          className="fixed bottom-5 left-1/2 -translate-x-1/2 flex items-center gap-4 z-20"
+          className="fixed bottom-5 left-1/2 -translate-x-1/2 flex items-center justify-center gap-6 z-20"
           style={{
             opacity: isPanelOpen ? 0 : (hideOverlay ? 1 : 0),
             pointerEvents: isPanelOpen || !hideOverlay ? 'none' : 'auto',
-            transition: isPanelOpen ? 'opacity 0s' : (hideOverlay ? 'opacity 0.5s ease-out 1s' : 'opacity 0.5s ease-out')
+            transition: isPanelOpen ? 'opacity 0s' : (hideOverlay ? 'opacity 0.5s ease-out 1s' : 'opacity 0.5s ease-out'),
+            backgroundColor: 'rgba(0, 0, 0, 0.6)',
+            padding: '0 24px'
           }}
         >
+          {/* Grid icon */}
+          <img 
+            src={mode === "explore" ? "/images/icon-view1.svg" : "/images/icon-view2.svg"} 
+            alt="View mode"
+            style={{ width: '24px', height: '24px', display: 'block' }}
+          />
+
+          {/* Explore/Overview button */}
           <button
             onClick={toggleMode}
-            className="bg-black px-8 py-3 rounded-full font-semibold hover:bg-gray-800 transition-colors"
-            style={{ color: '#888888' }}
+            className="text-[18px] neue-haas-unica flex items-center"
+            style={{ color: '#FFFFFF', fontWeight: '400', transform: 'translateY(1px)', padding: '12px 0' }}
           >
             {mode === "explore" ? "Explore" : "Overview"}
           </button>
 
-          <div className="flex items-center gap-2 bg-black px-4 py-3 rounded-full" style={{ color: '#888888' }}>
+          {/* Border separator */}
+          <div style={{ width: '1px', alignSelf: 'stretch', backgroundColor: '#888888' }}></div>
+
+          {/* Zoom controls */}
+          <div className="flex items-center justify-center gap-3 neue-haas-unica text-[18px] font-normal" style={{ color: '#FFFFFF' }}>
             <button
               onClick={() => {
                 if (zoom === 50) setZoom(100);
                 else if (zoom === 100) setZoom(150);
               }}
-              className="w-8 h-8 flex items-center justify-center hover:bg-gray-800 rounded-full transition-colors text-lg"
+              className="flex items-center justify-center"
               disabled={zoom === 150}
               style={{ opacity: zoom === 150 ? 0.3 : 1 }}
             >
-              +
+              <img 
+                src="/images/plus-icon.svg" 
+                alt="Zoom in"
+                style={{ width: '20px', height: '20px', display: 'block' }}
+              />
             </button>
-            <span className="text-sm font-mono min-w-[3rem] text-center">
+            <span className="min-w-[3rem] text-center flex items-center justify-center" style={{ lineHeight: '1', transform: 'translateY(1px)' }}>
               {zoom}%
             </span>
             <button
@@ -715,11 +798,15 @@ export default function Home() {
                 if (zoom === 150) setZoom(100);
                 else if (zoom === 100) setZoom(50);
               }}
-              className="w-8 h-8 flex items-center justify-center hover:bg-gray-800 rounded-full transition-colors text-lg"
+              className="flex items-center justify-center"
               disabled={zoom === 50}
               style={{ opacity: zoom === 50 ? 0.3 : 1 }}
             >
-              -
+              <img 
+                src="/images/minus-icon.svg" 
+                alt="Zoom out"
+                style={{ width: '20px', height: '20px', display: 'block' }}
+              />
             </button>
           </div>
         </div>
