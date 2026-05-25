@@ -306,7 +306,7 @@ export default function Exhibition() {
                 textAlign: 'left',
                 fontWeight: '300'
               }}>
-The Yijing, or Book of Changes, is unquestionably a quintessential Chinese cultural heritage. Confucianism and Daoism have their common roots here. Ancient Chinese philosophy, science, and statecraft and even modern living have all drawn inspiration from it. As a classical divination document and a philosophical exposition, this book has an enduring imprint on many aspects of
+The <em>Yijing</em>, or <em>Book of Changes</em>, is unquestionably a quintessential Chinese cultural heritage. Confucianism and Daoism have their common roots here. Ancient Chinese philosophy, science, and statecraft and even modern living have all drawn inspiration from it. As a classical divination document and a philosophical exposition, this book has an enduring imprint on many aspects of
 Chinese life.              </div>
             </div>
           </div>

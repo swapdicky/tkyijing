@@ -405,7 +405,7 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
                   fontFamily: '"neue-haas-unica", sans-serif',
                   fontWeight: 300
                 }}>
-                  Anita Chun
+                  Anita Chung
                 </div>
               </div>
             </div>
@@ -775,7 +775,7 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
                   fontFamily: '"neue-haas-unica", sans-serif',
                   fontWeight: 400
                 }}>
-                  AV
+                  AV Installation
                 </div>
               </div>
               <div style={{ flex: 1 }}>
