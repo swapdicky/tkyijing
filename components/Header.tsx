@@ -49,9 +49,9 @@ export default function Header({ isPanelOpen = false, hideOverlay = false }: { i
           <span className="text-3xl text-white leading-none">×</span>
         ) : (
           <>
-            <span className="w-6 h-1 bg-white"></span>
-            <span className="w-6 h-1 bg-white"></span>
-            <span className="w-6 h-1 bg-white"></span>
+            <span className="w-6 h-[3px] bg-white"></span>
+            <span className="w-6 h-[3px] bg-white"></span>
+            <span className="w-6 h-[3px] bg-white"></span>
           </>
         )}
       </button>

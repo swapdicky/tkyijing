@@ -874,16 +874,21 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
             <button
               onClick={() => setShowLightbox(false)}
               style={{
-                position: 'absolute',
-                top: '-50px',
-                right: '0',
+                position: 'fixed',
+                top: '20px',
+                right: '20px',
+                width: '50px',
+                height: '50px',
                 background: 'transparent',
                 border: 'none',
                 color: '#fff',
                 fontSize: '40px',
                 cursor: 'pointer',
                 fontFamily: '"neue-haas-unica", sans-serif',
-                fontWeight: 300
+                fontWeight: 300,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
               }}
             >
               ×
