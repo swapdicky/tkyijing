@@ -18,7 +18,7 @@ export default function About() {
       
       // Calculate how much the left content should move
       const leftContentHeight = leftContentRef.current.scrollHeight;
-      const viewportHeight = window.innerHeight - 90; // minus header height
+      const viewportHeight = window.innerHeight - 90 - 180; // minus header (90px) and sticky titles (180px)
       const maxScroll = leftContentHeight - viewportHeight;
       
       setScrollProgress(progress * maxScroll);
@@ -48,7 +48,6 @@ export default function About() {
 
       {/* Left fixed content block */}
       <div
-        ref={leftContentRef}
         style={{
           position: 'fixed',
           top: '90px',
@@ -63,14 +62,13 @@ export default function About() {
           overflow: 'hidden'
         }}
       >
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            transform: `translateY(-${scrollProgress}px)`
-          }}
-        >
-
+        {/* Sticky section titles */}
+        <div style={{
+          position: 'sticky',
+          top: 0,
+          backgroundColor: '#000',
+          zIndex: 2
+        }}>
           <div style={{ 
             height: '90px',
             paddingLeft: '30px',
@@ -82,7 +80,7 @@ export default function About() {
           }}>
             <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1.2, fontWeight: 400, color: '#fff' }}>策展人的話</h1>
           </div>
-        <div style={{ 
+          <div style={{ 
             height: '90px',
             paddingLeft: '30px',
             display: 'flex',
@@ -93,6 +91,18 @@ export default function About() {
           }}>
             <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1.2,  fontFamily:'neue-haas-unica, sans-serif', fontWeight: 300, color: '#fff' }}>Curatorial Statement</h1>
           </div>
+        </div>
+
+        {/* Scrolling content */}
+        <div
+          ref={leftContentRef}
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            transform: `translateY(-${scrollProgress}px)`,
+            flex: 1
+          }}
+        >
                     
           <div style={{ 
             flex: 1,
@@ -115,13 +125,13 @@ export default function About() {
                 自然變化的韻律與人類創造性的轉化，顯現為萬物存在與形成之間的恆常流轉。這來自《易經》的奧妙洞見，啟發了是次展覽的策劃理念。展覽揭示文化遺產如何持續激發創造性想像，為當代詮釋賦予新意。
               </p>
               <p style={{ marginBottom: '1em' }}>
-                《易經》無疑是中國文化遺產之精髓，儒家與道家思想同樣根植於此。中國古代哲學、科學、國家治術，甚至當代生活也從中獲得靈感。
+《易經》無疑是中國文化遺產之精髓，儒家與道家思想同樣根植於此。中國古代哲學、科學、國家治術，甚至當代生活也從中獲得靈感。
               </p>
               <p style={{ marginBottom: '1em' }}>
                 是次展覽呈獻香港攝影藝術家鮑皓昕兩個系列作品：《中國牆城》和《觀靜錄》，探究文化遺產與藝術創作之間的關係。這些照片捕捉變化無窮的世界，見證鮑氏對《易經》的深刻體會，藉此擁抱真實自我，飽覽天地之壯麗與奧秘。
               </p>
               <p style={{ margin: 0 }}>
-                我們希望展覽帶來的沉浸體驗能為抽象的概念賦予意義，並激發人們思考：當地球持續暖化、人工智能科技不斷重塑人類經驗之際，如何仍能從傳統智慧中獲得禆益。
+我們希望展覽帶來的沉浸體驗能為抽象的概念賦予意義，並激發人們思考：當地球持續暖化、人工智能科技不斷重塑人類經驗之際，如何仍能從傳統智慧中獲得禆益。
               </p>
             </div>
           </div>
@@ -145,16 +155,16 @@ export default function About() {
               fontFamily: '"neue-haas-unica", sans-serif'
             }}>
               <p style={{ marginBottom: '1em' }}>
-                Nature's rhythm of change and humanity's creative transformation manifest as a constant flux of being and becoming. This profound insight from the Yijing, or Book of Changes, inspired the current exhibition which shows how heritage never ceases to stir creative imagination for making meaning.
+Nature’s rhythm of change and humanity’s creative transformation manifest as a constant flux of being and becoming. This profound insight from the Yijing, or Book of Changes, inspired the current exhibition which shows how heritage never ceases to stir creative imagination for making meaning.
               </p>
               <p style={{ marginBottom: '1em' }}>
-                The Book of Changes is unquestionably a quintessential Chinese cultural heritage. Along with Confucianism and Daoism, which have their common roots here, ancient Chinese philosophy, science, statecraft, and even modern living have all drawn inspiration from it.
+The Book of Changes is unquestionably a quintessential Chinese cultural heritage. Along with Confucianism and Daoism, which have their common roots here, ancient Chinese philosophy, science, statecraft, and even modern living have all drawn inspiration from it.
               </p>
               <p style={{ marginBottom: '1em' }}>
-                Two series of works by Hong Kong photo artist Basil Pao—The Great Walls of China and Glimpses of Silence—are presented here to explore the relation between heritage and artistic creation. Capturing a world of changing reality and changing appearance, these pictures are the testament to Pao's deep connections to the Book of Changes for embracing the authentic self and beholding the beauty and mystery of the world.
+Two series of works by Hong Kong photo artist Basil Pao—The Great Walls of China and Glimpses of Silence—are presented here to explore the relation between heritage and artistic creation. Capturing a world of changing reality and changing appearance, these pictures are the testament to Pao’s deep connections to the Book of Changes for embracing the authentic self and beholding the beauty and mystery of the world.
               </p>
               <p style={{ margin: 0 }}>
-                We hope the immersive experiences of this show will allow abstract ideas to take on meaning and inspire thoughts about the continued relevance of ancient wisdom, as we face a warming planet and advances of AI technologies that increasingly reshape the human experience.
+We hope the immersive experiences of this show will allow abstract ideas to take on meaning and inspire thoughts about the continued relevance of ancient wisdom, as we face a warming planet and advances of AI technologies that increasingly reshape the human experience.              
               </p>
             </div>
           </div>
@@ -172,25 +182,33 @@ export default function About() {
       >
         {/* Content goes here */}
         <div>
-          <div style={{ 
-            height: '90px',
-            paddingLeft: '30px',
-            display: 'flex',
-            alignItems: 'center',
-            textAlign: 'left',
-            borderBottom: '1px solid #888',
+          {/* Section Title: Video */}
+          <div className="section-title" style={{
+            position: 'sticky',
+            top: '90px',
+            backgroundColor: '#000',
+            zIndex: 10
           }}>
-            <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1.2, fontWeight: 400, color: '#fff' }}>影片</h1>
-          </div>
-          <div style={{ 
-            height: '90px',
-            paddingLeft: '30px',
-            display: 'flex',
-            alignItems: 'center',
-            textAlign: 'left',
-            borderBottom: '1px solid #888',
-          }}>
-            <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1.2, fontFamily:'neue-haas-unica, sans-serif', fontWeight: 300, color: '#fff' }}>Video</h1>
+            <div style={{ 
+              height: '90px',
+              paddingLeft: '30px',
+              display: 'flex',
+              alignItems: 'center',
+              textAlign: 'left',
+              borderBottom: '1px solid #888',
+            }}>
+              <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1.2, fontWeight: 400, color: '#fff' }}>影片</h1>
+            </div>
+            <div style={{ 
+              height: '90px',
+              paddingLeft: '30px',
+              display: 'flex',
+              alignItems: 'center',
+              textAlign: 'left',
+              borderBottom: '1px solid #888',
+            }}>
+              <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1.2, fontFamily:'neue-haas-unica, sans-serif', fontWeight: 300, color: '#fff' }}>Video</h1>
+            </div>
           </div>
           
           {/* Video preview block */}
@@ -209,7 +227,10 @@ export default function About() {
               width: '100%',
               maxWidth: '640px',
               aspectRatio: '16 / 9',
-              backgroundColor: '#333',
+              backgroundImage: 'url(/images/about/1.jpg)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              borderRadius: '15px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -217,50 +238,40 @@ export default function About() {
             }}
             onClick={() => setShowLightbox(true)}
             >
-              {/* Play icon */}
-              <div style={{
-                width: '80px',
-                height: '80px',
-                borderRadius: '50%',
-                backgroundColor: 'rgba(255, 255, 255, 0.9)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                position: 'relative',
-                zIndex: 10
-              }}>
-                <div style={{
-                  width: 0,
-                  height: 0,
-                  borderLeft: '25px solid #000',
-                  borderTop: '15px solid transparent',
-                  borderBottom: '15px solid transparent',
-                  marginLeft: '5px'
-                }} />
-              </div>
+
             </div>
           </div>
 
         </div>
-          <div style={{ 
-            height: '90px',
-            paddingLeft: '30px',
-            display: 'flex',
-            alignItems: 'center',
-            textAlign: 'left',
-            borderBottom: '1px solid #888',
+        {/* Content goes here */}
+        <div>       
+          {/* Section Title: Public Programmes */}
+          <div className="section-title" style={{
+            position: 'sticky',
+            top: '90px',
+            backgroundColor: '#000',
+            zIndex: 10
           }}>
-            <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1.2, fontWeight: 400, color: '#fff' }}>公眾節目</h1>
-          </div>
-          <div style={{ 
-            height: '90px',
-            paddingLeft: '30px',
-            display: 'flex',
-            alignItems: 'center',
-            textAlign: 'left',
-            borderBottom: '1px solid #888',
-          }}>
-            <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1.2, fontFamily:'neue-haas-unica, sans-serif', fontWeight: 300, color: '#fff' }}>Public Programmes</h1>
+            <div style={{ 
+              height: '90px',
+              paddingLeft: '30px',
+              display: 'flex',
+              alignItems: 'center',
+              textAlign: 'left',
+              borderBottom: '1px solid #888',
+            }}>
+              <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1.2, fontWeight: 400, color: '#fff' }}>公眾節目</h1>
+            </div>
+            <div style={{ 
+              height: '90px',
+              paddingLeft: '30px',
+              display: 'flex',
+              alignItems: 'center',
+              textAlign: 'left',
+              borderBottom: '1px solid #888',
+            }}>
+              <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1.2, fontFamily:'neue-haas-unica, sans-serif', fontWeight: 300, color: '#fff' }}>Public Programmes</h1>
+            </div>
           </div>
           <div style={{
             display: 'flex',
@@ -291,7 +302,10 @@ export default function About() {
                   position: 'relative',
                   width: '100%',
                   aspectRatio: '16 / 9',
-                  backgroundColor: '#333',
+                  backgroundImage: 'url(/images/about/2.jpg)',
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  borderRadius: '15px',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -348,12 +362,24 @@ export default function About() {
               width: '100%',
               maxWidth: '640px'
             }}>
+              <a 
+                href="https://www.taikwun.hk/zh/programme/detail/tai-kwun-conversations-the-book-of-changes-a-living-classic/1731"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: 'block',
+                  textDecoration: 'none'
+                }}
+              >
               {/* Image container */}
               <div style={{
                 position: 'relative',
                 width: '100%',
                 aspectRatio: '16 / 9',
-                backgroundColor: '#333',
+                backgroundImage: 'url(/images/about/3.jpg)',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                borderRadius: '15px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -378,7 +404,7 @@ export default function About() {
                     color: '#fff',
                     marginBottom: '8px'
                   }}>
-                    易經：鮑皓昕攝影藝術—策展人導賞
+                    大館對談：《易經》—活著的經典
                   </div>
                   <div style={{
                     fontSize: '16px',
@@ -387,7 +413,7 @@ export default function About() {
                     fontFamily: '"neue-haas-unica", sans-serif',
                     fontWeight: 300
                   }}>
-                    Book of Changes: The Art of Basil Pao – Curator's Guided Tour
+                    Tai Kwun Conversations: The Book of Changes – A Living Classic
                   </div>
                 </div>
                 <div style={{
@@ -399,33 +425,48 @@ export default function About() {
                   whiteSpace: 'nowrap',
                   marginLeft: '40px'
                 }}>
-                  17 & 31.1.2026
+                  08.02.2026
                 </div>
               </div>
+              </a>
             </div>
 
           </div>
-          <div style={{ 
-            height: '90px',
-            paddingLeft: '30px',
-            display: 'flex',
-            alignItems: 'center',
-            textAlign: 'left',
-            borderBottom: '1px solid #888'
-          }}>
-            <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1.2, fontWeight: 400, color: '#fff' }}>藝術家簡介</h1>
-          </div>
-          <div style={{ 
-            height: '90px',
-            paddingLeft: '30px',
-            display: 'flex',
-            alignItems: 'center',
-            textAlign: 'left',
-            borderBottom: '1px solid #888',
-            borderTop: '1px solid #888'
 
+        </div>
+        {/* Content goes here */}
+        <div>    
+
+
+          {/* Section Title: Artist Bio */}
+          <div className="section-title" style={{
+            position: 'sticky',
+            top: '90px',
+            backgroundColor: '#000',
+            zIndex: 10
           }}>
-            <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1.2, fontFamily:'neue-haas-unica, sans-serif', fontWeight: 300, color: '#fff' }}>Artist Bio</h1>
+            <div style={{ 
+              height: '90px',
+              paddingLeft: '30px',
+              display: 'flex',
+              alignItems: 'center',
+              textAlign: 'left',
+              borderBottom: '1px solid #888'
+            }}>
+              <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1.2, fontWeight: 400, color: '#fff' }}>藝術家簡介</h1>
+            </div>
+            <div style={{ 
+              height: '90px',
+              paddingLeft: '30px',
+              display: 'flex',
+              alignItems: 'center',
+              textAlign: 'left',
+              borderBottom: '1px solid #888',
+              borderTop: '1px solid #888'
+
+            }}>
+              <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1.2, fontFamily:'neue-haas-unica, sans-serif', fontWeight: 300, color: '#fff' }}>Artist Bio</h1>
+            </div>
           </div>
 
 
@@ -446,7 +487,7 @@ export default function About() {
 
           {/* Artist Bio Content */}
           <div style={{
-            padding: '0 30px 30px 80px',
+            padding: '0 30px 60px 80px',
             backgroundColor: '#000'
           }}>
             <div style={{
@@ -456,9 +497,9 @@ export default function About() {
               fontFamily:'neue-haas-unica, sans-serif', 
               fontWeight: 300 
             }}>
-              Basil Pao began his photographic career in 1980 upon his return to Hong Kong after ten years in the United States, where he was art director for Atlantic Records and Album Graphics Inc. in New York, and Warner Brothers Records in Los Angeles. He first worked with Michael Palin when he designed the book, album cover and poster for the Monty Python film Life of Brian. They have since collaborated on 11 illustrated books based on the BBC travel series Pole to Pole, Full Circle, Hemingway Adventure, Sahara, Himalaya, New Europe and Brazil. He is the author of Hands, China Revealed, Yi’Jing-Book of Changes, Shan Shui-Mountain-Water, The Universal Scream, OM2-Ordinary Moments+, Carnival of Dreams and The Last Emperor Revisited. His exhibition catalogues include Travels with Michael Palin for his exhibitions at the Fox Talbot Museum and the Royal Geographical Society in London; and Around the World in 8000 Days at the Hong Kong Maritime Museum. His corporate limited editions include A Tale of Two Ventures for Wah Kwong Maritime Transport; AMAN, Bhutan and AMAN2 for Aman resorts; OM-Ordinary Moments, CMYK-China, and Blazing Shadows-A World of Black & Light for Printer Trento in Italy. Basil’s travel essays and other assignments, including his Special Stills photography for Bernardo Bertolucci’s The Last Emperor and Little Buddha, Terry Jones’ Erik the Viking, Terry Gilliam’s The Man Who Killed Don Quixote and other feature films, have appeared in publications and exhibitions all around the world.
-            </div>
+Basil Pao began his photographic career in 1980 upon his return to Hong Kong after ten years in the United States, where he was art director for Atlantic Records and Album Graphics Inc. in New York, and Warner Brothers Records in Los Angeles. He first worked with Michael Palin when he designed the book, album cover and poster for the Monty Python film Life of Brian. They have since collaborated on 11 illustrated books based on the BBC travel series Pole to Pole, Full Circle, Hemingway Adventure, Sahara, Himalaya, New Europe and Brazil. He is the author of Hands, China Revealed, Yi’Jing-Book of Changes, Shan Shui-Mountain-Water, The Universal Scream, OM2-Ordinary Moments+, Carnival of Dreams and The Last Emperor Revisited. His exhibition catalogues include Travels with Michael Palin for his exhibitions at the Fox Talbot Museum and the Royal Geographical Society in London; and Around the World in 8000 Days at the Hong Kong Maritime Museum. His corporate limited editions include A Tale of Two Ventures for Wah Kwong Maritime Transport; AMAN, Bhutan and AMAN2 for Aman resorts; OM-Ordinary Moments, CMYK-China, and Blazing Shadows-A World of Black & Light for Printer Trento in Italy. Basil’s travel essays and other assignments, including his Special Stills photography for Bernardo Bertolucci’s The Last Emperor and Little Buddha, Terry Jones’ Erik the Viking, Terry Gilliam’s The Man Who Killed Don Quixote and other feature films, have appeared in publications and exhibitions all around the world.            </div>
           </div>
+        </div>
 
 
       </div>

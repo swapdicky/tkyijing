@@ -18,7 +18,7 @@ export default function CreativeTeam() {
       
       // Calculate how much the left content should move
       const leftContentHeight = leftContentRef.current.scrollHeight;
-      const viewportHeight = window.innerHeight - 90; // minus header height
+      const viewportHeight = window.innerHeight - 90 - 180; // minus header (90px) and sticky titles (180px)
       const maxScroll = leftContentHeight - viewportHeight;
       
       setScrollProgress(progress * maxScroll);
@@ -48,7 +48,6 @@ export default function CreativeTeam() {
 
       {/* Left fixed content block */}
       <div
-        ref={leftContentRef}
         style={{
           position: 'fixed',
           top: '90px',
@@ -63,18 +62,12 @@ export default function CreativeTeam() {
           overflow: 'hidden'
         }}
       >
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            transform: `translateY(-${scrollProgress}px)`
-          }}
-        >
-        {/* Top half */}
-        <div style={{ 
-          height: '50%',
-          display: 'flex',
-          flexDirection: 'column'
+        {/* Sticky section titles */}
+        <div style={{
+          position: 'sticky',
+          top: 0,
+          backgroundColor: '#000',
+          zIndex: 2
         }}>
           <div style={{ 
             height: '90px',
@@ -87,7 +80,7 @@ export default function CreativeTeam() {
           }}>
             <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1.2, fontWeight: 400, color: '#fff' }}>鳴謝</h1>
           </div>
-        <div style={{ 
+          <div style={{ 
             height: '90px',
             paddingLeft: '30px',
             display: 'flex',
@@ -98,16 +91,25 @@ export default function CreativeTeam() {
           }}>
             <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1.2,  fontFamily:'neue-haas-unica, sans-serif', fontWeight: 300, color: '#fff' }}>Acknowledgement</h1>
           </div>
-          
+        </div>
 
-
+        {/* Scrolling content */}
+        <div
+          ref={leftContentRef}
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            transform: `translateY(-${scrollProgress}px)`,
+            flex: 1
+          }}
+        >
           <div style={{ 
             flex: 1,
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'flex-end',
             paddingLeft: '80px',
-            paddingBottom: '30px',
+            paddingBottom: '60px',
             paddingRight: '30px',
             paddingTop: '120px'
             
@@ -162,29 +164,12 @@ export default function CreativeTeam() {
               fontWeight: 300,
               color: '#888',
               textAlign: 'left',
-              fontFamily: '"neue-haas-unica", sans-serif',
-              marginBottom: '40px'
+              fontFamily: '"neue-haas-unica", sans-serif'
             }}>
-              <p style={{ marginBottom: '1em' }}>
+              <p>
 Notes: In this exhibition, the modern Chinese interpretation of the classical text is cited from Fu Peirong jiedu Yijing (Fu Peirong's nterpretation of the Yijing) (Taibei, 2022) and the English version is based on Richard Wilhelm's translation which was rendered into English by Cary F. Baynes (Princeton, 1997).              </p>
             </div>
 
-
-          </div>
-
-
-        </div>
-
-
-          <div style={{ 
-            flex: 1,
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'flex-end',
-            paddingLeft: '80px',
-            paddingBottom: '30px',
-            paddingRight: '30px'
-          }}>
 
           </div>
         </div>
@@ -201,37 +186,40 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
       >
         {/* Content goes here */}
         <div>
-
-          
-
-
-        </div>
-          <div style={{ 
-            height: '90px',
-            paddingLeft: '30px',
-            display: 'flex',
-            alignItems: 'center',
-            textAlign: 'left',
-            borderBottom: '1px solid #888',
+          {/* Section Title: Artist Team */}
+          <div className="section-title" style={{
+            position: 'sticky',
+            top: '90px',
+            backgroundColor: '#000',
+            zIndex: 10
           }}>
-            <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1.2, fontWeight: 400, color: '#fff' }}>藝術家團隊</h1>
-          </div>
-          <div style={{ 
-            height: '90px',
-            paddingLeft: '30px',
-            display: 'flex',
-            alignItems: 'center',
-            textAlign: 'left',
-            borderBottom: '1px solid #888',
-          }}>
-            <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1.2, fontFamily:'neue-haas-unica, sans-serif', fontWeight: 300, color: '#fff' }}>Artist Team</h1>
+            <div style={{ 
+              height: '90px',
+              paddingLeft: '30px',
+              display: 'flex',
+              alignItems: 'center',
+              textAlign: 'left',
+              borderBottom: '1px solid #888',
+            }}>
+              <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1.2, fontWeight: 400, color: '#fff' }}>藝術家團隊</h1>
+            </div>
+            <div style={{ 
+              height: '90px',
+              paddingLeft: '30px',
+              display: 'flex',
+              alignItems: 'center',
+              textAlign: 'left',
+              borderBottom: '1px solid #888',
+            }}>
+              <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1.2, fontFamily:'neue-haas-unica, sans-serif', fontWeight: 300, color: '#fff' }}>Artist Team</h1>
+            </div>
           </div>
           <div style={{
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'center',
-            padding: '40px 30px',
+            padding: '60px 30px',
             backgroundColor: '#000',
             borderBottom: '1px solid #888',
           }}>
@@ -288,8 +276,7 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
             <div style={{
               width: '100%',
               display: 'flex',
-              gap: '30px',
-              marginBottom: '40px'
+              gap: '30px'
             }}>
               {/* Left column */}
               <div style={{ flex: 1 }}>
@@ -330,33 +317,44 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
               </div>
             </div>
           </div>
+        </div>
 
-          <div style={{ 
-            height: '90px',
-            paddingLeft: '30px',
-            display: 'flex',
-            alignItems: 'center',
-            textAlign: 'left',
-            borderBottom: '1px solid #888',
+        {/* Content goes here */}
+        <div>
+          {/* Section Title: Tai Kwun Team */}
+          <div className="section-title" style={{
+            position: 'sticky',
+            top: '90px',
+            backgroundColor: '#000',
+            zIndex: 10
           }}>
-            <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1.2, fontWeight: 400, color: '#fff' }}>大館團隊</h1>
-          </div>
-          <div style={{ 
-            height: '90px',
-            paddingLeft: '30px',
-            display: 'flex',
-            alignItems: 'center',
-            textAlign: 'left',
-            borderBottom: '1px solid #888',
-          }}>
-            <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1.2, fontFamily:'neue-haas-unica, sans-serif', fontWeight: 300, color: '#fff' }}>Tai Kwun Team</h1>
+            <div style={{ 
+              height: '90px',
+              paddingLeft: '30px',
+              display: 'flex',
+              alignItems: 'center',
+              textAlign: 'left',
+              borderBottom: '1px solid #888',
+            }}>
+              <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1.2, fontWeight: 400, color: '#fff' }}>大館團隊</h1>
+            </div>
+            <div style={{ 
+              height: '90px',
+              paddingLeft: '30px',
+              display: 'flex',
+              alignItems: 'center',
+              textAlign: 'left',
+              borderBottom: '1px solid #888',
+            }}>
+              <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1.2, fontFamily:'neue-haas-unica, sans-serif', fontWeight: 300, color: '#fff' }}>Tai Kwun Team</h1>
+            </div>
           </div>
          <div style={{
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'center',
-            padding: '40px 30px',
+            padding: '60px 30px',
             backgroundColor: '#000',
             borderBottom: '1px solid #888',
           }}>
@@ -487,8 +485,7 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
             <div style={{
               width: '100%',
               display: 'flex',
-              gap: '30px',
-              marginBottom: '40px'
+              gap: '30px'
             }}>
               {/* Left column */}
               <div style={{ flex: 1 }}>
@@ -541,32 +538,44 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
               </div>
             </div>
           </div>
-          <div style={{ 
-            height: '90px',
-            paddingLeft: '30px',
-            display: 'flex',
-            alignItems: 'center',
-            textAlign: 'left',
-            borderBottom: '1px solid #888',
+        </div>
+
+        {/* Content goes here */}
+        <div>
+          {/* Section Title: Exhibition Design and Production */}
+          <div className="section-title" style={{
+            position: 'sticky',
+            top: '90px',
+            backgroundColor: '#000',
+            zIndex: 10
           }}>
-            <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1.2, fontWeight: 400, color: '#fff' }}>展覽設計與製作</h1>
-          </div>
-          <div style={{ 
-            height: '90px',
-            paddingLeft: '30px',
-            display: 'flex',
-            alignItems: 'center',
-            textAlign: 'left',
-            borderBottom: '1px solid #888',
-          }}>
-            <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1.2, fontFamily:'neue-haas-unica, sans-serif', fontWeight: 300, color: '#fff' }}>Exhibition Design and Production</h1>
+            <div style={{ 
+              height: '90px',
+              paddingLeft: '30px',
+              display: 'flex',
+              alignItems: 'center',
+              textAlign: 'left',
+              borderBottom: '1px solid #888',
+            }}>
+              <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1.2, fontWeight: 400, color: '#fff' }}>展覽設計與製作</h1>
+            </div>
+            <div style={{ 
+              height: '90px',
+              paddingLeft: '30px',
+              display: 'flex',
+              alignItems: 'center',
+              textAlign: 'left',
+              borderBottom: '1px solid #888',
+            }}>
+              <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1.2, fontFamily:'neue-haas-unica, sans-serif', fontWeight: 300, color: '#fff' }}>Exhibition Design and Production</h1>
+            </div>
           </div>
           <div style={{
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'center',
-            padding: '40px 30px',
+            padding: '60px 30px',
             backgroundColor: '#000',
             borderBottom: '1px solid #888',
           }}>
@@ -831,7 +840,7 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
               </div>
             </div>
           </div>
-
+        </div>
 
       </div>
 
