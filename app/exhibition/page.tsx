@@ -884,7 +884,7 @@ Artist Statement<br/>
                   fontWeight: 300,
                   fontStyle: 'normal'
                 }}>
-The central concept of the Book of Changes is "Heaven and Humanity as One". Glimpses of Silence, a collection of pre-drone aerials and other vast landscapes with minimal human presence, is an attempt at elucidating that idea. It is my hope that by sharing these images from the far corners of our world that I've had the privilege to experience and photograph over the past 40 years, viewers from new generations will appreciate the splendour of our magnificent planet and embark on a path of renewal and preservation instead of following in our footsteps of self-destruction.
+The central concept of the <em>Book of Changes</em> is "Heaven and Humanity as One". <em>Glimpses of Silence</em>, a collection of pre-drone aerials and other vast landscapes with minimal human presence, is an attempt at elucidating that idea. It is my hope that by sharing these images from the far corners of our world that I've had the privilege to experience and photograph over the past 40 years, viewers from new generations will appreciate the splendour of our magnificent planet and embark on a path of renewal and preservation instead of following in our footsteps of self-destruction.
                 </div>
               </div>
             </div>

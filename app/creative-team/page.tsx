@@ -25,8 +25,17 @@ export default function CreativeTeam() {
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Initial calculation
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleScroll);
+    
+    // Initial calculation with delay to ensure content is rendered
+    handleScroll();
+    setTimeout(handleScroll, 100);
+    setTimeout(handleScroll, 300);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+    };
   }, []);
   return (
     <div className="min-h-screen">
@@ -167,7 +176,7 @@ export default function CreativeTeam() {
               fontFamily: '"neue-haas-unica", sans-serif'
             }}>
               <p>
-Notes: In this exhibition, the modern Chinese interpretation of the classical text is cited from Fu Peirong jiedu Yijing (Fu Peirong's nterpretation of the Yijing) (Taibei, 2022) and the English version is based on Richard Wilhelm's translation which was rendered into English by Cary F. Baynes (Princeton, 1997).              </p>
+Notes: In this exhibition, the modern Chinese interpretation of the classical text is cited from <em>Fu Peirong jiedu Yijing (Fu Peirong's nterpretation of the Yijing)</em> (Taibei, 2022) and the English version is based on Richard Wilhelm's translation which was rendered into English by Cary F. Baynes (Princeton, 1997).              </p>
             </div>
 
 

@@ -25,8 +25,17 @@ export default function About() {
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Initial calculation
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleScroll);
+    
+    // Initial calculation with delay to ensure content is rendered
+    handleScroll();
+    setTimeout(handleScroll, 100);
+    setTimeout(handleScroll, 300);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+    };
   }, []);
   return (
     <div className="min-h-screen">
@@ -154,13 +163,13 @@ export default function About() {
               fontFamily: '"neue-haas-unica", sans-serif'
             }}>
               <p style={{ marginBottom: '1em' }}>
-Nature’s rhythm of change and humanity’s creative transformation manifest as a constant flux of being and becoming. This profound insight from the Yijing, or Book of Changes, inspired the current exhibition which shows how heritage never ceases to stir creative imagination for making meaning.
+Nature’s rhythm of change and humanity’s creative transformation manifest as a constant flux of being and becoming. This profound insight from the <em>Yijing</em>, or <em>Book of Changes</em>, inspired the current exhibition which shows how heritage never ceases to stir creative imagination for making meaning.
               </p>
               <p style={{ marginBottom: '1em' }}>
-The Book of Changes is unquestionably a quintessential Chinese cultural heritage. Along with Confucianism and Daoism, which have their common roots here, ancient Chinese philosophy, science, statecraft, and even modern living have all drawn inspiration from it.
+<em>The Book of Changes</em> is unquestionably a quintessential Chinese cultural heritage. Along with Confucianism and Daoism, which have their common roots here, ancient Chinese philosophy, science, statecraft, and even modern living have all drawn inspiration from it.
               </p>
               <p style={{ marginBottom: '1em' }}>
-Two series of works by Hong Kong photo artist Basil Pao—The Great Walls of China and Glimpses of Silence—are presented here to explore the relation between heritage and artistic creation. Capturing a world of changing reality and changing appearance, these pictures are the testament to Pao’s deep connections to the Book of Changes for embracing the authentic self and beholding the beauty and mystery of the world.
+Two series of works by Hong Kong photo artist Basil Pao—<em>The Great Walls of China</em> and <em>Glimpses of Silence</em>—are presented here to explore the relation between heritage and artistic creation. Capturing a world of changing reality and changing appearance, these pictures are the testament to Pao’s deep connections to the <em>Book of Changes</em> for embracing the authentic self and beholding the beauty and mystery of the world.
               </p>
               <p style={{ margin: 0 }}>
 We hope the immersive experiences of this show will allow abstract ideas to take on meaning and inspire thoughts about the continued relevance of ancient wisdom, as we face a warming planet and advances of AI technologies that increasingly reshape the human experience.              
@@ -507,7 +516,7 @@ We hope the immersive experiences of this show will allow abstract ideas to take
               fontWeight: 300,
               textAlign: 'left'
             }}>
-Basil Pao began his photographic career in 1980 upon his return to Hong Kong after ten years in the United States, where he was art director for Atlantic Records and Album Graphics Inc. in New York, and Warner Brothers Records in Los Angeles. He first worked with Michael Palin when he designed the book, album cover and poster for the Monty Python film Life of Brian. They have since collaborated on 11 illustrated books based on the BBC travel series Pole to Pole, Full Circle, Hemingway Adventure, Sahara, Himalaya, New Europe and Brazil. He is the author of Hands, China Revealed, Yi’Jing-Book of Changes, Shan Shui-Mountain-Water, The Universal Scream, OM2-Ordinary Moments+, Carnival of Dreams and The Last Emperor Revisited. His exhibition catalogues include Travels with Michael Palin for his exhibitions at the Fox Talbot Museum and the Royal Geographical Society in London; and Around the World in 8000 Days at the Hong Kong Maritime Museum. His corporate limited editions include A Tale of Two Ventures for Wah Kwong Maritime Transport; AMAN, Bhutan and AMAN2 for Aman resorts; OM-Ordinary Moments, CMYK-China, and Blazing Shadows-A World of Black & Light for Printer Trento in Italy. Basil’s travel essays and other assignments, including his Special Stills photography for Bernardo Bertolucci’s The Last Emperor and Little Buddha, Terry Jones’ Erik the Viking, Terry Gilliam’s The Man Who Killed Don Quixote and other feature films, have appeared in publications and exhibitions all around the world.            </div>
+Basil Pao began his photographic career in 1980 upon his return to Hong Kong after ten years in the United States, where he was art director for Atlantic Records and Album Graphics Inc. in New York, and Warner Brothers Records in Los Angeles. He first worked with Michael Palin when he designed the book, album cover and poster for the Monty Python film <em>Life of Brian</em>. They have since collaborated on 11 illustrated books based on the BBC travel series <em>Pole to Pole, Full Circle, Hemingway Adventure, Sahara, Himalaya, New Europe and Brazil</em>. He is the author of <em>Hands, China Revealed, Yi’Jing-Book of Changes, Shan Shui-Mountain-Water, The Universal Scream, OM2-Ordinary Moments+, Carnival of Dreams and The Last Emperor Revisited</em>. His exhibition catalogues include <em>Travels with Michael Palin</em> for his exhibitions at the Fox Talbot Museum and the Royal Geographical Society in London; and <em>Around the World in 8000 Days</em> at the Hong Kong Maritime Museum. His corporate limited editions include <em>A Tale of Two Ventures</em> for Wah Kwong Maritime Transport; <em>AMAN, Bhutan and AMAN2</em> for Aman resorts; <em>OM-Ordinary Moments, CMYK-China, and Blazing Shadows-A World of Black & Light</em> for Printer Trento in Italy. Basil’s travel essays and other assignments, including his Special Stills photography for Bernardo Bertolucci’s <em>The Last Emperor and Little Buddha</em>, Terry Jones’ <em>Erik the Viking</em>, Terry Gilliam’s <em>The Man Who Killed Don Quixote</em> and other feature films, have appeared in publications and exhibitions all around the world.            </div>
           </div>
         </div>
 </div>

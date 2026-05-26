@@ -72,7 +72,7 @@ export default function Yijing() {
               fontWeight: 400,
               fontStyle: 'normal'
             }}>
-              The Book of Changes is an ancient divination text that holds great significance in the history of Chinese philosophy. The term yi refers to the "ease" and "simplicity" of observing natural phenomena. Contrary to its common perception as a fortune-telling manual, this book represents an early effort to explain the Chinese view of humanity's place in the universe, which is defined by the interaction between the cosmos and the human self.
+              The <em>Book of Changes</em> is an ancient divination text that holds great significance in the history of Chinese philosophy. The term <em>yi</em> refers to the "ease" and "simplicity" of observing natural phenomena. Contrary to its common perception as a fortune-telling manual, this book represents an early effort to explain the Chinese view of humanity's place in the universe, which is defined by the interaction between the cosmos and the human self.
             </div>
           </div>
         </>
@@ -266,7 +266,7 @@ The divination system in the Book of Changes was formalised to observe the condi
               fontFamily: '"neue-haas-unica", sans-serif',
               fontWeight: '500'
             }}>
-            There is, in the Changes, <br/><span style={{marginLeft: '20px'}}></span>the Supreme Ultimate (taiji). <br/><br/>This generates the two primal forces.<br/><br/>The two primal forces  <br/><span style={{marginLeft: '20px'}}></span>generate the four images.<br/><br/>The four images <br/><span style={{marginLeft: '20px'}}></span>generate the eight trigrams. <br/><br/>The eight trigrams<br/><span style={{marginLeft: '20px'}}></span>determine good fortune and misfortune.<br/><br/>Good fortune and misfortune<br/><span style={{marginLeft: '20px'}}></span>create the great field of action.<br/><br/>
+            There is, in the <em>Changes</em>, <br/><span style={{marginLeft: '20px'}}></span>the Supreme Ultimate <em>(taiji)</em>. <br/><br/>This generates the two primal forces.<br/><br/>The two primal forces  <br/><span style={{marginLeft: '20px'}}></span>generate the four images.<br/><br/>The four images <br/><span style={{marginLeft: '20px'}}></span>generate the eight trigrams. <br/><br/>The eight trigrams<br/><span style={{marginLeft: '20px'}}></span>determine good fortune and misfortune.<br/><br/>Good fortune and misfortune<br/><span style={{marginLeft: '20px'}}></span>create the great field of action.<br/><br/>
               <span style={{  fontSize: '16px' ,              fontWeight: '300'}}>“Great Commentary”, Part I, Ch. 11</span>
             </div>
           </div>
@@ -504,8 +504,8 @@ The divination system in the Book of Changes was formalised to observe the condi
               fontFamily: '"neue-haas-unica", sans-serif',
               fontWeight: 200
             }}>
-              First set down as a book with divination statements for various hexagrams, the main body of the work was originally known as the Changes of Zhou attributed to King Wen of the Zhou (c.11th century BCE). The basic text was gradually expanded to include a number of philosophical commentaries (the "Ten Wings") that are believed to be the works by authors during the Warring States period (475–221 BCE).<br /><br />
-              The commentaries clarified the symbolism of the hexagrams and their constituent trigrams, explained the divinatory judgements and line readings, and invested them with meanings beyond their original significations. Confucian values and Daoist naturalism found their way into the text and, by the Han dynasty, around the 1st to 2nd century BCE, the book had become a Confucian classic, referred to as the Book of Changes.
+              First set down as a book with divination statements for various hexagrams, the main body of the work was originally known as the <em>Changes of Zhou</em> attributed to King Wen of the Zhou (c.11th century BCE). The basic text was gradually expanded to include a number of philosophical commentaries (the "Ten Wings") that are believed to be the works by authors during the Warring States period (475–221 BCE).<br /><br />
+              The commentaries clarified the symbolism of the hexagrams and their constituent trigrams, explained the divinatory judgements and line readings, and invested them with meanings beyond their original significations. Confucian values and Daoist naturalism found their way into the text and, by the Han dynasty, around the 1st to 2nd century BCE, the book had become a Confucian classic, referred to as the <em>Book of Changes</em>.
             </div>
           </div>
         </>
@@ -556,7 +556,7 @@ The divination system in the Book of Changes was formalised to observe the condi
               marginBottom: '10px',
               fontFamily: '"neue-haas-unica", sans-serif'
             }}>
-              One yin and one yang; that is the Dao.
+              One <em>yin</em> and one <em>yang</em>; that is the <em>Dao</em>.
             </div>
             <div style={{
               fontSize: '20px',
@@ -694,9 +694,9 @@ The divination system in the Book of Changes was formalised to observe the condi
               fontFamily: '"neue-haas-unica", sans-serif',
               fontWeight: '300'
             }}>
-              The Supreme Ultimate (taiji) as primal source is both the starting point and the ending point of all things. The power of creative initiation leads to the power of completion and fulfilment.<br/><br/>
-              The Yinyang as primal source is both the starting point and the Yinyang are the two aspects in the natural processes of cosmic change. They are represented by a broken line — — and a full line — respectively. All things and phenomena arise spontaneously from this dualism of forces and are interconnected and constantly changing.<br/><br/>
-              By combining yin and yang in four possible ways, there are the four images. By adding yin and yang separately to each of the four images, -there are the eight trigrams. By the same process of doubling, the eight trigrams, there are the sixty-four hexagrams.
+The Supreme Ultimate <em>(taiji)</em> as primal source is both the starting point and the ending point of all things. The power of creative initiation leads to the power of completion and fulfilment.<br/><br/>
+<em>Yin</em> and <em>yang</em> animate the natural processes of cosmic change. They are represented by a broken line – – and a full line — respectively. All things and phenomena arise spontaneously from this dualism of forces and are interconnected and constantly changing.<br/><br/>
+By combining <em>yin</em> and <em>yang</em> in four possible ways, there are the four images. By adding <em>yin<em> and </em>yang</em> separately to each of the four images, there are the eight trigrams. By the same process of doubling the eight trigrams, there are the sixty-four hexagrams.
             </div>
           </div>
         </>
@@ -760,8 +760,8 @@ The divination system in the Book of Changes was formalised to observe the condi
               fontFamily: '"neue-haas-unica", sans-serif',
               fontWeight: '300'
             }}>
-              The 64 hexagrams in the Book of Changes represent symbolically the images and the structure of change in the universe. The system of symbols has been used for divination.<br/><br/>
-              In the original Changes of Zhou, each of the 64 hexagrams is given an image, a name, a short prose description called a "judgement" and a reading for each line.<br/><br/>
+              The 64 hexagrams in the <em>Book of Changes</em> represent symbolically the images and the structure of change in the universe. The system of symbols has been used for divination.<br/><br/>
+              In the original <em>Changes of Zhou</em>, each of the 64 hexagrams is given an image, a name, a short prose description called a "judgement" and a reading for each line.<br/><br/>
               Each hexagram contains a pair of trigrams that have individual names and symbols associated with each of the eight trigrams. Each hexagram expresses a series of situations that can change from one into another.<br/><br/>
               Interpretation requires an understanding of the relationships between the trigrams and the lines within each hexagram and an understanding of the various relationships between different hexagrams.
             </div>
@@ -826,7 +826,7 @@ The divination system in the Book of Changes was formalised to observe the condi
               fontFamily: '"neue-haas-unica", sans-serif',
               fontWeight: '300'
             }}>
-              The Book of Changes stresses the unity and dynamic interaction between the three cosmic powers of Heaven, Earth, and Humanity—the way Humanity finds its place between Heaven and Earth. It further emphasises morality as the key to cosmic order and individual wellbeing.<br/><br/>
+              The <em>Book of Changes</em> stresses the unity and dynamic interaction between the three cosmic powers of Heaven, Earth, and Humanity—the way Humanity finds its place between Heaven and Earth. It further emphasises morality as the key to cosmic order and individual wellbeing.<br/><br/>
               The practice of divination offers the opportunity for humans to relate their situations to the natural phenomena of the hexagrams. The images and the lines guide human actions for self-realisation in each divine situation. They provide a moral relevance to the judgements of fortune and misfortune.<br/><br/>
               In this way, the counsels for actions enable human participation in the totality of cosmic change for harmony and unity. This way of thinking underlines the importance of human agency in the art of knowing and mastering the future.
             </div>
