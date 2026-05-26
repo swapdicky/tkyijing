@@ -117,19 +117,7 @@ export default function Header({ isPanelOpen = false, hideOverlay = false, onMen
 
           {/* Footer */}
           <div className="">
-            {/* Logos */}
-            <div className="flex justify-between items-start mb-6 px-6">
-              <img 
-                src="/images/TK-logo.svg" 
-                alt="Tai Kwun" 
-                style={{ height: '60px', width: 'auto' }}
-              />
-              <img 
-                src="/images/HKJC-logo.svg" 
-                alt="HKJC" 
-                style={{ height: '60px', width: 'auto' }}
-              />
-            </div>
+
 
             {/* Footer links and copyright */}
               <div className="flex justify-between items-center px-6" style={{ height: '60px', borderTop: '1px solid #888', borderBottom: '1px solid #888' }}>
@@ -160,6 +148,19 @@ export default function Header({ isPanelOpen = false, hideOverlay = false, onMen
               <div>© 2026 The Jockey Club CPS Limited All rights reserved.</div>
               <div>Site by Toby Ng Design</div>
             </div>
+            {/* Logos */}
+            <div className="flex justify-between items-start mb-6 px-6" style={{ borderTop: '1px solid #888', paddingTop: '20px'}}>
+              <img 
+                src="/images/TK-logo.svg" 
+                alt="Tai Kwun" 
+                style={{ height: '60px', width: 'auto' }}
+              />
+              <img 
+                src="/images/HKJC-logo.svg" 
+                alt="HKJC" 
+                style={{ height: '60px', width: 'auto' }}
+              />
+            </div>            
           </div>
         </div>
       </div>

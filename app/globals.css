@@ -36,3 +36,60 @@ body {
     text-wrap: balance;
   }
 }
+
+/* Screen size warning overlay */
+.screen-size-warning {
+  display: none;
+}
+
+@media (max-width: 1280px), (max-height: 720px) {
+  .screen-size-warning {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.95);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+  .screen-size-warning-box {
+    border: 1px solid #888;
+    padding: 0;
+    text-align: left;
+    width: 645px;
+    text-align: center;
+  }
+  
+  .screen-size-warning-title {
+    font-size: 14px;
+    color: #888;
+    padding: 15px 30px;
+    border-bottom: 1px solid #888;
+    font-weight: 400;
+    text-align: left;
+  }
+  
+  .screen-size-warning-content {
+    padding: 60px 30px;
+    font-size: 20px;
+    color: #fff;
+    line-height: 1.6;
+  }
+  
+  .screen-size-warning-content-cn {
+    margin-bottom: 5px;
+    font-weight: 400;
+        font-size: 20px;
+
+  }
+  
+  .screen-size-warning-content-en {
+    font-family: "neue-haas-unica", sans-serif;
+    font-weight: 300;
+  }
+}

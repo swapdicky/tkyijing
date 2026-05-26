@@ -753,9 +753,9 @@ export default function Home() {
         <div 
           className="fixed bottom-5 left-1/2 -translate-x-1/2 flex items-center z-20"
           style={{
-            opacity: isPanelOpen ? 0 : (hideOverlay ? 1 : 0),
-            pointerEvents: isPanelOpen || !hideOverlay ? 'none' : 'auto',
-            transition: isPanelOpen ? 'opacity 0s' : (hideOverlay ? 'opacity 0.5s ease-out 1s' : 'opacity 0.5s ease-out'),
+            opacity: isPanelOpen || isMenuOpen ? 0 : (hideOverlay ? 1 : 0),
+            pointerEvents: isPanelOpen || isMenuOpen || !hideOverlay ? 'none' : 'auto',
+            transition: isPanelOpen || isMenuOpen ? 'opacity 0s' : (hideOverlay ? 'opacity 0.5s ease-out 1s' : 'opacity 0.5s ease-out'),
             backgroundColor: 'rgba(0, 0, 0, 0.6)',
             height: '50px'
           }}
