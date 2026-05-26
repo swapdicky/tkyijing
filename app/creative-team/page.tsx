@@ -130,7 +130,7 @@ export default function CreativeTeam() {
               </p>
             </div>
             <div style={{
-              fontSize: '14px',
+              fontSize: '16px',
               lineHeight: '1.4',
               fontWeight: 300,
               color: '#fff',
@@ -147,7 +147,7 @@ export default function CreativeTeam() {
             </div>
 
             <div style={{
-              fontSize: '16px',
+              fontSize: '14px',
               lineHeight: '1.4',
               fontWeight: 300,
               color: '#888',
@@ -574,10 +574,9 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-            justifyContent: 'center',
             padding: '60px 30px',
             backgroundColor: '#000',
-            borderBottom: '1px solid #888',
+            minHeight : 'calc(100vh - 270px)'
           }}>
             {/* Row 1: Exhibition Design */}
             <div style={{

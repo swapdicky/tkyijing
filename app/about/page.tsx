@@ -103,12 +103,14 @@ export default function About() {
             flex: 1
           }}
         >
-                    
-          <div style={{ 
-            flex: 1,
+               <div style={{
+                            flex: 1,
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'flex-end',
+               }}>    
+          <div style={{ 
+
             paddingLeft: '80px',
             paddingBottom: '40px',
             paddingRight: '30px',
@@ -138,16 +140,13 @@ export default function About() {
 
 
           <div style={{ 
-            flex: 1,
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'flex-end',
+
             paddingLeft: '80px',
             paddingBottom: '60px',
             paddingRight: '30px'
           }}>
             <div style={{
-              fontSize: '14px',
+              fontSize: '16px',
               lineHeight: '1.4',
               fontWeight: 300,
               color: '#fff',
@@ -168,6 +167,7 @@ We hope the immersive experiences of this show will allow abstract ideas to take
               </p>
             </div>
           </div>
+          </div> 
         </div>
       </div> 
 
@@ -213,11 +213,10 @@ We hope the immersive experiences of this show will allow abstract ideas to take
           
           {/* Video preview block */}
           <div style={{
-            height: 'calc(100vh - 270px)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            padding: '0 40px',
+            padding: '80px 40px',
             backgroundColor: '#000',
                         borderBottom: '1px solid #888',
 
@@ -461,46 +460,57 @@ We hope the immersive experiences of this show will allow abstract ideas to take
               display: 'flex',
               alignItems: 'center',
               textAlign: 'left',
-              borderBottom: '1px solid #888',
-              borderTop: '1px solid #888'
+              borderBottom: '1px solid #888'
 
             }}>
               <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1.2, fontFamily:'neue-haas-unica, sans-serif', fontWeight: 300, color: '#fff' }}>Artist Bio</h1>
             </div>
           </div>
-
-
-          {/* Artist Bio Content */}
           <div style={{
-            padding: '60px 30px 40px 80px',
-            backgroundColor: '#000'
+            minHeight: 'calc(100vh - 90px)',
+            flex: 1,
+            display: 'flex',
+            flexDirection: 'column',
+                        justifyContent: 'flex-end',            
+          }}>
+          {/* Artist Bio Content - Chinese */}
+          <div style={{ 
+
+
+            paddingLeft: '80px',
+            paddingBottom: '40px',
+            paddingRight: '30px',
+            paddingTop: '60px'
           }}>
             <div style={{
               fontSize: '16px',
               lineHeight: '1.8',
               color: '#fff',
-              fontWeight: 300
+              fontWeight: 300,
+              textAlign: 'left'
             }}>
               鮑皓昕自1980年從美國回流返港，開展其攝影生涯。旅美十年期間，他曾為紐約的大西洋唱片公司及唱片封套設計公司、洛杉磯的華納兄弟唱片公司擔任美術總監。他為電影《踎低噴飯：萬世魔星》設計書籍、唱片封套及海報時，首次與米高沛林合作。自此，兩人攜手製作了11本以英國廣播公司BBC旅遊特輯為藍本的圖冊，包括《兩極之旅》、《環太平洋之旅》、《海明威歷險記》、《撒哈拉》、《喜馬拉雅》、《新歐洲》，以及《巴西》等。鮑氏本人的著作包括《手》、《中國探秘》、《易經—中國牆城》、《山水》、《環球吶喊》、《平凡時刻》、《夢之旅》，以及《末代皇帝．幕後剪影》。鮑氏為其於倫敦的福克斯·塔爾博特博物館及皇家地理學會的展覽出版了圖錄《與米高沛林同遊世界》，以及香港海事博物館的展覽圖錄《八千日環遊世界》。他還為公司企業製作的限量版書籍，包括華光海運的《雙船記》，安縵度假酒店的《安縵》、《不丹》及《安縵2》，意大利書籍印刷商特蘭提諾的《平凡時刻》、《四原色—中國》及《耀眼的陰影—黑白光影之國度》。鮑氏的旅行遊記及其他攝影作品曾在世界各大出版物及展覽中亮相，包括為貝托魯奇的電影《末代皇帝溥儀》及《小活佛》、泰利鍾斯的《海盗埃里克》、泰利基咸的《殺了堂吉訶德的男人》等拍攝的特別劇照。
             </div>
           </div>
 
-          {/* Artist Bio Content */}
-          <div style={{
-            padding: '0 30px 60px 80px',
-            backgroundColor: '#000'
+          {/* Artist Bio Content - English */}
+          <div style={{ 
+            paddingLeft: '80px',
+            paddingBottom: '60px',
+            paddingRight: '30px'
           }}>
             <div style={{
-              fontSize: '14px',
+              fontSize: '16px',
               lineHeight: '1.4',
               color: '#fff',
               fontFamily:'neue-haas-unica, sans-serif', 
-              fontWeight: 300 
+              fontWeight: 300,
+              textAlign: 'left'
             }}>
 Basil Pao began his photographic career in 1980 upon his return to Hong Kong after ten years in the United States, where he was art director for Atlantic Records and Album Graphics Inc. in New York, and Warner Brothers Records in Los Angeles. He first worked with Michael Palin when he designed the book, album cover and poster for the Monty Python film Life of Brian. They have since collaborated on 11 illustrated books based on the BBC travel series Pole to Pole, Full Circle, Hemingway Adventure, Sahara, Himalaya, New Europe and Brazil. He is the author of Hands, China Revealed, Yi’Jing-Book of Changes, Shan Shui-Mountain-Water, The Universal Scream, OM2-Ordinary Moments+, Carnival of Dreams and The Last Emperor Revisited. His exhibition catalogues include Travels with Michael Palin for his exhibitions at the Fox Talbot Museum and the Royal Geographical Society in London; and Around the World in 8000 Days at the Hong Kong Maritime Museum. His corporate limited editions include A Tale of Two Ventures for Wah Kwong Maritime Transport; AMAN, Bhutan and AMAN2 for Aman resorts; OM-Ordinary Moments, CMYK-China, and Blazing Shadows-A World of Black & Light for Printer Trento in Italy. Basil’s travel essays and other assignments, including his Special Stills photography for Bernardo Bertolucci’s The Last Emperor and Little Buddha, Terry Jones’ Erik the Viking, Terry Gilliam’s The Man Who Killed Don Quixote and other feature films, have appeared in publications and exhibitions all around the world.            </div>
           </div>
         </div>
-
+</div>
 
       </div>
 

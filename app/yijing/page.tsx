@@ -25,7 +25,7 @@ export default function Yijing() {
               writingMode: 'vertical-rl',
               textOrientation: 'upright',
               fontSize: '40px',
-              fontWeight: 'bold',
+              fontWeight: '500',
               letterSpacing: '0.2em',
               color: '#000',
               margin: 0
@@ -43,7 +43,7 @@ export default function Yijing() {
               letterSpacing: '0.1em',
               color: '#000'
             }}>
-              ︽易經︾是一本古代卜辭書，在中國<br />哲學歷史中具有重要地位。﹁易﹂<br />是變化的意思，︽易經︾呈現一個恆常<br />變動的世界。它代表了古人嘗試闡釋<br />人類在宇宙中定位的看法，強調<br />天人之間的互動與合一。作為傳統卜卦<br />文獻和哲學論述，︽易經︾在中國人<br />生活方方面面留下不可磨滅的影響。
+              <span style={{marginTop:'-8px'}}></span>︽易經︾是一本古代卜辭書，在中國<br />哲學歷史中具有重要地位。﹁易﹂<br />是變化的意思，︽易經︾呈現一個恆常<br />變動的世界。它代表了古人嘗試闡釋<br />人類在宇宙中定位的看法，強調<br />天人之間的互動與合一。作為傳統卜卦<br />文獻和哲學論述，︽易經︾在中國人<br />生活方方面面留下不可磨滅的影響。
             </div>
           </div>
 
@@ -236,7 +236,7 @@ The divination system in the Book of Changes was formalised to observe the condi
               color: '#000',
               fontWeight: '400'
             }}>
-              ︽易︾有太極，是生兩儀，<br/>兩儀生四象，四象生八卦。<br/>八卦定吉凶，吉凶生大業。
+              <span style={{marginTop: "-12px"}}></span>︽易︾有太極，是生兩儀，<br/>兩儀生四象，四象生八卦。<br/>八卦定吉凶，吉凶生大業。
             </div>
             <div style={{
               writingMode: 'vertical-rl',
@@ -245,7 +245,7 @@ The divination system in the Book of Changes was formalised to observe the condi
               lineHeight: '1.2',
               letterSpacing: '0.1em',
               color: '#666',
-              fontWeight: '300'
+              fontWeight: '400'
             }}>
               ︽繫辭︾上傳，第十一章
             </div>
@@ -308,7 +308,7 @@ The divination system in the Book of Changes was formalised to observe the condi
               lineHeight: '1.2',
               letterSpacing: '0.1em',
               color: '#666',
-              fontWeight: '300'
+              fontWeight: '400'
             }}>
               ︽繫辭︾上傳，第九章
             </div>
@@ -422,7 +422,7 @@ The divination system in the Book of Changes was formalised to observe the condi
               color: '#000',
               fontWeight: '300'
             }}>
-              <span style={{marginTop :"-6px"}}></span>︽易經︾被中國歷代思想家不斷詮釋和修訂，<br/>並發展了對其註釋傳統的專門研究和派別。一些<br/>思想家著重卜卦的﹁象數﹂；另一些深入考究<br/>經典的﹁義理﹂。此書的影響貫穿整個中國文化史，<br/>持續發揮影響至今。<br/><br/><span style={{marginTop :"-6px"}}></span>︽易經︾在國際世界亦備受尊崇。分別出自馬克萊奇<br/><span style={{marginTop :"-6px"}}></span>︵Thomas McClatchie，1814–1885年︶、理雅各<br/><span style={{marginTop :"-6px"}}></span>︵James Legge，1815–1897年︶、尉禮賢<br/><span style={{marginTop :"-6px"}}></span>︵Richard Wilhelm，1873–1930年︶之手的譯本，將此中國<br/>經典傳播至世界。心理學家卡爾‧榮格︵Carl Jung，<br/>1875–1961年︶將此古籍與他提出的﹁共時性﹂概念結合。<br/>先鋒派作曲家約翰‧基治︵John Cage，1912–1992年︶根據<br/>︽易經︾的處境次序決定音樂創作的隨機性。<br/>艾斯班‧艾瑟特︵Espen Aarseth，1965年生︶在進行數碼<br/>文學研究時，將︽易經︾視為﹁可能是古代最著名的<br/>制動文本範例﹂。
+              <span style={{marginTop :"-6px"}}></span>︽易經︾被中國歷代思想家不斷詮釋和修訂，<br/>並發展了對其註釋傳統的專門研究和派別。一些<br/>思想家著重卜卦的﹁象數﹂；另一些深入考究<br/>經典的﹁義理﹂。此書的影響貫穿整個中國文化史，<br/>持續發揮影響至今。<br/><br/><span style={{marginTop :"-6px"}}></span>︽易經︾在國際世界亦備受尊崇。分別出自馬克萊奇<br/><span style={{marginTop :"-6px"}}></span>︵Thomas McClatchie，1814–1885年︶、理雅各<br/><span style={{marginTop :"-6px"}}></span>︵James Legge，1815–1897年︶、尉禮賢<br/><span style={{marginTop :"-6px"}}></span>︵Richard Wilhelm，1873–1930年︶之手的譯本，將此中國<br/>經典傳播至世界。心理學家卡爾‧榮格︵Carl Jung，<br/>1875–1961年︶將此古籍與他提出的﹁共時性﹂概念結合。<br/>先鋒派作曲家約翰‧基治︵John Cage，1912–1992年︶根據<br/><span style={{marginTop :"-6px"}}></span>︽易經︾的處境次序決定音樂創作的隨機性。<br/>艾斯班‧艾瑟特︵Espen Aarseth，1965年生︶在進行數碼<br/>文學研究時，將︽易經︾視為﹁可能是古代最著名的<br/>制動文本範例﹂。
             </div>
           </div>
 
@@ -529,7 +529,8 @@ The divination system in the Book of Changes was formalised to observe the condi
               fontSize: '20px',
               letterSpacing: '0.2em',
               color: '#FFF',
-              lineHeight: '1.8'
+              lineHeight: '1.8',
+              fontWeight: '400'
             }}>
               ﹁繫辭﹂上傳第五章
             </div>
@@ -550,7 +551,7 @@ The divination system in the Book of Changes was formalised to observe the condi
           }}>
             <div style={{
               fontSize: '24px',
-              fontWeight: 'bold',
+              fontWeight: '500',
               color: '#FFF',
               marginBottom: '10px',
               fontFamily: '"neue-haas-unica", sans-serif'
@@ -959,7 +960,8 @@ The Yellow River Chart has been traditionally attributed to the legendary empero
               color: '#FFF',
               fontWeight: '300'
             }}>
-              ﹁洛書﹂相傳是一隻從<br/>洛河出現的神龜背上的圖。<br/>此圖為三階幻方，無論<br/>縱、橫、斜向任意行列，<br/>字之和數皆為十五。這是<br/>已知世上最早的幻方。
+              
+              <span style={{marginTop: "-18px"}}>  </span>﹁洛書﹂相傳是一隻從<br/>洛河出現的神龜背上的圖。<br/>此圖為三階幻方，無論<br/>縱、橫、斜向任意行列，<br/>字之和數皆為十五。這是<br/>已知世上最早的幻方。
             </div>
           </div>
 
@@ -1179,25 +1181,55 @@ The Writing from the Luo River is attributed to a mythical turtle with a diagram
           alignItems: 'center',
           justifyContent: 'flex-end',
           flexDirection: 'column',
-          paddingBottom: '55px',
-          cursor: 'pointer'
-        }}
-        onClick={() => {
-          if (currentSlide < 9) {
-            setCurrentSlide(currentSlide + 1);
-          }
+          paddingBottom: '55px'
         }}
       >
+        {/* Navigation dots */}
+        <div style={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '10px',
+          marginBottom: '30px'
+        }}>
+          {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((index) => (
+            <div
+              key={index}
+              onClick={() => setCurrentSlide(index)}
+              style={{
+                width: '8px',
+                height: '8px',
+                backgroundColor: currentSlide === index ? '#FFF' : 'transparent',
+                border: currentSlide === index ? 'none' : '1px solid #FFF',
+                cursor: 'pointer',
+                transition: 'background-color 0.3s ease, border 0.3s ease'
+              }}
+            />
+          ))}
+        </div>
+
+        {/* Next/Back button */}
         <div
           style={{
             writingMode: 'vertical-rl',
             textOrientation: 'mixed',
             fontSize: '14px',
             letterSpacing: '0.1em',
-            color: '#FFF'
+            color: '#FFF',
+            cursor: 'pointer'
+          }}
+          onClick={() => {
+            if (currentSlide < 9) {
+              setCurrentSlide(currentSlide + 1);
+            } else {
+              setCurrentSlide(0);
+            }
           }}
         >
-          下一章 <span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>NEXT</span>
+          {currentSlide === 9 ? (
+            <>第一章 <span style={{ fontFamily: '"neue-haas-unica", sans-serif', fontWeight: '300', marginLeft: '-5px' }}>Back</span></>
+          ) : (
+            <>下一章 <span style={{ fontFamily: '"neue-haas-unica", sans-serif', fontWeight: '300', marginLeft: '-5px' }}>Next</span></>
+          )}
         </div>
       </div>
     </div>

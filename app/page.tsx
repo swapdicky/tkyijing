@@ -62,6 +62,7 @@ export default function Home() {
   const [hideOverlay, setHideOverlay] = useState(false); // Hide overlay after box slides off
   const scrollLockRef = useRef(false);
   const [previousZoom, setPreviousZoom] = useState<150 | 100 | 50>(150); // Remember zoom before opening panel
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // Track menu state
 
   // Custom order for 8x8 grid
   const gridOrder = [
@@ -150,7 +151,7 @@ export default function Home() {
         gsap.to(moduleRef.current, {
           x: `${moveX}vw`,
           y: `${moveY}vw`,
-          duration: 4,
+          duration: 6,
           ease: "power1.out",
           overwrite: "auto",
         });
@@ -383,21 +384,19 @@ export default function Home() {
             flexDirection: 'row-reverse',
             justifyContent: 'flex-start',
             alignItems: 'flex-start',
-            alignSelf: 'flex-end',
-            transform: scrollProgress === 0 ? 'scale(0.7)' : 'scale(1)',
-            transformOrigin: 'top right',
-            transition: 'transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)'
+            alignSelf: 'flex-end'
           }}>
             {/* Chinese Title Line 1 - 易經 */}
             <div style={{ 
               writingMode: 'vertical-rl',
               textOrientation: 'upright',
-              fontSize: '28px',
+              fontSize: scrollProgress === 0 ? '24px' : '28px',
               lineHeight: '1',
               fontWeight: '400',
               letterSpacing: '0.2em',
               color: '#000',
-              margin: 0
+              margin: 0,
+              transition: 'font-size 0.8s cubic-bezier(0.4, 0, 0.2, 1)'
             }}>
               易經
             </div>
@@ -406,12 +405,13 @@ export default function Home() {
             <div style={{ 
               writingMode: 'vertical-rl',
               textOrientation: 'upright',
-              fontSize: '28px',
+              fontSize: scrollProgress === 0 ? '24px' : '28px',
               lineHeight: '1.25',
               fontWeight: '300',
               letterSpacing: '0.2em',
               color: '#000',
-              marginLeft: '20px'
+              marginLeft: '20px',
+              transition: 'font-size 0.8s cubic-bezier(0.4, 0, 0.2, 1)'
             }}>
               鮑皓昕攝影藝術
             </div>
@@ -420,11 +420,12 @@ export default function Home() {
             <div style={{ 
               writingMode: 'vertical-rl',
               textOrientation: 'upright',
-              fontSize: '18px',
+              fontSize: scrollProgress === 0 ? '18px' : '22px',
               lineHeight: '1.4',
               fontWeight: '300',
               letterSpacing: '0.1em',
-              color: '#000'
+              color: '#000',
+              transition: 'font-size 0.8s cubic-bezier(0.4, 0, 0.2, 1)'
             }}>
               展覽透過香港攝影藝術家鮑皓昕的<br/>
               藝術詮釋，凸顯︽易經︾無盡的關聯性<br/>
@@ -437,35 +438,35 @@ export default function Home() {
 
           {/* English section - aligned to bottom */}
           <div style={{
-            transform: scrollProgress === 0 ? 'scale(0.7)' : 'scale(1)',
-            transformOrigin: 'bottom left',
-            transition: 'transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)',
-            width: scrollProgress === 0 ? '680px' : '43vw',
+            width: scrollProgress === 0 ? '100%' : '43vw',
             position: 'relative',
-            bottom: '0'
+            bottom: '0',
+            transition: 'width 0.8s cubic-bezier(0.4, 0, 0.2, 1)'
           }}>
             {/* English Title */}
             <div style={{ 
-              fontSize: '24px',
+              fontSize: scrollProgress === 0 ? '17px' : '24px',
               marginBottom: '10px',
               lineHeight: '1.2',
               color: '#000',
               fontFamily: '"neue-haas-unica", sans-serif',
               fontStyle: 'normal',
-              fontWeight: '400' 
+              fontWeight: '400',
+              transition: 'font-size 0.8s cubic-bezier(0.4, 0, 0.2, 1)'
             }}>
               <span style={{ fontWeight: 'bold' }}>Book of Changes:</span> The Art of Basil Pao
             </div>
 
             {/* English Content */}
             <div style={{ 
-              fontSize: '20px',
+              fontSize: scrollProgress === 0 ? '14px' : '20px',
               lineHeight: '1.2',
               color: '#000',
               textAlign: 'left',
               fontFamily: '"neue-haas-unica", sans-serif',
               fontWeight: '400',
-              fontStyle: 'normal'
+              fontStyle: 'normal',
+              transition: 'font-size 0.8s cubic-bezier(0.4, 0, 0.2, 1)'
             }}>
               The exhibition highlights the continued relevance of the Book of Changes through the artistic interpretation of Hong Kong photo artist Basil Pao. It invites contemplation on the interaction and unity of Heaven, Earth, and Humanity—an ancient Chinese philosophical concept presented in the classic.
             </div>
@@ -476,16 +477,15 @@ export default function Home() {
       {/* Landing footer */}
       <div style={{
         position: 'fixed',
-        bottom: '0',
+        bottom: isLanding ? '0' : '-150px',
         left: 0,
         width: '100%',
         padding: '25px',
-        backgroundColor: 'transparent',
+        backgroundColor: 'rgba(0, 0, 0, 1)',
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        opacity: isLanding ? 1 : 0,
-        transition: 'opacity 0.5s ease-out',
+        transition: 'bottom 0.5s ease-out',
         pointerEvents: isLanding ? 'auto' : 'none',
         zIndex: 10
       }}>
@@ -501,12 +501,12 @@ export default function Home() {
         />
       </div>
 
-      <Header isPanelOpen={isPanelOpen} hideOverlay={hideOverlay} />
+      <Header isPanelOpen={isPanelOpen} hideOverlay={hideOverlay} onMenuChange={setIsMenuOpen} />
       
       <div className={`w-full ${mode === "overview" ? (zoom === 50 ? "min-h-screen" : "min-h-[200vh]") : "h-screen overflow-hidden"} relative`}>
         <div 
           ref={moduleRef}
-          className="grid grid-cols-8 gap-0 absolute top-1/2 left-1/2 w-[176vw]"
+          className="grid grid-cols-8 gap-0 absolute top-1/2 left-1/2 w-[160vw]"
           style={{ 
             willChange: "transform",
             transformStyle: "preserve-3d"
@@ -518,7 +518,7 @@ export default function Home() {
             <div
               key={index}
               ref={(el) => { gridItemsRef.current[index] = el; }}
-              className={`w-[22vw] h-[22vw] flex-shrink-0 relative group cursor-pointer ${
+              className={`w-[20vw] h-[20vw] flex-shrink-0 relative group cursor-pointer ${
                 selectedBox === boxNumber ? 'active' : ''
               } ${archivedBoxes.has(boxNumber) && selectedBox !== boxNumber ? 'archive-active' : ''}`}
               style={{ 
@@ -528,6 +528,9 @@ export default function Home() {
                 backgroundColor: 'transparent'
               }}
               onClick={(e) => {
+                // Disable click when menu is open
+                if (isMenuOpen) return;
+                
                 setSelectedBox(boxNumber);
                 setIsPanelOpen(true);
                 setIsMousePaused(true);
@@ -563,14 +566,18 @@ export default function Home() {
                   const targetScale = 1; // 150%
                   const vwToPx = window.innerWidth / 100;
                   const vhToPx = window.innerHeight / 100;
-                  const boxSizeVw = 22;
+                  const boxSizeVw = 20;
                   
-                  // Simple calculation: just move to center the clicked box at scale 1
-                  // Grid uses vw for sizing, but viewport is 100vh tall
+                  // Calculate position to center the clicked box in the left space
                   const boxCenterXVw = (col - 3.5) * boxSizeVw;
                   const boxCenterYVw = (row - 3.5) * boxSizeVw;
                   
-                  const finalX = -boxCenterXVw * vwToPx - 425;
+                  // Brown box width: 100vh * 349 / 1024, positioned at 50%
+                  // Left space = 50vw - (brown box width / 2)
+                  const brownBoxWidth = window.innerHeight * 349 / 1024;
+                  const leftSpaceWidth = (50 * vwToPx) - (brownBoxWidth / 2);
+                  const leftSpaceOffset = -(50 * vwToPx) + (leftSpaceWidth / 2);
+                  const finalX = -boxCenterXVw * vwToPx + leftSpaceOffset;
                   // Y uses vw units but needs to center in vh viewport
                   const finalY = -boxCenterYVw * vwToPx;
                   
@@ -594,24 +601,24 @@ export default function Home() {
                   backgroundPosition: 'center',
                   backgroundRepeat: 'no-repeat',
                   backgroundSize: '50%',
-                  opacity: selectedBox === boxNumber ? 1 : archivedBoxes.has(boxNumber) ? 0.7 : 0.4,
+                  opacity: selectedBox === boxNumber ? 1 : archivedBoxes.has(boxNumber) ? 1 : 0.4,
                   filter: 'invert(1) brightness(2)',
                 }}
                 onMouseEnter={(e) => {
-                  if (selectedBox !== boxNumber) {
+                  if (selectedBox !== boxNumber && !archivedBoxes.has(boxNumber)) {
                     e.currentTarget.style.opacity = '1';
                   }
                 }}
                 onMouseLeave={(e) => {
-                  if (selectedBox !== boxNumber) {
-                    const opacity = archivedBoxes.has(boxNumber) ? '0.7' : '0.4';
-                    e.currentTarget.style.opacity = opacity;
+                  if (selectedBox !== boxNumber && !archivedBoxes.has(boxNumber)) {
+                    e.currentTarget.style.opacity = '0.4';
                   }
                 }}
               />
               <span 
-                className="absolute top-2 left-2 text-[24px] neue-haas-unica" 
+                className="absolute top-2 left-2 neue-haas-unica font-light" 
                 style={{ 
+                  fontSize: zoom === 50 ? '32px' : '24px',
                   color: mode === 'overview' && !isPanelOpen ? '#888888' : '#000000'
                 }}
               >
@@ -661,9 +668,8 @@ export default function Home() {
                 setZoom(previousZoom);
                 setMode(previousZoom === 150 ? "explore" : "overview");
               }}
-              className="fixed top-[20px] right-[20px] w-[50px] h-[50px] z-[70] flex items-center justify-center text-black bg-white transition-colors"
+              className="fixed top-[20px] right-[20px] w-[50px] h-[50px] z-[70] flex items-center justify-center text-black transition-colors"
               style={{ 
-                border: '1px solid #000',
                 fontSize: '32px',
                 lineHeight: '1'
               }}
@@ -745,36 +751,37 @@ export default function Home() {
         </div>
 
         <div 
-          className="fixed bottom-5 left-1/2 -translate-x-1/2 flex items-center justify-center gap-6 z-20"
+          className="fixed bottom-5 left-1/2 -translate-x-1/2 flex items-center z-20"
           style={{
             opacity: isPanelOpen ? 0 : (hideOverlay ? 1 : 0),
             pointerEvents: isPanelOpen || !hideOverlay ? 'none' : 'auto',
             transition: isPanelOpen ? 'opacity 0s' : (hideOverlay ? 'opacity 0.5s ease-out 1s' : 'opacity 0.5s ease-out'),
             backgroundColor: 'rgba(0, 0, 0, 0.6)',
-            padding: '0 24px'
+            height: '50px'
           }}
         >
-          {/* Grid icon */}
-          <img 
-            src={mode === "explore" ? "/images/icon-view1.svg" : "/images/icon-view2.svg"} 
-            alt="View mode"
-            style={{ width: '24px', height: '24px', display: 'block' }}
-          />
+          {/* Left section - Explore/Overview (175px) */}
+          <div className="flex items-center" style={{ width: '175px', paddingLeft: '20px', position: 'relative' }}>
+            <img 
+              src={mode === "explore" ? "/images/icon-view1.svg" : "/images/icon-view2.svg"} 
+              alt="View mode"
+              style={{ width: '24px', height: '24px', display: 'block' }}
+            />
+            <button
+              onClick={toggleMode}
+              className="text-[18px] neue-haas-unica flex items-center justify-center"
+              style={{ color: '#FFFFFF', fontWeight: '400', transform: 'translateY(1px)', position: 'absolute', left: '0', right: '0', textAlign: 'center',
+                paddingLeft: '45px' }}
+            >
+              {mode === "explore" ? "Explore" : "Overview"}
+            </button>
+          </div>
 
-          {/* Explore/Overview button */}
-          <button
-            onClick={toggleMode}
-            className="text-[18px] neue-haas-unica flex items-center"
-            style={{ color: '#FFFFFF', fontWeight: '400', transform: 'translateY(1px)', padding: '12px 0' }}
-          >
-            {mode === "explore" ? "Explore" : "Overview"}
-          </button>
+          {/* Center separator */}
+          <div style={{ width: '2px', height: '50px', backgroundColor: '#888888' }}></div>
 
-          {/* Border separator */}
-          <div style={{ width: '1px', alignSelf: 'stretch', backgroundColor: '#888888' }}></div>
-
-          {/* Zoom controls */}
-          <div className="flex items-center justify-center gap-3 neue-haas-unica text-[18px] font-normal" style={{ color: '#FFFFFF' }}>
+          {/* Right section - Zoom controls (175px) */}
+          <div className="flex items-center justify-center gap-3 neue-haas-unica text-[18px] font-normal" style={{ width: '175px', color: '#FFFFFF' }}>
             <button
               onClick={() => {
                 if (zoom === 50) setZoom(100);

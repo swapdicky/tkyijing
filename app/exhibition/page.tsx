@@ -9,6 +9,7 @@ export default function Exhibition() {
   const sectionsRef = useRef<HTMLDivElement>(null);
   const [scrollX, setScrollX] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [shouldOpenMenu, setShouldOpenMenu] = useState(false);
   const sectionBreakRefs = useRef<(HTMLDivElement | null)[]>([]);
   const innerSectionRefs = useRef<(HTMLDivElement | null)[]>([]);
   const imageParallaxRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -103,7 +104,7 @@ export default function Exhibition() {
     const updateInnerSectionScale = () => {
       const viewportCenter = window.innerWidth / 2;
       const viewportWidth = window.innerWidth;
-      const baseHeight = window.innerHeight - 150;
+      const baseHeight = window.innerHeight - 140;
       const targetHeight = window.innerHeight;
       const scaleZone = 1200;
       
@@ -136,12 +137,10 @@ export default function Exhibition() {
         const currentHeight = baseHeight + (targetHeight - baseHeight) * easedScale;
         innerEl.style.height = `${currentHeight}px`;
         
-        // Adjust margin to compensate for padding
+        // Adjust margin to shift images up slightly
         const heightIncrease = currentHeight - baseHeight;
-        const marginTop = heightIncrease * 0.6;
-        const marginBottom = heightIncrease * 0.4;
+        const marginTop = heightIncrease * 0.15;
         innerEl.style.marginTop = `-${marginTop}px`;
-        innerEl.style.marginBottom = `-${marginBottom}px`;
       });
     };
 
@@ -178,6 +177,16 @@ export default function Exhibition() {
       gsap.set(sections, { x: currentX });
       setScrollX(currentX);
       
+      // Check if scrolled to the end (within 50px threshold)
+      const totalWidth = sections.scrollWidth;
+      const viewportWidth = window.innerWidth;
+      const maxScroll = totalWidth - viewportWidth;
+      if (Math.abs(currentX + maxScroll) < 50) {
+        setShouldOpenMenu(true);
+      } else {
+        setShouldOpenMenu(false);
+      }
+      
       // Update parallax effect every 3 frames for better performance
       frameCount++;
       if (frameCount % 3 === 0) {
@@ -211,7 +220,7 @@ export default function Exhibition() {
       className={`bg-black overflow-hidden transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`} 
       style={{ height: '100vh' }}
     >
-      <Header />
+      <Header forceOpenMenu={shouldOpenMenu} />
       
       <div ref={containerRef} className="h-screen overflow-hidden" style={{ 
         position: 'fixed',
@@ -226,7 +235,7 @@ export default function Exhibition() {
           style={{ width: "auto" }}
         >
           {/* Landing */}
-          <div className="h-screen  relative" style={{ minWidth: "50vw", zIndex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', padding: '120px 40px 60px' }}>
+          <div className="h-screen  relative" style={{ minWidth: "50vw", zIndex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', padding: '80px 40px 60px' }}>
       <div
         style={{
           position: 'absolute',
@@ -277,7 +286,7 @@ export default function Exhibition() {
                 letterSpacing: '0.1em',
                 color: '#FFF'
               }}>
-                 <span style={{marginTop: "-7px"}}></span>︽易經︾無疑是中國文化遺產之精髓。<br/>儒家與道家思想同樣根植於此<br/>在中国人古代哲学、科学、国家治术，<br/>甚至當代生活也從中獲得靈感。<br/>甚至卜卦文獻和哲學論述，︽易經︾<br/>在中國人生活方方面面留下不可<br/>磨滅的影響。
+                 <span style={{marginTop: "-8px"}}></span>︽易經︾<span style={{marginTop:'-8px'}}></span>無疑是中國文化遺產之精髓。<br/>儒家與道家思想同樣根植於此<br/>在中国人古代哲学、科学、国家治术，<br/>甚至當代生活也從中獲得靈感。<br/>甚至卜卦文獻和哲學論述，︽易經︾<br/>在中國人生活方方面面留下不可<br/>磨滅的影響。
               </div>
             </div>
 
@@ -349,7 +358,7 @@ Chinese life.              </div>
                 right: '30px',
                 width: '1px',
                 height: 'calc(100vh - 160px)',
-                backgroundColor: '#000'
+                backgroundColor: '#888'
               }}></div>
               {/* Chinese text section */}
               <div style={{
@@ -416,7 +425,7 @@ Chinese life.              </div>
                 </div>
               </div>
             </div>
-            <div className="flex-1 flex items-center" style={{ paddingTop: "90px", paddingBottom: "60px", paddingLeft: "30px", paddingRight: "30px", gap: "30px" }}>
+            <div className="flex-1 flex items-center" style={{ paddingTop: "80px", paddingBottom: "60px", paddingLeft: "30px", paddingRight: "30px", gap: "30px" }}>
               <div 
                 ref={(el) => { 
                   innerSectionRefs.current[0] = el;
@@ -425,7 +434,7 @@ Chinese life.              </div>
                 className="flex-shrink-0" 
                 style={{ 
                   aspectRatio: "656/874", 
-                  height: "calc(100vh - 150px)",
+                  height: "calc(100vh - 140px)",
                   borderRadius: "40px",
                   overflow: "hidden",
                   position: "relative",
@@ -441,7 +450,7 @@ Chinese life.              </div>
                 className="flex-shrink-0" 
                 style={{ 
                   aspectRatio: "1311/874", 
-                  height: "calc(100vh - 150px)",
+                  height: "calc(100vh - 140px)",
                   backgroundImage: "url('/images/exhibition/ss1b.webp')",
                   backgroundSize: "auto 100%",
                   backgroundPosition: "center",
@@ -455,7 +464,7 @@ Chinese life.              </div>
                 className="flex-shrink-0" 
                 style={{ 
                   aspectRatio: "656/874", 
-                  height: "calc(100vh - 150px)",
+                  height: "calc(100vh - 140px)",
                   backgroundImage: "url('/images/exhibition/ss1c.webp')",
                   backgroundSize: "auto 100%",
                   backgroundPosition: "center",
@@ -505,7 +514,7 @@ Chinese life.              </div>
                 right: '30px',
                 width: '1px',
                 height: 'calc(100vh - 160px)',
-                backgroundColor: '#FFF'
+                backgroundColor: '#888'
               }}></div>
               {/* Chinese text section */}
               <div style={{
@@ -538,14 +547,14 @@ Chinese life.              </div>
                   marginLeft: "20px",
                   marginTop: '-15px'
                 }}>
-                  ︽中國牆城︾系列
+                  ︽中國牆城︾<span style={{marginTop:'-14px'}}></span>系列
                 </h2>
                 
                 {/* Description text */}
                 <div style={{
                   writingMode: 'vertical-rl',
                   textOrientation: 'upright',
-                  fontSize: '16px',
+                  fontSize: '18px',
                   lineHeight: '1.4',
                   fontWeight: '300',
                   letterSpacing: '0.2em',
@@ -586,13 +595,13 @@ Ever since I was introduced to the book 50 years ago, the Yijing has been the wi
 Over the years, I failed repeatedly to create a visual representation of the Yijing. Then in 2007, when I was editing my China Revealed book, I finally found the perfect vehicle in a series of closeup details of weather-beaten walls that I had photographed from all over the country. Over time, the elements had created intricate patterns and wonderful textures on man's most basic structure. The strikingly contemporary form of the 64 hexagrams from an ancient binary system, with its echoes of the computer age, combined well with the abstract expressionist creations of nature both visually and conceptually, and the result is The Great Walls of China series.                </div>
               </div>
             </div>
-            <div className="flex-1 flex items-start" style={{ paddingTop: "90px", paddingBottom: "60px", paddingLeft: "30px", paddingRight: "30px", gap: "30px" }}>
+            <div className="flex-1 flex items-start" style={{ paddingTop: "80px", paddingBottom: "60px", paddingLeft: "30px", paddingRight: "30px", gap: "30px" }}>
               <div 
                 ref={(el) => { innerSectionRefs.current[3] = el; }}
                 className="flex-shrink-0" 
                 style={{ 
                   aspectRatio: "1311/874", 
-                  height: "calc(100vh - 150px)",
+                  height: "calc(100vh - 140px)",
                   backgroundImage: "url('/images/exhibition/ss2a.webp')",
                   backgroundSize: "auto 100%",
                   backgroundPosition: "center",
@@ -605,7 +614,7 @@ Over the years, I failed repeatedly to create a visual representation of the Yij
                 className="flex-shrink-0" 
                 style={{ 
                   aspectRatio: "1311/874", 
-                  height: "calc(100vh - 150px)",
+                  height: "calc(100vh - 140px)",
                   backgroundImage: "url('/images/exhibition/ss2b.webp')",
                   backgroundSize: "auto 100%",
                   backgroundPosition: "center",
@@ -618,7 +627,7 @@ Over the years, I failed repeatedly to create a visual representation of the Yij
                 className="flex-shrink-0" 
                 style={{ 
                   aspectRatio: "656/874", 
-                  height: "calc(100vh - 150px)",
+                  height: "calc(100vh - 140px)",
                   backgroundImage: "url('/images/exhibition/ss2c.webp')",
                   backgroundSize: "auto 100%",
                   backgroundPosition: "center",
@@ -631,7 +640,7 @@ Over the years, I failed repeatedly to create a visual representation of the Yij
                 className="flex-shrink-0" 
                 style={{ 
                   aspectRatio: "1311/874", 
-                  height: "calc(100vh - 150px)",
+                  height: "calc(100vh - 140px)",
                   backgroundImage: "url('/images/exhibition/ss2d.webp')",
                   backgroundSize: "auto 100%",
                   backgroundPosition: "center",
@@ -654,7 +663,7 @@ Over the years, I failed repeatedly to create a visual representation of the Yij
                 right: '30px',
                 width: '1px',
                 height: 'calc(100vh - 160px)',
-                backgroundColor: '#FFF'
+                backgroundColor: '#888'
               }}></div>
               {/* Chinese text section */}
               <div style={{
@@ -720,13 +729,13 @@ Over the years, I failed repeatedly to create a visual representation of the Yij
 Meditate a question or a situation for the oracle to comment on and click the button six times to throw the virtual coins. The hexagram and its changing lines are calculated automatically. After throwing the coins six times, the relevant hexagram will be displayed.                </div>
               </div>
             </div>
-            <div className="flex-1 flex items-start" style={{ paddingTop: "90px", paddingBottom: "60px", paddingLeft: "30px", paddingRight: "30px", gap: "30px" }}>
+            <div className="flex-1 flex items-start" style={{ paddingTop: "80px", paddingBottom: "60px", paddingLeft: "30px", paddingRight: "30px", gap: "30px" }}>
               <div 
                 ref={(el) => { innerSectionRefs.current[7] = el; }}
                 className="flex-shrink-0" 
                 style={{ 
                   aspectRatio: "656/874", 
-                  height: "calc(100vh - 150px)",
+                  height: "calc(100vh - 140px)",
                   backgroundImage: "url('/images/exhibition/ss3a.webp')",
                   backgroundSize: "100% auto",
                   backgroundPosition: "center",
@@ -738,7 +747,7 @@ Meditate a question or a situation for the oracle to comment on and click the bu
                 className="flex-shrink-0" 
                 style={{ 
                   aspectRatio: "656/874", 
-                  height: "calc(100vh - 150px)",
+                  height: "calc(100vh - 140px)",
                   backgroundImage: "url('/images/exhibition/ss3b.webp')",
                   backgroundSize: "cover",
                   backgroundPosition: "center",
@@ -750,7 +759,7 @@ Meditate a question or a situation for the oracle to comment on and click the bu
                 className="flex-shrink-0" 
                 style={{ 
                   aspectRatio: "656/874", 
-                  height: "calc(100vh - 150px)",
+                  height: "calc(100vh - 140px)",
                   backgroundImage: "url('/images/exhibition/ss3c.webp')",
                   backgroundSize: "cover",
                   backgroundPosition: "center",
@@ -798,7 +807,7 @@ Meditate a question or a situation for the oracle to comment on and click the bu
                 right: '30px',
                 width: '1px',
                 height: 'calc(100vh - 160px)',
-                backgroundColor: '#FFF'
+                backgroundColor: '#888'
               }}></div>
               {/* Chinese text section */}
               <div style={{
@@ -831,7 +840,7 @@ Meditate a question or a situation for the oracle to comment on and click the bu
                   marginLeft: "20px",
                   marginTop: "-15px"
                 }}>
-                  ︽觀靜錄︾系列
+                  ︽觀靜錄︾<span style={{marginTop:'-14px'}}></span>系列
                 </h2>
 
                 
@@ -845,7 +854,7 @@ Meditate a question or a situation for the oracle to comment on and click the bu
                   letterSpacing: '0.1em',
                   color: '#FFF'
                 }}>
-                  <span style={{marginTop: "-7px"}}></span>︽易經︾的核心概念是﹁天人合一﹂。<br /><span style={{marginTop: "-7px"}}></span>︽觀靜錄︾系列收錄了無人機尚<br/>未普及之前的航拍作品，以及其他<br/>人跡罕至的遼闊景觀，嘗試以此攝影<br/>作品集詮釋此概念。過去四十年來，<br/>我有幸踏遍世界邊陲進行拍攝，<br/>我希望能與新一代的觀眾分享這批<br/>作品，讓他們欣賞地球的壯麗風采，<br/>進而踏上更新與保護的道路，而非<br/>重進而自我毀滅的覆轍。
+                  <span style={{marginTop: "-7px"}}></span>︽易經︾<span style={{marginTop:'-6px'}}></span>的核心概念是﹁天人合一﹂。<br /><span style={{marginTop: "-7px"}}></span>︽觀靜錄︾<span style={{marginTop:'-6px'}}></span>系列收錄了無人機尚<br/>未普及之前的航拍作品，以及其他<br/>人跡罕至的遼闊景觀，嘗試以此攝影<br/>作品集詮釋此概念。過去四十年來，<br/>我有幸踏遍世界邊陲進行拍攝，<br/>我希望能與新一代的觀眾分享這批<br/>作品，讓他們欣賞地球的壯麗風采，<br/>進而踏上更新與保護的道路，而非<br/>重進而自我毀滅的覆轍。
                 </div>
               </div>
 
@@ -879,13 +888,13 @@ The central concept of the Book of Changes is "Heaven and Humanity as One". Glim
                 </div>
               </div>
             </div>
-            <div className="flex-1 flex items-start" style={{ paddingTop: "90px", paddingBottom: "60px", paddingLeft: "30px", paddingRight: "30px", gap: "30px" }}>
+            <div className="flex-1 flex items-start" style={{ paddingTop: "80px", paddingBottom: "60px", paddingLeft: "30px", paddingRight: "30px", gap: "30px" }}>
               <div 
                 ref={(el) => { innerSectionRefs.current[10] = el; }}
                 className="flex-shrink-0" 
                 style={{ 
                   aspectRatio: "1748/874", 
-                  height: "calc(100vh - 150px)",
+                  height: "calc(100vh - 140px)",
                   backgroundImage: "url('/images/exhibition/ss4a.webp')",
                   backgroundSize: "cover",
                   backgroundPosition: "center",

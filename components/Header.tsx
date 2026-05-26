@@ -1,15 +1,29 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-export default function Header({ isPanelOpen = false, hideOverlay = false }: { isPanelOpen?: boolean; hideOverlay?: boolean }) {
+export default function Header({ isPanelOpen = false, hideOverlay = false, onMenuChange, forceOpenMenu = false }: { isPanelOpen?: boolean; hideOverlay?: boolean; onMenuChange?: (isOpen: boolean) => void; forceOpenMenu?: boolean }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
   const isHomePage = pathname === '/';
   const isYijingPage = pathname === '/yijing';
   const logoSrc = isYijingPage ? '/images/logo-b.svg' : '/images/logo.svg';
+  
+  const handleMenuToggle = (newState: boolean) => {
+    setIsMenuOpen(newState);
+    if (onMenuChange) {
+      onMenuChange(newState);
+    }
+  };
+  
+  // Auto-open menu when forceOpenMenu is true
+  useEffect(() => {
+    if (forceOpenMenu && !isMenuOpen) {
+      handleMenuToggle(true);
+    }
+  }, [forceOpenMenu]);
 
   return (
     <>
@@ -25,8 +39,8 @@ export default function Header({ isPanelOpen = false, hideOverlay = false }: { i
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center',
             top: '30px',
-            left: (isHomePage && hideOverlay && !isPanelOpen) ? '50%' : '30px',
-            transform: (isHomePage && hideOverlay && !isPanelOpen) ? 'translateX(-50%)' : 'none',
+            left: isMenuOpen ? '20px' : ((isHomePage && hideOverlay && !isPanelOpen) ? '50%' : '30px'),
+            transform: (isHomePage && hideOverlay && !isPanelOpen && !isMenuOpen) ? 'translateX(-50%)' : 'none',
             opacity: (isHomePage && !hideOverlay) ? 0 : 1,
             transition: (isHomePage && hideOverlay)
               ? 'left 0.7s ease-out, transform 0.7s ease-out, opacity 0.7s ease-out'
@@ -38,8 +52,8 @@ export default function Header({ isPanelOpen = false, hideOverlay = false }: { i
 
       {/* Burger menu button */}
       <button
-        onClick={() => setIsMenuOpen(!isMenuOpen)}
-        className="fixed top-[20px] right-[20px] w-[50px] h-[50px] z-[100] flex flex-col items-center justify-center gap-1.5  hover:bg-black"
+        onClick={() => handleMenuToggle(!isMenuOpen)}
+        className="fixed top-[20px] right-[20px] w-[50px] h-[50px] z-[100] flex flex-col items-center justify-center gap-1.5  group"
         style={{
           opacity: (isHomePage && !hideOverlay) ? 0 : 1,
           transition: (isHomePage && hideOverlay) ? 'opacity 0.5s ease-out 1s, background-color 0.3s' : 'opacity 0.5s ease-out, background-color 0.3s'
@@ -49,9 +63,9 @@ export default function Header({ isPanelOpen = false, hideOverlay = false }: { i
           <span className="text-3xl text-white leading-none">×</span>
         ) : (
           <>
-            <span className="w-6 h-[3px] bg-white"></span>
-            <span className="w-6 h-[3px] bg-white"></span>
-            <span className="w-6 h-[3px] bg-white"></span>
+            <span className="w-6 h-[3px] bg-white "></span>
+            <span className="w-6 h-[3px] bg-white "></span>
+            <span className="w-6 h-[3px] bg-white "></span>
           </>
         )}
       </button>
@@ -67,32 +81,32 @@ export default function Header({ isPanelOpen = false, hideOverlay = false }: { i
         <div className="flex flex-col h-full" style={{ paddingTop: '89px' }}>
           {/* Menu items */}
           <div className="flex-1 flex flex-col justify-top">
-            <Link href="/exhibition" onClick={() => setIsMenuOpen(false)}>
-              <div className="border-b border-t cursor-pointer hover:opacity-70 transition-opacity px-6" style={{ minHeight: '90px', display: 'flex', alignItems: 'center' , borderColor: '#888'}}>
+            <Link href="/exhibition" onClick={() => handleMenuToggle(false)}>
+              <div className="border-b border-t cursor-pointer transition-opacity" style={{ height: '91px', minHeight: '90px', paddingLeft: '30px', display: 'flex', alignItems: 'center', borderColor: '#888'}}>
                 <div className="flex items-baseline gap-3">
                   <h2 className="text-3xl font-normal text-white">展覽</h2>
                   <h2 className="text-3xl font-light text-white" style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Exhibition</h2>
                 </div>
               </div>
             </Link>
-            <Link href="/yijing" onClick={() => setIsMenuOpen(false)}>
-              <div className="border-b cursor-pointer hover:opacity-70 transition-opacity px-6" style={{ minHeight: '90px', display: 'flex', alignItems: 'center', borderColor: '#888' }}>
+            <Link href="/yijing" onClick={() => handleMenuToggle(false)}>
+              <div className="border-b cursor-pointer transition-opacity" style={{ height: '90px', minHeight: '90px', paddingLeft: '30px', display: 'flex', alignItems: 'center', borderColor: '#888' }}>
                 <div className="flex items-baseline gap-3">
                   <h2 className="text-3xl font-normal text-white">易經</h2>
                   <h2 className="text-3xl font-light text-white" style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Yi Jing</h2>
                 </div>
               </div>
             </Link>
-            <Link href="/about" onClick={() => setIsMenuOpen(false)}>
-              <div className="border-b cursor-pointer hover:opacity-70 transition-opacity px-6" style={{ minHeight: '90px', display: 'flex', alignItems: 'center', borderColor: '#888' }}>
+            <Link href="/about" onClick={() => handleMenuToggle(false)}>
+              <div className="border-b cursor-pointer transition-opacity" style={{ height: '90px', minHeight: '90px', paddingLeft: '30px', display: 'flex', alignItems: 'center', borderColor: '#888' }}>
                 <div className="flex items-baseline gap-3">
                   <h2 className="text-3xl font-normal text-white">關於</h2>
                   <h2 className="text-3xl font-light text-white" style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>About</h2>
                 </div>
               </div>
             </Link>
-            <Link href="/creative-team" onClick={() => setIsMenuOpen(false)}>
-              <div className="border-b cursor-pointer hover:opacity-70 transition-opacity px-6" style={{ minHeight: '90px', display: 'flex', alignItems: 'center', borderColor: '#888' }}>
+            <Link href="/creative-team" onClick={() => handleMenuToggle(false)}>
+              <div className="border-b cursor-pointer transition-opacity" style={{ height: '90px', minHeight: '90px', paddingLeft: '30px', display: 'flex', alignItems: 'center', borderColor: '#888' }}>
                 <div className="flex items-baseline gap-3">
                   <h2 className="text-3xl font-normal text-white">團隊</h2>
                   <h2 className="text-3xl font-light text-white" style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Creative Team</h2>
