@@ -176,10 +176,9 @@ export default function Exhibition() {
         const currentDistance = startPosition - rect.left;
         let progress = Math.min(1, Math.max(0, currentDistance / totalDistance));
         
-        // If element hasn't entered viewport yet (progress = 0), keep at left center
-        // If element has left viewport (progress = 1), keep at right center
-        // Otherwise, pan smoothly from left to right
-        const bgPositionX = progress * 100;
+        // Start from -20% (more to the left) and pan to 100%
+        // This makes the initial position show more of the left side of the image
+        const bgPositionX = -80 + (progress * 120);
         
         imgEl.style.backgroundPosition = `${bgPositionX}% center`;
       });
@@ -353,7 +352,7 @@ Chinese life.              </div>
                 position: "absolute",
                 top: 0,
                 left: 0,
-                width: "140vw",
+                width: "130vw",
                 height: "100%",
                 backgroundImage: "url('/images/exhibition/ss1-landing.webp')",
                 backgroundSize: "auto 100%",
@@ -509,7 +508,7 @@ Chinese life.              </div>
                 position: "absolute",
                 top: 0,
                 left: 0,
-                width: "140vw",
+                width: "130vw",
                 height: "100%",
                 backgroundImage: "url('/images/exhibition/ss2-landing.webp')",
                 backgroundSize: "cover",
@@ -802,7 +801,7 @@ Meditate a question or a situation for the oracle to comment on and click the bu
                 position: "absolute",
                 top: 0,
                 left: 0,
-                width: "140vw",
+                width: "130vw",
                 height: "100%",
                 backgroundImage: "url('/images/exhibition/ss3-landing.webp')",
                 backgroundSize: "cover",

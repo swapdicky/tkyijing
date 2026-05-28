@@ -341,7 +341,7 @@ We hope the immersive experiences of this show will allow abstract ideas to take
                     {currentVideoIndex < videos.length - 1 ? (
                       <>觀看更多 <span style={{fontFamily: '"neue-haas-unica", sans-serif'}}>Next Video</span></>
                     ) : (
-                      <>觀看更多 <span style={{fontFamily: '"neue-haas-unica", sans-serif'}}>Back</span></>
+                      <>觀看更多 <span style={{fontFamily: '"neue-haas-unica", sans-serif'}}>Next Video</span></>
                     )}
                   </button>
                   

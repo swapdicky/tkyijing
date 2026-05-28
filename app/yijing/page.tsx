@@ -1274,8 +1274,8 @@ The Writing from the Luo River is attributed to a mythical turtle with a diagram
       >
         {/* Navigation dots */}
         <div style={{
-          display: 'flex',
-          flexDirection: 'column',
+            position: 'absolute',
+            bottom: '155px',
           gap: '10px',
           marginBottom: '25px'
         }}>
@@ -1289,7 +1289,8 @@ The Writing from the Luo River is attributed to a mythical turtle with a diagram
                 backgroundColor: currentSlide === index ? '#FFF' : 'transparent',
                 border: currentSlide === index ? 'none' : '1px solid #888',
                 cursor: 'pointer',
-                transition: 'background-color 0.3s ease, border 0.3s ease'
+                transition: 'background-color 0.3s ease, border 0.3s ease',
+                marginBottom: '5px'
               }}
             />
           ))}
@@ -1303,7 +1304,9 @@ The Writing from the Luo River is attributed to a mythical turtle with a diagram
             fontSize: '14px',
             letterSpacing: '0.1em',
             color: '#FFF',
-            cursor: 'pointer'
+            cursor: 'pointer',
+            position: 'absolute',
+            bottom: '110px'
           }}
           onClick={() => {
             if (currentSlide < 10) {
@@ -1314,11 +1317,37 @@ The Writing from the Luo River is attributed to a mythical turtle with a diagram
           }}
         >
           {currentSlide === 10 ? (
-            <>第一章 <span style={{ fontFamily: '"neue-haas-unica", sans-serif', fontWeight: '300', marginTop: '15px', lineHeight: '1', display: 'inline-block', marginLeft: '6px' }}>Back</span></>
+            '第一章'
           ) : (
-            <>下一章 <span style={{ fontFamily: '"neue-haas-unica", sans-serif', fontWeight: '300', marginTop: '15px', lineHeight: '1', display: 'inline-block', marginLeft: '6px' }}>Next</span></>
+            '下一章'
           )}
         </div>
+        <div
+          style={{
+            writingMode: 'vertical-rl',
+            textOrientation: 'mixed',
+            fontSize: '14px',
+            letterSpacing: '0.1em',
+            color: '#FFF',
+            cursor: 'pointer',
+            position: 'absolute',
+            bottom: '55px'
+          }}
+          onClick={() => {
+            if (currentSlide < 10) {
+              setCurrentSlide(currentSlide + 1);
+            } else {
+              setCurrentSlide(0);
+            }
+          }}
+        >
+          {currentSlide === 10 ? (
+            <span style={{ fontFamily: '"neue-haas-unica", sans-serif', fontWeight: '300', marginTop: '15px', lineHeight: '1', display: 'inline-block', marginLeft: '6px' }}>Back</span>
+          ) : (
+            <span style={{ fontFamily: '"neue-haas-unica", sans-serif', fontWeight: '300', marginTop: '15px', lineHeight: '1', display: 'inline-block', marginLeft: '6px' }}>Next</span>
+          )}
+        </div>
+
       </div>
     </div>
   );
