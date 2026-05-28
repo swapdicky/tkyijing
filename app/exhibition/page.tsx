@@ -705,13 +705,25 @@ Over the years, I failed repeatedly to create a visual representation of the Yij
                 <div style={{
                   writingMode: 'vertical-rl',
                   textOrientation: 'upright',
-                  fontSize: '36px',
+                  fontSize: windowHeight < 880 ? '18px' : '24px',
                   lineHeight: '1.25',
                   fontWeight: '300',
                   letterSpacing: '0.1em',
                   color: '#FFF'
                 }}>
-                  誠心冥想並提出一個具體的<br/>問題或處境，然後點擊<br/>按鈕六次以拋擲虛擬銅錢。<br />卦象及其爻變將自動<br/>計算生成。完成六次拋擲後，<br/>系統將顯示對應的卦象。
+                  人類對預知未來的渴求，可被視為在複雜<br/>
+                  世道中駕馭變化的一種嘗試，以掌握生命，<br/>
+                  使它充滿意義。<br/><br/>
+
+                  據史實記載，古人使用蓍草與︽易經︾<br/>
+                  六十四卦作占卜。卜卦過程需要分出蓍草<br/>
+                  計算數值以定每一爻︵連線<span style={{writingMode: 'horizontal-tb', display: 'inline-block', transform: 'rotate(-180deg)', transformOrigin: 'center', margin: '0 -2px', letterSpacing: '-1px',fontSize:"20px"}}>—</span>或<span style={{writingMode: 'horizontal-tb', display: 'inline-block', transform: 'rotate(-180deg)', transformOrigin: 'center', margin: '0 -2px', letterSpacing: '-1px'}}>- -</span>斷線︶，<br/>
+                  此過程六次，得出完整的一卦。後來，<br/>
+                  金錢卦逐漸普及，並沿襲至今。<br/><br/>
+
+                  隨著數碼科技突破，今時今日在網上<br/>
+                  進行︽易經︾占卜僅需點擊虛擬銅錢六次，<br/>
+                  便能算出完整的一卦。
                 </div>
               </div>
 
@@ -719,7 +731,7 @@ Over the years, I failed repeatedly to create a visual representation of the Yij
               <div style={{width: '640px', maxWidth: "calc(50vw - 60px)"}}>
                 {/* Title */}
                 <div style={{
-                  fontSize: '24px',
+                  fontSize: '18px',
                   marginBottom: '10px',
                   lineHeight: '1.2',
                   color: '#FFF',
@@ -732,7 +744,7 @@ Over the years, I failed repeatedly to create a visual representation of the Yij
 
                 {/* English description */}
                 <div style={{
-                  fontSize: '20px',
+                  fontSize: '14px',
                   lineHeight: '1.2',
                   color: '#FFF',
                   textAlign: 'left',
@@ -740,7 +752,9 @@ Over the years, I failed repeatedly to create a visual representation of the Yij
                   fontWeight: 300,
                   fontStyle: 'normal'
                 }}>
-Meditate a question or a situation for the oracle to comment on and click the button six times to throw the virtual coins. The hexagram and its changing lines are calculated automatically. After throwing the coins six times, the relevant hexagram will be displayed.                </div>
+The human desire to know the future can be viewed as an attempt to navigate the changes of our complicated world and to make life manageable and meaningful. <br/><br/>
+Historical accounts show a common use of yarrow stalk divination with the hexagrams in the Book of Changes to interpret the future. This involved the manipulation of yarrow stalks to assign a numerical value that determined the nature of each line (solid — or broken – –). The procedure was repeated six times to create the full hexagram. Later, the throwing of Chinese coins became a popular method of divination, which is still used today.<br/><br/>
+Nowadays, with the advance of digital technologies, an online consultation of the Book of Changes can simply involve throwing or clicking virtual coins six times to create a full hexagram.                </div>
               </div>
             </div>
             <div className="flex-1 flex items-center" style={{ paddingTop: "90px", paddingBottom: "60px", paddingLeft: "30px", paddingRight: "30px", gap: "30px" }}>
