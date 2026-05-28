@@ -591,7 +591,7 @@ Chinese life.              </div>
                   fontStyle: 'normal'
                 }}>
                  Artist Statement<br/>
-                  <span style={{fontWeight: '500'}}>The Great Walls of China Series</span>
+                  <span style={{fontWeight: '500'}}><em>The Great Walls of China Series</em></span>
                 </div>
 
                 {/* English description */}
@@ -604,8 +604,8 @@ Chinese life.              </div>
                   fontWeight: 300,
                   fontStyle: 'normal'
                 }}>
-Ever since I was introduced to the book 50 years ago, the Yijing has been the wise old friend who always revealed the secrets in the shadows of my heart and offered sagely guidance on how to bring about changes to my predicament each time I sought its advice. Its cryptic council had been crucial at critical turning points in my life, e.g. I drew "The Wanderer" (hexagram 56) when I was weighing the decision to quit my Hollywood corporate life and seek a new creative path, which subsequently led to my return to Hong Kong and eventually becoming a travel photographer.<br/><br/>
-Over the years, I failed repeatedly to create a visual representation of the Yijing. Then in 2007, when I was editing my China Revealed book, I finally found the perfect vehicle in a series of closeup details of weather-beaten walls that I had photographed from all over the country. Over time, the elements had created intricate patterns and wonderful textures on man's most basic structure. The strikingly contemporary form of the 64 hexagrams from an ancient binary system, with its echoes of the computer age, combined well with the abstract expressionist creations of nature both visually and conceptually, and the result is The Great Walls of China series.                </div>
+Ever since I was introduced to the book 50 years ago, the <em>Yijing</em> has been the wise old friend who always revealed the secrets in the shadows of my heart and offered sagely guidance on how to bring about changes to my predicament each time I sought its advice. Its cryptic council had been crucial at critical turning points in my life, e.g. I drew "The Wanderer" (hexagram 56) when I was weighing the decision to quit my Hollywood corporate life and seek a new creative path, which subsequently led to my return to Hong Kong and eventually becoming a travel photographer.<br/><br/>
+Over the years, I failed repeatedly to create a visual representation of the <em>Yijing</em>. Then in 2007, when I was editing my <em>China Revealed</em> book, I finally found the perfect vehicle in a series of closeup details of weather-beaten walls that I had photographed from all over the country. Over time, the elements had created intricate patterns and wonderful textures on man's most basic structure. The strikingly contemporary form of the 64 hexagrams from an ancient binary system, with its echoes of the computer age, combined well with the abstract expressionist creations of nature both visually and conceptually, and the result is <em>The Great Walls of China</em> series.                </div>
               </div>
             </div>
             <div className="flex-1 flex items-center" style={{ paddingTop: "90px", paddingBottom: "60px", paddingLeft: "30px", paddingRight: "30px", gap: "30px" }}>
@@ -752,8 +752,8 @@ Over the years, I failed repeatedly to create a visual representation of the Yij
                   fontStyle: 'normal'
                 }}>
 The human desire to know the future can be viewed as an attempt to navigate the changes of our complicated world and to make life manageable and meaningful. <br/><br/>
-Historical accounts show a common use of yarrow stalk divination with the hexagrams in the Book of Changes to interpret the future. This involved the manipulation of yarrow stalks to assign a numerical value that determined the nature of each line (solid — or broken – –). The procedure was repeated six times to create the full hexagram. Later, the throwing of Chinese coins became a popular method of divination, which is still used today.<br/><br/>
-Nowadays, with the advance of digital technologies, an online consultation of the Book of Changes can simply involve throwing or clicking virtual coins six times to create a full hexagram.                </div>
+Historical accounts show a common use of yarrow stalk divination with the hexagrams in the <em>Book of Changes</em> to interpret the future. This involved the manipulation of yarrow stalks to assign a numerical value that determined the nature of each line (solid — or broken – –). The procedure was repeated six times to create the full hexagram. Later, the throwing of Chinese coins became a popular method of divination, which is still used today.<br/><br/>
+Nowadays, with the advance of digital technologies, an online consultation of the <em>Book of Changes</em> can simply involve throwing or clicking virtual coins six times to create a full hexagram.                </div>
               </div>
             </div>
             <div className="flex-1 flex items-center" style={{ paddingTop: "90px", paddingBottom: "60px", paddingLeft: "30px", paddingRight: "30px", gap: "30px" }}>
@@ -867,7 +867,7 @@ Nowadays, with the advance of digital technologies, an online consultation of th
                   marginLeft: "20px",
                   marginTop: "-15px"
                 }}>
-                  ︽觀靜錄︾<span style={{marginTop:'-14px'}}></span>系列
+                  ︽觀靜錄︾<span style={{marginTop:'-14px'}}></span>
                 </h2>
 
                 
@@ -899,7 +899,7 @@ Nowadays, with the advance of digital technologies, an online consultation of th
                 }}>
 Artist Statement<br/>
                  
-                  <span style={{fontWeight: '500'}}>Glimpses of Silence</span>
+                  <span style={{fontWeight: '500'}}><em>Glimpses of Silence</em></span>
                 </div>
                 {/* English description */}
                 <div style={{

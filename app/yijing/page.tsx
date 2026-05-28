@@ -150,7 +150,7 @@ export default function Yijing() {
               color: '#000',
               fontFamily: '"neue-haas-unica", sans-serif'
             }}>
-              What Are the Fundamental Concepts<br/>in the Philosophy of the Book of Changes?
+              What Are the Fundamental Concepts<br/>in the Philosophy of the <em>Book of Changes</em>?
             </div>
             <div style={{
               fontSize: '20px',
@@ -159,7 +159,7 @@ export default function Yijing() {
               fontFamily: '"neue-haas-unica", sans-serif',
               fontWeight: '300'
             }}>
-The divination system in the Book of Changes was formalised to observe the conditions of all things, based on a correlative cosmology formed around the notions of yinyang and wuxing. These concepts were identified with the processes of cosmic creativity and transformation, as well as the interconnectedness of all things in a holistic totality of order.             </div>
+The divination system in the <em>Book of Changes</em> was formalised to observe the conditions of all things, based on a correlative cosmology formed around the notions of <em>yinyang</em> and <em>wuxing</em>. These concepts were identified with the processes of cosmic creativity and transformation, as well as the interconnectedness of all things in a holistic totality of order.             </div>
           </div>
         </div>
       );
@@ -436,7 +436,7 @@ The divination system in the Book of Changes was formalised to observe the condi
               fontWeight: '300'
             }}>
               <span style={{ fontWeight: '500', fontSize: '18px' }}>Living Legacy</span><br/><br/>
-              The Book of Changes was embraced and appropriated by later Chinese thinkers, giving rise to specialised studies of its commentarial traditions. Some thinkers regarded the book as a treatise on cosmological meanings and principles. The book's impact spanned the arts in a story of eight continuous waves' influence in the present.<br/><br/>
+              The <em>Book of Changes</em> was embraced and appropriated by later Chinese thinkers, giving rise to specialised studies of its commentarial traditions. Some thinkers regarded the book as a treatise on cosmological meanings and principles. The book's impact spanned the arts in a story of eight continuous waves' influence in the present.<br/><br/>
               The book's reception in the international world has been remarkable. Respective translations by Thomas McClatchie (1814-1885), James Legge (1815-1897), and Richard Wilhelm (1873-1930) introduced the ancient Chinese text to the world. The psychologist Carl Jung (1875-1961) linked the book's principle of synchronicity to the notion of meaningful coincidence and used it to the book's sequences of events for determining randomness in music composition. Eager Augustin (b. 1993) regarded I as "poetry", he never known your plus or system and similarity when exploring cybernetic theory or digital literary studies.
             </div>
           </div>
@@ -643,7 +643,7 @@ The divination system in the Book of Changes was formalised to observe the condi
               marginBottom: '15px',
               fontFamily: '"neue-haas-unica", sans-serif'
             }}>
-              Yin Yang and Wu Xing
+              <em>Yin Yang</em> and <em>Wu Xing</em>
             </div>
             <div style={{
               fontSize: '14px',
@@ -652,9 +652,9 @@ The divination system in the Book of Changes was formalised to observe the condi
               fontFamily: '"neue-haas-unica", sans-serif',
               fontWeight: '300'
             }}>
-              The terms yin 陰 and yang 陽, originally denote the light and the dark, or the shaded and the light sides of a mountain or a river. Yin conveys the idea of coldness, clouds, rain and anything feminine, while yang conveys the opposite idea of warmth, a clear sky, sunshine and anything masculine.<br/><br/>
-              Yin and yang are opposing primal forces which need one another for completeness. This is harmony through the complementarity of opposites, which constitutes the Dao (the Way).<br/><br/>
-              The interaction and alternation of yin and yang produce the wuxing 五行—the five phases or "elements" of Wood, Fire, Earth, Metal and Water. The five "elements" further represent the sequential orders of "mutual production" and "mutual conquest" of all things in the universe and relationships follow the sequential orders of "mutual production" and "mutual conquest". Hence, the ancient Chinese developed a comprehensive scheme of symbolic correlations to represent a pervading unity and mutuality of order of the world.
+              The terms <em>yin</em> 陰 and <em>yang</em> 陽, originally denote the light and the dark, or the shaded and the light sides of a mountain or a river. <em>Yin</em> conveys the idea of coldness, clouds, rain and anything feminine, while <em>yang</em> conveys the opposite idea of warmth, a clear sky, sunshine and anything masculine.<br/><br/>
+              <em>Yin</em> and <em>yang</em> are opposing primal forces which need one another for completeness. This is harmony through the complementarity of opposites, which constitutes the <em>Dao</em> (the Way).<br/><br/>
+              The interaction and alternation of <em>yin</em> and <em>yang</em> produce the <em>wuxing</em> 五行—the five phases or "elements" of Wood, Fire, Earth, Metal and Water. The five "elements" further represent the sequential orders of "mutual production" and "mutual conquest" of all things in the universe and relationships follow the sequential orders of "mutual production" and "mutual conquest". Hence, the ancient Chinese developed a comprehensive scheme of symbolic correlations to represent a pervading unity and mutuality of order of the world.
             </div>
           </div>
         </>
@@ -903,7 +903,7 @@ By combining <em>yin</em> and <em>yang</em> in four possible ways, there are the
               marginBottom: '15px',
               fontFamily: '"neue-haas-unica", sans-serif'
             }}>
-              The Book of Changes and Numerology
+              The <em>Book of Changes</em> and Numerology
             </div>
             <div style={{
               fontSize: '14px',
@@ -912,7 +912,7 @@ By combining <em>yin</em> and <em>yang</em> in four possible ways, there are the
               fontFamily: '"neue-haas-unica", sans-serif',
               fontWeight: '300'
             }}>
-The Book of Changes reveals how the ancient Chinese developed a numerical system that could be used for divination and explaining the operations of nature.          <br/><br/>    Two ancient Chinese diagrams, Yellow River Chart and Writing from the Luo River, represent the numbers of the natural order. Both diagrams, as received from antiquity, had been appended to the Book of Changes by the Song period (960–1279). They were linked to the five phases (wuxing) and the different correlational systems—such as, cardinal point, colour, and the calendrical system of Chinese calendar—to represent the interconnectedness of all things in a holistic totality of order.
+The <em>Book of Changes</em> reveals how the ancient Chinese developed a numerical system that could be used for divination and explaining the operations of nature.          <br/><br/>    Two ancient Chinese diagrams, <em>Yellow River Chart</em> and <em>Writing from the Luo River</em>, represent the numbers of the natural order. Both diagrams, as received from antiquity, had been appended to the Book of Changes by the Song period (960–1279). They were linked to the five phases (<em>wuxing</em>) and the different correlational systems—such as, cardinal point, colour, and the calendrical system of Chinese calendar—to represent the interconnectedness of all things in a holistic totality of order.
             </div>
           </div>
         </>
@@ -954,7 +954,7 @@ The Book of Changes reveals how the ancient Chinese developed a numerical system
             fontFamily: '"neue-haas-unica", sans-serif',
             fontWeight: '300'
           }}>
-The Yellow River Chart has been traditionally attributed to the legendary emperor Fu Xi. Here, the numbers 1 to 10 are so arranged that an odd number (yang) is paired with an even number (yin). All the odd numbers add up to 25, the even numbers to 30, and all the numbers to 55. This chart shows how these numbers are linked to the wuxing and the correlating cardinal points and colours.
+The <em>Yellow River Chart</em> has been traditionally attributed to the legendary emperor Fu Xi. Here, the numbers 1 to 10 are so arranged that an odd number (<em>yang</em>) is paired with an even number (<em>yin</em>). All the odd numbers add up to 25, the even numbers to 30, and all the numbers to 55. This chart shows how these numbers are linked to the <em>wuxing</em> and the correlating cardinal points and colours.
           </div>
         </div>
       );
@@ -996,7 +996,7 @@ The Yellow River Chart has been traditionally attributed to the legendary empero
             fontFamily: '"neue-haas-unica", sans-serif',
             fontWeight: '300'
           }}>
-The Writing from the Luo River is attributed to a mythical turtle with a diagram on its back emerging from the Luo River. This diagram is a magic square of the order of three, in which all the numbers in any row, column, or diagonal add up to 15. It is the earliest known magic square in the world.           </div>
+The <em>Writing from the Luo River</em> is attributed to a mythical turtle with a diagram on its back emerging from the Luo River. This diagram is a magic square of the order of three, in which all the numbers in any row, column, or diagonal add up to 15. It is the earliest known magic square in the world.           </div>
         </div>
       );
     }
@@ -1039,7 +1039,7 @@ The Writing from the Luo River is attributed to a mythical turtle with a diagram
               fontFamily: '"neue-haas-unica", sans-serif',
               fontWeight: '300'
             }}>
-              <span style={{ fontWeight: '500' }}>Fortune Teller</span><br/>
+              <span style={{ fontWeight: '500' }}><em>Fortune Teller</em></span><br/>
               Robert Ruxton (1876-1946)<br/>
               1902<br/>
               SOAS Library
@@ -1116,8 +1116,8 @@ The Writing from the Luo River is attributed to a mythical turtle with a diagram
               fontFamily: '"neue-haas-unica", sans-serif',
               fontWeight: '300'
             }}>
-              The 64 hexagrams in the Book of Changes have been linked with the binary notation developed by Gottfried Wilhelm Leibniz (1646-1716), used nowadays in digital computation.<br/><br/>
-              Leibniz, a German philosopher and mathematician who made great contributions to calculus, was introduced to the Book of Changes by Joachim Bouvet (1656-1730), a French Jesuit missionary working in China. Fascinated by how the abstract structures of the hexagrams resembled his binary number system, he linked the ancient symbols with binary arithmetic.  <br/><br/>
+              The 64 hexagrams in the <em>Book of Changes</em> have been linked with the binary notation developed by Gottfried Wilhelm Leibniz (1646-1716), used nowadays in digital computation.<br/><br/>
+              Leibniz, a German philosopher and mathematician who made great contributions to calculus, was introduced to the <em>Book of Changes</em> by Joachim Bouvet (1656-1730), a French Jesuit missionary working in China. Fascinated by how the abstract structures of the hexagrams resembled his binary number system, he linked the ancient symbols with binary arithmetic.  <br/><br/>
               The illustrations demonstrate the arrangement of the 64 hexagrams in the Former Heaven sequence attributed to Fu Xi. By replacing a yin symbol withthe number 0 and a yang symbol with the number 1, we get the binary notation for the numbers 0 to 63.
             </div>
           </div>
