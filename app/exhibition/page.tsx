@@ -691,8 +691,8 @@ Over the years, I failed repeatedly to create a visual representation of the Yij
                 <h3 style={{
                   writingMode: 'vertical-rl',
                   textOrientation: 'upright',
-                  fontSize: '24px',
-                  fontWeight: '300',
+                  fontSize: '32px',
+                  fontWeight: 'bold',
                   letterSpacing: '0.2em',
                   color: '#FFF',
                   marginLeft: "20px"

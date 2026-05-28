@@ -513,10 +513,10 @@ export default function Home() {
               color: '#000',
               fontFamily: '"neue-haas-unica", sans-serif',
               fontStyle: 'normal',
-              fontWeight: '400',
+              fontWeight: '300',
               transition: 'font-size 0.8s cubic-bezier(0.4, 0, 0.2, 1)'
             }}>
-              <span style={{ fontWeight: 'bold' }}>Book of Changes:</span> The Art of Basil Pao
+              <span style={{ fontWeight: '500' }}>Book of Changes:</span> The Art of Basil Pao
             </div>
 
             {/* English Content */}
@@ -526,7 +526,7 @@ export default function Home() {
               color: '#000',
               textAlign: 'left',
               fontFamily: '"neue-haas-unica", sans-serif',
-              fontWeight: '400',
+              fontWeight: '300',
               fontStyle: 'normal',
               transition: 'font-size 0.8s cubic-bezier(0.4, 0, 0.2, 1)'
             }}>
