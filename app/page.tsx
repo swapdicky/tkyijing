@@ -684,8 +684,8 @@ The current exhibition highlights the continued relevance of the Book of Changes
               <span 
                 className="absolute top-2 left-2 neue-haas-unica font-light" 
                 style={{ 
-                  fontSize: zoom === 50 ? '32px' : '24px',
-                  color: mode === 'overview' && !isPanelOpen ? '#888888' : '#000000'
+                  fontSize: '30px',
+                  color: mode === 'overview' && !isPanelOpen ? '#333333' : '#000000'
                 }}
               >
                 {String(boxNumber).padStart(2, '0')}
