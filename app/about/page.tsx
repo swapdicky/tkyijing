@@ -28,6 +28,18 @@ export default function About() {
     setCurrentVideoIndex((prev) => (prev + 1) % videos.length);
   };
 
+  // Ensure body can scroll when component mounts
+  useEffect(() => {
+    document.body.style.overflow = 'auto';
+    document.body.style.overflowX = 'hidden';
+    
+    return () => {
+      // Clean up on unmount
+      document.body.style.overflow = '';
+      document.body.style.overflowX = '';
+    };
+  }, []);
+
   useEffect(() => {
     const handleScroll = () => {
       if (!leftContentRef.current) return;
