@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { flushSync } from "react-dom";
 import { gsap } from "gsap";
 import Header from "@/components/Header";
 import { yijing } from "@/data/homepage";
@@ -615,53 +616,54 @@ The current exhibition highlights the continued relevance of the Book of Changes
                 // Save current zoom level before switching
                 setPreviousZoom(zoom);
                 
-                // Scroll to top and disable scrolling
+                // Switch to explore mode FIRST so page becomes 100vh before scrolling
+                // Use flushSync to force React to re-render synchronously before scrollTo
+                // This prevents jump when at 100% (page is 180vh, scroll is mid)
+                flushSync(() => {
+                  setMode("explore");
+                  setZoom(150);
+                });
+                
+                // Now page is 100vh, scroll to top and disable scrolling
                 window.scrollTo({ top: 0, behavior: 'instant' });
                 document.body.style.overflow = 'hidden';
                 
-                // Small delay to ensure scroll completes
-                setTimeout(() => {
-                  if (!moduleRef.current) return;
-                  
-                  // Calculate position to center this box
-                  const row = Math.floor(index / 8);
-                  const col = index % 8;
-                  
-                  gsap.killTweensOf(moduleRef.current);
-                  
-                  // Always switch to 150% (explore mode) when clicking
-                  setMode("explore");
-                  setZoom(150);
-                  
-                  const targetScale = 1; // 150%
-                  const vwToPx = window.innerWidth / 100;
-                  const vhToPx = window.innerHeight / 100;
-                  const boxSizeVw = 20;
-                  
-                  // Calculate position to center the clicked box in the left space
-                  const boxCenterXVw = (col - 3.5) * boxSizeVw;
-                  const boxCenterYVw = (row - 3.5) * boxSizeVw;
-                  
-                  // Brown box width: 100vh * 349 / 1024, positioned at 50%
-                  // Left space = 50vw - (brown box width / 2)
-                  const brownBoxWidth = window.innerHeight * 349 / 1024;
-                  const leftSpaceWidth = (50 * vwToPx) - (brownBoxWidth / 2);
-                  const leftSpaceOffset = -(50 * vwToPx) + (leftSpaceWidth / 2);
-                  const finalX = -boxCenterXVw * vwToPx + leftSpaceOffset;
-                  // Y uses vw units but needs to center in vh viewport
-                  const finalY = -boxCenterYVw * vwToPx;
-                  
-                  gsap.to(moduleRef.current, {
-                    x: finalX,
-                    y: finalY,
-                    xPercent: -50,
-                    yPercent: -50,
-                    scale: targetScale,
-                    duration: 1.5,
-                    ease: "power3.inOut",
-                    overwrite: true
-                  });
-                }, 100);
+                if (!moduleRef.current) return;
+                
+                // Calculate position to center this box
+                const row = Math.floor(index / 8);
+                const col = index % 8;
+                
+                gsap.killTweensOf(moduleRef.current);
+                
+                const targetScale = 1; // 150%
+                const vwToPx = window.innerWidth / 100;
+                const vhToPx = window.innerHeight / 100;
+                const boxSizeVw = 20;
+                
+                // Calculate position to center the clicked box in the left space
+                const boxCenterXVw = (col - 3.5) * boxSizeVw;
+                const boxCenterYVw = (row - 3.5) * boxSizeVw;
+                
+                // Brown box width: 100vh * 349 / 1024, positioned at 50%
+                // Left space = 50vw - (brown box width / 2)
+                const brownBoxWidth = window.innerHeight * 349 / 1024;
+                const leftSpaceWidth = (50 * vwToPx) - (brownBoxWidth / 2);
+                const leftSpaceOffset = -(50 * vwToPx) + (leftSpaceWidth / 2);
+                const finalX = -boxCenterXVw * vwToPx + leftSpaceOffset;
+                // Y uses vw units but needs to center in vh viewport
+                const finalY = -boxCenterYVw * vwToPx;
+                
+                gsap.to(moduleRef.current, {
+                  x: finalX,
+                  y: finalY,
+                  xPercent: -50,
+                  yPercent: -50,
+                  scale: targetScale,
+                  duration: 1.5,
+                  ease: "power3.inOut",
+                  overwrite: true
+                });
               }}
             >
               <div 
