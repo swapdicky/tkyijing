@@ -475,16 +475,18 @@ export default function Home() {
             <div style={{ 
               writingMode: 'vertical-rl',
               textOrientation: 'upright',
-              fontSize: scrollProgress === 0 ? '16px' : '24px',
+              fontSize: '18px',
               lineHeight: '1.4',
               fontWeight: '300',
               letterSpacing: '0.1em',
               color: '#000',
-              transition: 'font-size 0.8s cubic-bezier(0.4, 0, 0.2, 1)'
+              transform: scrollProgress === 0 ? 'scale(.8)':'scale(1.2)',
+              transformOrigin: 'right top',
+              transition: 'transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)'
             }}>是次展覽透過香港攝影藝術家鮑皓昕的<br/>
             藝術詮釋，凸顯︽易經︾無盡的關聯性與<br/>
             創造力。鮑皓昕兩個系列作品<br/>
-            <span style={{marginTop: scrollProgress === 0 ? '-6px' : '-8px'}}></span>︽中國牆城︾<span style={{marginTop: scrollProgress === 0 ? '-4px' : '-6px'}}></span>和<span style={{marginTop: scrollProgress === 0 ? '-4px' : '-6px'}}></span>︽觀靜錄︾<span style={{marginTop: scrollProgress === 0 ? '-4px' : '-6px'}}></span>，探究文化遺產<br/>
+            <span style={{marginTop: '-6px'}}></span>︽中國牆城︾<span style={{marginTop: '-4px'}}></span>和<span style={{marginTop: '-4px'}}></span>︽觀靜錄︾<span style={{marginTop: '-4px'}}></span>，探究文化遺產<br/>
             與藝術創作之間的關係。互動與合一的<br/>
             中國古代哲學概念。這些照片捕捉變化<br/>
             無窮的世界，見證鮑氏對︽易經︾的<br/>
