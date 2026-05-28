@@ -84,34 +84,34 @@ export default function Header({ isPanelOpen = false, hideOverlay = false, onMen
           {/* Menu items */}
           <div className="flex-1 flex flex-col justify-top">
             <Link href="/exhibition" onClick={() => handleMenuToggle(false)}>
-              <div className="border-b border-t cursor-pointer transition-opacity" style={{ height: '91px', minHeight: '90px', paddingLeft: '30px', display: 'flex', alignItems: 'center', borderColor: '#888'}}>
+              <div className="group border-b border-t cursor-pointer transition-opacity" style={{ height: '91px', minHeight: '90px', paddingLeft: '30px', display: 'flex', alignItems: 'center', borderColor: '#888'}}>
                 <div className="flex items-baseline gap-3">
-                  <h2 className="font-normal text-white" style={{ fontSize: '40px' , lineHeight: '1'}}>展覽</h2>
-                  <h2 className="font-light text-white" style={{ fontFamily: '"neue-haas-unica", sans-serif', fontSize: '40px', lineHeight: '1' }}>Exhibition</h2>
+                  <h2 className="font-normal text-white group-hover:text-[#888] transition-colors" style={{ fontSize: '40px' , lineHeight: '1'}}>展覽</h2>
+                  <h2 className="font-light text-white group-hover:text-[#888] transition-colors" style={{ fontFamily: '"neue-haas-unica", sans-serif', fontSize: '40px', lineHeight: '1' }}>Exhibition</h2>
                 </div>
               </div>
             </Link>
             <Link href="/yijing" onClick={() => handleMenuToggle(false)}>
-              <div className="border-b cursor-pointer transition-opacity" style={{ height: '90px', minHeight: '90px', paddingLeft: '30px', display: 'flex', alignItems: 'center', borderColor: '#888' }}>
+              <div className="group border-b cursor-pointer transition-opacity" style={{ height: '90px', minHeight: '90px', paddingLeft: '30px', display: 'flex', alignItems: 'center', borderColor: '#888' }}>
                 <div className="flex items-baseline gap-3">
-                  <h2 className="font-normal text-white" style={{ fontSize: '40px' , lineHeight: '1'}}>易經</h2>
-                  <h2 className="font-light text-white" style={{ fontFamily: '"neue-haas-unica", sans-serif', fontSize: '40px', lineHeight: '1' }}>Yijing</h2>
+                  <h2 className="font-normal text-white group-hover:text-[#888] transition-colors" style={{ fontSize: '40px' , lineHeight: '1'}}>易經</h2>
+                  <h2 className="font-light text-white group-hover:text-[#888] transition-colors" style={{ fontFamily: '"neue-haas-unica", sans-serif', fontSize: '40px', lineHeight: '1' }}>Yijing</h2>
                 </div>
               </div>
             </Link>
             <Link href="/about" onClick={() => handleMenuToggle(false)}>
-              <div className="border-b cursor-pointer transition-opacity" style={{ height: '90px', minHeight: '90px', paddingLeft: '30px', display: 'flex', alignItems: 'center', borderColor: '#888' }}>
+              <div className="group border-b cursor-pointer transition-opacity" style={{ height: '90px', minHeight: '90px', paddingLeft: '30px', display: 'flex', alignItems: 'center', borderColor: '#888' }}>
                 <div className="flex items-baseline gap-3">
-                  <h2 className="font-normal text-white" style={{ fontSize: '40px' , lineHeight: '1'}}>關於</h2>
-                  <h2 className="font-light text-white" style={{ fontFamily: '"neue-haas-unica", sans-serif', fontSize: '40px', lineHeight: '1' }}>About</h2>
+                  <h2 className="font-normal text-white group-hover:text-[#888] transition-colors" style={{ fontSize: '40px' , lineHeight: '1'}}>關於</h2>
+                  <h2 className="font-light text-white group-hover:text-[#888] transition-colors" style={{ fontFamily: '"neue-haas-unica", sans-serif', fontSize: '40px', lineHeight: '1' }}>About</h2>
                 </div>
               </div>
             </Link>
             <Link href="/creative-team" onClick={() => handleMenuToggle(false)}>
-              <div className="border-b cursor-pointer transition-opacity" style={{ height: '90px', minHeight: '90px', paddingLeft: '30px', display: 'flex', alignItems: 'center', borderColor: '#888' }}>
+              <div className="group border-b cursor-pointer transition-opacity" style={{ height: '90px', minHeight: '90px', paddingLeft: '30px', display: 'flex', alignItems: 'center', borderColor: '#888' }}>
                 <div className="flex items-baseline gap-3">
-                  <h2 className="font-normal text-white" style={{ fontSize: '40px' , lineHeight: '1'}}>團隊</h2>
-                  <h2 className="font-light text-white" style={{ fontFamily: '"neue-haas-unica", sans-serif', fontSize: '40px', lineHeight: '1' }}>Creative Team</h2>
+                  <h2 className="font-normal text-white group-hover:text-[#888] transition-colors" style={{ fontSize: '40px' , lineHeight: '1'}}>團隊</h2>
+                  <h2 className="font-light text-white group-hover:text-[#888] transition-colors" style={{ fontFamily: '"neue-haas-unica", sans-serif', fontSize: '40px', lineHeight: '1' }}>Creative Team</h2>
                 </div>
               </div>
             </Link>

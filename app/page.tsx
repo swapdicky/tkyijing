@@ -68,6 +68,7 @@ export default function Home() {
   const preMenuZoomRef = useRef<150 | 100 | 50>(150); // Remember zoom before opening menu
   const titleH3Ref = useRef<HTMLHeadingElement>(null);
   const [titleH3Tall, setTitleH3Tall] = useState(false);
+  const scrollContentRef = useRef<HTMLDivElement>(null);
 
   // Custom order for 8x8 grid
   const gridOrder = [
@@ -742,6 +743,11 @@ The current exhibition highlights the continued relevance of the Book of Changes
         {/* White info panel */}
         <div 
           className="fixed top-0 h-screen bg-white border-l border-[#888888] transition-all duration-700 ease-out"
+          onWheel={(e) => {
+            if (scrollContentRef.current) {
+              scrollContentRef.current.scrollTop += e.deltaY;
+            }
+          }}
           style={{ 
             pointerEvents: 'auto',
             right: 0,
@@ -854,7 +860,7 @@ The current exhibition highlights the continued relevance of the Book of Changes
                           ))}
                         </h3>
                         
-                        <div className="space-y-4 custom-scrollbar" style={{ height: titleH3Tall ? '170px' : '200px', overflowY: 'auto', paddingRight: '12px' }}>
+                        <div ref={scrollContentRef} className="space-y-4 custom-scrollbar" style={{ height: titleH3Tall ? '170px' : '200px', overflowY: 'auto', paddingRight: '12px' }}>
                           <div>
                             <h4 className="font-bold text-[12px] mb-1 neue-haas-unica" style={{ lineHeight: '20px' }}>The Judgement</h4>
                             <p className="text-black text-[14px] neue-haas-unica font-normal" style={{ lineHeight: '20px' }}>
