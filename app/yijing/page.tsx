@@ -180,7 +180,7 @@ The divination system in the Book of Changes was formalised to observe the condi
             style={{
               width: '100%',
               height: 'auto',
-              maxHeight: '85%',
+              maxHeight: '95%',
               objectFit: 'contain'
             }}
           />
@@ -203,7 +203,7 @@ The divination system in the Book of Changes was formalised to observe the condi
             style={{
               width: '100%',
               height: 'auto',
-              maxHeight: '90%',
+              maxHeight: '95%',
               objectFit: 'contain'
             }}
           />
@@ -459,7 +459,7 @@ The divination system in the Book of Changes was formalised to observe the condi
             style={{
               width: '100%',
               height: 'auto',
-              maxHeight: '90%',
+              maxHeight: '95%',
               objectFit: 'contain'
             }}
           />
