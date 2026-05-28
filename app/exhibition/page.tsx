@@ -591,7 +591,7 @@ Chinese life.              </div>
                   fontStyle: 'normal'
                 }}>
                  Artist Statement<br/>
-                  <span style={{fontWeight: '500'}}><em>The Great Walls of China Series</em></span>
+                  <span style={{fontWeight: '500'}}><em>The Great Walls of China</em> Series</span>
                 </div>
 
                 {/* English description */}
@@ -867,7 +867,7 @@ Nowadays, with the advance of digital technologies, an online consultation of th
                   marginLeft: "20px",
                   marginTop: "-15px"
                 }}>
-                  ︽觀靜錄︾<span style={{marginTop:'-14px'}}></span>
+                  ︽觀靜錄︾
                 </h2>
 
                 

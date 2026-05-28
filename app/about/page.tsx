@@ -12,7 +12,7 @@ export default function About() {
   const videos = [
     {
       titleCn: '易經：鮑皓昕攝影藝術',
-      titleEn: 'Book of Changes: The Art of Basil Pao',
+      titleEn: '<em>Book of Changes</em>: The Art of Basil Pao',
       thumbnail: '/images/about/1.jpg',
       youtubeId: 'YOUR_YOUTUBE_ID_1'
     },
@@ -313,15 +313,16 @@ We hope the immersive experiences of this show will allow abstract ideas to take
                   }}>
                     {videos[currentVideoIndex].titleCn}
                   </div>
-                  <div style={{
-                    fontSize: '16px',
-                    lineHeight: '1.6',
-                    color: '#fff',
-                    fontFamily: '"neue-haas-unica", sans-serif',
-                    fontWeight: 300
-                  }}>
-                    {videos[currentVideoIndex].titleEn}
-                  </div>
+                  <div
+                    style={{
+                      fontSize: '16px',
+                      lineHeight: '1.6',
+                      color: '#fff',
+                      fontFamily: '"neue-haas-unica", sans-serif',
+                      fontWeight: 300
+                    }}
+                    dangerouslySetInnerHTML={{ __html: videos[currentVideoIndex].titleEn }}
+                  />
                 </div>
                 
                 {/* Right: Next Video button and dots */}
@@ -480,7 +481,7 @@ We hope the immersive experiences of this show will allow abstract ideas to take
                     fontFamily: '"neue-haas-unica", sans-serif',
                     fontWeight: 300
                   }}>
-                    Book of Changes: The Art of Basil Pao — Curator's Guided Tour
+                    <em>Book of Changes</em>: The Art of Basil Pao — Curator's Guided Tour
                   </div>
                 </div>
                 <div style={{
@@ -558,7 +559,7 @@ We hope the immersive experiences of this show will allow abstract ideas to take
                     fontFamily: '"neue-haas-unica", sans-serif',
                     fontWeight: 300
                   }}>
-                    Tai Kwun Conversations: The Book of Changes — A Living Classic
+                    Tai Kwun Conversations: The <em>Book of Changes</em> — A Living Classic
                   </div>
                 </div>
                 <div style={{

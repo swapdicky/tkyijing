@@ -621,9 +621,13 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
               fontWeight: '300',
               marginBottom: '20px'
             }}>
-              「陰」與「陽」原初分別代表光與影、山川或河流的陰面與陽面。「陰」傳達寒冷、雲霧、雨水和陰暗的意象，而「陽」則傳達溫暖、晴朗、陽光和明亮的意象。<br/><br/>
-              「陰」與「陽」是相對的原始力量，需要彼此才能完整。這是透過對立的和諧互補而達成的，構成了道（道路）。<br/><br/>
-              「陰」與「陽」的相互作用和交替產生了「五行」——木、火、土、金、水。這五個「元素」進一步代表了宇宙中一切事物的順序或「相生相剋」以及「相生相剋」的關係。因此，古代中國人發展出一套全面的符號關聯體系，以代表世界秩序中普遍存在的統一性和多樣性。
+「陰」與「陽」最初指的是山川的背日和向陽面。「陰」代表冰冷、雲、雨及任何具陰性特質的事物；「陽」代表相反的概念，如温暖、晴天、陽光及任何具陽性特質的事物。
+<br/><br/>
+「陰」與「陽」是兩股對立的原始力量，彼此依存方能臻於完整。這是既對立又互相依賴的和諧平衡，此即構成「道」。
+<br/><br/>
+「陰」與「陽」輪轉而生「五行」，亦即木、火、土、金、水，五種變化階段。「五行」的活動與關係遵循「相生」和「相剋」，以及「相化」與「相制」的規律，並與宇宙萬物類別產生關聯。
+<br/><br/>
+古人由此建構出一套全面的象徵對應體系，以呈現天地萬物規律的統一性與相互依存性。
             </div>
           </div>
 
@@ -652,10 +656,13 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
               fontFamily: '"neue-haas-unica", sans-serif',
               fontWeight: '300'
             }}>
-              The terms <em>yin</em> 陰 and <em>yang</em> 陽, originally denote the light and the dark, or the shaded and the light sides of a mountain or a river. <em>Yin</em> conveys the idea of coldness, clouds, rain and anything feminine, while <em>yang</em> conveys the opposite idea of warmth, a clear sky, sunshine and anything masculine.<br/><br/>
-              <em>Yin</em> and <em>yang</em> are opposing primal forces which need one another for completeness. This is harmony through the complementarity of opposites, which constitutes the <em>Dao</em> (the Way).<br/><br/>
-              The interaction and alternation of <em>yin</em> and <em>yang</em> produce the <em>wuxing</em> 五行—the five phases or "elements" of Wood, Fire, Earth, Metal and Water. The five "elements" further represent the sequential orders of "mutual production" and "mutual conquest" of all things in the universe and relationships follow the sequential orders of "mutual production" and "mutual conquest". Hence, the ancient Chinese developed a comprehensive scheme of symbolic correlations to represent a pervading unity and mutuality of order of the world.
-            </div>
+The terms <em>yin</em>, the dark, and <em>yang</em>, the light, originally denote the shadowed and the light sides of a mountain or a river. <em>Yin</em> conveys the idea of coldness, clouds, rain, and anything feminine; while <em>yang</em> conveys the opposite idea of warmth, a clear sky, sunshine, and anything masculine.
+<br/><br/>
+<em>Yin</em> and <em>yang</em> are opposing primal forces which need one another for completeness. This is harmony through the interdependence of opposites, which constitutes the <em>Dao</em> (the Way). 
+<br/><br/>
+The interaction and alternation of <em>yin</em> and <em>yang</em> produce the <em>wuxing</em>—the five phases or “elements” of Wood, Fire, Earth, Metal, and Water. Their activities and relationships follow the sequential orders of “mutual production” and “mutual conquest”, as well as two further principles of “mutual transformation” and “mutual control”. The <em>wuxing system</em> has been associated with everything in the universe so that it is possible to classify anything in existence into five categories.
+<br/><br/>
+Hence, the ancient Chinese developed a comprehensive scheme of symbolic correlations to represent a pervading unity and mutuality of order of the world. </div>
           </div>
         </>
       );
@@ -687,9 +694,9 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
               color: '#FFF',
               fontWeight: '300'
             }}>
-              太極（太極）作為原始源頭，既是萬物的起點，也是萬物的終點。創造性轉化的力量導致完成和實現。<br/><br/>
-              陰陽文字，為宇宙自然變化過程的兩個方面。它們分別以一條斷線——和一條全線——表示。所有事物和現象都是從這二元對立的力量中自發產生的，並且不斷變化。<br/><br/>
-              將「陰」與「陽」以四種可能的方式組合，就有了四象。透過以同樣的過程將陰和陽分別加到四象中的每一個上，就有了八卦。這八個三爻卦，有六十四個六爻卦。
+              「太極」作為本源，是一切事物的起源和終結，開造化之力，最終引導事物的圓滿成就。<br/><br/>
+              陰陽交替，為宇宙變化的自然過程賦予動力。他們分別以斷線––與連線——代表。萬物萬象皆由此二元力量自然生成，互相依存且持續變化。<br/><br/>
+              將「陰」與「陽」以四種不同組合排列，由此得出四象；四象各加一陰一陽，遂成八卦；將八卦以同樣方式排列，衍得六十四卦。
             </div>
           </div>
 
@@ -1086,8 +1093,8 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
               color: '#FFF',
               fontWeight: '300'
             }}>
-              《易經》六十四卦體系，被認為與哥特弗利德·威廉·萊布尼茲 （Gottfried Wilhelm Leibniz，1646-1716年） 所創的二進制存在關聯，該系統如今被廣泛應用於數位計算領域。<br/><br/>
-              萊布尼茲是一名在微積分學作出重大貢獻的德國哲學家和數學家，他被曾前往中國的法國耶穌會傳教士白晉（Joachim Bouvet，1656-1730年）引介下認識《易經》。萊布尼茲因中國六十四卦的抽象結構與二進制十分相似而感到著迷，並將此古代符號系統與他的二進制運算建立連結。<br/><br/>
+              《易經》六十四卦體系，被認為與哥特弗利德·威廉·萊布尼茲 （Gottfried Wilhelm Leibniz，1646–1716年） 所創的二進制存在關聯，該系統如今被廣泛應用於數位計算領域。<br/><br/>
+              萊布尼茲是一名在微積分學作出重大貢獻的德國哲學家和數學家，他被曾前往中國的法國耶穌會傳教士白晉（Joachim Bouvet，1656–1730年）引介下認識《易經》。萊布尼茲因中國六十四卦的抽象結構與二進制十分相似而感到著迷，並將此古代符號系統與他的二進制運算建立連結。<br/><br/>
               圖例跟據伏羲所創「先天八卦圖」中六十四卦的陣式，將陰以「0」代替，陽以「1」代替，即可得到零至六十三 數值的二進制表示法。
             </div>
           </div>
@@ -1116,9 +1123,9 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
               fontFamily: '"neue-haas-unica", sans-serif',
               fontWeight: '300'
             }}>
-              The 64 hexagrams in the <em>Book of Changes</em> have been linked with the binary notation developed by Gottfried Wilhelm Leibniz (1646-1716), used nowadays in digital computation.<br/><br/>
-              Leibniz, a German philosopher and mathematician who made great contributions to calculus, was introduced to the <em>Book of Changes</em> by Joachim Bouvet (1656-1730), a French Jesuit missionary working in China. Fascinated by how the abstract structures of the hexagrams resembled his binary number system, he linked the ancient symbols with binary arithmetic.  <br/><br/>
-              The illustrations demonstrate the arrangement of the 64 hexagrams in the Former Heaven sequence attributed to Fu Xi. By replacing a yin symbol withthe number 0 and a yang symbol with the number 1, we get the binary notation for the numbers 0 to 63.
+              The 64 hexagrams in the <em>Book of Changes</em> have been linked with the binary notation developed by Gottfried Wilhelm Leibniz (1646–1716), used nowadays in digital computation.<br/><br/>
+              Leibniz, a German philosopher and mathematician who made great contributions to calculus, was introduced to the <em>Book of Changes</em> by Joachim Bouvet (1656–1730), a French Jesuit missionary working in China. Fascinated by how the abstract structures of the hexagrams resembled his binary number system, he linked the ancient symbols with binary arithmetic.  <br/><br/>
+              The illustrations demonstrate the arrangement of the 64 hexagrams in the Former Heaven sequence attributed to Fu Xi. By replacing a <em>yin</em> symbol withthe number 0 and a yang symbol with the number 1, we get the binary notation for the numbers 0 to 63.
             </div>
           </div>
         </>
