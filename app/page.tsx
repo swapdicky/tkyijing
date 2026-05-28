@@ -127,7 +127,7 @@ export default function Home() {
     const throttleDelay = 50;
 
     const handleMouseMove = (e: MouseEvent) => {
-      if (!moduleRef.current || mode === "overview" || isMousePaused || isLanding) return;
+      if (!moduleRef.current || mode === "overview" || isMousePaused || isLanding || !hideOverlay) return;
 
       const currentTime = Date.now();
       if (currentTime - lastTime < throttleDelay) return;
@@ -167,7 +167,7 @@ export default function Home() {
         cancelAnimationFrame(rafId);
       }
     };
-  }, [mode, isMousePaused, isLanding]);
+  }, [mode, isMousePaused, isLanding, hideOverlay]);
 
   useEffect(() => {
     if (!moduleRef.current || isPanelOpen) return;
@@ -276,31 +276,39 @@ export default function Home() {
     }
   }, [zoom]);
 
-  // Handle menu open/close - center grid on box 32
+  // Handle menu open/close - center grid on box number 32
   useEffect(() => {
     if (!moduleRef.current) return;
     
     if (isMenuOpen) {
-      // Menu opened - pause mouse effect and center on box 32
+      // Menu opened - pause mouse effect and center on box number 32
       setIsMousePaused(true);
       
-      // Box 32 is at index 31 (0-based)
-      // gridOrder[31] gives us the hexagram number at that position
-      const index = 31; // Middle of 8x8 grid (row 3, col 7)
+      // If not at 150%, switch to 150% first
+      if (zoom !== 150) {
+        setMode("explore");
+        setZoom(150);
+        return; // Effect will re-run after zoom changes
+      }
+      
+      // Find the index of box number 32 in gridOrder
+      const index = gridOrder.indexOf(32);
       const row = Math.floor(index / 8);
       const col = index % 8;
       
       gsap.killTweensOf(moduleRef.current);
       
-      const targetScale = zoom === 150 ? 1 : (zoom === 100 ? 0.57 : 0.57 * 0.5);
       const vwToPx = window.innerWidth / 100;
       const boxSizeVw = 20;
       
-      // Calculate position to center box 32
+      // Calculate position to center box 32 in the left 50vw space
+      // (right 50vw is occupied by the menu)
       const boxCenterXVw = (col - 3.5) * boxSizeVw;
       const boxCenterYVw = (row - 3.5) * boxSizeVw;
       
-      const finalX = -boxCenterXVw * vwToPx;
+      // Shift left by 25vw to center in the left half of the viewport
+      const leftSpaceOffset = -25 * vwToPx;
+      const finalX = -boxCenterXVw * vwToPx + leftSpaceOffset;
       const finalY = -boxCenterYVw * vwToPx;
       
       gsap.to(moduleRef.current, {
@@ -308,7 +316,7 @@ export default function Home() {
         y: finalY,
         xPercent: -50,
         yPercent: -50,
-        scale: targetScale,
+        scale: 1,
         duration: 1.5,
         ease: "power3.inOut",
         overwrite: true
@@ -474,7 +482,7 @@ export default function Home() {
             }}>是次展覽透過香港攝影藝術家鮑皓昕的<br/>
             藝術詮釋，凸顯︽易經︾無盡的關聯性與<br/>
             創造力。鮑皓昕兩個系列作品<br/>
-            ︽中國牆城︾和︽觀靜錄︾，探究文化遺產<br/>
+            <span style={{marginTop: scrollProgress === 0 ? '-6px' : '-8px'}}></span>︽中國牆城︾<span style={{marginTop: scrollProgress === 0 ? '-4px' : '-6px'}}></span>和<span style={{marginTop: scrollProgress === 0 ? '-4px' : '-6px'}}></span>︽觀靜錄︾<span style={{marginTop: scrollProgress === 0 ? '-4px' : '-6px'}}></span>，探究文化遺產<br/>
             與藝術創作之間的關係。互動與合一的<br/>
             中國古代哲學概念。這些照片捕捉變化<br/>
             無窮的世界，見證鮑氏對︽易經︾的<br/>
@@ -490,7 +498,7 @@ export default function Home() {
 
           {/* English section - aligned to bottom */}
           <div style={{
-            width: scrollProgress === 0 ? '100%' : '43vw',
+            width: scrollProgress === 0 ? '100%' : '100%',
             position: 'relative',
             bottom: '0',
             transition: 'width 0.8s cubic-bezier(0.4, 0, 0.2, 1)'
@@ -820,10 +828,10 @@ The current exhibition highlights the continued relevance of the Book of Changes
                           ))}
                         </h3>
                         
-                        <div className="space-y-4">
+                        <div className="space-y-4 custom-scrollbar" style={{ height: '200px', overflowY: 'auto', paddingRight: '12px' }}>
                           <div>
-                            <h4 className="font-bold text-[12px] mb-1 neue-haas-unica">The Judgement</h4>
-                            <p className="text-black leading-snug text-[14px]  neue-haas-unica font-normal">
+                            <h4 className="font-bold text-[12px] mb-1 neue-haas-unica" style={{ lineHeight: '20px' }}>The Judgement</h4>
+                            <p className="text-black text-[14px] neue-haas-unica font-normal" style={{ lineHeight: '20px' }}>
                               {yijing[selectedBox - 1].thejudgement.split('\n').map((line, i) => (
                                 <span key={i}>{line}{i < yijing[selectedBox - 1].thejudgement.split('\n').length - 1 && <br />}</span>
                               ))}
@@ -831,8 +839,8 @@ The current exhibition highlights the continued relevance of the Book of Changes
                           </div>
 
                           <div>
-                            <h4 className="font-bold text-[12px] mb-1 neue-haas-unica">The Image</h4>
-                            <p className="text-black leading-snug text-[14px] font-normal neue-haas-unica">
+                            <h4 className="font-bold text-[12px] mb-1 neue-haas-unica" style={{ lineHeight: '20px' }}>The Image</h4>
+                            <p className="text-black text-[14px] font-normal neue-haas-unica" style={{ lineHeight: '20px' }}>
                               {yijing[selectedBox - 1].theimage.split('\n').map((line, i) => (
                                 <span key={i}>{line}{i < yijing[selectedBox - 1].theimage.split('\n').length - 1 && <br />}</span>
                               ))}

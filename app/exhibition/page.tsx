@@ -176,9 +176,8 @@ export default function Exhibition() {
         const currentDistance = startPosition - rect.left;
         let progress = Math.min(1, Math.max(0, currentDistance / totalDistance));
         
-        // Start from -20% (more to the left) and pan to 100%
-        // This makes the initial position show more of the left side of the image
-        const bgPositionX = -80 + (progress * 120);
+        // Pan smoothly from 0% (left) to 100% (right) as element moves across viewport
+        const bgPositionX = progress * 100;
         
         imgEl.style.backgroundPosition = `${bgPositionX}% center`;
       });
@@ -817,7 +816,7 @@ Nowadays, with the advance of digital technologies, an online consultation of th
                 left: 0,
                 width: "130vw",
                 height: "100%",
-                backgroundImage: "url('/images/exhibition/ss3-landing.webp')",
+                backgroundImage: "url('/images/exhibition/ss3-landing.jpg')",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat"

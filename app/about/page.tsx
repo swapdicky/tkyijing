@@ -155,7 +155,7 @@ export default function About() {
             paddingLeft: '80px',
             paddingBottom: '40px',
             paddingRight: '30px',
-            paddingTop: '120px'
+            paddingTop: '80px'
           }}>
             <div style={{
               fontSize: '16px',
@@ -256,33 +256,43 @@ We hope the immersive experiences of this show will allow abstract ideas to take
           <div style={{
             padding: '80px 40px',
             backgroundColor: '#000',
-            borderBottom: '1px solid #888',
-            overflow: 'hidden'
+            borderBottom: '1px solid #888'
           }}>
-            {/* Only render current video */}
             <div style={{
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center'
             }}>
-              {/* Video thumbnail */}
+              {/* Video thumbnail slider - only the image slides */}
               <div style={{
                 position: 'relative',
                 width: '100%',
                 maxWidth: '640px',
-                aspectRatio: '16 / 9',
-                backgroundImage: `url(${videos[currentVideoIndex].thumbnail})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                borderRadius: '15px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                cursor: 'pointer',
-                marginBottom: '20px'
-              }}
-              onClick={() => setShowLightbox(true)}
-              >
+                marginBottom: '20px',
+                overflow: 'hidden',
+                borderRadius: '15px'
+              }}>
+                <div style={{
+                  display: 'flex',
+                  transition: 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
+                  transform: `translateX(-${currentVideoIndex * 100}%)`
+                }}>
+                  {videos.map((video, idx) => (
+                    <div
+                      key={idx}
+                      style={{
+                        flexShrink: 0,
+                        width: '100%',
+                        aspectRatio: '16 / 9',
+                        backgroundImage: `url(${video.thumbnail})`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        cursor: 'pointer'
+                      }}
+                      onClick={() => setShowLightbox(true)}
+                    />
+                  ))}
+                </div>
               </div>
               
               {/* Video info */}

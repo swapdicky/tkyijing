@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 
 export default function Yijing() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [shouldOpenMenu, setShouldOpenMenu] = useState(false);
   const scrollLockRef = useRef(false);
 
   const renderLeftContent = (index: number) => {
@@ -88,12 +89,11 @@ export default function Yijing() {
           height: '100%'
         }}>
           <img 
-            src="/images/yijing/yinyang-symbol.jpg" 
+            src="/images/TK_YiJIng_Graphs/yijing-graphs-02.jpg" 
             alt="Yin Yang" 
             style={{
-              width: '50%',
-              height: 'auto',
-              maxWidth: '400px'
+              width: '100%',
+              height: 'auto'
             }}
           />
         </div>
@@ -172,15 +172,15 @@ The divination system in the Book of Changes was formalised to observe the condi
           alignItems: 'center',
           justifyContent: 'center',
           height: '100%',
-          padding: '80px 60px'
+          padding: '80px 0'
         }}>
           <img 
-            src="/images/yijing/taiji-graph.jpg" 
+            src="/images/TK_YiJIng_Graphs/yijing-graphs-04.jpg" 
             alt="8 Trigrams" 
             style={{
               width: '100%',
               height: 'auto',
-              maxHeight: '95%',
+              maxHeight: '120%',
               objectFit: 'contain'
             }}
           />
@@ -198,12 +198,12 @@ The divination system in the Book of Changes was formalised to observe the condi
           padding: '80px 40px'
         }}>
           <img 
-            src="/images/yijing/64-hex.jpg" 
+            src="/images/TK_YiJIng_Graphs/yijing-graphs-05.jpg" 
             alt="64 Hexagrams" 
             style={{
               width: '100%',
               height: 'auto',
-              maxHeight: '95%',
+              maxHeight: '120%',
               objectFit: 'contain'
             }}
           />
@@ -349,12 +349,12 @@ The divination system in the Book of Changes was formalised to observe the condi
           padding: '80px 60px'
         }}>
           <img 
-            src="/images/yijing/numerology-1-frame.jpg" 
+            src="/images/TK_YiJIng_Graphs/yijing-graphs-08.jpg" 
             alt="Luo River Diagram" 
             style={{
               width: '100%',
               height: 'auto',
-              maxHeight: '70%',
+              maxHeight: '130%',
               objectFit: 'contain'
             }}
           />
@@ -372,12 +372,12 @@ The divination system in the Book of Changes was formalised to observe the condi
           padding: '80px 60px'
         }}>
           <img 
-            src="/images/yijing/numerology-2.jpg" 
+            src="/images/TK_YiJIng_Graphs/yijing-graphs-09.jpg" 
             alt="Yellow River Chart" 
             style={{
               width: '100%',
               height: 'auto',
-              maxHeight: '55%',
+              maxHeight: '130%',
               objectFit: 'contain'
             }}
           />
@@ -454,12 +454,12 @@ The divination system in the Book of Changes was formalised to observe the condi
           padding: '80px 40px'
         }}>
           <img 
-            src="/images/yijing/64-digital-number.jpg" 
+            src="/images/TK_YiJIng_Graphs/yijing-graphs-11.jpg" 
             alt="64 Hexagrams" 
             style={{
               width: '100%',
               height: 'auto',
-              maxHeight: '95%',
+              maxHeight: '120%',
               objectFit: 'contain'
             }}
           />
@@ -1137,9 +1137,13 @@ The Writing from the Luo River is attributed to a mythical turtle with a diagram
       if (e.deltaY > 0 && currentSlide < 10) {
         // Scroll down - next slide
         setCurrentSlide(prev => Math.min(prev + 1, 10));
+      } else if (e.deltaY > 0 && currentSlide === 10) {
+        // At last slide and scrolling down - open menu
+        setShouldOpenMenu(true);
       } else if (e.deltaY < 0 && currentSlide > 0) {
         // Scroll up - previous slide
         setCurrentSlide(prev => Math.max(prev - 1, 0));
+        setShouldOpenMenu(false);
       } else {
         // If at boundary, unlock immediately
         scrollLockRef.current = false;
@@ -1158,7 +1162,7 @@ The Writing from the Luo River is attributed to a mythical turtle with a diagram
 
   return (
     <div className="min-h-screen pt-16">
-      <Header />
+      <Header forceOpenMenu={shouldOpenMenu} onMenuChange={(isOpen) => { if (!isOpen) setShouldOpenMenu(false); }} />
       
       {/* Left side white div with slides */}
       <div 
