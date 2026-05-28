@@ -217,6 +217,8 @@ export default function Home() {
         scaleValue = 0.57 * 0.5;
         targetX = 0;
         targetY = 0;
+        // Reset scroll to top to prevent jump when switching from 100% (180vh)
+        window.scrollTo({ top: 0, behavior: 'instant' });
       } else if (zoom === 100) {
         // Reduce scale to add 20px margin on each side
         const scaleAdjustment = (window.innerWidth - 40) / window.innerWidth;
@@ -684,7 +686,7 @@ The current exhibition highlights the continued relevance of the Book of Changes
               <span 
                 className="absolute top-2 left-2 neue-haas-unica font-light" 
                 style={{ 
-                  fontSize: zoom === 50 ? '32px' : '24px',
+                  fontSize: '30px',
                   color: mode === 'overview' && !isPanelOpen ? '#888888' : '#000000'
                 }}
               >
@@ -911,7 +913,11 @@ The current exhibition highlights the continued relevance of the Book of Changes
             <button
               onClick={() => {
                 if (zoom === 150) setZoom(100);
-                else if (zoom === 100) setZoom(50);
+                else if (zoom === 100) {
+                  // Scroll to top first to prevent jump when page shrinks from 180vh to 100vh
+                  window.scrollTo({ top: 0, behavior: 'instant' });
+                  setZoom(50);
+                }
               }}
               className="flex items-center justify-center"
               disabled={zoom === 50}
