@@ -304,7 +304,7 @@ export default function Exhibition() {
             </div>
 
             {/* English section - aligned to bottom */}
-            <div style={{width: '640px', maxWidth: "calc(50vw - 60px)"}}>
+              <div style={{width: '800px', maxWidth: "calc(50vw - 60px)"}}>
               {/* Title */}
               <div 
                 className="neue-haas-unica"
@@ -410,7 +410,7 @@ Chinese life.              </div>
               </div>
 
               {/* English section - aligned to bottom */}
-              <div style={{width: '640px', maxWidth: "calc(50vw - 60px)"}}>
+              <div style={{width: '800px', maxWidth: "calc(50vw - 60px)"}}>
                 {/* Title */}
                 <div style={{
                   fontSize: '24px',
@@ -727,7 +727,7 @@ Over the years, I failed repeatedly to create a visual representation of the Yij
               </div>
 
               {/* English section - aligned to bottom */}
-              <div style={{width: '640px', maxWidth: "calc(50vw - 60px)"}}>
+              <div style={{width: '800px', maxWidth: "calc(50vw - 60px)"}}>
                 {/* Title */}
                 <div style={{
                   fontSize: '18px',
@@ -886,7 +886,7 @@ Nowadays, with the advance of digital technologies, an online consultation of th
               </div>
 
               {/* English section - aligned to bottom */}
-              <div style={{width: '640px', maxWidth: "calc(50vw - 60px)"}}>
+              <div style={{width: '800px', maxWidth: "calc(50vw - 60px)"}}>
                 {/* Title */}
                 <div style={{
                   fontSize: '18px',
