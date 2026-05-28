@@ -276,56 +276,48 @@ export default function Home() {
     }
   }, [zoom]);
 
-  // Handle menu open/close - center grid on box 32 (only for 150% zoom)
+  // Handle menu open/close - center grid on box 32
   useEffect(() => {
     if (!moduleRef.current) return;
     
     if (isMenuOpen) {
-      // Menu opened - pause mouse effect
+      // Menu opened - pause mouse effect and center on box 32
       setIsMousePaused(true);
       
-      // Only pan to center for 150% zoom (explore mode)
-      if (zoom === 150) {
-        // Center of 8x8 grid - use index 27 or 28 (row 3, col 3 or 4)
-        const index = 27; // Center-left of 8x8 grid (row 3, col 3)
-        const row = Math.floor(index / 8);
-        const col = index % 8;
-        
-        gsap.killTweensOf(moduleRef.current);
-        
-        const vwToPx = window.innerWidth / 100;
-        const boxSizeVw = 20;
-        
-        // Calculate position to center box 32 in the left 50vw space
-        const boxCenterXVw = (col - 3.5) * boxSizeVw;
-        const boxCenterYVw = (row - 3.5) * boxSizeVw;
-        
-        // Center of left 50vw is at 25vw from left edge
-        // Offset to move box 32 to that position
-        const leftSpaceCenter = 25 * vwToPx; // Center of left 50vw
-        const screenCenter = (50 * vwToPx); // Center of full screen (where module is anchored)
-        const offsetToLeftCenter = screenCenter - leftSpaceCenter;
-        
-        const finalX = -boxCenterXVw * vwToPx - offsetToLeftCenter;
-        const finalY = -boxCenterYVw * vwToPx;
-        
-        gsap.to(moduleRef.current, {
-          x: finalX,
-          y: finalY,
-          xPercent: -50,
-          yPercent: -50,
-          scale: 1,
-          duration: 1.5,
-          ease: "power3.inOut",
-          overwrite: true
-        });
-      }
-      // For 100% and 50% zoom, don't move - just pause mouse effect
-    } else {
-      // Menu closed - resume mouse effect
+      // Box 32 is at index 31 (0-based)
+      // gridOrder[31] gives us the hexagram number at that position
+      const index = 31; // Middle of 8x8 grid (row 3, col 7)
+      const row = Math.floor(index / 8);
+      const col = index % 8;
+      
+      gsap.killTweensOf(moduleRef.current);
+      
+      const targetScale = zoom === 150 ? 1 : (zoom === 100 ? 0.57 : 0.57 * 0.5);
+      const vwToPx = window.innerWidth / 100;
+      const boxSizeVw = 20;
+      
+      // Calculate position to center box 32
+      const boxCenterXVw = (col - 3.5) * boxSizeVw;
+      const boxCenterYVw = (row - 3.5) * boxSizeVw;
+      
+      const finalX = -boxCenterXVw * vwToPx;
+      const finalY = -boxCenterYVw * vwToPx;
+      
+      gsap.to(moduleRef.current, {
+        x: finalX,
+        y: finalY,
+        xPercent: -50,
+        yPercent: -50,
+        scale: targetScale,
+        duration: 1.5,
+        ease: "power3.inOut",
+        overwrite: true
+      });
+    } else if (!isPanelOpen) {
+      // Menu closed - resume mouse effect (only if panel is not open)
       setIsMousePaused(false);
     }
-  }, [isMenuOpen, zoom]);
+  }, [isMenuOpen, zoom, isPanelOpen]);
 
   const toggleMode = () => {
     if (mode === "explore") {
@@ -482,7 +474,7 @@ export default function Home() {
             }}>是次展覽透過香港攝影藝術家鮑皓昕的<br/>
             藝術詮釋，凸顯︽易經︾無盡的關聯性與<br/>
             創造力。鮑皓昕兩個系列作品<br/>
-            <span style={{marginTop:'-6px'}}></span>︽中國牆城︾<span style={{marginTop:'-4px'}}></span>和<span style={{marginTop:'-4px'}}></span>︽觀靜錄︾<span style={{marginTop:'-4px'}}></span>，探究文化遺產<br/>
+            ︽中國牆城︾和︽觀靜錄︾，探究文化遺產<br/>
             與藝術創作之間的關係。互動與合一的<br/>
             中國古代哲學概念。這些照片捕捉變化<br/>
             無窮的世界，見證鮑氏對︽易經︾的<br/>
@@ -511,7 +503,7 @@ export default function Home() {
               color: '#000',
               fontFamily: '"neue-haas-unica", sans-serif',
               fontStyle: 'normal',
-              fontWeight: '300',
+              fontWeight: '400',
               transition: 'font-size 0.8s cubic-bezier(0.4, 0, 0.2, 1)'
             }}>
               <span style={{ fontWeight: 'bold' }}>Book of Changes:</span> The Art of Basil Pao
@@ -524,7 +516,7 @@ export default function Home() {
               color: '#000',
               textAlign: 'left',
               fontFamily: '"neue-haas-unica", sans-serif',
-              fontWeight: '300',
+              fontWeight: '400',
               fontStyle: 'normal',
               transition: 'font-size 0.8s cubic-bezier(0.4, 0, 0.2, 1)'
             }}>
@@ -684,8 +676,8 @@ The current exhibition highlights the continued relevance of the Book of Changes
               <span 
                 className="absolute top-2 left-2 neue-haas-unica font-light" 
                 style={{ 
-                  fontSize: '30px',
-                  color: mode === 'overview' && !isPanelOpen ? '#333333' : '#000000'
+                  fontSize: zoom === 50 ? '32px' : '24px',
+                  color: mode === 'overview' && !isPanelOpen ? '#888888' : '#000000'
                 }}
               >
                 {String(boxNumber).padStart(2, '0')}

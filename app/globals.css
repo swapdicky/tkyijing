@@ -25,7 +25,6 @@ body {
   background: var(--background);
   /* Default: Chinese content */
   font-family:  "neue-haas-unica","dnp-shuei-nshogomincho-std", 'Songti TC', sans-serif;
-  font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
