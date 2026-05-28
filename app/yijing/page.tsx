@@ -30,7 +30,7 @@ export default function Yijing() {
               color: '#000',
               margin: 0
             }}>
-              易經
+              <span style={{marginTop:'-14px'}}></span>︽易經︾<span style={{marginTop:'-14px'}}></span>是什麼？
             </h2>
             
             {/* Description text */}
@@ -43,7 +43,7 @@ export default function Yijing() {
               letterSpacing: '0.1em',
               color: '#000'
             }}>
-              <span style={{marginTop:'-8px'}}></span>︽易經︾是一本古代卜辭書，在中國<br />哲學歷史中具有重要地位。﹁易﹂<br />是變化的意思，︽易經︾呈現一個恆常<br />變動的世界。它代表了古人嘗試闡釋<br />人類在宇宙中定位的看法，強調<br />天人之間的互動與合一。作為傳統卜卦<br />文獻和哲學論述，︽易經︾在中國人<br />生活方方面面留下不可磨滅的影響。
+              <span style={{marginTop:'-6px'}}></span>︽易經︾<span style={{marginTop:'-6px'}}></span>是一本古代卜辭書，在中國<br />哲學歷史中具有重要地位。<span style={{marginTop :"-6px"}}></span>﹁易﹂<span style={{marginTop :"-6px"}}></span><br />是變化的意思，<span style={{marginTop :"-6px"}}></span>︽易經︾<span style={{marginTop :"-6px"}}></span>呈現一個恆常<br />變動的世界。它代表了古人嘗試闡釋<br />人類在宇宙中定位的看法，強調<br />天人之間的互動與合一。作為傳統卜卦<br />文獻和哲學論述，<span style={{marginTop :"-6px"}}></span>︽易經︾<span style={{marginTop :"-6px"}}></span>在中國人<br />生活方方面面留下不可磨滅的影響。
             </div>
           </div>
 
@@ -59,7 +59,7 @@ export default function Yijing() {
               fontWeight: '500',
               fontStyle: 'normal'
             }}>
-              Yijing — Book of Changes
+              What is the <em>Yijing</em>, <em>Book of Changes</em>
             </div>
 
             {/* English description */}
@@ -72,7 +72,7 @@ export default function Yijing() {
               fontWeight: 400,
               fontStyle: 'normal'
             }}>
-              The <em>Book of Changes</em> is an ancient divination text that holds great significance in the history of Chinese philosophy. The term <em>yi</em> refers to the "ease" and "simplicity" of observing natural phenomena. Contrary to its common perception as a fortune-telling manual, this book represents an early effort to explain the Chinese view of humanity's place in the universe, which is defined by the interaction between the cosmos and the human self.
+              The <em>Book of Changes</em> is an ancient divination text that holds great significance in the history of Chinese philosophy. The term <em>yi</em> refers to the "ease" and "simplicity" of observing natural phenomena. Contrary to its common perception as a fortune-telling manual, this book represents an early effort to explain the Chinese view of humanity's place in the universe, which is defined by the interaction between the cosmos and the human self. As a classical divination document and a philosophical exposition, it has an enduring imprint on many aspects of Chinese life.
             </div>
           </div>
         </>
@@ -107,7 +107,7 @@ export default function Yijing() {
           flexDirection: 'column',
           justifyContent: 'space-between',
           height: '100%',
-          padding: '120px 60px 60px'
+          padding: '90px 60px 60px'
         }}>
           {/* Vertical Chinese text */}
           <div style={{
@@ -125,7 +125,7 @@ export default function Yijing() {
               color: '#000',
               fontWeight: '400'
             }}>
-              ︽易經︾哲學的<br/>基礎概念是什麼？
+              <span style={{marginTop :"-14px"}}></span>︽易經︾<span style={{marginTop :"-14px"}}></span>哲學的<br/>基礎概念是什麼？
             </div>
             <div style={{
               writingMode: 'vertical-rl',
@@ -136,7 +136,7 @@ export default function Yijing() {
               letterSpacing: '0.1em',
               color: '#000'
             }}>
-              ︽易經︾六十四卦體系的確立，<br/>乃基於﹁陰陽﹂和﹁五行﹂<br/>觀念所形成的關聯性宇宙觀，<br/>以觀萬物之態。這些概念被認為<br/>是宇宙創造與變化的過程，<br/>同時也體現萬物在整體規律中<br/>相互依存的本質。
+               <span style={{marginTop :"-6px"}}></span>︽易經︾<span style={{marginTop :"-6px"}}></span>六十四卦體系的確立，<br/>乃基於﹁陰陽﹂和﹁五行﹂<br/>觀念所形成的關聯性宇宙觀，<br/>以觀萬物之態。這些概念被認為<br/>是宇宙創造與變化的過程，<br/>同時也體現萬物在整體規律中<br/>相互依存的本質。
             </div>
           </div>
 
@@ -218,7 +218,7 @@ The divination system in the Book of Changes was formalised to observe the condi
           flexDirection: 'column',
           justifyContent: 'space-between',
           height: '100%',
-          padding: '120px 60px 60px'
+          padding: '90px 60px 60px'
         }}>
           {/* Vertical Chinese text */}
           <div style={{
@@ -244,7 +244,7 @@ The divination system in the Book of Changes was formalised to observe the condi
               fontSize: '20px',
               lineHeight: '1.2',
               letterSpacing: '0.1em',
-              color: '#666',
+              color: '#000',
               fontWeight: '400'
             }}>
               ︽繫辭︾上傳，第十一章
@@ -260,14 +260,14 @@ The divination system in the Book of Changes was formalised to observe the condi
             maxWidth: '25vw'
           }}>
             <div style={{
-              fontSize: '14px',
+              fontSize: '16px',
               lineHeight: '1.2',
               color: '#000',
               fontFamily: '"neue-haas-unica", sans-serif',
               fontWeight: '500'
             }}>
             There is, in the <em>Changes</em>, <br/><span style={{marginLeft: '20px'}}></span>the Supreme Ultimate <em>(taiji)</em>. <br/><br/>This generates the two primal forces.<br/><br/>The two primal forces  <br/><span style={{marginLeft: '20px'}}></span>generate the four images.<br/><br/>The four images <br/><span style={{marginLeft: '20px'}}></span>generate the eight trigrams. <br/><br/>The eight trigrams<br/><span style={{marginLeft: '20px'}}></span>determine good fortune and misfortune.<br/><br/>Good fortune and misfortune<br/><span style={{marginLeft: '20px'}}></span>create the great field of action.<br/><br/>
-              <span style={{  fontSize: '16px' ,              fontWeight: '300'}}>“Great Commentary”, Part I, Ch. 11</span>
+              <span style={{  fontSize: '14px' ,              fontWeight: '300'}}>“Great Commentary”, Part I, Ch. 11</span>
             </div>
           </div>
         </div>
@@ -281,7 +281,7 @@ The divination system in the Book of Changes was formalised to observe the condi
           flexDirection: 'column',
           justifyContent: 'space-between',
           height: '100%',
-          padding: '120px 60px 60px'
+          padding: '90px 60px 60px'
         }}>
           {/* Vertical Chinese text */}
           <div style={{
@@ -307,7 +307,7 @@ The divination system in the Book of Changes was formalised to observe the condi
               fontSize: '20px',
               lineHeight: '1.2',
               letterSpacing: '0.1em',
-              color: '#666',
+              color: '#000',
               fontWeight: '400'
             }}>
               ︽繫辭︾上傳，第九章
@@ -323,7 +323,7 @@ The divination system in the Book of Changes was formalised to observe the condi
             maxWidth: '25vw'
           }}>
             <div style={{
-              fontSize: '14px',
+              fontSize: '16px',
               lineHeight: '1.2',
               color: '#000',
               fontFamily: '"neue-haas-unica", sans-serif',
@@ -332,7 +332,7 @@ The divination system in the Book of Changes was formalised to observe the condi
               Heaven in one, Earth is two; Heaven is three,<br/> Earth is four; Heaven is five, Earth is six;<br/> Heaven is seven, Earth is eight; Heaven is <br/>nine, Earth in ten. There are thus five<br/>heavenly numbers and five earthly numbers.<br/> When these numbers are distributed among<br/>the five places, each finds its complement.<br/> The sum of the heavenly numbers is 25 and <br/>that of the earthly numbers is 30. The sum <br/>total of heavenly numbers and earthly <br/>numbers is 55. It is this which completes the <br/>changes and transformation and sets the <br/>spirits in motion. 
 
 <br/><br/>
-              <span style={{  fontSize: '16px' ,  fontWeight: '300'}}>"Great Commentary", Part I, Ch. 9</span>
+              <span style={{  fontSize: '14px' ,  fontWeight: '300'}}>"Great Commentary", Part I, Ch. 9</span>
             </div>
           </div>
         </div>
@@ -392,7 +392,7 @@ The divination system in the Book of Changes was formalised to observe the condi
           flexDirection: 'column',
           justifyContent: 'space-between',
           height: '100%',
-          padding: '120px 60px 60px'
+          padding: '90px 60px 60px'
         }}>
           {/* Vertical Chinese text */}
           <div style={{
@@ -444,6 +444,29 @@ The divination system in the Book of Changes was formalised to observe the condi
       );
     }
     
+    if (index === 10) {
+      return (
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          height: '100%',
+          padding: '80px 40px'
+        }}>
+          <img 
+            src="/images/yijing/64-digital-number.jpg" 
+            alt="64 Hexagrams" 
+            style={{
+              width: '100%',
+              height: 'auto',
+              maxHeight: '90%',
+              objectFit: 'contain'
+            }}
+          />
+        </div>
+      );
+    }
+    
     return null;
   };
 
@@ -483,7 +506,7 @@ The divination system in the Book of Changes was formalised to observe the condi
           {/* Bottom half */}
           <div style={{
             height: '50%',
-            padding: '60px 40px',
+            padding: '90px 40px 60px 40px',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'flex-end'
@@ -521,7 +544,7 @@ The divination system in the Book of Changes was formalised to observe the condi
             flexDirection: 'row',
             alignItems: 'flex-start',
             justifyContent: 'space-between',
-            padding: '120px 40px 0 40px'
+            padding: '90px 40px 0 40px'
           }}>
             <div style={{
               writingMode: 'vertical-rl',
@@ -547,7 +570,7 @@ The divination system in the Book of Changes was formalised to observe the condi
             </div>
           </div>
           <div style={{
-            padding: '60px 40px ',
+            padding: '90px 40px 60px 40px ',
           }}>
             <div style={{
               fontSize: '24px',
@@ -578,7 +601,7 @@ The divination system in the Book of Changes was formalised to observe the condi
           <div style={{
             height: '50%',
             borderBottom: '1px solid #888',
-            padding: '40px',
+            padding: '60px 40px',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'flex-end'
@@ -607,7 +630,7 @@ The divination system in the Book of Changes was formalised to observe the condi
           {/* Bottom section - English */}
           <div style={{
             height: '50%',
-            padding: '40px',
+            padding: '60px 40px',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'flex-end',
@@ -645,7 +668,7 @@ The divination system in the Book of Changes was formalised to observe the condi
           <div style={{
             flex: 1,
             borderBottom: '1px solid #888',
-            padding: '40px',
+            padding: '60px 40px',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'flex-end'
@@ -673,7 +696,7 @@ The divination system in the Book of Changes was formalised to observe the condi
           {/* Bottom section - English */}
           <div style={{
             flex: 1,
-            padding: '60px 40px',
+            padding: '90px 40px 60px 40px',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'flex-end'
@@ -710,7 +733,7 @@ By combining <em>yin</em> and <em>yang</em> in four possible ways, there are the
           <div style={{
             flex: 1,
             borderBottom: '1px solid #888',
-            padding: '40px',
+            padding: '60px 40px',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'flex-end'
@@ -739,7 +762,7 @@ By combining <em>yin</em> and <em>yang</em> in four possible ways, there are the
           {/* Bottom section - English */}
           <div style={{
             flex: 1,
-            padding: '60px 40px',
+            padding: '90px 40px 60px 40px',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'flex-end'
@@ -777,7 +800,7 @@ By combining <em>yin</em> and <em>yang</em> in four possible ways, there are the
           <div style={{
             flex: 1,
             borderBottom: '1px solid #888',
-            padding: '40px',
+            padding: '90px 40px 60px',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'flex-end'
@@ -805,7 +828,7 @@ By combining <em>yin</em> and <em>yang</em> in four possible ways, there are the
           {/* Bottom section - English */}
           <div style={{
             flex: 1,
-            padding: '60px 40px',
+            padding: '90px 40px 60px 40px',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'flex-end'
@@ -842,7 +865,7 @@ By combining <em>yin</em> and <em>yang</em> in four possible ways, there are the
           <div style={{
             flex: 1,
             borderBottom: '1px solid #888',
-            padding: '40px',
+            padding: '90px 40px 60px',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'flex-end'
@@ -868,7 +891,7 @@ By combining <em>yin</em> and <em>yang</em> in four possible ways, there are the
           {/* Bottom section - English */}
           <div style={{
             flex: 1,
-            padding: '60px 40px',
+            padding: '90px 40px 60px 40px',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'flex-end'
@@ -902,7 +925,7 @@ The Book of Changes reveals how the ancient Chinese developed a numerical system
           display: 'flex',
           flexDirection: 'column',
           height: '100%',
-          padding: '60px 40px',
+          padding: '90px 40px 60px 40px',
           justifyContent: 'space-between'
         }}>
           {/* Chinese text at top-right */}
@@ -943,7 +966,7 @@ The Yellow River Chart has been traditionally attributed to the legendary empero
           display: 'flex',
           flexDirection: 'column',
           height: '100%',
-          padding: '60px 40px',
+          padding: '90px 40px 60px 40px',
           justifyContent: 'space-between'
         }}>
           {/* Chinese text at top-right */}
@@ -984,7 +1007,7 @@ The Writing from the Luo River is attributed to a mythical turtle with a diagram
           display: 'flex',
           flexDirection: 'column',
           height: '100%',
-          padding: '120px 40px',
+          padding: '90px 40px',
           justifyContent: 'space-between'
         }}>
           <div style={{
@@ -1037,6 +1060,71 @@ The Writing from the Luo River is attributed to a mythical turtle with a diagram
       );
     }
     
+    if (index === 10) {
+      return (
+        <>
+          {/* Top section - Chinese */}
+          <div style={{
+            flex: 1,
+            borderBottom: '1px solid #888',
+            padding: '60px 40px',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'flex-end'
+          }}>
+            <div style={{
+              fontSize: '20px',
+              fontWeight: '400',
+              color: '#FFF',
+              marginBottom: '20px'
+            }}>
+              與現代科學的關係
+            </div>
+            <div style={{
+              fontSize: '15px',
+              lineHeight: '1.4',
+              color: '#FFF',
+              fontWeight: '300'
+            }}>
+              《易經》六十四卦體系，被認為與哥特弗利德·威廉·萊布尼茲 （Gottfried Wilhelm Leibniz，1646-1716年） 所創的二進制存在關聯，該系統如今被廣泛應用於數位計算領域。<br/><br/>
+              萊布尼茲是一名在微積分學作出重大貢獻的德國哲學家和數學家，他被曾前往中國的法國耶穌會傳教士白晉（Joachim Bouvet，1656-1730年）引介下認識《易經》。萊布尼茲因中國六十四卦的抽象結構與二進制十分相似而感到著迷，並將此古代符號系統與他的二進制運算建立連結。<br/><br/>
+              圖例跟據伏羲所創「先天八卦圖」中六十四卦的陣式，將陰以「0」代替，陽以「1」代替，即可得到零至六十三 數值的二進制表示法。
+            </div>
+          </div>
+
+          {/* Bottom section - English */}
+          <div style={{
+            flex: 1,
+            padding: '90px 40px 60px 40px',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'flex-end'
+          }}>
+            <div style={{
+              fontSize: '18px',
+              fontWeight: '500',
+              color: '#FFF',
+              marginBottom: '15px',
+              fontFamily: '"neue-haas-unica", sans-serif'
+            }}>
+              Relations to Modern Sciences
+            </div>
+            <div style={{
+              fontSize: '14px',
+              lineHeight: '1.4',
+              color: '#FFF',
+              fontFamily: '"neue-haas-unica", sans-serif',
+              fontWeight: '300'
+            }}>
+              The 64 hexagrams in the Book of Changes have been linked with the binary notation developed by Gottfried Wilhelm Leibniz (1646-1716), used nowadays in digital computation.<br/><br/>
+              Leibniz, a German philosopher and mathematician who made great contributions to calculus, was introduced to the Book of Changes by Joachim Bouvet (1656-1730), a French Jesuit missionary working in China. Fascinated by how the abstract structures of the hexagrams resembled his binary number system, he linked the ancient symbols with binary arithmetic.  <br/><br/>
+              The illustrations demonstrate the arrangement of the 64 hexagrams in the Former Heaven sequence attributed to Fu Xi. By replacing a yin symbol withthe number 0 and a yang symbol with the number 1, we get the binary notation for the numbers 0 to 63.
+            </div>
+          </div>
+        </>
+      );
+    }
+    
     return null;
   };
 
@@ -1046,9 +1134,9 @@ The Writing from the Luo River is attributed to a mythical turtle with a diagram
       
       scrollLockRef.current = true;
       
-      if (e.deltaY > 0 && currentSlide < 9) {
+      if (e.deltaY > 0 && currentSlide < 10) {
         // Scroll down - next slide
-        setCurrentSlide(prev => Math.min(prev + 1, 9));
+        setCurrentSlide(prev => Math.min(prev + 1, 10));
       } else if (e.deltaY < 0 && currentSlide > 0) {
         // Scroll up - previous slide
         setCurrentSlide(prev => Math.max(prev - 1, 0));
@@ -1084,7 +1172,7 @@ The Writing from the Luo River is attributed to a mythical turtle with a diagram
           overflow: 'hidden'
         }}
       >
-        {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((index) => {
+        {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((index) => {
           return (
             <div
               key={index}
@@ -1097,8 +1185,8 @@ The Writing from the Luo River is attributed to a mythical turtle with a diagram
                 backgroundColor: '#FFF',
                 display: 'flex',
                 flexDirection: 'column',
-                justifyContent: (index >= 1 && index <= 9) ? 'center' : 'space-between',
-                padding: (index === 0) ? '120px 40px 60px' : (index >= 1 && index <= 9) ? '0' : '120px 40px 60px',
+                justifyContent: (index >= 1 && index <= 10) ? 'center' : 'space-between',
+                padding: (index === 0) ? '90px 40px 60px' : (index >= 1 && index <= 10) ? '0' : '90px 40px 60px',
                 transform: index <= currentSlide ? 'translateX(0)' : 'translateX(100%)',
                 transition: 'transform 0.7s ease-out',
                 zIndex: index
@@ -1144,7 +1232,7 @@ The Writing from the Luo River is attributed to a mythical turtle with a diagram
           overflow: 'hidden'
         }}
       >
-        {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((index) => {
+        {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((index) => {
           return (
             <div
               key={index}
@@ -1189,17 +1277,17 @@ The Writing from the Luo River is attributed to a mythical turtle with a diagram
           display: 'flex',
           flexDirection: 'column',
           gap: '10px',
-          marginBottom: '30px'
+          marginBottom: '25px'
         }}>
-          {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((index) => (
+          {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((index) => (
             <div
               key={index}
               onClick={() => setCurrentSlide(index)}
               style={{
-                width: '8px',
-                height: '8px',
+                width: '6px',
+                height: '6px',
                 backgroundColor: currentSlide === index ? '#FFF' : 'transparent',
-                border: currentSlide === index ? 'none' : '1px solid #FFF',
+                border: currentSlide === index ? 'none' : '1px solid #888',
                 cursor: 'pointer',
                 transition: 'background-color 0.3s ease, border 0.3s ease'
               }}
@@ -1218,17 +1306,17 @@ The Writing from the Luo River is attributed to a mythical turtle with a diagram
             cursor: 'pointer'
           }}
           onClick={() => {
-            if (currentSlide < 9) {
+            if (currentSlide < 10) {
               setCurrentSlide(currentSlide + 1);
             } else {
               setCurrentSlide(0);
             }
           }}
         >
-          {currentSlide === 9 ? (
-            <>第一章 <span style={{ fontFamily: '"neue-haas-unica", sans-serif', fontWeight: '300', marginLeft: '-5px' }}>Back</span></>
+          {currentSlide === 10 ? (
+            <>第一章 <span style={{ fontFamily: '"neue-haas-unica", sans-serif', fontWeight: '300', marginTop: '15px', lineHeight: '1', display: 'inline-block', marginLeft: '6px' }}>Back</span></>
           ) : (
-            <>下一章 <span style={{ fontFamily: '"neue-haas-unica", sans-serif', fontWeight: '300', marginLeft: '-5px' }}>Next</span></>
+            <>下一章 <span style={{ fontFamily: '"neue-haas-unica", sans-serif', fontWeight: '300', marginTop: '15px', lineHeight: '1', display: 'inline-block', marginLeft: '6px' }}>Next</span></>
           )}
         </div>
       </div>

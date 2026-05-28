@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import Header from "@/components/Header";
+import { yijing } from "@/data/homepage";
 
 // I Ching hexagram mapping (1-64) to binary representation
 // 0 = yin (broken line), 1 = yang (solid line)
@@ -151,7 +152,7 @@ export default function Home() {
         gsap.to(moduleRef.current, {
           x: `${moveX}vw`,
           y: `${moveY}vw`,
-          duration: 6,
+          duration: zoom === 150 ? 12 : 6,
           ease: "power1.out",
           overwrite: "auto",
         });
@@ -185,8 +186,8 @@ export default function Home() {
       scale = 0.57;
       borderWidth = 1 / scale;
     } else if (zoom === 50) {
-      scale = 0.57 * 0.4;
-      borderWidth = 1 / scale;
+      scale = 0.57 * 0.5;
+      borderWidth = 1.5;
     }
 
     gridItemsRef.current.forEach((item, index) => {
@@ -213,7 +214,7 @@ export default function Home() {
       let targetY = 0;
       
       if (zoom === 50) {
-        scaleValue = 0.57 * 0.4;
+        scaleValue = 0.57 * 0.5;
         targetX = 0;
         targetY = 0;
       } else if (zoom === 100) {
@@ -274,6 +275,49 @@ export default function Home() {
       setMode("overview");
     }
   }, [zoom]);
+
+  // Handle menu open/close - center grid on box 32
+  useEffect(() => {
+    if (!moduleRef.current) return;
+    
+    if (isMenuOpen) {
+      // Menu opened - pause mouse effect and center on box 32
+      setIsMousePaused(true);
+      
+      // Box 32 is at index 31 (0-based)
+      // gridOrder[31] gives us the hexagram number at that position
+      const index = 31; // Middle of 8x8 grid (row 3, col 7)
+      const row = Math.floor(index / 8);
+      const col = index % 8;
+      
+      gsap.killTweensOf(moduleRef.current);
+      
+      const targetScale = zoom === 150 ? 1 : (zoom === 100 ? 0.57 : 0.57 * 0.5);
+      const vwToPx = window.innerWidth / 100;
+      const boxSizeVw = 20;
+      
+      // Calculate position to center box 32
+      const boxCenterXVw = (col - 3.5) * boxSizeVw;
+      const boxCenterYVw = (row - 3.5) * boxSizeVw;
+      
+      const finalX = -boxCenterXVw * vwToPx;
+      const finalY = -boxCenterYVw * vwToPx;
+      
+      gsap.to(moduleRef.current, {
+        x: finalX,
+        y: finalY,
+        xPercent: -50,
+        yPercent: -50,
+        scale: targetScale,
+        duration: 1.5,
+        ease: "power3.inOut",
+        overwrite: true
+      });
+    } else {
+      // Menu closed - resume mouse effect
+      setIsMousePaused(false);
+    }
+  }, [isMenuOpen, zoom]);
 
   const toggleMode = () => {
     if (mode === "explore") {
@@ -337,7 +381,7 @@ export default function Home() {
           fontFamily: '"neue-haas-unica", sans-serif',
           fontWeight: 400,
           whiteSpace: 'nowrap',
-          zIndex: 99,
+          zIndex: 20,
           pointerEvents: 'none',
           opacity: (hideOverlay && zoom === 150) ? 1 : 0,
           transition: 'opacity 0.5s ease-out'
@@ -374,7 +418,8 @@ export default function Home() {
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
-            padding: ' 40px 30px'
+            padding: scrollProgress >= 1 ? '30px 30px 40px 30px' : '40px 30px',
+            borderRadius: scrollProgress >= 1 ? '0' : '15px'
           }}
         >
 
@@ -390,7 +435,7 @@ export default function Home() {
             <div style={{ 
               writingMode: 'vertical-rl',
               textOrientation: 'upright',
-              fontSize: scrollProgress === 0 ? '24px' : '28px',
+              fontSize: scrollProgress === 0 ? '24px' : '36px',
               lineHeight: '1',
               fontWeight: '400',
               letterSpacing: '0.2em',
@@ -405,12 +450,12 @@ export default function Home() {
             <div style={{ 
               writingMode: 'vertical-rl',
               textOrientation: 'upright',
-              fontSize: scrollProgress === 0 ? '24px' : '28px',
+              fontSize: scrollProgress === 0 ? '24px' : '36px',
               lineHeight: '1.25',
               fontWeight: '300',
               letterSpacing: '0.2em',
               color: '#000',
-              marginLeft: '20px',
+              marginLeft: '10px',
               transition: 'font-size 0.8s cubic-bezier(0.4, 0, 0.2, 1)'
             }}>
               鮑皓昕攝影藝術
@@ -420,19 +465,26 @@ export default function Home() {
             <div style={{ 
               writingMode: 'vertical-rl',
               textOrientation: 'upright',
-              fontSize: scrollProgress === 0 ? '18px' : '22px',
+              fontSize: scrollProgress === 0 ? '16px' : '24px',
               lineHeight: '1.4',
               fontWeight: '300',
               letterSpacing: '0.1em',
               color: '#000',
               transition: 'font-size 0.8s cubic-bezier(0.4, 0, 0.2, 1)'
-            }}>
-              展覽透過香港攝影藝術家鮑皓昕的<br/>
-              藝術詮釋，凸顯︽易經︾無盡的關聯性<br/>
-              與創造力。這是一場視覺盛宴，<br/>
-              讓觀眾體會天地造化之中氣的微妙變化，<br/>
-              沉思古籍中闡述的﹁天、地、人﹂<br/>
-              互動與合一的中國古代哲學概念。
+            }}>是次展覽透過香港攝影藝術家鮑皓昕的<br/>
+            藝術詮釋，凸顯︽易經︾無盡的關聯性與<br/>
+            創造力。鮑皓昕兩個系列作品<br/>
+            ︽中國牆城︾和︽觀靜錄︾，探究文化遺產<br/>
+            與藝術創作之間的關係。互動與合一的<br/>
+            中國古代哲學概念。這些照片捕捉變化<br/>
+            無窮的世界，見證鮑氏對︽易經︾的<br/>
+            深刻領悟，藉此擁抱真實自我，飽覽天地<br/>
+            之壯麗與奧秘。這是一場視覺盛宴，<br/>
+            讓觀眾體會天地造化之中氣的微妙變化，<br/>
+            沉思古籍中闡述的﹁天、地、人﹂互動與<br/>
+            合一的中國古代哲學概念。
+
+
             </div>
           </div>
 
@@ -445,7 +497,7 @@ export default function Home() {
           }}>
             {/* English Title */}
             <div style={{ 
-              fontSize: scrollProgress === 0 ? '17px' : '24px',
+              fontSize: scrollProgress === 0 ? '16px' : '18px',
               marginBottom: '10px',
               lineHeight: '1.2',
               color: '#000',
@@ -459,7 +511,7 @@ export default function Home() {
 
             {/* English Content */}
             <div style={{ 
-              fontSize: scrollProgress === 0 ? '14px' : '20px',
+              fontSize: scrollProgress === 0 ? '12px' : '16px',
               lineHeight: '1.2',
               color: '#000',
               textAlign: 'left',
@@ -468,8 +520,7 @@ export default function Home() {
               fontStyle: 'normal',
               transition: 'font-size 0.8s cubic-bezier(0.4, 0, 0.2, 1)'
             }}>
-              The exhibition highlights the continued relevance of the Book of Changes through the artistic interpretation of Hong Kong photo artist Basil Pao. It invites contemplation on the interaction and unity of Heaven, Earth, and Humanity—an ancient Chinese philosophical concept presented in the classic.
-            </div>
+The current exhibition highlights the continued relevance of the Book of Changes through the artistic interpretation of Hong Kong photo artist Basil Pao. Two series of his works—The Great Walls of China and Glimpses of Silence—are presented here to explore the relation between heritage and artistic creation. Capturing a world of changing reality and changing appearances, these pictures are the testament to Pao's deep connections to the Book of Changes for embracing the authentic self and beholding the beauty and mystery of the world. The show offers a visual feast for observing the eternal energy and subtleties of change in all-embracing landscapes. It invites contemplation on the interaction and unity of Heaven, Earth, and Humanity-an ancient Chinese philosophical concept presented in the classic.            </div>
           </div>
         </div>
       </div>
@@ -477,17 +528,23 @@ export default function Home() {
       {/* Landing footer */}
       <div style={{
         position: 'fixed',
-        bottom: isLanding ? '0' : '-150px',
+        bottom: '0',
         left: 0,
         width: '100%',
         padding: '25px',
-        backgroundColor: 'rgba(0, 0, 0, 1)',
+        backgroundColor: 'rgba(0, 0, 0, .6)',
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
         transition: 'bottom 0.5s ease-out',
         pointerEvents: isLanding ? 'auto' : 'none',
-        zIndex: 10
+        zIndex: 10,
+        paddingTop: '100vh',
+        opacity: isLanding ? 1 : 0,
+        transitionProperty: 'opacity',
+        transitionDuration: '0.5s',
+        transitionTimingFunction: 'ease-out',
+        backdropFilter: 'blur(10px)'
       }}>
         <img 
           src="/images/TK-logo.svg" 
@@ -503,13 +560,14 @@ export default function Home() {
 
       <Header isPanelOpen={isPanelOpen} hideOverlay={hideOverlay} onMenuChange={setIsMenuOpen} />
       
-      <div className={`w-full ${mode === "overview" ? (zoom === 50 ? "min-h-screen" : "min-h-[200vh]") : "h-screen overflow-hidden"} relative`}>
+      <div className={`w-full ${mode === "overview" ? (zoom === 50 ? "min-h-screen" : "min-h-[180vh]") : "h-screen overflow-hidden"} relative`}>
         <div 
           ref={moduleRef}
           className="grid grid-cols-8 gap-0 absolute top-1/2 left-1/2 w-[160vw]"
           style={{ 
             willChange: "transform",
-            transformStyle: "preserve-3d"
+            transformStyle: "preserve-3d",
+            border: zoom === 150 ? '2px solid #000000' : '2px solid #333333'
           }}
         >
           {Array.from({ length: 64 }).map((_, index) => {
@@ -524,7 +582,7 @@ export default function Home() {
               style={{ 
                 borderWidth: archivedBoxes.has(boxNumber) ? '2px' : '1px',
                 borderStyle: 'solid', 
-                borderColor: mode === 'overview' && !isPanelOpen ? (archivedBoxes.has(boxNumber) ? 'rgba(255, 255, 255, 0.7)' : '#888888') : '#000000',
+                borderColor: zoom === 150 ? '#000000' : '#333333',
                 backgroundColor: 'transparent'
               }}
               onClick={(e) => {
@@ -681,21 +739,32 @@ export default function Home() {
               <div className="flex items-start justify-between mb-8">
                 <div className="text-[24px] font-medium leading-none neue-haas-unica">{selectedBox || '--'}</div>
                 <div className="flex gap-3 items-start">
+                  {selectedBox && yijing[selectedBox - 1] && (
+                    <>
+                      <div className="text-[16px] tracking-wide relative font-medium" style={{ writingMode: 'vertical-rl', textOrientation: 'upright', letterSpacing: '0.05em', paddingTop: '2.8em' }}><span style={{marginTop: '-6px'}}></span>
+                        {yijing[selectedBox - 1].meaningContent.split('\n').map((line, i) => (
+                          <span key={i}>{line}{i < yijing[selectedBox - 1].meaningContent.split('\n').length - 1 && <br/>}</span>
+                        ))}
+                      </div>
+                      <div className="text-[20px] tracking-wide relative font-bold" style={{ writingMode: 'vertical-rl', textOrientation: 'upright', letterSpacing: '0.05em'}}>
+                        {yijing[selectedBox - 1].meaning.split('\n').map((line, i) => (
+                          <span key={i}>{line}{i < yijing[selectedBox - 1].meaning.split('\n').length - 1 && <br/>}</span>
+                        ))}
+                      </div>
 
-                  <div className="text-[16px] tracking-wide relative font-medium" style={{ writingMode: 'vertical-rl', textOrientation: 'upright', letterSpacing: '0.05em', paddingTop: '2.8em' }}>
-                    ︽象傳︾說：雷與風相互配合，這就是恆卦。<br/>君子由此領悟，要立身處世不改變自己的正道。
-                  </div>
-                  <div className="text-[20px] tracking-wide relative font-bold" style={{ writingMode: 'vertical-rl', textOrientation: 'upright', letterSpacing: '0.05em'}}>
-                    象曰：雷風，恆。君子以立不易方。
-                  </div>
-
-                  <div className="text-[16px] tracking-wide relative font-medium" style={{ writingMode: 'vertical-rl', textOrientation: 'upright', letterSpacing: '0.05em', paddingTop: '2.8em' }}>
-                    恆卦。通達，沒有災難，適宜正固。<br/>適宜有所前往。
-                  </div>                  
-                  <div className="text-[20px] tracking-wide relative font-bold" style={{ writingMode: 'vertical-rl', textOrientation: 'upright', letterSpacing: '0.05em' }}>
-                    恆：亨，无咎，利貞。利有攸往。
-                  </div>
-                  <h2 className="text-[56px] font-bold leading-none ml-4" style={{ writingMode: 'vertical-rl' }}>恆</h2>
+                      <div className="text-[16px] tracking-wide relative font-medium" style={{ writingMode: 'vertical-rl', textOrientation: 'upright', letterSpacing: '0.05em', paddingTop: '2.8em' }}>
+                        {yijing[selectedBox - 1].messageContent.split('\n').map((line, i) => (
+                          <span key={i}>{line}{i < yijing[selectedBox - 1].messageContent.split('\n').length - 1 && <br/>}</span>
+                        ))}
+                      </div>                  
+                      <div className="text-[20px] tracking-wide relative font-bold" style={{ writingMode: 'vertical-rl', textOrientation: 'upright', letterSpacing: '0.05em' }}>
+                        {yijing[selectedBox - 1].message.split('\n').map((line, i) => (
+                          <span key={i}>{line}{i < yijing[selectedBox - 1].message.split('\n').length - 1 && <br/>}</span>
+                        ))}
+                      </div>
+                      <h2 className="text-[56px] font-bold leading-none ml-4" style={{ writingMode: 'vertical-rl' }}>{yijing[selectedBox - 1].titletc}</h2>
+                    </>
+                  )}
                 </div>
               </div>
 
@@ -705,44 +774,73 @@ export default function Home() {
                     <div className="w-20 h-20 mb-6 flex items-center justify-center">
                       {selectedBox && generateHexagramSVG(selectedBox)}
                     </div>
-                    <div className="flex gap-2 mb-4">
-                      <p className="leading-tight text-[16px]" style={{ writingMode: 'vertical-rl', letterSpacing: '0.3em' }}>震上</p>
-                      <p className="leading-tight text-[16px]" style={{ writingMode: 'vertical-rl', letterSpacing: '0.3em' }}>巽下</p>
-                    </div>
-                    
-                    <div className="text-[13px]">
-                      <div className="mb-4">
-                        <p className="font-normal leading-tight neue-haas-unica">above Zhen /</p>
-                        <p className="font-normal neue-haas-unica leading-tight">The Arousing,<br/>Thunder</p>
-                      </div>
-                      <div>
-                        <p className="font-normal leading-tight neue-haas-unica">below Xun /</p>
-                        <p className="font-normal neue-haas-unica leading-tight">The Gentle,<br/>Wind</p>
-                      </div>
-                    </div>
+                    {selectedBox && yijing[selectedBox - 1] && (
+                      <>
+                        <div className="flex gap-2 mb-4">
+                          <p className="leading-tight text-[16px]" style={{ writingMode: 'vertical-rl', letterSpacing: '0.3em' }}>{yijing[selectedBox - 1].abovetc}</p>
+                          <p className="leading-tight text-[16px]" style={{ writingMode: 'vertical-rl', letterSpacing: '0.3em' }}>{yijing[selectedBox - 1].belowtc}</p>
+                        </div>
+                        
+                        <div className="text-[13px]">
+                          <div className="mb-4">
+                            <p className="font-normal leading-tight neue-haas-unica">
+                              above <em>{yijing[selectedBox - 1].above}</em>
+                            </p>
+                            <p className="font-normal neue-haas-unica leading-tight italic">{yijing[selectedBox - 1].abovetxt.split('\n').map((line, i) => (
+                              <span key={i}>{line}{i < yijing[selectedBox - 1].abovetxt.split('\n').length - 1 && <br/>}</span>
+                            ))}</p>
+                          </div>
+                          <div>
+                            <p className="font-normal leading-tight neue-haas-unica">
+                              below <em>{yijing[selectedBox - 1].below}</em>
+                            </p>
+                            <p className="font-normal neue-haas-unica leading-tight italic">{yijing[selectedBox - 1].belowtxt.split('\n').map((line, i) => (
+                              <span key={i}>{line}{i < yijing[selectedBox - 1].belowtxt.split('\n').length - 1 && <br/>}</span>
+                            ))}</p>
+                          </div>
+                        </div>
+                      </>
+                    )}
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-[22px] font-normal leading-tight mb-4 neue-haas-unica">Heng /<br/>Duration</h3>
-                    
-                    <div className="space-y-4">
-                      <div>
-                        <h4 className="font-bold text-[12px] mb-1 neue-haas-unica">The Judgement</h4>
-                        <p className="text-black leading-snug text-[14px]  neue-haas-unica font-normal">
-                          Duration. Success. No blame.<br />
-                          Perseverance furthers.<br />
-                          It furthers one to have somewhere to go.
-                        </p>
-                      </div>
+                    {selectedBox && yijing[selectedBox - 1] && (
+                      <>
+                        <h3 className="text-[22px] font-normal leading-tight mb-4 neue-haas-unica">
+                          {yijing[selectedBox - 1].title.split('\n').map((line, i, arr) => (
+                            <span key={i}>
+                              {i === 0 && line.includes('/') ? (
+                                <>
+                                  {line.split('/').map((part, j) => (
+                                    j === 0 ? <em key={j}>{part}</em> : <><span key={j}> /</span><br/>{part}</>
+                                  ))}
+                                </>
+                              ) : line}
+                              {i < arr.length - 1 && i > 0 && <br/>}
+                            </span>
+                          ))}
+                        </h3>
+                        
+                        <div className="space-y-4">
+                          <div>
+                            <h4 className="font-bold text-[12px] mb-1 neue-haas-unica">The Judgement</h4>
+                            <p className="text-black leading-snug text-[14px]  neue-haas-unica font-normal">
+                              {yijing[selectedBox - 1].thejudgement.split('\n').map((line, i) => (
+                                <span key={i}>{line}{i < yijing[selectedBox - 1].thejudgement.split('\n').length - 1 && <br />}</span>
+                              ))}
+                            </p>
+                          </div>
 
-                      <div>
-                        <h4 className="font-bold text-[12px] mb-1 neue-haas-unica">The Image</h4>
-                        <p className="text-black leading-snug text-[14px] font-normal neue-haas-unica">
-                          Thunder and wind: the image of Duration.<br />
-                          Thus the superior man stands firm<br />
-                          And does not change his direction.
-                        </p>
-                      </div>
-                    </div>
+                          <div>
+                            <h4 className="font-bold text-[12px] mb-1 neue-haas-unica">The Image</h4>
+                            <p className="text-black leading-snug text-[14px] font-normal neue-haas-unica">
+                              {yijing[selectedBox - 1].theimage.split('\n').map((line, i) => (
+                                <span key={i}>{line}{i < yijing[selectedBox - 1].theimage.split('\n').length - 1 && <br />}</span>
+                              ))}
+                            </p>
+                          </div>
+                        </div>
+                      </>
+                    )}
                   </div>
                 </div>
               </div>
@@ -757,6 +855,8 @@ export default function Home() {
             pointerEvents: isPanelOpen || isMenuOpen || !hideOverlay ? 'none' : 'auto',
             transition: isPanelOpen || isMenuOpen ? 'opacity 0s' : (hideOverlay ? 'opacity 0.5s ease-out 1s' : 'opacity 0.5s ease-out'),
             backgroundColor: 'rgba(0, 0, 0, 0.6)',
+            backdropFilter: 'blur(10px)',
+            WebkitBackdropFilter: 'blur(10px)',
             height: '50px'
           }}
         >
@@ -778,7 +878,7 @@ export default function Home() {
           </div>
 
           {/* Center separator */}
-          <div style={{ width: '2px', height: '50px', backgroundColor: '#888888' }}></div>
+          <div style={{ width: '2px', height: '50px', backgroundColor: '#333333' }}></div>
 
           {/* Right section - Zoom controls (175px) */}
           <div className="flex items-center justify-center gap-3 neue-haas-unica text-[18px] font-normal" style={{ width: '175px', color: '#FFFFFF' }}>

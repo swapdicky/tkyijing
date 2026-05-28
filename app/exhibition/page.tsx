@@ -10,6 +10,7 @@ export default function Exhibition() {
   const [scrollX, setScrollX] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
   const [shouldOpenMenu, setShouldOpenMenu] = useState(false);
+  const [windowHeight, setWindowHeight] = useState(0);
   const sectionBreakRefs = useRef<(HTMLDivElement | null)[]>([]);
   const innerSectionRefs = useRef<(HTMLDivElement | null)[]>([]);
   const imageParallaxRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -52,6 +53,20 @@ export default function Exhibition() {
       };
       img.src = src;
     });
+  }, []);
+
+  // Track window height for responsive font sizing
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowHeight(window.innerHeight);
+    };
+    
+    handleResize(); // Set initial value
+    window.addEventListener('resize', handleResize);
+    
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   useEffect(() => {
@@ -104,7 +119,7 @@ export default function Exhibition() {
     const updateInnerSectionScale = () => {
       const viewportCenter = window.innerWidth / 2;
       const viewportWidth = window.innerWidth;
-      const baseHeight = window.innerHeight - 140;
+      const baseHeight = window.innerHeight - 150; // Account for paddingTop (90px) + paddingBottom (60px)
       const targetHeight = window.innerHeight;
       const scaleZone = 1200;
       
@@ -137,9 +152,9 @@ export default function Exhibition() {
         const currentHeight = baseHeight + (targetHeight - baseHeight) * easedScale;
         innerEl.style.height = `${currentHeight}px`;
         
-        // Adjust margin to shift images up slightly
+        // Adjust margin to center images vertically when scaled
         const heightIncrease = currentHeight - baseHeight;
-        const marginTop = heightIncrease * 0.15;
+        const marginTop = heightIncrease * 0.2;
         innerEl.style.marginTop = `-${marginTop}px`;
       });
     };
@@ -235,7 +250,7 @@ export default function Exhibition() {
           style={{ width: "auto" }}
         >
           {/* Landing */}
-          <div className="h-screen  relative" style={{ minWidth: "50vw", zIndex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', padding: '80px 40px 60px' }}>
+          <div className="h-screen  relative" style={{ minWidth: "50vw", zIndex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', padding: '90px 40px 60px' }}>
       <div
         style={{
           position: 'absolute',
@@ -300,7 +315,7 @@ export default function Exhibition() {
                 marginBottom: '20px',
                 lineHeight: '1.2',
                 color: '#FFF',
-                fontWeight: 'bold'
+                fontWeight: '500'
               }}>
                 Exhibition Introduction
               </div>
@@ -349,12 +364,12 @@ Chinese life.              </div>
           </div>
 
           {/* Section 1 */}
-          <div className="h-screen flex relative flex-shrink-0" style={{ backgroundColor: "#DDDDDD", zIndex: 2, borderTopLeftRadius: "40px", borderBottomLeftRadius: "40px", overflow: "hidden", marginLeft: "-40px", paddingRight: "80px" }}>
-            <div className="h-screen relative" style={{ width: "calc(50vw + 60px)", display: 'flex', flexDirection: 'column', justifyContent: 'space-between', padding: ' 80px 60px 60px 60px' }}>
+          <div className="h-screen flex relative flex-shrink-0" style={{ backgroundColor: "#DDDDDD", zIndex: 2, borderTopLeftRadius: "40px", borderBottomLeftRadius: "40px", overflow: "hidden", marginLeft: "-40px", paddingRight: "90px" }}>
+            <div className="h-screen relative" style={{ width: "calc(50vw + 60px)", display: 'flex', flexDirection: 'column', justifyContent: 'space-between', padding: ' 90px 60px 60px 60px' }}>
               {/* Vertical line on the right */}
               <div style={{
                 position: 'absolute',
-                top: '80px',
+                top: '90px',
                 right: '30px',
                 width: '1px',
                 height: 'calc(100vh - 160px)',
@@ -405,7 +420,7 @@ Chinese life.              </div>
                   lineHeight: '1.2',
                   color: '#000',
                   fontFamily: '"neue-haas-unica", sans-serif',
-                  fontWeight: 'bold',
+                  fontWeight: '500',
                   fontStyle: 'normal'
                 }}>
                   Curatorial Statement
@@ -425,7 +440,7 @@ Chinese life.              </div>
                 </div>
               </div>
             </div>
-            <div className="flex-1 flex items-center" style={{ paddingTop: "80px", paddingBottom: "60px", paddingLeft: "30px", paddingRight: "30px", gap: "30px" }}>
+            <div className="flex-1 flex items-center" style={{ paddingTop: "90px", paddingBottom: "60px", paddingLeft: "30px", paddingRight: "30px", gap: "30px" }}>
               <div 
                 ref={(el) => { 
                   innerSectionRefs.current[0] = el;
@@ -505,12 +520,12 @@ Chinese life.              </div>
           </div>
 
           {/* Section 2 */}
-          <div className="h-screen flex relative flex-shrink-0" style={{ backgroundColor: "#330E07", zIndex: 3, borderTopLeftRadius: "40px", borderBottomLeftRadius: "40px", overflow: "hidden", marginLeft: "-40px", paddingRight: "80px" }}>
-            <div className="h-screen relative" style={{ width: "calc(50vw + 60px)", display: 'flex', flexDirection: 'column', justifyContent: 'space-between', padding: ' 80px 60px 60px 60px' }}>
+          <div className="h-screen flex relative flex-shrink-0" style={{ backgroundColor: "#330E07", zIndex: 3, borderTopLeftRadius: "40px", borderBottomLeftRadius: "40px", overflow: "hidden", marginLeft: "-40px", paddingRight: "90px" }}>
+            <div className="h-screen relative" style={{ width: "calc(50vw + 60px)", display: 'flex', flexDirection: 'column', justifyContent: 'space-between', padding: ' 90px 60px 60px 60px' }}>
               {/* Vertical line on the right */}
               <div style={{
                 position: 'absolute',
-                top: '80px',
+                top: '90px',
                 right: '30px',
                 width: '1px',
                 height: 'calc(100vh - 160px)',
@@ -554,7 +569,7 @@ Chinese life.              </div>
                 <div style={{
                   writingMode: 'vertical-rl',
                   textOrientation: 'upright',
-                  fontSize: '18px',
+                  fontSize: windowHeight < 880 ? '16px' : '18px',
                   lineHeight: '1.4',
                   fontWeight: '300',
                   letterSpacing: '0.2em',
@@ -578,12 +593,12 @@ Chinese life.              </div>
                   fontStyle: 'normal'
                 }}>
                  Artist Statement<br/>
-                  <span style={{fontWeight: 'bold'}}>The Great Walls of China Series</span>
+                  <span style={{fontWeight: '500'}}>The Great Walls of China Series</span>
                 </div>
 
                 {/* English description */}
                 <div style={{
-                  fontSize: '14px',
+                  fontSize: windowHeight < 880 ? '12px' : '14px',
                   lineHeight: '1.2',
                   color: '#FFF',
                   textAlign: 'left',
@@ -595,7 +610,7 @@ Ever since I was introduced to the book 50 years ago, the Yijing has been the wi
 Over the years, I failed repeatedly to create a visual representation of the Yijing. Then in 2007, when I was editing my China Revealed book, I finally found the perfect vehicle in a series of closeup details of weather-beaten walls that I had photographed from all over the country. Over time, the elements had created intricate patterns and wonderful textures on man's most basic structure. The strikingly contemporary form of the 64 hexagrams from an ancient binary system, with its echoes of the computer age, combined well with the abstract expressionist creations of nature both visually and conceptually, and the result is The Great Walls of China series.                </div>
               </div>
             </div>
-            <div className="flex-1 flex items-start" style={{ paddingTop: "80px", paddingBottom: "60px", paddingLeft: "30px", paddingRight: "30px", gap: "30px" }}>
+            <div className="flex-1 flex items-center" style={{ paddingTop: "90px", paddingBottom: "60px", paddingLeft: "30px", paddingRight: "30px", gap: "30px" }}>
               <div 
                 ref={(el) => { innerSectionRefs.current[3] = el; }}
                 className="flex-shrink-0" 
@@ -654,12 +669,12 @@ Over the years, I failed repeatedly to create a visual representation of the Yij
 
 
           {/* Section 3 */}
-          <div className="h-screen flex relative flex-shrink-0" style={{ backgroundColor: "#000000", zIndex: 4, borderTopLeftRadius: "40px", borderBottomLeftRadius: "40px", overflow: "hidden", marginLeft: "-40px", paddingRight: "80px" }}>
-            <div className="h-screen relative" style={{ width: "calc(50vw + 60px)", display: 'flex', flexDirection: 'column', justifyContent: 'space-between', padding: ' 80px 60px 60px 60px' }}>
+          <div className="h-screen flex relative flex-shrink-0" style={{ backgroundColor: "#000000", zIndex: 4, borderTopLeftRadius: "40px", borderBottomLeftRadius: "40px", overflow: "hidden", marginLeft: "-40px", paddingRight: "90px" }}>
+            <div className="h-screen relative" style={{ width: "calc(50vw + 60px)", display: 'flex', flexDirection: 'column', justifyContent: 'space-between', padding: ' 90px 60px 60px 60px' }}>
               {/* Vertical line on the right */}
               <div style={{
                 position: 'absolute',
-                top: '80px',
+                top: '90px',
                 right: '30px',
                 width: '1px',
                 height: 'calc(100vh - 160px)',
@@ -710,7 +725,7 @@ Over the years, I failed repeatedly to create a visual representation of the Yij
                   lineHeight: '1.2',
                   color: '#FFF',
                   fontFamily: '"neue-haas-unica", sans-serif',
-                  fontWeight: 'bold',
+                  fontWeight: '500',
                   fontStyle: 'normal'
                 }}>
                   Divination with the <em>Book of Changes</em>
@@ -729,7 +744,7 @@ Over the years, I failed repeatedly to create a visual representation of the Yij
 Meditate a question or a situation for the oracle to comment on and click the button six times to throw the virtual coins. The hexagram and its changing lines are calculated automatically. After throwing the coins six times, the relevant hexagram will be displayed.                </div>
               </div>
             </div>
-            <div className="flex-1 flex items-start" style={{ paddingTop: "80px", paddingBottom: "60px", paddingLeft: "30px", paddingRight: "30px", gap: "30px" }}>
+            <div className="flex-1 flex items-center" style={{ paddingTop: "90px", paddingBottom: "60px", paddingLeft: "30px", paddingRight: "30px", gap: "30px" }}>
               <div 
                 ref={(el) => { innerSectionRefs.current[7] = el; }}
                 className="flex-shrink-0" 
@@ -798,12 +813,12 @@ Meditate a question or a situation for the oracle to comment on and click the bu
           </div>
 
           {/* Section 4 */}
-          <div className="h-screen flex relative flex-shrink-0" style={{ backgroundColor: "#1A3B45", zIndex: 5, borderTopLeftRadius: "40px", borderBottomLeftRadius: "40px", overflow: "hidden", marginLeft: "-40px", paddingRight: "80px" }}>
-            <div className="h-screen relative" style={{ width: "calc(50vw + 60px)", display: 'flex', flexDirection: 'column', justifyContent: 'space-between', padding: ' 80px 60px 60px 60px' }}>
+          <div className="h-screen flex relative flex-shrink-0" style={{ backgroundColor: "#1A3B45", zIndex: 5, borderTopLeftRadius: "40px", borderBottomLeftRadius: "40px", overflow: "hidden", marginLeft: "-40px", paddingRight: "90px" }}>
+            <div className="h-screen relative" style={{ width: "calc(50vw + 60px)", display: 'flex', flexDirection: 'column', justifyContent: 'space-between', padding: ' 90px 60px 60px 60px' }}>
               {/* Vertical line on the right */}
               <div style={{
                 position: 'absolute',
-                top: '80px',
+                top: '90px',
                 right: '30px',
                 width: '1px',
                 height: 'calc(100vh - 160px)',
@@ -872,7 +887,7 @@ Meditate a question or a situation for the oracle to comment on and click the bu
                 }}>
 Artist Statement<br/>
                  
-                  <span style={{fontWeight: 'bold'}}>Glimpses of Silence</span>
+                  <span style={{fontWeight: '500'}}>Glimpses of Silence</span>
                 </div>
                 {/* English description */}
                 <div style={{
@@ -888,7 +903,7 @@ The central concept of the <em>Book of Changes</em> is "Heaven and Humanity as O
                 </div>
               </div>
             </div>
-            <div className="flex-1 flex items-start" style={{ paddingTop: "80px", paddingBottom: "60px", paddingLeft: "30px", paddingRight: "30px", gap: "30px" }}>
+            <div className="flex-1 flex items-center" style={{ paddingTop: "90px", paddingBottom: "60px", paddingLeft: "30px", paddingRight: "30px", gap: "30px" }}>
               <div 
                 ref={(el) => { innerSectionRefs.current[10] = el; }}
                 className="flex-shrink-0" 

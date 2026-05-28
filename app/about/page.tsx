@@ -6,7 +6,27 @@ import { useState, useEffect, useRef } from 'react';
 export default function About() {
   const [showLightbox, setShowLightbox] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const leftContentRef = useRef<HTMLDivElement>(null);
+  
+  const videos = [
+    {
+      titleCn: '易經：鮑皓昕攝影藝術',
+      titleEn: 'Book of Changes: The Art of Basil Pao',
+      thumbnail: '/images/about/1.jpg',
+      youtubeId: 'YOUR_YOUTUBE_ID_1'
+    },
+    {
+      titleCn: '第二條影片標題',
+      titleEn: 'Second Video Title',
+      thumbnail: '/images/about/2.jpg',
+      youtubeId: 'YOUR_YOUTUBE_ID_2'
+    }
+  ];
+  
+  const handleNextVideo = () => {
+    setCurrentVideoIndex((prev) => (prev + 1) % videos.length);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -87,7 +107,7 @@ export default function About() {
             borderBottom: '1px solid #888',
             minHeight: '90px'
           }}>
-            <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1.2, fontWeight: 400, color: '#fff' }}>策展人的話</h1>
+            <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1, fontWeight: 400, color: '#fff' }}>策展人的話</h1>
           </div>
           <div style={{ 
             height: '90px',
@@ -98,7 +118,7 @@ export default function About() {
             borderBottom: '1px solid #888',
             minHeight: '90px'
           }}>
-            <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1.2,  fontFamily:'neue-haas-unica, sans-serif', fontWeight: 300, color: '#fff' }}>Curatorial Statement</h1>
+            <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1,  fontFamily:'neue-haas-unica, sans-serif', fontWeight: 300, color: '#fff' }}>Curatorial Statement</h1>
           </div>
         </div>
 
@@ -166,7 +186,7 @@ export default function About() {
 Nature’s rhythm of change and humanity’s creative transformation manifest as a constant flux of being and becoming. This profound insight from the <em>Yijing</em>, or <em>Book of Changes</em>, inspired the current exhibition which shows how heritage never ceases to stir creative imagination for making meaning.
               </p>
               <p style={{ marginBottom: '1em' }}>
-<em>The Book of Changes</em> is unquestionably a quintessential Chinese cultural heritage. Along with Confucianism and Daoism, which have their common roots here, ancient Chinese philosophy, science, statecraft, and even modern living have all drawn inspiration from it.
+The <em>Book of Changes</em> is unquestionably a quintessential Chinese cultural heritage. Along with Confucianism and Daoism, which have their common roots here, ancient Chinese philosophy, science, statecraft, and even modern living have all drawn inspiration from it.
               </p>
               <p style={{ marginBottom: '1em' }}>
 Two series of works by Hong Kong photo artist Basil Pao—<em>The Great Walls of China</em> and <em>Glimpses of Silence</em>—are presented here to explore the relation between heritage and artistic creation. Capturing a world of changing reality and changing appearance, these pictures are the testament to Pao’s deep connections to the <em>Book of Changes</em> for embracing the authentic self and beholding the beauty and mystery of the world.
@@ -206,7 +226,7 @@ We hope the immersive experiences of this show will allow abstract ideas to take
               textAlign: 'left',
               borderBottom: '1px solid #888',
             }}>
-              <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1.2, fontWeight: 400, color: '#fff' }}>影片</h1>
+              <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1, fontWeight: 400, color: '#fff' }}>影片</h1>
             </div>
             <div style={{ 
               height: '90px',
@@ -216,37 +236,125 @@ We hope the immersive experiences of this show will allow abstract ideas to take
               textAlign: 'left',
               borderBottom: '1px solid #888',
             }}>
-              <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1.2, fontFamily:'neue-haas-unica, sans-serif', fontWeight: 300, color: '#fff' }}>Video</h1>
+              <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1, fontFamily:'neue-haas-unica, sans-serif', fontWeight: 300, color: '#fff' }}>Video</h1>
             </div>
           </div>
           
           {/* Video preview block */}
           <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
             padding: '80px 40px',
             backgroundColor: '#000',
-                        borderBottom: '1px solid #888',
-
+            borderBottom: '1px solid #888',
+            overflow: 'hidden'
           }}>
+            {/* Only render current video */}
             <div style={{
-              position: 'relative',
-              width: '100%',
-              maxWidth: '640px',
-              aspectRatio: '16 / 9',
-              backgroundImage: 'url(/images/about/1.jpg)',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              borderRadius: '15px',
               display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              cursor: 'pointer'
-            }}
-            onClick={() => setShowLightbox(true)}
-            >
-
+              flexDirection: 'column',
+              alignItems: 'center'
+            }}>
+              {/* Video thumbnail */}
+              <div style={{
+                position: 'relative',
+                width: '100%',
+                maxWidth: '640px',
+                aspectRatio: '16 / 9',
+                backgroundImage: `url(${videos[currentVideoIndex].thumbnail})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                borderRadius: '15px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                cursor: 'pointer',
+                marginBottom: '20px'
+              }}
+              onClick={() => setShowLightbox(true)}
+              >
+              </div>
+              
+              {/* Video info */}
+              <div style={{
+                width: '100%',
+                maxWidth: '640px',
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'flex-start'
+              }}>
+                {/* Left: Titles */}
+                <div>
+                  <div style={{
+                    fontSize: '16px',
+                    lineHeight: '1.6',
+                    color: '#fff',
+                    marginBottom: '4px'
+                  }}>
+                    {videos[currentVideoIndex].titleCn}
+                  </div>
+                  <div style={{
+                    fontSize: '16px',
+                    lineHeight: '1.6',
+                    color: '#fff',
+                    fontFamily: '"neue-haas-unica", sans-serif',
+                    fontWeight: 300
+                  }}>
+                    {videos[currentVideoIndex].titleEn}
+                  </div>
+                </div>
+                
+                {/* Right: Next Video button and dots */}
+                <div style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'flex-end',
+                  gap: '15px',
+                  marginLeft: '40px'
+                }}>
+                  <button
+                    onClick={handleNextVideo}
+                    style={{
+                      fontSize: '12px',
+                      color: '#888',
+                      fontWeight: 300,
+                      whiteSpace: 'nowrap',
+                      background: 'none',
+                      border: 'none',
+                      cursor: 'pointer',
+                      textDecoration: 'underline',
+                      transition: 'color 0.3s'
+                    }}
+                    onMouseEnter={(e) => e.currentTarget.style.color = '#fff'}
+                    onMouseLeave={(e) => e.currentTarget.style.color = '#888'}
+                  >
+                    {currentVideoIndex < videos.length - 1 ? (
+                      <>觀看更多 <span style={{fontFamily: '"neue-haas-unica", sans-serif'}}>Next Video</span></>
+                    ) : (
+                      <>觀看更多 <span style={{fontFamily: '"neue-haas-unica", sans-serif'}}>Back</span></>
+                    )}
+                  </button>
+                  
+                  {/* Navigation dots */}
+                  <div style={{
+                    display: 'flex',
+                    gap: '10px'
+                  }}>
+                    {videos.map((_, dotIndex) => (
+                      <div
+                        key={dotIndex}
+                        onClick={() => setCurrentVideoIndex(dotIndex)}
+                        style={{
+                          width: '6px',
+                          height: '6px',
+                          backgroundColor: currentVideoIndex === dotIndex ? '#FFF' : 'transparent',
+                          border: currentVideoIndex === dotIndex ? 'none' : '1px solid #888',
+                          cursor: 'pointer',
+                          transition: 'background-color 0.3s ease, border 0.3s ease'
+                        }}
+                      />
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -268,7 +376,7 @@ We hope the immersive experiences of this show will allow abstract ideas to take
               textAlign: 'left',
               borderBottom: '1px solid #888',
             }}>
-              <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1.2, fontWeight: 400, color: '#fff' }}>公眾節目</h1>
+              <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1, fontWeight: 400, color: '#fff' }}>公眾節目</h1>
             </div>
             <div style={{ 
               height: '90px',
@@ -278,7 +386,7 @@ We hope the immersive experiences of this show will allow abstract ideas to take
               textAlign: 'left',
               borderBottom: '1px solid #888',
             }}>
-              <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1.2, fontFamily:'neue-haas-unica, sans-serif', fontWeight: 300, color: '#fff' }}>Public Programmes</h1>
+              <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1, fontFamily:'neue-haas-unica, sans-serif', fontWeight: 300, color: '#fff' }}>Public Programmes</h1>
             </div>
           </div>
           <div style={{
@@ -297,15 +405,7 @@ We hope the immersive experiences of this show will allow abstract ideas to take
               marginBottom: '80px'
             }}>
               {/* Image container */}
-              <a 
-                href="https://www.taikwun.hk/zh/programme/detail/book-of-changes-the-art-of-basil-pao-curators-guided-tour/1719"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  display: 'block',
-                  textDecoration: 'none'
-                }}
-              >
+
                 <div style={{
                   position: 'relative',
                   width: '100%',
@@ -317,13 +417,19 @@ We hope the immersive experiences of this show will allow abstract ideas to take
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  cursor: 'pointer',
                   marginBottom: '20px'
                 }}>
                   {/* Image placeholder */}
                 </div>
-              </a>
-
+              <a 
+                href="https://www.taikwun.hk/zh/programme/detail/book-of-changes-the-art-of-basil-pao-curators-guided-tour/1719"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: 'block',
+                  textDecoration: 'none'
+                }}
+              >
               {/* Text content */}
               <div style={{
                 display: 'flex',
@@ -333,22 +439,26 @@ We hope the immersive experiences of this show will allow abstract ideas to take
                 <div style={{
                   flex: 1
                 }}>
-                  <div style={{
+                  <div 
+                    className="hover-underline"
+                    style={{
                     fontSize: '16px',
                     lineHeight: '1.6',
                     color: '#fff',
-                    marginBottom: '8px'
+                    marginBottom: '4px'
                   }}>
-                    易經：鮑皓昕攝影藝術—策展人導賞
+                    易經：鮑皓昕攝影藝術 — 策展人導賞
                   </div>
-                  <div style={{
+                  <div 
+                    className="hover-underline"
+                    style={{
                     fontSize: '16px',
                     lineHeight: '1.6',
                     color: '#fff',
                     fontFamily: '"neue-haas-unica", sans-serif',
                     fontWeight: 300
                   }}>
-                    Book of Changes: The Art of Basil Pao – Curator's Guided Tour
+                    Book of Changes: The Art of Basil Pao — Curator's Guided Tour
                   </div>
                 </div>
                 <div style={{
@@ -363,6 +473,8 @@ We hope the immersive experiences of this show will allow abstract ideas to take
                   17 & 31.1.2026
                 </div>
               </div>
+              </a>
+
             </div>
 
             {/* Second block */}
@@ -370,15 +482,7 @@ We hope the immersive experiences of this show will allow abstract ideas to take
               width: '100%',
               maxWidth: '640px'
             }}>
-              <a 
-                href="https://www.taikwun.hk/zh/programme/detail/tai-kwun-conversations-the-book-of-changes-a-living-classic/1731"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  display: 'block',
-                  textDecoration: 'none'
-                }}
-              >
+
               {/* Image container */}
               <div style={{
                 position: 'relative',
@@ -391,12 +495,19 @@ We hope the immersive experiences of this show will allow abstract ideas to take
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                cursor: 'pointer',
                 marginBottom: '20px'
               }}>
                 {/* Image placeholder */}
               </div>
-
+              <a 
+                href="https://www.taikwun.hk/zh/programme/detail/tai-kwun-conversations-the-book-of-changes-a-living-classic/1731"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: 'block',
+                  textDecoration: 'none'
+                }}
+              >
               {/* Text content */}
               <div style={{
                 display: 'flex',
@@ -406,22 +517,26 @@ We hope the immersive experiences of this show will allow abstract ideas to take
                 <div style={{
                   flex: 1
                 }}>
-                  <div style={{
+                  <div 
+                    className="hover-underline"
+                    style={{
                     fontSize: '16px',
                     lineHeight: '1.6',
                     color: '#fff',
-                    marginBottom: '8px'
+                    marginBottom: '4px'
                   }}>
-                    大館對談：《易經》—活著的經典
+                    大館對談：《易經》— 活著的經典
                   </div>
-                  <div style={{
+                  <div 
+                    className="hover-underline"
+                    style={{
                     fontSize: '16px',
                     lineHeight: '1.6',
                     color: '#fff',
                     fontFamily: '"neue-haas-unica", sans-serif',
                     fontWeight: 300
                   }}>
-                    Tai Kwun Conversations: The Book of Changes – A Living Classic
+                    Tai Kwun Conversations: The Book of Changes — A Living Classic
                   </div>
                 </div>
                 <div style={{
@@ -461,7 +576,7 @@ We hope the immersive experiences of this show will allow abstract ideas to take
               textAlign: 'left',
               borderBottom: '1px solid #888'
             }}>
-              <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1.2, fontWeight: 400, color: '#fff' }}>藝術家簡介</h1>
+              <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1, fontWeight: 400, color: '#fff' }}>藝術家簡介</h1>
             </div>
             <div style={{ 
               height: '90px',
@@ -472,7 +587,7 @@ We hope the immersive experiences of this show will allow abstract ideas to take
               borderBottom: '1px solid #888'
 
             }}>
-              <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1.2, fontFamily:'neue-haas-unica, sans-serif', fontWeight: 300, color: '#fff' }}>Artist Bio</h1>
+              <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1, fontFamily:'neue-haas-unica, sans-serif', fontWeight: 300, color: '#fff' }}>Artist Bio</h1>
             </div>
           </div>
           <div style={{
@@ -480,7 +595,7 @@ We hope the immersive experiences of this show will allow abstract ideas to take
             flex: 1,
             display: 'flex',
             flexDirection: 'column',
-                        justifyContent: 'flex-end',            
+                        justifyContent: 'flex-end'         
           }}>
           {/* Artist Bio Content - Chinese */}
           <div style={{ 

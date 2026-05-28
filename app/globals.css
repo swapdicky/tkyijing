@@ -100,3 +100,25 @@ html {
     font-weight: 300;
   }
 }
+
+/* Hover underline effect */
+.hover-underline {
+  position: relative;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.hover-underline::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: #fff;
+  transition: width 0.3s ease;
+}
+
+a:hover .hover-underline::after {
+  width: 100%;
+}
