@@ -65,6 +65,9 @@ export default function Home() {
   const scrollLockRef = useRef(false);
   const [previousZoom, setPreviousZoom] = useState<150 | 100 | 50>(150); // Remember zoom before opening panel
   const [isMenuOpen, setIsMenuOpen] = useState(false); // Track menu state
+  const preMenuZoomRef = useRef<150 | 100 | 50>(150); // Remember zoom before opening menu
+  const titleH3Ref = useRef<HTMLHeadingElement>(null);
+  const [titleH3Tall, setTitleH3Tall] = useState(false);
 
   // Custom order for 8x8 grid
   const gridOrder = [
@@ -229,11 +232,15 @@ export default function Home() {
         targetX = 0;
         targetY = 15;
         
-        // Immediately scroll to middle position without animation
-        const pageHeight = document.documentElement.scrollHeight;
+        // Page is min-h-[180vh], so middle = (180vh - 100vh) / 2 = 40vh
+        // Use fixed calculation to avoid timing issues with scrollHeight not yet updated
         const viewportHeight = window.innerHeight;
-        const scrollToMiddle = (pageHeight - viewportHeight) / 2;
-        window.scrollTo({ top: scrollToMiddle, behavior: 'instant' });
+        const scrollToMiddle = viewportHeight * 0.4; // 40vh
+        
+        // Scroll on next frame to ensure layout has updated to 180vh
+        requestAnimationFrame(() => {
+          window.scrollTo({ top: scrollToMiddle, behavior: 'instant' });
+        });
       }
       
       gsap.to(moduleRef.current, {
@@ -287,8 +294,9 @@ export default function Home() {
       // Menu opened - pause mouse effect and center on box number 32
       setIsMousePaused(true);
       
-      // If not at 150%, switch to 150% first
+      // If not at 150%, remember current zoom and switch to 150% first
       if (zoom !== 150) {
+        preMenuZoomRef.current = zoom;
         setMode("explore");
         setZoom(150);
         return; // Effect will re-run after zoom changes
@@ -304,14 +312,11 @@ export default function Home() {
       const vwToPx = window.innerWidth / 100;
       const boxSizeVw = 20;
       
-      // Calculate position to center box 32 in the left 50vw space
-      // (right 50vw is occupied by the menu)
+      // Calculate position to center box 32 in the full 100vw viewport
       const boxCenterXVw = (col - 3.5) * boxSizeVw;
       const boxCenterYVw = (row - 3.5) * boxSizeVw;
       
-      // Shift left by 25vw to center in the left half of the viewport
-      const leftSpaceOffset = -25 * vwToPx;
-      const finalX = -boxCenterXVw * vwToPx + leftSpaceOffset;
+      const finalX = -boxCenterXVw * vwToPx;
       const finalY = -boxCenterYVw * vwToPx;
       
       gsap.to(moduleRef.current, {
@@ -327,8 +332,23 @@ export default function Home() {
     } else if (!isPanelOpen) {
       // Menu closed - resume mouse effect (only if panel is not open)
       setIsMousePaused(false);
+      
+      // Restore previous zoom if it was changed by menu opening
+      if (preMenuZoomRef.current !== 150) {
+        const restoreZoom = preMenuZoomRef.current;
+        preMenuZoomRef.current = 150; // Reset
+        setMode("overview");
+        setZoom(restoreZoom);
+      }
     }
   }, [isMenuOpen, zoom, isPanelOpen]);
+
+  // Measure title h3 height when selectedBox changes
+  useEffect(() => {
+    if (!titleH3Ref.current) return;
+    const height = titleH3Ref.current.offsetHeight;
+    setTitleH3Tall(height > 55);
+  }, [selectedBox, isPanelOpen]);
 
   const toggleMode = () => {
     if (mode === "explore") {
@@ -782,8 +802,8 @@ The current exhibition highlights the continued relevance of the Book of Changes
                 </div>
               </div>
 
-              <div className="fixed bottom-0 left-0 right-0 px-12 pb-8">
-                <div className="flex items-start gap-8">
+              <div className="fixed bottom-0 left-0 right-0 px-12 pb-12">
+                <div className="flex items-end gap-8">
                   <div className="w-28 flex-shrink-0">
                     <div className="w-20 h-20 mb-6 flex items-center justify-center">
                       {selectedBox && generateHexagramSVG(selectedBox)}
@@ -819,7 +839,7 @@ The current exhibition highlights the continued relevance of the Book of Changes
                   <div className="flex-1">
                     {selectedBox && yijing[selectedBox - 1] && (
                       <>
-                        <h3 className="text-[22px] font-normal leading-tight mb-4 neue-haas-unica">
+                        <h3 ref={titleH3Ref} className="text-[22px] font-normal leading-tight mb-4 neue-haas-unica">
                           {yijing[selectedBox - 1].title.split('\n').map((line, i, arr) => (
                             <span key={i}>
                               {i === 0 && line.includes('/') ? (
@@ -834,7 +854,7 @@ The current exhibition highlights the continued relevance of the Book of Changes
                           ))}
                         </h3>
                         
-                        <div className="space-y-4 custom-scrollbar" style={{ height: '200px', overflowY: 'auto', paddingRight: '12px' }}>
+                        <div className="space-y-4 custom-scrollbar" style={{ height: titleH3Tall ? '170px' : '200px', overflowY: 'auto', paddingRight: '12px' }}>
                           <div>
                             <h4 className="font-bold text-[12px] mb-1 neue-haas-unica" style={{ lineHeight: '20px' }}>The Judgement</h4>
                             <p className="text-black text-[14px] neue-haas-unica font-normal" style={{ lineHeight: '20px' }}>
