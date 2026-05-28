@@ -475,7 +475,7 @@ export default function Home() {
               margin: 0,
               transition: 'font-size 0.8s cubic-bezier(0.4, 0, 0.2, 1)'
             }}>
-              易經
+              易經：
             </div>
             
             {/* Chinese Title Line 2 - 昕聞鮑皓昕攝影藝術 */}
