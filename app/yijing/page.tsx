@@ -230,7 +230,7 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
             <div style={{
               writingMode: 'vertical-rl',
               textOrientation: 'upright',
-              fontSize: '36px',
+              fontSize: '38px',
               lineHeight: '1.2',
               letterSpacing: '0.1em',
               color: '#000',
@@ -298,7 +298,7 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
             <div style={{
               writingMode: 'vertical-rl',
               textOrientation: 'upright',
-              fontSize: '36px',
+              fontSize: '38px',
               lineHeight: '1.2',
               letterSpacing: '0.1em',
               color: '#000',
@@ -967,7 +967,7 @@ Hence, the ancient Chinese developed a comprehensive scheme of symbolic correlat
             <div style={{
               writingMode: 'vertical-rl',
               textOrientation: 'upright',
-              fontSize: '28px',
+              fontSize: '32px',
               lineHeight: '1.4',
               letterSpacing: '0.1em',
               color: '#FFF',
@@ -1008,7 +1008,7 @@ The <em>Yellow River Chart</em> has been traditionally attributed to the legenda
             <div style={{
               writingMode: 'vertical-rl',
               textOrientation: 'upright',
-              fontSize: '28px',
+              fontSize: '32px',
               lineHeight: '1.4',
               letterSpacing: '0.1em',
               color: '#FFF',
