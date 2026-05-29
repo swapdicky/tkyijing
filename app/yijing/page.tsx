@@ -22,12 +22,11 @@ export default function Yijing() {
             alignSelf: 'flex-end'
           }}>
             {/* 易經 title */}
-            <h2 style={{
+            <h2 className="yj-cn-40" style={{
               writingMode: 'vertical-rl',
               textOrientation: 'upright',
-              fontSize: '40px',
               fontWeight: '500',
-              
+              letterSpacing: '0.2em',
               color: '#000',
               margin: 0
             }}>
@@ -35,13 +34,12 @@ export default function Yijing() {
             </h2>
             
             {/* Description text */}
-            <div style={{
+            <div className="yj-cn-24" style={{
               writingMode: 'vertical-rl',
               textOrientation: 'upright',
-              fontSize: '24px',
               lineHeight: '1.4',
               fontWeight: '400',
-              
+              letterSpacing: '0.1em',
               color: '#000'
             }}>
               <span style={{marginTop:'-6px'}}></span>︽易經︾<span style={{marginTop:'-6px'}}></span>是一本古代卜辭書，在中國<br />哲學歷史中具有重要地位。<span style={{marginTop :"-6px"}}></span>﹁易﹂<span style={{marginTop :"-6px"}}></span><br />是變化的意思，<span style={{marginTop :"-6px"}}></span>︽易經︾<span style={{marginTop :"-6px"}}></span>呈現一個恆常<br />變動的世界。它代表了古人嘗試闡釋<br />人類在宇宙中定位的看法，強調<br />天人之間的互動與合一。作為傳統卜卦<br />文獻和哲學論述，<span style={{marginTop :"-6px"}}></span>︽易經︾<span style={{marginTop :"-6px"}}></span>在中國人<br />生活方方面面留下不可磨滅的影響。
@@ -51,12 +49,10 @@ export default function Yijing() {
           {/* English section - aligned to bottom */}
           <div>
             {/* Title */}
-            <div style={{
-              fontSize: '24px',
+            <div className="yj-en-24" style={{
               marginBottom: '10px',
               lineHeight: '1.2',
               color: '#000',
-              fontFamily: '"neue-haas-unica", sans-serif',
               fontWeight: '500',
               fontStyle: 'normal'
             }}>
@@ -64,12 +60,10 @@ export default function Yijing() {
             </div>
 
             {/* English description */}
-            <div style={{
-              fontSize: '20px',
+            <div className="yj-en-20" style={{
               lineHeight: '1.2',
               color: '#000',
               textAlign: 'left',
-              fontFamily: '"neue-haas-unica", sans-serif',
               fontWeight: 400,
               fontStyle: 'normal'
             }}>
@@ -102,13 +96,13 @@ export default function Yijing() {
     
     if (index === 2) {
       return (
-        <div style={{
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'space-between',
-          height: '100%',
-          padding: '90px 60px 60px'
-        }}>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'space-between',
+            height: '100%'
+          }}>
           {/* Vertical Chinese text */}
           <div style={{
             display: 'flex',
@@ -116,10 +110,9 @@ export default function Yijing() {
             gap: '20px',
             alignSelf: 'flex-end'
           }}>
-            <div style={{
+            <div className="yj-cn-40" style={{
               writingMode: 'vertical-rl',
               textOrientation: 'upright',
-              fontSize: '40px',
               lineHeight: '1.2',
               letterSpacing: '0.15em',
               color: '#000',
@@ -127,13 +120,12 @@ export default function Yijing() {
             }}>
               <span style={{marginTop :"-14px"}}></span>︽易經︾<span style={{marginTop :"-14px"}}></span>哲學的<br/>基礎概念是什麼？
             </div>
-            <div style={{
+            <div className="yj-cn-24" style={{
               writingMode: 'vertical-rl',
               textOrientation: 'upright',
-              fontSize: '24px',
               lineHeight: '1.4',
               fontWeight: '400',
-              
+              letterSpacing: '0.1em',
               color: '#000'
             }}>
                <span style={{marginTop :"-6px"}}></span>︽易經︾<span style={{marginTop :"-6px"}}></span>六十四卦體系的確立，<br/>乃基於﹁陰陽﹂和﹁五行﹂<br/>觀念所形成的關聯性宇宙觀，<br/>以觀萬物之態。這些概念被認為<br/>是宇宙創造與變化的過程，<br/>同時也體現萬物在整體規律中<br/>相互依存的本質。
@@ -142,21 +134,17 @@ export default function Yijing() {
 
           {/* English text at bottom */}
           <div>
-            <div style={{
-              fontSize: '24px',
+            <div className="yj-en-24" style={{
               fontWeight: '500',
               marginBottom: '10px',
               lineHeight: '1.3',
-              color: '#000',
-              fontFamily: '"neue-haas-unica", sans-serif'
+              color: '#000'
             }}>
               What Are the Fundamental Concepts<br/>in the Philosophy of the <em>Book of Changes</em>?
             </div>
-            <div style={{
-              fontSize: '20px',
+            <div className="yj-en-20" style={{
               lineHeight: '1.2',
               color: '#000',
-              fontFamily: '"neue-haas-unica", sans-serif',
               fontWeight: '300'
             }}>
 The divination system in the <em>Book of Changes</em> was formalised to observe the conditions of all things, based on a correlative cosmology formed around the notions of <em>yinyang</em> and <em>wuxing</em>. These concepts were identified with the processes of cosmic creativity and transformation, as well as the interconnectedness of all things in a holistic totality of order.             </div>
@@ -213,13 +201,14 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
     
     if (index === 5) {
       return (
-        <div style={{
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'space-between',
-          height: '100%',
-          padding: '90px 60px 60px'
-        }}>
+        <div
+          className="yj-padding-large"
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'space-between',
+            height: '100%'
+          }}>
           {/* Vertical Chinese text */}
           <div style={{
             display: 'flex',
@@ -227,23 +216,21 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
             gap: '20px',
             alignSelf: 'flex-end'
           }}>
-            <div style={{
+            <div className="yj-cn-36" style={{
               writingMode: 'vertical-rl',
               textOrientation: 'upright',
-              fontSize: '36px',
               lineHeight: '1.2',
-              
+              letterSpacing: '0.1em',
               color: '#000',
               fontWeight: '400'
             }}>
               <span style={{marginTop: "-12px"}}></span>︽易︾有太極，是生兩儀，<br/>兩儀生四象，四象生八卦。<br/>八卦定吉凶，吉凶生大業。
             </div>
-            <div style={{
+            <div className="yj-cn-20" style={{
               writingMode: 'vertical-rl',
               textOrientation: 'upright',
-              fontSize: '20px',
               lineHeight: '1.2',
-              
+              letterSpacing: '0.1em',
               color: '#000',
               fontWeight: '400'
             }}>
@@ -259,11 +246,9 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
             width: '400px',
             maxWidth: '25vw'
           }}>
-            <div style={{
-              fontSize: '16px',
+            <div className="yj-en-16" style={{
               lineHeight: '1.2',
               color: '#000',
-              fontFamily: '"neue-haas-unica", sans-serif',
               fontWeight: '500'
             }}>
               <p style={{ marginBottom: '10px' }}>There is, in the <em>Changes</em>, <br/><span style={{marginLeft: '20px'}}></span>the Supreme Ultimate <em>(taiji)</em>.</p>
@@ -272,7 +257,7 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
               <p style={{ marginBottom: '10px' }}>The four images <br/><span style={{marginLeft: '20px'}}></span>generate the eight trigrams.</p>
               <p style={{ marginBottom: '10px' }}>The eight trigrams<br/><span style={{marginLeft: '20px'}}></span>determine good fortune and misfortune.</p>
               <p style={{ marginBottom: '10px' }}>Good fortune and misfortune<br/><span style={{marginLeft: '20px'}}></span>create the great field of action.</p>
-              <p style={{ fontSize: '14px', fontWeight: '300' }}>“Great Commentary”, Part I, Ch. 11</p>
+              <p className="yj-en-14" style={{ fontWeight: '300' }}>“Great Commentary”, Part I, Ch. 11</p>
             </div>
           </div>
         </div>
@@ -281,13 +266,13 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
     
     if (index === 6) {
       return (
-        <div style={{
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'space-between',
-          height: '100%',
-          padding: '90px 60px 60px'
-        }}>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'space-between',
+            height: '100%'
+          }}>
           {/* Vertical Chinese text */}
           <div style={{
             display: 'flex',
@@ -295,23 +280,21 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
             gap: '20px',
             alignSelf: 'flex-end'
           }}>
-            <div style={{
+            <div className="yj-cn-36" style={{
               writingMode: 'vertical-rl',
               textOrientation: 'upright',
-              fontSize: '36px',
               lineHeight: '1.2',
-              
+              letterSpacing: '0.1em',
               color: '#000',
               fontWeight: '400'
             }}>
               天一，地二；天三，地四；天五，<br/>地六；天七，地八；天九，地十。<br/>天數五，地數五，五位相得而<br/>各有合。天數二十有五，地數三十，<br/>凡天地之數，五十有五，此所以<br/>成變化而行鬼神也。
             </div>
-            <div style={{
+            <div className="yj-cn-20" style={{
               writingMode: 'vertical-rl',
               textOrientation: 'upright',
-              fontSize: '20px',
               lineHeight: '1.2',
-              
+              letterSpacing: '0.1em',
               color: '#000',
               fontWeight: '400'
             }}>
@@ -327,15 +310,13 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
             width: '400px',
             maxWidth: '25vw'
           }}>
-            <div style={{
-              fontSize: '16px',
+            <div className="yj-en-16" style={{
               lineHeight: '1.2',
               color: '#000',
-              fontFamily: '"neue-haas-unica", sans-serif',
               fontWeight: '500'
             }}>
               <p style={{ marginBottom: '10px' }}>Heaven in one, Earth is two; Heaven is three,<br/> Earth is four; Heaven is five, Earth is six;<br/> Heaven is seven, Earth is eight; Heaven is <br/>nine, Earth in ten. There are thus five<br/>heavenly numbers and five earthly numbers.<br/> When these numbers are distributed among<br/>the five places, each finds its complement.<br/> The sum of the heavenly numbers is 25 and <br/>that of the earthly numbers is 30. The sum <br/>total of heavenly numbers and earthly <br/>numbers is 55. It is this which completes the <br/>changes and transformation and sets the <br/>spirits in motion.</p>
-              <p style={{ fontSize: '14px', fontWeight: '300' }}>"Great Commentary", Part I, Ch. 9</p>
+              <p className="yj-en-14" style={{ fontWeight: '300' }}>"Great Commentary", Part I, Ch. 9</p>
             </div>
           </div>
         </div>
@@ -344,13 +325,14 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
     
     if (index === 7) {
       return (
-        <div style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          height: '100%',
-          padding: '80px 60px'
-        }}>
+        <div
+          className="yj-padding-medium"
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            height: '100%'
+          }}>
           <img 
             src="/images/TK_YiJIng_Graphs/yijing-graphs-08.jpg" 
             alt="Luo River Diagram" 
@@ -367,13 +349,14 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
     
     if (index === 8) {
       return (
-        <div style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          height: '100%',
-          padding: '80px 60px'
-        }}>
+        <div
+          className="yj-padding-medium"
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            height: '100%'
+          }}>
           <img 
             src="/images/TK_YiJIng_Graphs/yijing-graphs-09.jpg" 
             alt="Yellow River Chart" 
@@ -390,13 +373,13 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
     
     if (index === 9) {
       return (
-        <div style={{
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'space-between',
-          height: '100%',
-          padding: '90px 60px 60px'
-        }}>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'space-between',
+            height: '100%'
+          }}>
           {/* Vertical Chinese text */}
           <div style={{
             display: 'flex',
@@ -405,10 +388,9 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
             alignSelf: 'flex-end',
             flex: 1
           }}>
-            <div style={{
+            <div className="yj-cn-40" style={{
               writingMode: 'vertical-rl',
               textOrientation: 'upright',
-              fontSize: '40px',
               lineHeight: '1.2',
               letterSpacing: '0.12em',
               color: '#000',
@@ -416,10 +398,9 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
             }}>
               活著的傳承
             </div>
-            <div style={{
+            <div className="yj-cn-16" style={{
               writingMode: 'vertical-rl',
               textOrientation: 'mixed',
-              fontSize: '16px',
               lineHeight: '1.4',
               letterSpacing: '0.08em',
               color: '#000',
@@ -431,14 +412,12 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
 
           {/* English text at bottom */}
           <div>
-            <div style={{
-              fontSize: '14px',
+            <div className="yj-en-14" style={{
               lineHeight: '1.25',
               color: '#000',
-              fontFamily: '"neue-haas-unica", sans-serif',
               fontWeight: '300'
             }}>
-              <div style={{ fontWeight: '500', fontSize: '18px', marginBottom: '10px' }}>Living Legacy</div>
+              <div className="yj-en-18" style={{ fontWeight: '500', marginBottom: '10px' }}>Living Legacy</div>
               <p style={{ marginBottom: '10px' }}>The <em>Book of Changes</em> was embraced and appropriated by later Chinese thinkers, giving rise to specialised studies of its commentarial traditions. Some thinkers regarded the book as a treatise on cosmological meanings and principles. The book's impact spanned the arts in a story of eight continuous waves' influence in the present.</p>
               <p>The book's reception in the international world has been remarkable. Respective translations by Thomas McClatchie (1814-1885), James Legge (1815-1897), and Richard Wilhelm (1873-1930) introduced the ancient Chinese text to the world. The psychologist Carl Jung (1875-1961) linked the book's principle of synchronicity to the notion of meaningful coincidence and used it to the book's sequences of events for determining randomness in music composition. Eager Augustin (b. 1993) regarded I as "poetry", he never known your plus or system and similarity when exploring cybernetic theory or digital literary studies.</p>
             </div>
@@ -486,16 +465,14 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
             flexDirection: 'column',
             justifyContent: 'flex-end'
           }}>
-            <div style={{
-              fontSize: '18px',
+            <div className="yj-cn-18" style={{
               fontWeight: 'normal',
               color: '#FFF',
               marginBottom: '10px'
             }}>
               儒家五經之一
             </div>
-            <div style={{
-              fontSize: '16px',
+            <div className="yj-cn-16" style={{
               lineHeight: '1.4',
               color: '#FFF',
               fontWeight: 'normal'
@@ -510,27 +487,24 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
           </div>
 
           {/* Bottom half */}
-          <div style={{
-            height: '50%',
-            padding: '90px 40px 60px 40px',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'flex-end'
-          }}>
-            <div style={{
-              fontSize: '18px',
+          <div
+            className="yj-padding-large"
+            style={{
+              height: '50%',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'flex-end'
+            }}>
+            <div className="yj-en-18" style={{
               fontWeight: '500',
               color: '#FFF',
-              marginBottom: '10px',
-              fontFamily: '"neue-haas-unica", sans-serif'
+              marginBottom: '10px'
             }}>
               One of the Five Classics of Confucianism
             </div>
-            <div style={{
-              fontSize: '16px',
+            <div className="yj-en-16" style={{
               lineHeight: '1.2',
               color: '#FFF',
-              fontFamily: '"neue-haas-unica", sans-serif',
               fontWeight: 200
             }}>
               <p style={{marginBottom:"10px"}}>
@@ -556,21 +530,19 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
             justifyContent: 'space-between',
             padding: '90px 40px 0 40px'
           }}>
-            <div style={{
+            <div className="yj-cn-20" style={{
               writingMode: 'vertical-rl',
               textOrientation: 'upright',
-              fontSize: '20px',
-              
+              letterSpacing: '0.2em',
               color: '#FFF',
               lineHeight: '1.8',
               fontWeight: '400'
             }}>
               ﹁繫辭﹂上傳第五章
             </div>
-            <div style={{
+            <div className="yj-cn-110" style={{
               writingMode: 'vertical-rl',
               textOrientation: 'mixed',
-              fontSize: '110px',
               fontWeight: '300',
               color: '#FFF',
               lineHeight: '1.2',
@@ -579,22 +551,16 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
               一陰一陽<br/>之謂道。
             </div>
           </div>
-          <div style={{
-            padding: '90px 40px 60px 40px ',
-          }}>
-            <div style={{
-              fontSize: '24px',
+          <div className="yj-padding-large">
+            <div className="yj-en-24" style={{
               fontWeight: '500',
               color: '#FFF',
-              marginBottom: '10px',
-              fontFamily: '"neue-haas-unica", sans-serif'
+              marginBottom: '10px'
             }}>
               One <em>yin</em> and one <em>yang</em>; that is the <em>Dao</em>.
             </div>
-            <div style={{
-              fontSize: '20px',
+            <div className="yj-en-20" style={{
               color: '#FFF',
-              fontFamily: '"neue-haas-unica", sans-serif',
               fontWeight: '300'
             }}>
               “Great Commentary”, Part I, Ch. 5
@@ -608,24 +574,23 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
       return (
         <>
           {/* Top section - Yin Yang */}
-          <div style={{
-            height: '50%',
-            borderBottom: '1px solid #888',
-            padding: '60px 40px',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'flex-end'
-          }}>
-            <div style={{
-              fontSize: '18px',
+          <div
+            className="yj-padding-small"
+            style={{
+              height: '50%',
+              borderBottom: '1px solid #888',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'flex-end'
+            }}>
+            <div className="yj-cn-18" style={{
               fontWeight: '400',
               color: '#FFF',
               marginBottom: '10px'
             }}>
               <span style={{marginLeft:"-6px"}}></span>「陰陽」與「五行」
             </div>
-            <div style={{
-              fontSize: '15px',
+            <div className="yj-cn-15" style={{
               lineHeight: '1.4',
               color: '#FFF',
               fontWeight: '300'
@@ -646,28 +611,24 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
           </div>
 
           {/* Bottom section - English */}
-          <div style={{
-            height: '50%',
-            padding: '60px 40px',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'flex-end',
-            
-          }}>
-            <div style={{
-              fontSize: '18px',
+          <div
+            className="yj-padding-small"
+            style={{
+              height: '50%',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'flex-end'
+            }}>
+            <div className="yj-en-18" style={{
               fontWeight: '500',
               color: '#FFF',
-              marginBottom: '10px',
-              fontFamily: '"neue-haas-unica", sans-serif'
+              marginBottom: '10px'
             }}>
               <em>Yin Yang</em> and <em>Wu Xing</em>
             </div>
-            <div style={{
-              fontSize: '14px',
+            <div className="yj-en-14" style={{
               lineHeight: '1.5',
               color: '#FFF',
-              fontFamily: '"neue-haas-unica", sans-serif',
               fontWeight: '300'
             }}>
               <p style={{marginBottom:'10px'}}>
@@ -694,24 +655,23 @@ Hence, the ancient Chinese developed a comprehensive scheme of symbolic correlat
       return (
         <>
           {/* Top section - Chinese */}
-          <div style={{
-            flex: 1,
-            borderBottom: '1px solid #888',
-            padding: '60px 40px',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'flex-end'
-          }}>
-            <div style={{
-              fontSize: '20px',
+          <div
+            className="yj-padding-small"
+            style={{
+              flex: 1,
+              borderBottom: '1px solid #888',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'flex-end'
+            }}>
+            <div className="yj-cn-20" style={{
               fontWeight: '400',
               color: '#FFF',
               marginBottom: '10px'
             }}>
               易
             </div>
-            <div style={{
-              fontSize: '15px',
+            <div className="yj-cn-15" style={{
               lineHeight: '1.4',
               color: '#FFF',
               fontWeight: '300'
@@ -723,27 +683,24 @@ Hence, the ancient Chinese developed a comprehensive scheme of symbolic correlat
           </div>
 
           {/* Bottom section - English */}
-          <div style={{
-            flex: 1,
-            padding: '90px 40px 60px 40px',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'flex-end'
-          }}>
-            <div style={{
-              fontSize: '18px',
+          <div
+            className="yj-padding-large"
+            style={{
+              flex: 1,
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'flex-end'
+            }}>
+            <div className="yj-en-18" style={{
               fontWeight: '500',
               color: '#FFF',
-              marginBottom: '10px',
-              fontFamily: '"neue-haas-unica", sans-serif'
+              marginBottom: '10px'
             }}>
               Change and Transformation
             </div>
-            <div style={{
-              fontSize: '14px',
+            <div className="yj-en-14" style={{
               lineHeight: '1.4',
               color: '#FFF',
-              fontFamily: '"neue-haas-unica", sans-serif',
               fontWeight: '300'
             }}>
               <p style={{ marginBottom: '10px' }}>The Supreme Ultimate <em>(taiji)</em> as primal source is both the starting point and the ending point of all things. The power of creative initiation leads to the power of completion and fulfilment.</p>
@@ -759,24 +716,23 @@ Hence, the ancient Chinese developed a comprehensive scheme of symbolic correlat
       return (
         <>
           {/* Top section - Chinese */}
-          <div style={{
-            flex: 1,
-            borderBottom: '1px solid #888',
-            padding: '60px 40px',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'flex-end'
-          }}>
-            <div style={{
-              fontSize: '20px',
+          <div
+            className="yj-padding-small"
+            style={{
+              flex: 1,
+              borderBottom: '1px solid #888',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'flex-end'
+            }}>
+            <div className="yj-cn-20" style={{
               fontWeight: '400',
               color: '#FFF',
               marginBottom: '10px'
             }}>
               六十四卦
             </div>
-            <div style={{
-              fontSize: '15px',
+            <div className="yj-cn-15" style={{
               lineHeight: '1.4',
               color: '#FFF',
               fontWeight: '300'
@@ -789,27 +745,24 @@ Hence, the ancient Chinese developed a comprehensive scheme of symbolic correlat
           </div>
 
           {/* Bottom section - English */}
-          <div style={{
-            flex: 1,
-            padding: '90px 40px 60px 40px',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'flex-end'
-          }}>
-            <div style={{
-              fontSize: '18px',
+          <div
+            className="yj-padding-large"
+            style={{
+              flex: 1,
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'flex-end'
+            }}>
+            <div className="yj-en-18" style={{
               fontWeight: '500',
               color: '#FFF',
-              marginBottom: '10px',
-              fontFamily: '"neue-haas-unica", sans-serif'
+              marginBottom: '10px'
             }}>
               The 64 Hexagrams
             </div>
-            <div style={{
-              fontSize: '14px',
+            <div className="yj-en-14" style={{
               lineHeight: '1.4',
               color: '#FFF',
-              fontFamily: '"neue-haas-unica", sans-serif',
               fontWeight: '300'
             }}>
               <p style={{ marginBottom: '10px' }}>The 64 hexagrams in the <em>Book of Changes</em> represent symbolically the images and the structure of change in the universe. The system of symbols has been used for divination.</p>
@@ -826,24 +779,23 @@ Hence, the ancient Chinese developed a comprehensive scheme of symbolic correlat
       return (
         <>
           {/* Top section - Chinese */}
-          <div style={{
-            flex: 1,
-            borderBottom: '1px solid #888',
-            padding: '90px 40px 60px',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'flex-end'
-          }}>
-            <div style={{
-              fontSize: '20px',
+          <div
+            className="yj-padding-large"
+            style={{
+              flex: 1,
+              borderBottom: '1px solid #888',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'flex-end'
+            }}>
+            <div className="yj-cn-20" style={{
               fontWeight: '400',
               color: '#FFF',
               marginBottom: '10px'
             }}>
               天、地、人
             </div>
-            <div style={{
-              fontSize: '15px',
+            <div className="yj-cn-15" style={{
               lineHeight: '1.4',
               color: '#FFF',
               fontWeight: '300'
@@ -855,27 +807,24 @@ Hence, the ancient Chinese developed a comprehensive scheme of symbolic correlat
           </div>
 
           {/* Bottom section - English */}
-          <div style={{
-            flex: 1,
-            padding: '90px 40px 60px 40px',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'flex-end'
-          }}>
-            <div style={{
-              fontSize: '18px',
+          <div
+            className="yj-padding-large"
+            style={{
+              flex: 1,
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'flex-end'
+            }}>
+            <div className="yj-en-18" style={{
               fontWeight: '500',
               color: '#FFF',
-              marginBottom: '10px',
-              fontFamily: '"neue-haas-unica", sans-serif'
+              marginBottom: '10px'
             }}>
               Heaven, Earth, and Humanity
             </div>
-            <div style={{
-              fontSize: '14px',
+            <div className="yj-en-14" style={{
               lineHeight: '1.4',
               color: '#FFF',
-              fontFamily: '"neue-haas-unica", sans-serif',
               fontWeight: '300'
             }}>
               <p style={{ marginBottom: '10px' }}>The <em>Book of Changes</em> stresses the unity and dynamic interaction between the three cosmic powers of Heaven, Earth, and Humanity—the way Humanity finds its place between Heaven and Earth. It further emphasises morality as the key to cosmic order and individual wellbeing.</p>
@@ -891,24 +840,23 @@ Hence, the ancient Chinese developed a comprehensive scheme of symbolic correlat
       return (
         <>
           {/* Top section - Chinese */}
-          <div style={{
-            flex: 1,
-            borderBottom: '1px solid #888',
-            padding: '90px 40px 60px',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'flex-end'
-          }}>
-            <div style={{
-              fontSize: '20px',
+          <div
+            className="yj-padding-large"
+            style={{
+              flex: 1,
+              borderBottom: '1px solid #888',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'flex-end'
+            }}>
+            <div className="yj-cn-20" style={{
               fontWeight: '400',
               color: '#FFF',
               marginBottom: '10px'
             }}>
               《易經》與術數
             </div>
-            <div style={{
-              fontSize: '15px',
+            <div className="yj-cn-15" style={{
               lineHeight: '1.4',
               color: '#FFF',
               fontWeight: '300'
@@ -919,27 +867,24 @@ Hence, the ancient Chinese developed a comprehensive scheme of symbolic correlat
           </div>
 
           {/* Bottom section - English */}
-          <div style={{
-            flex: 1,
-            padding: '90px 40px 60px 40px',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'flex-end'
-          }}>
-            <div style={{
-              fontSize: '18px',
+          <div
+            className="yj-padding-large"
+            style={{
+              flex: 1,
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'flex-end'
+            }}>
+            <div className="yj-en-18" style={{
               fontWeight: '500',
               color: '#FFF',
-              marginBottom: '10px',
-              fontFamily: '"neue-haas-unica", sans-serif'
+              marginBottom: '10px'
             }}>
               The <em>Book of Changes</em> and Numerology
             </div>
-            <div style={{
-              fontSize: '14px',
+            <div className="yj-en-14" style={{
               lineHeight: '1.4',
               color: '#FFF',
-              fontFamily: '"neue-haas-unica", sans-serif',
               fontWeight: '300'
             }}>
               <p style={{ marginBottom: '10px' }}>The <em>Book of Changes</em> reveals how the ancient Chinese developed a numerical system that could be used for divination and explaining the operations of nature.</p>
@@ -952,24 +897,24 @@ Hence, the ancient Chinese developed a comprehensive scheme of symbolic correlat
     
     if (index === 7) {
       return (
-        <div style={{
-          display: 'flex',
-          flexDirection: 'column',
-          height: '100%',
-          padding: '90px 40px 60px 40px',
-          justifyContent: 'space-between'
-        }}>
+        <div
+          className="yj-padding-large"
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            height: '100%',
+            justifyContent: 'space-between'
+          }}>
           {/* Chinese text at top-right */}
           <div style={{
             display: 'flex',
             justifyContent: 'flex-end'
           }}>
-            <div style={{
+            <div className="yj-cn-28" style={{
               writingMode: 'vertical-rl',
               textOrientation: 'upright',
-              fontSize: '28px',
               lineHeight: '1.4',
-              
+              letterSpacing: '0.1em',
               color: '#FFF',
               fontWeight: '300'
             }}>
@@ -978,11 +923,9 @@ Hence, the ancient Chinese developed a comprehensive scheme of symbolic correlat
           </div>
 
           {/* English text at bottom */}
-          <div style={{
-            fontSize: '14px',
+          <div className="yj-en-14" style={{
             lineHeight: '1.4',
             color: '#FFF',
-            fontFamily: '"neue-haas-unica", sans-serif',
             fontWeight: '300'
           }}>
 The <em>Yellow River Chart</em> has been traditionally attributed to the legendary emperor Fu Xi. Here, the numbers 1 to 10 are so arranged that an odd number (<em>yang</em>) is paired with an even number (<em>yin</em>). All the odd numbers add up to 25, the even numbers to 30, and all the numbers to 55. This chart shows how these numbers are linked to the <em>wuxing</em> and the correlating cardinal points and colours.
@@ -993,24 +936,24 @@ The <em>Yellow River Chart</em> has been traditionally attributed to the legenda
     
     if (index === 8) {
       return (
-        <div style={{
-          display: 'flex',
-          flexDirection: 'column',
-          height: '100%',
-          padding: '90px 40px 60px 40px',
-          justifyContent: 'space-between'
-        }}>
+        <div
+          className="yj-padding-large"
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            height: '100%',
+            justifyContent: 'space-between'
+          }}>
           {/* Chinese text at top-right */}
           <div style={{
             display: 'flex',
             justifyContent: 'flex-end'
           }}>
-            <div style={{
+            <div className="yj-cn-28" style={{
               writingMode: 'vertical-rl',
               textOrientation: 'upright',
-              fontSize: '28px',
               lineHeight: '1.4',
-              
+              letterSpacing: '0.1em',
               color: '#FFF',
               fontWeight: '300'
             }}>
@@ -1020,11 +963,9 @@ The <em>Yellow River Chart</em> has been traditionally attributed to the legenda
           </div>
 
           {/* English text at bottom */}
-          <div style={{
-            fontSize: '14px',
+          <div className="yj-en-14" style={{
             lineHeight: '1.4',
             color: '#FFF',
-            fontFamily: '"neue-haas-unica", sans-serif',
             fontWeight: '300'
           }}>
 The <em>Writing from the Luo River</em> is attributed to a mythical turtle with a diagram on its back emerging from the Luo River. This diagram is a magic square of the order of three, in which all the numbers in any row, column, or diagonal add up to 15. It is the earliest known magic square in the world.           </div>
@@ -1063,11 +1004,9 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
             display: 'flex',
             justifyContent: 'space-between'
           }}>
-            <div style={{
-              fontSize: '14px',
+            <div className="yj-en-14" style={{
               lineHeight: '1.4',
               color: '#FFF',
-              fontFamily: '"neue-haas-unica", sans-serif',
               fontWeight: '300'
             }}>
               <span style={{ fontWeight: '500' }}><em>Fortune Teller</em></span><br/>
@@ -1075,10 +1014,9 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
               1902<br/>
               SOAS Library
             </div>
-            <div style={{
+            <div className="yj-cn-14" style={{
               writingMode: 'vertical-rl',
               textOrientation: 'mixed',
-              fontSize: '14px',
               lineHeight: '1.4',
               letterSpacing: '0.25em',
               color: '#FFF',
@@ -1095,24 +1033,23 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
       return (
         <>
           {/* Top section - Chinese */}
-          <div style={{
-            flex: 1,
-            borderBottom: '1px solid #888',
-            padding: '60px 40px',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'flex-end'
-          }}>
-            <div style={{
-              fontSize: '20px',
+          <div
+            className="yj-padding-small"
+            style={{
+              flex: 1,
+              borderBottom: '1px solid #888',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'flex-end'
+            }}>
+            <div className="yj-cn-20" style={{
               fontWeight: '400',
               color: '#FFF',
               marginBottom: '10px'
             }}>
               與現代科學的關係
             </div>
-            <div style={{
-              fontSize: '15px',
+            <div className="yj-cn-15" style={{
               lineHeight: '1.4',
               color: '#FFF',
               fontWeight: '300'
@@ -1124,27 +1061,24 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
           </div>
 
           {/* Bottom section - English */}
-          <div style={{
-            flex: 1,
-            padding: '90px 40px 60px 40px',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'flex-end'
-          }}>
-            <div style={{
-              fontSize: '18px',
+          <div
+            className="yj-padding-large"
+            style={{
+              flex: 1,
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'flex-end'
+            }}>
+            <div className="yj-en-18" style={{
               fontWeight: '500',
               color: '#FFF',
               marginBottom: '10px',
-              fontFamily: '"neue-haas-unica", sans-serif'
             }}>
               Relations to Modern Sciences
             </div>
-            <div style={{
-              fontSize: '14px',
+            <div className="yj-en-14" style={{
               lineHeight: '1.4',
               color: '#FFF',
-              fontFamily: '"neue-haas-unica", sans-serif',
               fontWeight: '300'
             }}>
               <p style={{ marginBottom: '10px' }}>The 64 hexagrams in the <em>Book of Changes</em> have been linked with the binary notation developed by Gottfried Wilhelm Leibniz (1646–1716), used nowadays in digital computation.</p>
@@ -1211,6 +1145,8 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
           return (
             <div
               key={index}
+          className="yj-padding-large"
+
               style={{
                 position: 'absolute',
                 top: 0,
@@ -1221,7 +1157,7 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: (index >= 1 && index <= 10) ? 'center' : 'space-between',
-                padding: (index === 0) ? '90px 40px 60px' : (index >= 1 && index <= 10) ? '0' : '90px 40px 60px',
+
                 transform: index <= currentSlide ? 'translateX(0)' : 'translateX(100%)',
                 transition: 'transform 0.7s ease-out',
                 zIndex: index
@@ -1235,15 +1171,14 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
 
       {/* Scroll to explore text */}
       <div
+        className="yj-en-12"
         style={{
           position: 'fixed',
           left: '5px',
           top: '50%',
           transform: 'rotate(90deg)',
           transformOrigin: 'center center',
-          fontSize: '12px',
           color: '#888',
-          fontFamily: '"neue-haas-unica", sans-serif',
           fontWeight: 400,
           whiteSpace: 'nowrap',
           zIndex: 99,
@@ -1337,7 +1272,7 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
             writingMode: 'vertical-rl',
             textOrientation: 'mixed',
             fontSize: '14px',
-            
+            letterSpacing: '0.1em',
             color: '#FFF',
             cursor: 'pointer',
             position: 'absolute',
@@ -1362,7 +1297,7 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
             writingMode: 'vertical-rl',
             textOrientation: 'mixed',
             fontSize: '14px',
-            
+            letterSpacing: '0.1em',
             color: '#FFF',
             cursor: 'pointer',
             position: 'absolute',

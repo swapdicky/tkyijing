@@ -1,5 +1,4 @@
 @import url("https://use.typekit.net/pen4qeo.css");
-@import url("https://fonts.googleapis.com/css2?family=Chiron+Sung+HK:wght@200..900&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap');
 
 @tailwind base;
@@ -45,12 +44,70 @@ html {
   }
 }
 
+/* ============================================================
+   Yijing page responsive text sizes
+   Desktop = original sizes. iPad (768-1280px) scaled to ~70%.
+   To tweak iPad sizes, edit the @media block below.
+   ============================================================ */
+
+/* Chinese text (default Chiron Sung HK font) */
+.yj-cn-110 { font-size: 110px; }
+.yj-cn-40  { font-size: 40px; }
+.yj-cn-36  { font-size: 36px; }
+.yj-cn-28  { font-size: 28px; }
+.yj-cn-24  { font-size: 24px; }
+.yj-cn-20  { font-size: 20px; }
+.yj-cn-18  { font-size: 18px; }
+.yj-cn-16  { font-size: 16px; }
+.yj-cn-15  { font-size: 15px; }
+.yj-cn-14  { font-size: 14px; }
+
+/* English text (neue-haas-unica font) */
+.yj-en-24 { font-size: 24px; font-family: "neue-haas-unica", sans-serif; }
+.yj-en-20 { font-size: 20px; font-family: "neue-haas-unica", sans-serif; }
+.yj-en-18 { font-size: 18px; font-family: "neue-haas-unica", sans-serif; }
+.yj-en-16 { font-size: 16px; font-family: "neue-haas-unica", sans-serif; }
+.yj-en-14 { font-size: 14px; font-family: "neue-haas-unica", sans-serif; }
+.yj-en-12 { font-size: 12px; font-family: "neue-haas-unica", sans-serif; }
+
+/* Responsive padding classes */
+.yj-padding-large { padding: 90px 40px 60px; }
+.yj-padding-medium { padding: 80px 60px; }
+.yj-padding-small { padding: 60px 40px; }
+
+@media (min-width: 768px) and (max-width: 1280px) {
+  /* Chinese - iPad sizes */
+  .yj-cn-110 { font-size: 102px; }
+  .yj-cn-40  { font-size: 36px; }
+  .yj-cn-36  { font-size: 32px; }
+  .yj-cn-28  { font-size: 24px; }
+  .yj-cn-24  { font-size: 20px; }
+  .yj-cn-20  { font-size: 18px; }
+  .yj-cn-18  { font-size: 16px; }
+  .yj-cn-16  { font-size: 14px; }
+  .yj-cn-15  { font-size: 14px; }
+  .yj-cn-14  { font-size: 14px; }
+
+  /* English - iPad sizes */
+  .yj-en-24 { font-size: 20px; }
+  .yj-en-20 { font-size: 18px; }
+  .yj-en-18 { font-size: 16px; }
+  .yj-en-16 { font-size: 14px; }
+  .yj-en-14 { font-size: 12px; }
+  .yj-en-12 { font-size: 12px; }
+
+  /* Responsive padding - bottom reduced to 40px on iPad */
+  .yj-padding-large { padding: 90px 40px 40px !important; }
+  .yj-padding-medium { padding: 80px 60px 40px !important; }
+  .yj-padding-small { padding: 60px 40px 40px !important; }
+}
+
 /* Screen size warning overlay */
 .screen-size-warning {
   display: none;
 }
 
-@media (max-width: 1280px), (max-height: 720px) {
+@media (max-width: 768px), (max-height: 720px) {
   .screen-size-warning {
     display: flex;
     position: fixed;
