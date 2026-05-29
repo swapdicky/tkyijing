@@ -485,7 +485,6 @@ export default function Home() {
               fontSize: scrollProgress === 0 ? '24px' : '36px',
               lineHeight: '1.25',
               fontWeight: '300',
-              letterSpacing: '0.2em',
               color: '#000',
               marginLeft: '10px',
               transition: 'font-size 0.8s cubic-bezier(0.4, 0, 0.2, 1)'
@@ -500,7 +499,6 @@ export default function Home() {
               fontSize: '18px',
               lineHeight: '1.4',
               fontWeight: '300',
-              letterSpacing: '0.1em',
               color: '#000',
               transform: scrollProgress === 0 ? 'scale(.8)':'scale(1.2)',
               transformOrigin: 'right top',
