@@ -38,7 +38,7 @@ export default function Yijing() {
             <div style={{
               writingMode: 'vertical-rl',
               textOrientation: 'upright',
-              fontSize: '24px',
+              fontSize: '28px',
               lineHeight: '1.4',
               fontWeight: '400',
               letterSpacing: '0.1em',
@@ -130,7 +130,7 @@ export default function Yijing() {
             <div style={{
               writingMode: 'vertical-rl',
               textOrientation: 'upright',
-              fontSize: '24px',
+              fontSize: '28px',
               lineHeight: '1.4',
               fontWeight: '400',
               letterSpacing: '0.1em',
