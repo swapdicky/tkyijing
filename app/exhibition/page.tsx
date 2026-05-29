@@ -282,7 +282,7 @@ export default function Exhibition() {
                 textOrientation: 'upright',
                 fontSize: '40px',
                 fontWeight: '300',
-                letterSpacing: '0.2em',
+                
                 color: '#FFF',
                 margin: 0
               }}>
@@ -296,7 +296,7 @@ export default function Exhibition() {
                 fontSize: '28px',
                 lineHeight: '1.4',
                 fontWeight: '300',
-                letterSpacing: '0.1em',
+                
                 color: '#FFF'
               }}>
                  <span style={{marginTop: "-8px"}}></span>︽易經︾<span style={{marginTop:'-8px'}}></span>無疑是中國文化遺產之精髓。<br/>儒家與道家思想同樣根植於此<br/>在中国人古代哲学、科学、国家治术，<br/>甚至當代生活也從中獲得靈感。<br/>甚至卜卦文獻和哲學論述，︽易經︾<br/>在中國人生活方方面面留下不可<br/>磨滅的影響。
@@ -388,7 +388,7 @@ Chinese life.              </div>
                   textOrientation: 'upright',
                   fontSize: '24px',
                   fontWeight: '300',
-                  letterSpacing: '0.2em',
+                  
                   color: '#000',
                   marginLeft: "20px"
                 }}>
@@ -402,7 +402,7 @@ Chinese life.              </div>
                   fontSize: '36px',
                   lineHeight: '1.25',
                   fontWeight: '300',
-                  letterSpacing: '0.1em',
+                  
                   color: '#000'
                 }}>
                   <span style={{ marginTop: '-40px', display: 'inline-block' }}>﹁</span>我們希望這次展覽帶來的<br />沉浸體驗能為抽象的<br />概念賦予意義，並激發<br />人們思考：當地球持續暖化、<br />人工智能科技不斷重塑<br />人類經驗之際，如何仍能<br />從傳統智慧中獲得禆益。﹂
@@ -544,7 +544,7 @@ Chinese life.              </div>
                   textOrientation: 'upright',
                   fontSize: '24px',
                   fontWeight: '300',
-                  letterSpacing: '0.2em',
+                  
                   color: '#FFF'
                 }}>
                   藝術家的話
@@ -554,7 +554,7 @@ Chinese life.              </div>
                   textOrientation: 'upright',
                   fontSize: '36px',
                   fontWeight: 'bold',
-                  letterSpacing: '0.2em',
+                  
                   color: '#FFF',
                   lineHeight: '1',
                   marginLeft: "20px",
@@ -570,7 +570,7 @@ Chinese life.              </div>
                   fontSize: windowHeight < 880 ? '16px' : '18px',
                   lineHeight: '1.4',
                   fontWeight: '300',
-                  letterSpacing: '0.2em',
+                  
                   color: '#FFF'
                 }}>
                   自我在五十年前初次接觸︽易經︾起，它就如<br/>一位睿智的的老朋友，每當我求問指點，它總能<br/>揭示我內心深處的想法，指引我如何在困境中<br/>求變。當中的玄妙箴言，曾在我人生的關鍵<br/>時刻發揮重要作用，例如當年我在猶豫是否該<br/>離開美國荷里活的工作，開啟創作生涯新篇章時，<br/>我占得﹁旅﹂︵第五十六卦︶，使我下定決心<br/>回港，成為旅遊攝影師。<br/><br/>
@@ -693,7 +693,7 @@ Over the years, I failed repeatedly to create a visual representation of the <em
                   textOrientation: 'upright',
                   fontSize: '32px',
                   fontWeight: 'bold',
-                  letterSpacing: '0.2em',
+                  
                   color: '#FFF',
                   marginLeft: "20px"
                 }}>
@@ -707,7 +707,7 @@ Over the years, I failed repeatedly to create a visual representation of the <em
                   fontSize: windowHeight < 880 ? '18px' : '24px',
                   lineHeight: '1.25',
                   fontWeight: '300',
-                  letterSpacing: '0.1em',
+                  
                   color: '#FFF'
                 }}>
                   人類對預知未來的渴求，可被視為在複雜<br/>
@@ -851,7 +851,7 @@ Nowadays, with the advance of digital technologies, an online consultation of th
                   textOrientation: 'upright',
                   fontSize: '24px',
                   fontWeight: '300',
-                  letterSpacing: '0.2em',
+                  
                   color: '#FFF'
                 }}>
                   藝術家的話
@@ -861,7 +861,7 @@ Nowadays, with the advance of digital technologies, an online consultation of th
                   textOrientation: 'upright',
                   fontSize: '36px',
                   fontWeight: 'bold',
-                  letterSpacing: '0.2em',
+                  
                   color: '#FFF',
                   lineHeight: '1',
                   marginLeft: "20px",
@@ -878,7 +878,7 @@ Nowadays, with the advance of digital technologies, an online consultation of th
                   fontSize: '24px',
                   lineHeight: '1.4',
                   fontWeight: '300',
-                  letterSpacing: '0.1em',
+                  
                   color: '#FFF'
                 }}>
                   <span style={{marginTop: "-7px"}}></span>︽易經︾<span style={{marginTop:'-6px'}}></span>的核心概念是﹁天人合一﹂。<br /><span style={{marginTop: "-7px"}}></span>︽觀靜錄︾<span style={{marginTop:'-6px'}}></span>系列收錄了無人機尚<br/>未普及之前的航拍作品，以及其他<br/>人跡罕至的遼闊景觀，嘗試以此攝影<br/>作品集詮釋此概念。過去四十年來，<br/>我有幸踏遍世界邊陲進行拍攝，<br/>我希望能與新一代的觀眾分享這批<br/>作品，讓他們欣賞地球的壯麗風采，<br/>進而踏上更新與保護的道路，而非<br/>重進而自我毀滅的覆轍。

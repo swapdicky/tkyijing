@@ -27,7 +27,7 @@ export default function Yijing() {
               textOrientation: 'upright',
               fontSize: '40px',
               fontWeight: '500',
-              letterSpacing: '0.2em',
+              
               color: '#000',
               margin: 0
             }}>
@@ -41,7 +41,7 @@ export default function Yijing() {
               fontSize: '24px',
               lineHeight: '1.4',
               fontWeight: '400',
-              letterSpacing: '0.1em',
+              
               color: '#000'
             }}>
               <span style={{marginTop:'-6px'}}></span>︽易經︾<span style={{marginTop:'-6px'}}></span>是一本古代卜辭書，在中國<br />哲學歷史中具有重要地位。<span style={{marginTop :"-6px"}}></span>﹁易﹂<span style={{marginTop :"-6px"}}></span><br />是變化的意思，<span style={{marginTop :"-6px"}}></span>︽易經︾<span style={{marginTop :"-6px"}}></span>呈現一個恆常<br />變動的世界。它代表了古人嘗試闡釋<br />人類在宇宙中定位的看法，強調<br />天人之間的互動與合一。作為傳統卜卦<br />文獻和哲學論述，<span style={{marginTop :"-6px"}}></span>︽易經︾<span style={{marginTop :"-6px"}}></span>在中國人<br />生活方方面面留下不可磨滅的影響。
@@ -133,7 +133,7 @@ export default function Yijing() {
               fontSize: '24px',
               lineHeight: '1.4',
               fontWeight: '400',
-              letterSpacing: '0.1em',
+              
               color: '#000'
             }}>
                <span style={{marginTop :"-6px"}}></span>︽易經︾<span style={{marginTop :"-6px"}}></span>六十四卦體系的確立，<br/>乃基於﹁陰陽﹂和﹁五行﹂<br/>觀念所形成的關聯性宇宙觀，<br/>以觀萬物之態。這些概念被認為<br/>是宇宙創造與變化的過程，<br/>同時也體現萬物在整體規律中<br/>相互依存的本質。
@@ -232,7 +232,7 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
               textOrientation: 'upright',
               fontSize: '36px',
               lineHeight: '1.2',
-              letterSpacing: '0.1em',
+              
               color: '#000',
               fontWeight: '400'
             }}>
@@ -243,7 +243,7 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
               textOrientation: 'upright',
               fontSize: '20px',
               lineHeight: '1.2',
-              letterSpacing: '0.1em',
+              
               color: '#000',
               fontWeight: '400'
             }}>
@@ -300,7 +300,7 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
               textOrientation: 'upright',
               fontSize: '36px',
               lineHeight: '1.2',
-              letterSpacing: '0.1em',
+              
               color: '#000',
               fontWeight: '400'
             }}>
@@ -311,7 +311,7 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
               textOrientation: 'upright',
               fontSize: '20px',
               lineHeight: '1.2',
-              letterSpacing: '0.1em',
+              
               color: '#000',
               fontWeight: '400'
             }}>
@@ -560,7 +560,7 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
               writingMode: 'vertical-rl',
               textOrientation: 'upright',
               fontSize: '20px',
-              letterSpacing: '0.2em',
+              
               color: '#FFF',
               lineHeight: '1.8',
               fontWeight: '400'
@@ -969,7 +969,7 @@ Hence, the ancient Chinese developed a comprehensive scheme of symbolic correlat
               textOrientation: 'upright',
               fontSize: '28px',
               lineHeight: '1.4',
-              letterSpacing: '0.1em',
+              
               color: '#FFF',
               fontWeight: '300'
             }}>
@@ -1010,7 +1010,7 @@ The <em>Yellow River Chart</em> has been traditionally attributed to the legenda
               textOrientation: 'upright',
               fontSize: '28px',
               lineHeight: '1.4',
-              letterSpacing: '0.1em',
+              
               color: '#FFF',
               fontWeight: '300'
             }}>
@@ -1337,7 +1337,7 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
             writingMode: 'vertical-rl',
             textOrientation: 'mixed',
             fontSize: '14px',
-            letterSpacing: '0.1em',
+            
             color: '#FFF',
             cursor: 'pointer',
             position: 'absolute',
@@ -1362,7 +1362,7 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
             writingMode: 'vertical-rl',
             textOrientation: 'mixed',
             fontSize: '14px',
-            letterSpacing: '0.1em',
+            
             color: '#FFF',
             cursor: 'pointer',
             position: 'absolute',
