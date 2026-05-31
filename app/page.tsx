@@ -370,7 +370,7 @@ export default function Home() {
         left: scrollProgress >= 1 ? '30px' : '50%',
         width: '36px',
         height: '36px',
-        transform: scrollProgress >= 1 ? 'none' : 'translate(calc(-272px + 30px), calc(-320px + 30px))',
+        transform: scrollProgress >= 1 ? 'none' : 'translate(calc(-272px + 30px), calc(-50% - 50vh + 180px))',
         transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)',
         zIndex: 111,
         opacity: hideOverlay ? 0 : 1,
@@ -436,7 +436,7 @@ export default function Home() {
         <div 
           style={{
             width: scrollProgress >= 1 ? '50vw' : '524px',
-            height: scrollProgress >= 1 ? '100vh' : '720px',
+            height: scrollProgress >= 1 ? '100vh' : 'calc(100vh - 240px)',
             backgroundColor: 'white',
             position: 'absolute',
             top: '50%',
