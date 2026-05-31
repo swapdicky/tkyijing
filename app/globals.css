@@ -68,7 +68,7 @@ html {
 .yj-en-18 { font-size: 18px; font-family: "neue-haas-unica", sans-serif; }
 .yj-en-16 { font-size: 16px; font-family: "neue-haas-unica", sans-serif; }
 .yj-en-14 { font-size: 14px; font-family: "neue-haas-unica", sans-serif; }
-.yj-en-12 { font-size: 12px; font-family: "neue-haas-unica", sans-serif; }
+.yj-en-12 { font-size: 12px; }
 
 /* Responsive padding classes */
 .yj-padding-large   { padding: 90px 40px 60px; }
@@ -79,9 +79,11 @@ html {
 .margin-n-40{margin-top: -40px;}
 .right-30{right: 30px;}
 
+.yj-height-half-inner-over .yj-height-half-inner {;}
 
 
-@media (min-width: 980px) and (max-width: 1380px), (max-height: 779px) {
+
+@media (min-width: 980px) and (max-width: 1380px), (max-height: 579px) {
   /* Chinese - iPad sizes (adjusted for full-width vertical layout) */
   .yj-cn-110 { font-size: 72px; }
   .yj-cn-40  { font-size: 28px; }
