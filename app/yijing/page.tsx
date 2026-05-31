@@ -901,13 +901,12 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
   };
 
   useEffect(() => {
-    const handleWheel = (e: WheelEvent) => {
+    const doScroll = (deltaY: number) => {
       if (scrollLockRef.current) return;
-
       scrollLockRef.current = true;
 
       if (isMobile) {
-        if (e.deltaY > 0) {
+        if (deltaY > 0) {
           // Scroll down on mobile
           if (mobilePhase === 'left') {
             setMobilePhase('right');
@@ -915,7 +914,7 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
             // Currently showing right - check if content can scroll further down
             const rc = rightContentRefs.current[currentSlide];
             if (rc && rc.scrollHeight > rc.clientHeight && rc.scrollTop + rc.clientHeight < rc.scrollHeight - 2) {
-              rc.scrollTop += e.deltaY;
+              rc.scrollTop += deltaY;
               scrollLockRef.current = false;
               return;
             }
@@ -927,13 +926,13 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
               setShouldOpenMenu(true);
             }
           }
-        } else if (e.deltaY < 0) {
+        } else if (deltaY < 0) {
           // Scroll up on mobile
           if (mobilePhase === 'right') {
             // Check if content can scroll further up
             const rc = rightContentRefs.current[currentSlide];
             if (rc && rc.scrollHeight > rc.clientHeight && rc.scrollTop > 2) {
-              rc.scrollTop += e.deltaY;
+              rc.scrollTop += deltaY;
               scrollLockRef.current = false;
               return;
             }
@@ -952,11 +951,11 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
         }
       } else {
         // Desktop behavior
-        if (e.deltaY > 0 && currentSlide < 10) {
+        if (deltaY > 0 && currentSlide < 10) {
           setCurrentSlide(prev => Math.min(prev + 1, 10));
-        } else if (e.deltaY > 0 && currentSlide === 10) {
+        } else if (deltaY > 0 && currentSlide === 10) {
           setShouldOpenMenu(true);
-        } else if (e.deltaY < 0 && currentSlide > 0) {
+        } else if (deltaY < 0 && currentSlide > 0) {
           setCurrentSlide(prev => Math.max(prev - 1, 0));
           setShouldOpenMenu(false);
         } else {
@@ -971,8 +970,31 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
       }, 1500);
     };
 
+    const handleWheel = (e: WheelEvent) => {
+      doScroll(e.deltaY);
+    };
+
+    let touchStartY = 0;
+    const handleTouchStart = (e: TouchEvent) => {
+      touchStartY = e.touches[0].clientY;
+    };
+    const handleTouchEnd = (e: TouchEvent) => {
+      const touchEndY = e.changedTouches[0].clientY;
+      const deltaY = touchStartY - touchEndY;
+      const threshold = 50;
+      if (Math.abs(deltaY) > threshold) {
+        doScroll(deltaY > 0 ? 100 : -100);
+      }
+    };
+
     window.addEventListener('wheel', handleWheel, { passive: true });
-    return () => window.removeEventListener('wheel', handleWheel);
+    window.addEventListener('touchstart', handleTouchStart, { passive: true });
+    window.addEventListener('touchend', handleTouchEnd, { passive: true });
+    return () => {
+      window.removeEventListener('wheel', handleWheel);
+      window.removeEventListener('touchstart', handleTouchStart);
+      window.removeEventListener('touchend', handleTouchEnd);
+    };
   }, [currentSlide, isMobile, mobilePhase]);
 
   return (
