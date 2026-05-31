@@ -91,35 +91,32 @@ export default function Home() {
     }
   }, []);
 
+  const advanceScroll = () => {
+    if (scrollLockRef.current) return;
+    scrollLockRef.current = true;
+
+    setScrollProgress(prev => {
+      if (prev === 0) {
+        console.log('First scroll: moving to left-center');
+        setIsLanding(false);
+        return 1;
+      } else if (prev === 1) {
+        console.log('Second scroll: sliding off');
+        setTimeout(() => setHideOverlay(true), 800);
+        return 2;
+      }
+      return prev;
+    });
+
+    setTimeout(() => {
+      scrollLockRef.current = false;
+    }, 1500);
+  };
+
   // Wheel effect for info box transformation
   useEffect(() => {
     const handleWheel = (e: WheelEvent) => {
-      if (e.deltaY > 0 && !scrollLockRef.current) {
-        scrollLockRef.current = true;
-        
-        setScrollProgress(prev => {
-          if (prev === 0) {
-            // First scroll: move to left-center and hide footer
-            console.log('First scroll: moving to left-center');
-            setIsLanding(false); // Hide footer immediately on first scroll
-            return 1;
-          } else if (prev === 1) {
-            // Second scroll: slide off to the left
-            console.log('Second scroll: sliding off');
-            // Wait for box to slide off screen, then hide overlay
-            setTimeout(() => {
-              setHideOverlay(true); // Hide overlay after box is off screen
-            }, 800); // Wait for slide animation to complete
-            return 2;
-          }
-          return prev;
-        });
-        
-        // Prevent multiple triggers - wait for animation to complete
-        setTimeout(() => {
-          scrollLockRef.current = false;
-        }, 1500); // Match the transition duration
-      }
+      if (e.deltaY > 0) advanceScroll();
     };
 
     window.addEventListener('wheel', handleWheel, { passive: true });
@@ -422,6 +419,7 @@ export default function Home() {
       {/* Fixed overlay layer */}
       <div 
         className="fixed top-0 left-0 flex items-center justify-center"
+        onClick={advanceScroll}
         style={{ 
           width: '100vw',
           height: '100vh',

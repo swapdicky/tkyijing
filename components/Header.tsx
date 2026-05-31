@@ -105,7 +105,7 @@ export default function Header({ isPanelOpen = false, hideOverlay = false, onMen
               <div className="group border-b cursor-pointer transition-opacity" style={{ height: isMobile ? '50px' : '90px', minHeight: isMobile ? '50px' : '90px', paddingLeft: isMobile ? '15px' : '30px', display: 'flex', alignItems: 'center', borderColor: '#888' }}>
                 <div className="flex items-baseline gap-3">
                   <h2 className="font-normal text-white group-hover:text-[#888] transition-colors" style={{ fontSize: isMobile ? '27px' : '40px', lineHeight: '1'}}>易經</h2>
-                  <h2 className="font-light text-white group-hover:text-[#888] transition-colors" style={{ fontFamily: '"neue-haas-unica", sans-serif', fontSize: isMobile ? '27px' : '40px', lineHeight: '1' }}>Yijing</h2>
+                  <h2 className="font-light text-white group-hover:text-[#888] transition-colors" style={{ fontFamily: '"neue-haas-unica", sans-serif', fontSize: isMobile ? '27px' : '40px', lineHeight: '1', fontStyle: "italic" }}>Yijing</h2>
                 </div>
               </div>
             </Link>

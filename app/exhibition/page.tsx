@@ -317,7 +317,7 @@ export default function Exhibition() {
                 lineHeight: '1.4',
                 
                 letterSpacing: '0.1em' }}>
-                 <span style={{marginTop: "-8px"}}></span>︽易經︾<span style={{marginTop:'-8px'}}></span>無疑是中國文化遺產之精髓。<br/>儒家與道家思想同樣根植於此<br/>在中国人古代哲学、科学、国家治术，<br/>甚至當代生活也從中獲得靈感。<br/>甚至卜卦文獻和哲學論述，︽易經︾<br/>在中國人生活方方面面留下不可<br/>磨滅的影響。
+                 <span style={{marginTop: "-10px"}}></span>︽易經︾<span style={{marginTop:'-10px'}}></span>無疑是中國文化遺產之精髓。<br/>儒家與道家思想同樣根植於此<br/>在中国人古代哲学、科学、国家治术，<br/>甚至當代生活也從中獲得靈感。<br/>甚至卜卦文獻和哲學論述，︽易經︾<br/>在中國人生活方方面面留下不可<br/>磨滅的影響。
               </div>
             </div>
 
