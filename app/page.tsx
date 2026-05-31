@@ -370,7 +370,7 @@ export default function Home() {
         left: scrollProgress >= 1 ? '30px' : '50%',
         width: '36px',
         height: '36px',
-        transform: scrollProgress >= 1 ? 'none' : 'translate(calc(-262px + 30px), calc(-360px + 30px))',
+        transform: scrollProgress >= 1 ? 'none' : 'translate(calc(-272px + 30px), calc(-320px + 30px))',
         transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)',
         zIndex: 111,
         opacity: hideOverlay ? 0 : 1,
@@ -447,7 +447,8 @@ export default function Home() {
             flexDirection: 'column',
             justifyContent: 'space-between',
             padding: scrollProgress >= 1 ? '30px 30px 40px 30px' : '40px 30px',
-            borderRadius: scrollProgress >= 1 ? '0' : '15px'
+            borderRadius: scrollProgress >= 1 ? '0' : '15px',
+            maxHeight : scrollProgress >= 1 ?'100vh' : 'calc(100vh - 240px)'
           }}
         >
 
@@ -761,7 +762,7 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
               ×
             </button>
             
-            <div className="px-12 min-h-screen flex flex-col relative" style={{ paddingTop: '7.5rem', paddingBottom: '280px' }}>
+            <div className="px-12 min-h-screen flex flex-col relative home-info-top" style={{ paddingBottom: '280px' }}>
               <div className="flex items-start justify-between mb-8">
                 <div className="text-[24px] font-medium leading-none neue-haas-unica">{selectedBox || '--'}</div>
                 <div className="flex gap-3 items-start">

@@ -7,8 +7,11 @@ export default function Yijing() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [shouldOpenMenu, setShouldOpenMenu] = useState(false);
   const scrollLockRef = useRef(false);
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobileDetected, setIsMobileDetected] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const [mobilePhase, setMobilePhase] = useState<'left' | 'right'>('left');
+  // Use desktop layout during SSR and initial hydration to avoid mismatch
+  const isMobile = mounted ? isMobileDetected : false;
   const rightContentRefs = useRef<{[key: number]: HTMLDivElement | null}>({});
   const slide2InnerRef = useRef<HTMLDivElement>(null);
   const DESKTOP_SLIDE_BUDGETS = [1000, 1000, 2000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000];
@@ -17,7 +20,8 @@ export default function Yijing() {
     DESKTOP_SLIDE_BUDGETS.slice(0, slideIndex).reduce((a, b) => a + b, 0);
 
   useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 980);
+    setMounted(true);
+    const checkMobile = () => setIsMobileDetected(window.innerWidth < 980);
     checkMobile();
     window.scrollTo(0, 0);
     window.addEventListener('resize', checkMobile);
@@ -55,7 +59,7 @@ export default function Yijing() {
             alignSelf: 'flex-end'
           }}>
             {/* 易經 title */}
-            <h2 className="yj-cn-40 text-black fw-500"  style={{ writingMode: 'vertical-rl',
+            <h2 className="yj-cn-40 text-black fw-600"  style={{ writingMode: 'vertical-rl',
               textOrientation: 'upright',
               
               letterSpacing: '0.2em',
@@ -65,7 +69,7 @@ export default function Yijing() {
             </h2>
             
             {/* Description text */}
-            <div className="yj-cn-24 text-black fw-400"  style={{ writingMode: 'vertical-rl',
+            <div className="yj-cn-24 text-black fw-300"  style={{ writingMode: 'vertical-rl',
               textOrientation: 'upright',
               lineHeight: '1.4',
               
@@ -86,7 +90,7 @@ export default function Yijing() {
             </div>
 
             {/* English description */}
-            <div className="yj-en-20 text-black fw-400"  style={{ lineHeight: '1.2',
+            <div className="yj-en-20 text-black fw-300"  style={{ lineHeight: '1.2',
               
               textAlign: 'left',
               
@@ -134,13 +138,13 @@ export default function Yijing() {
             gap: '20px',
             alignSelf: 'flex-end'
           }}>
-            <div className="yj-cn-40 text-black fw-400"  style={{ writingMode: 'vertical-rl',
+            <div className="yj-cn-40 text-black fw-300"  style={{ writingMode: 'vertical-rl',
               textOrientation: 'upright',
               lineHeight: '1.2',
               letterSpacing: '0.15em' }}>
               <span style={{marginTop :"-14px"}}></span>︽易經︾<span style={{marginTop :"-14px"}}></span>哲學的<br/>基礎概念是什麼？
             </div>
-            <div className="yj-cn-24 text-black fw-400"  style={{ writingMode: 'vertical-rl',
+            <div className="yj-cn-24 text-black fw-300"  style={{ writingMode: 'vertical-rl',
               textOrientation: 'upright',
               lineHeight: '1.4',
               
@@ -222,13 +226,13 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
             gap: '20px',
             alignSelf: 'flex-end'
           }}>
-            <div className="yj-cn-36 text-black fw-400"  style={{ writingMode: 'vertical-rl',
+            <div className="yj-cn-36 text-black fw-300"  style={{ writingMode: 'vertical-rl',
               textOrientation: 'upright',
               lineHeight: '1.2',
               letterSpacing: '0.1em' }}>
               <span style={{marginTop: "-12px"}}></span>︽易︾有太極，是生兩儀，<br/>兩儀生四象，四象生八卦。<br/>八卦定吉凶，吉凶生大業。
             </div>
-            <div className="yj-cn-20 text-black fw-400"  style={{ writingMode: 'vertical-rl',
+            <div className="yj-cn-20 text-black fw-300"  style={{ writingMode: 'vertical-rl',
               textOrientation: 'upright',
               lineHeight: '1.2',
               letterSpacing: '0.1em' }}>
@@ -273,13 +277,13 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
             gap: '20px',
             alignSelf: 'flex-end'
           }}>
-            <div className="yj-cn-36 text-black fw-400"  style={{ writingMode: 'vertical-rl',
+            <div className="yj-cn-36 text-black fw-300"  style={{ writingMode: 'vertical-rl',
               textOrientation: 'upright',
               lineHeight: '1.2',
               letterSpacing: '0.1em' }}>
               天一，地二；天三，地四；天五，<br/>地六；天七，地八；天九，地十。<br/>天數五，地數五，五位相得而<br/>各有合。天數二十有五，地數三十，<br/>凡天地之數，五十有五，此所以<br/>成變化而行鬼神也。
             </div>
-            <div className="yj-cn-20 text-black fw-400"  style={{ writingMode: 'vertical-rl',
+            <div className="yj-cn-20 text-black fw-300"  style={{ writingMode: 'vertical-rl',
               textOrientation: 'upright',
               lineHeight: '1.2',
               letterSpacing: '0.1em' }}>
@@ -366,7 +370,7 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
             alignSelf: 'flex-end',
             flex: 1
           }}>
-            <div className="yj-cn-40 text-black fw-400"  style={{ writingMode: 'vertical-rl',
+            <div className="yj-cn-40 text-black fw-600"  style={{ writingMode: 'vertical-rl',
               textOrientation: 'upright',
               lineHeight: '1.2',
               letterSpacing: '0.12em' }}>
@@ -382,8 +386,9 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
 
           {/* English text at bottom */}
           <div>
+              <div className="yj-en-18 text-black fw-500"  style={{ marginBottom: '10px' }}>Living Legacy</div>
             <div className="yj-en-14 text-black fw-300"  style={{ lineHeight: '1.25' }}>
-              <div className="yj-en-18 fw-500"  style={{ marginBottom: '10px' }}>Living Legacy</div>
+
               <p style={{ marginBottom: '10px' }}>The <em>Book of Changes</em> was embraced and appropriated by later Chinese thinkers, giving rise to specialised studies of its commentarial traditions. Some thinkers regarded the book as a treatise on cosmological meanings and principles. The book's impact spanned the arts in a story of eight continuous waves' influence in the present.</p>
               <p>The book's reception in the international world has been remarkable. Respective translations by Thomas McClatchie (1814-1885), James Legge (1815-1897), and Richard Wilhelm (1873-1930) introduced the ancient Chinese text to the world. The psychologist Carl Jung (1875-1961) linked the book's principle of synchronicity to the notion of meaningful coincidence and used it to the book's sequences of events for determining randomness in music composition. Eager Augustin (b. 1993) regarded I as "poetry", he never known your plus or system and similarity when exploring cybernetic theory or digital literary studies.</p>
             </div>
@@ -431,10 +436,10 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
               justifyContent: 'flex-end'
             }}>
             <div className="yj-height-half-inner">
-              <div className="yj-cn-18 text-white fw-normal"  style={{ marginBottom: '10px' }}>
+              <div className="yj-cn-18 text-white fw-600"  style={{ marginBottom: '10px' }}>
                 儒家五經之一
               </div>
-              <div className="yj-cn-16 text-white fw-normal"  style={{ lineHeight: '1.4' }}>
+              <div className="yj-cn-16 text-white fw-300"  style={{ lineHeight: '1.4' }}>
                 <p style={{marginBottom:'10px'}}>
                 最初，此書將六十四卦的卦象、卦名與卦爻辭集結，名為《周易》，相傳為周文王（公元前十一世紀）所著。《周易》正文逐漸擴展至包含一系列為經作註解和闡釋哲理的「傳」（又稱《十翼》），相信是戰國時期（公元前475-221年）不同作者所撰注。
                 </p>
@@ -457,9 +462,7 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
               <div className="yj-en-18 text-white fw-500"  style={{ marginBottom: '10px' }}>
                 One of the Five Classics of Confucianism
               </div>
-              <div className="yj-en-16 text-white"  style={{ 
-                
-                fontWeight: 200 }}>
+              <div className="yj-en-16 text-white fw-300" >
                 <p style={{marginBottom:"10px"}}>
                 First set down as a book with divination statements for various hexagrams, the main body of the work was originally known as the <em>Changes of Zhou</em> attributed to King Wen of the Zhou (c.11th century BCE). The basic text was gradually expanded to include a number of philosophical commentaries (the "Ten Wings") that are believed to be the works by authors during the Warring States period (475–221 BCE).
                 </p>
@@ -484,7 +487,7 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
               alignItems: 'flex-start',
               justifyContent: 'space-between'
             }}>
-            <div className="yj-cn-20 text-white fw-400"  style={{ writingMode: 'vertical-rl',
+            <div className="yj-cn-20 text-white fw-300"  style={{ writingMode: 'vertical-rl',
               textOrientation: 'upright',
               letterSpacing: '0.2em',
               
@@ -525,7 +528,7 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
               justifyContent: 'flex-end'
             }}>
             <div className="yj-height-half-inner">
-              <div className="yj-cn-18 text-white fw-400"  style={{ marginBottom: '10px' }}>
+              <div className="yj-cn-18 text-white fw-600"  style={{ marginBottom: '10px' }}>
                 <span style={{marginLeft:"-6px"}}></span>「陰陽」與「五行」
               </div>
               <div className="yj-cn-15 text-white fw-300"  style={{ lineHeight: '1.4' }}>
@@ -592,7 +595,7 @@ Hence, the ancient Chinese developed a comprehensive scheme of symbolic correlat
               flexDirection: 'column',
               justifyContent: 'flex-end'
             }}>
-            <div className="yj-cn-20 text-white fw-400"  style={{ marginBottom: '10px' }}>
+            <div className="yj-cn-20 text-white fw-600"  style={{ marginBottom: '10px' }}>
               易
             </div>
             <div className="yj-cn-15 text-white fw-300"  style={{ lineHeight: '1.4' }}>
@@ -637,7 +640,7 @@ Hence, the ancient Chinese developed a comprehensive scheme of symbolic correlat
               flexDirection: 'column',
               justifyContent: 'flex-end'
             }}>
-            <div className="yj-cn-20 text-white fw-400"  style={{ marginBottom: '10px' }}>
+            <div className="yj-cn-20 text-white fw-600"  style={{ marginBottom: '10px' }}>
               六十四卦
             </div>
             <div className="yj-cn-15 text-white fw-300"  style={{ lineHeight: '1.4' }}>
@@ -684,7 +687,7 @@ Hence, the ancient Chinese developed a comprehensive scheme of symbolic correlat
               flexDirection: 'column',
               justifyContent: 'flex-end'
             }}>
-            <div className="yj-cn-20 text-white fw-400"  style={{ marginBottom: '10px' }}>
+            <div className="yj-cn-20 text-white fw-600"  style={{ marginBottom: '10px' }}>
               天、地、人
             </div>
             <div className="yj-cn-15 text-white fw-300"  style={{ lineHeight: '1.4' }}>
@@ -729,7 +732,7 @@ Hence, the ancient Chinese developed a comprehensive scheme of symbolic correlat
               flexDirection: 'column',
               justifyContent: 'flex-end'
             }}>
-            <div className="yj-cn-20 text-white fw-400"  style={{ marginBottom: '10px' }}>
+            <div className="yj-cn-20 text-white fw-600"  style={{ marginBottom: '10px' }}>
               《易經》與術數
             </div>
             <div className="yj-cn-15 text-white fw-300"  style={{ lineHeight: '1.4' }}>
@@ -882,7 +885,7 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
               flexDirection: 'column',
               justifyContent: 'flex-end'
             }}>
-            <div className="yj-cn-20 text-white fw-400"  style={{ marginBottom: '10px' }}>
+            <div className="yj-cn-20 text-white fw-600"  style={{ marginBottom: '10px' }}>
               與現代科學的關係
             </div>
             <div className="yj-cn-15 text-white fw-300"  style={{ lineHeight: '1.4' }}>

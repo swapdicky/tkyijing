@@ -302,7 +302,7 @@ export default function Exhibition() {
               alignSelf: 'flex-end'
             }}>
               {/* Title */}
-              <h2 className="text-white fw-300 yj-cn-40"  style={{ writingMode: 'vertical-rl',
+              <h2 className="text-white fw-600 yj-cn-40"  style={{ writingMode: 'vertical-rl',
                 textOrientation: 'upright',
                 
                 letterSpacing: '0.2em',
@@ -545,7 +545,7 @@ Chinese life.              </div>
                   letterSpacing: '0.2em' }}>
                   藝術家的話
                 </h3>
-                <h2 className="text-white fw-bold yj-cn-36"  style={{ writingMode: 'vertical-rl',
+                <h2 className="text-white fw-600 yj-cn-36"  style={{ writingMode: 'vertical-rl',
                   textOrientation: 'upright',
                   
                   letterSpacing: '0.2em',
@@ -673,7 +673,7 @@ Over the years, I failed repeatedly to create a visual representation of the <em
                 alignSelf: 'flex-end'
               }}>
                 {/* Title */}
-                <h3 className="text-white fw-bold yj-cn-36"  style={{ writingMode: 'vertical-rl',
+                <h3 className="text-white fw-600 yj-cn-36"  style={{ writingMode: 'vertical-rl',
                   textOrientation: 'upright',
                   
                   letterSpacing: '0.2em',
@@ -830,7 +830,7 @@ Nowadays, with the advance of digital technologies, an online consultation of th
                   letterSpacing: '0.2em' }}>
                   藝術家的話
                 </h3>
-                <h2 className="text-white fw-bold yj-cn-36"  style={{ writingMode: 'vertical-rl',
+                <h2 className="text-white fw-600 yj-cn-36"  style={{ writingMode: 'vertical-rl',
                   textOrientation: 'upright',
                   
                   letterSpacing: '0.2em',
