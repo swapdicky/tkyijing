@@ -83,7 +83,7 @@ html {
 
 
 
-@media (min-width: 980px) and (max-width: 1380px), (max-height: 579px) {
+@media (min-width: 980px) and (max-width: 1380px), (max-height: 879px) {
   /* Chinese - iPad sizes (adjusted for full-width vertical layout) */
   .yj-cn-110 { font-size: 72px; }
   .yj-cn-40  { font-size: 28px; }
@@ -191,7 +191,7 @@ html {
 @media (min-width: 2000px) {
 }
 
-@media (max-height: 680px) {
+@media (max-height: 580px) {
   .screen-size-warning {
     display: flex;
     position: fixed;
