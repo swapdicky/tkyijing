@@ -7,7 +7,15 @@ export default function About() {
   const [showLightbox, setShowLightbox] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
   const leftContentRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 980);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
   
   const videos = [
     {
@@ -80,7 +88,7 @@ export default function About() {
           top: 0,
           left: 0,
           width: '100%',
-          height: '90px',
+          height: isMobile ? '50px' : '90px',
           borderBottom: '1px solid #888',
           backgroundColor: '#000 ',
           zIndex: 12
@@ -90,17 +98,19 @@ export default function About() {
       {/* Left fixed content block */}
       <div
         style={{
-          position: 'fixed',
-          top: '90px',
+          position: isMobile ? 'relative' : 'fixed',
+          top: isMobile ? 0 : '90px',
           left: 0,
-          width: '50vw',
-          height: 'calc(100vh - 90px)',
+          width: isMobile ? '100%' : '50vw',
+          height: isMobile ? 'auto' : 'calc(100vh - 90px)',
           backgroundColor: '#000',
           zIndex: 1,
-          borderRight: '1px solid #888',
+          borderRight: isMobile ? 'none' : '1px solid #888',
+          borderBottom: isMobile ? '1px solid #888' : 'none',
           display: 'flex',
           flexDirection: 'column',
-          overflow: 'hidden'
+          overflow: isMobile ? 'visible' : 'hidden',
+          marginTop: isMobile ? '50px' : 0
         }}
       >
         {/* Sticky section titles */}
@@ -110,27 +120,11 @@ export default function About() {
           backgroundColor: '#000',
           zIndex: 2
         }}>
-          <div style={{ 
-            height: '90px',
-            paddingLeft: '30px',
-            display: 'flex',
-            alignItems: 'center',
-            textAlign: 'left',
-            borderBottom: '1px solid #888',
-            minHeight: '90px'
-          }}>
-            <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1, fontWeight: 400, color: '#fff' }}>策展人的話</h1>
+          <div className="section-title-row">
+            <h1 className="text-white fw-400 section-title-text" style={{ lineHeight: 1.2 }}>策展人的話</h1>
           </div>
-          <div style={{ 
-            height: '90px',
-            paddingLeft: '30px',
-            display: 'flex',
-            alignItems: 'center',
-            textAlign: 'left',
-            borderBottom: '1px solid #888',
-            minHeight: '90px'
-          }}>
-            <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1,  fontFamily:'neue-haas-unica, sans-serif', fontWeight: 300, color: '#fff' }}>Curatorial Statement</h1>
+          <div className="section-title-row">
+            <h1 className="text-white fw-300 section-title-text" style={{ lineHeight: 1.2, fontFamily: '"neue-haas-unica", sans-serif' }}>Curatorial Statement</h1>
           </div>
         </div>
 
@@ -140,7 +134,7 @@ export default function About() {
           style={{
             display: 'flex',
             flexDirection: 'column',
-            transform: `translateY(-${scrollProgress}px)`,
+            transform: isMobile ? 'none' : `translateY(-${scrollProgress}px)`,
             flex: 1
           }}
         >
@@ -157,13 +151,7 @@ export default function About() {
             paddingRight: '30px',
             paddingTop: '80px'
           }}>
-            <div style={{
-              fontSize: '16px',
-              lineHeight: '1.4',
-              fontWeight: 300,
-              color: '#fff',
-              textAlign: 'left'
-            }}>
+            <div className="text-white fw-300 yj-cn-16" style={{ lineHeight: '1.4', textAlign: 'left' }}>
               <p style={{ marginBottom: '1em' }}>
                 自然變化的韻律與人類創造性的轉化，顯現為萬物存在與形成之間的恆常流轉。這來自《易經》的奧妙洞見，啟發了是次展覽的策劃理念。展覽揭示文化遺產如何持續激發創造性想像，為當代詮釋賦予新意。
               </p>
@@ -186,14 +174,7 @@ export default function About() {
             paddingBottom: '60px',
             paddingRight: '30px'
           }}>
-            <div style={{
-              fontSize: '16px',
-              lineHeight: '1.4',
-              fontWeight: 300,
-              color: '#fff',
-              textAlign: 'left',
-              fontFamily: '"neue-haas-unica", sans-serif'
-            }}>
+            <div className="text-white fw-300 yj-en-16" style={{ lineHeight: '1.4', textAlign: 'left' }}>
               <p style={{ marginBottom: '1em' }}>
 Nature’s rhythm of change and humanity’s creative transformation manifest as a constant flux of being and becoming. This profound insight from the <em>Yijing</em>, or <em>Book of Changes</em>, inspired the current exhibition which shows how heritage never ceases to stir creative imagination for making meaning.
               </p>
@@ -215,8 +196,8 @@ We hope the immersive experiences of this show will allow abstract ideas to take
       {/* Right scrollable content block */}
       <div
         style={{
-          paddingTop: '90px',
-          paddingLeft: '50vw',
+          paddingTop: isMobile ? 0 : '90px',
+          paddingLeft: isMobile ? 0 : '50vw',
           minHeight: '100vh',
           backgroundColor: '#000'
         }}
@@ -226,29 +207,15 @@ We hope the immersive experiences of this show will allow abstract ideas to take
           {/* Section Title: Video */}
           <div className="section-title" style={{
             position: 'sticky',
-            top: '90px',
+            top: isMobile ? '50px' : '90px',
             backgroundColor: '#000',
             zIndex: 10
           }}>
-            <div style={{ 
-              height: '90px',
-              paddingLeft: '30px',
-              display: 'flex',
-              alignItems: 'center',
-              textAlign: 'left',
-              borderBottom: '1px solid #888',
-            }}>
-              <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1, fontWeight: 400, color: '#fff' }}>影片</h1>
+            <div className="section-title-row">
+              <h1 className="text-white fw-400 section-title-text" style={{ lineHeight: 1.2 }}>影片</h1>
             </div>
-            <div style={{ 
-              height: '90px',
-              paddingLeft: '30px',
-              display: 'flex',
-              alignItems: 'center',
-              textAlign: 'left',
-              borderBottom: '1px solid #888',
-            }}>
-              <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1, fontFamily:'neue-haas-unica, sans-serif', fontWeight: 300, color: '#fff' }}>Video</h1>
+            <div className="section-title-row">
+              <h1 className="text-white fw-300 section-title-text" style={{ lineHeight: 1.2, fontFamily: '"neue-haas-unica", sans-serif' }}>Video</h1>
             </div>
           </div>
           
@@ -305,22 +272,12 @@ We hope the immersive experiences of this show will allow abstract ideas to take
               }}>
                 {/* Left: Titles */}
                 <div>
-                  <div style={{
-                    fontSize: '16px',
-                    lineHeight: '1.6',
-                    color: '#fff',
-                    marginBottom: '4px'
-                  }}>
+                  <div className="text-white yj-cn-16" style={{ lineHeight: '1.6', marginBottom: '4px' }}>
                     {videos[currentVideoIndex].titleCn}
                   </div>
                   <div
-                    style={{
-                      fontSize: '16px',
-                      lineHeight: '1.6',
-                      color: '#fff',
-                      fontFamily: '"neue-haas-unica", sans-serif',
-                      fontWeight: 300
-                    }}
+                    className="text-white fw-300 yj-en-16"
+                    style={{ lineHeight: '1.6' }}
                     dangerouslySetInnerHTML={{ __html: videos[currentVideoIndex].titleEn }}
                   />
                 </div>
@@ -335,10 +292,8 @@ We hope the immersive experiences of this show will allow abstract ideas to take
                 }}>
                   <button
                     onClick={handleNextVideo}
+                    className="text-gray fw-300 yj-en-12"
                     style={{
-                      fontSize: '12px',
-                      color: '#888',
-                      fontWeight: 300,
                       whiteSpace: 'nowrap',
                       background: 'none',
                       border: 'none',
@@ -350,9 +305,9 @@ We hope the immersive experiences of this show will allow abstract ideas to take
                     onMouseLeave={(e) => e.currentTarget.style.color = '#888'}
                   >
                     {currentVideoIndex < videos.length - 1 ? (
-                      <>觀看更多 <span style={{fontFamily: '"neue-haas-unica", sans-serif'}}>Next Video</span></>
+                      <>觀看更多 <span className="neue-haas-unica">Next Video</span></>
                     ) : (
-                      <>觀看更多 <span style={{fontFamily: '"neue-haas-unica", sans-serif'}}>Next Video</span></>
+                      <>觀看更多 <span className="neue-haas-unica">Next Video</span></>
                     )}
                   </button>
                   
@@ -387,29 +342,15 @@ We hope the immersive experiences of this show will allow abstract ideas to take
           {/* Section Title: Public Programmes */}
           <div className="section-title" style={{
             position: 'sticky',
-            top: '90px',
+            top: isMobile ? '50px' : '90px',
             backgroundColor: '#000',
             zIndex: 10
           }}>
-            <div style={{ 
-              height: '90px',
-              paddingLeft: '30px',
-              display: 'flex',
-              alignItems: 'center',
-              textAlign: 'left',
-              borderBottom: '1px solid #888',
-            }}>
-              <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1, fontWeight: 400, color: '#fff' }}>公眾節目</h1>
+            <div className="section-title-row">
+              <h1 className="text-white fw-400 section-title-text" style={{ lineHeight: 1.2 }}>公眾節目</h1>
             </div>
-            <div style={{ 
-              height: '90px',
-              paddingLeft: '30px',
-              display: 'flex',
-              alignItems: 'center',
-              textAlign: 'left',
-              borderBottom: '1px solid #888',
-            }}>
-              <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1, fontFamily:'neue-haas-unica, sans-serif', fontWeight: 300, color: '#fff' }}>Public Programmes</h1>
+            <div className="section-title-row">
+              <h1 className="text-white fw-300 section-title-text" style={{ lineHeight: 1.2, fontFamily: '"neue-haas-unica", sans-serif' }}>Public Programmes</h1>
             </div>
           </div>
           <div style={{
@@ -463,36 +404,17 @@ We hope the immersive experiences of this show will allow abstract ideas to take
                   flex: 1
                 }}>
                   <div 
-                    className="hover-underline"
-                    style={{
-                    fontSize: '16px',
-                    lineHeight: '1.6',
-                    color: '#fff',
-                    marginBottom: '4px'
-                  }}>
+                    className="hover-underline text-white yj-cn-16"
+                    style={{ lineHeight: '1.6', marginBottom: '4px' }}>
                     易經：鮑皓昕攝影藝術 — 策展人導賞
                   </div>
                   <div 
-                    className="hover-underline"
-                    style={{
-                    fontSize: '16px',
-                    lineHeight: '1.6',
-                    color: '#fff',
-                    fontFamily: '"neue-haas-unica", sans-serif',
-                    fontWeight: 300
-                  }}>
+                    className="hover-underline text-white fw-300 yj-en-16"
+                    style={{ lineHeight: '1.6' }}>
                     <em>Book of Changes</em>: The Art of Basil Pao — Curator's Guided Tour
                   </div>
                 </div>
-                <div style={{
-                  fontSize: '16px',
-                  lineHeight: '1.6',
-                  color: '#fff',
-                  fontFamily: '"neue-haas-unica", sans-serif',
-                  fontWeight: 300,
-                  whiteSpace: 'nowrap',
-                  marginLeft: '40px'
-                }}>
+                <div className="text-white fw-300 yj-en-16" style={{ lineHeight: '1.6', whiteSpace: 'nowrap', marginLeft: '40px' }}>
                   17 & 31.1.2026
                 </div>
               </div>
@@ -541,36 +463,17 @@ We hope the immersive experiences of this show will allow abstract ideas to take
                   flex: 1
                 }}>
                   <div 
-                    className="hover-underline"
-                    style={{
-                    fontSize: '16px',
-                    lineHeight: '1.6',
-                    color: '#fff',
-                    marginBottom: '4px'
-                  }}>
+                    className="hover-underline text-white yj-cn-16"
+                    style={{ lineHeight: '1.6', marginBottom: '4px' }}>
                     大館對談：《易經》— 活著的經典
                   </div>
                   <div 
-                    className="hover-underline"
-                    style={{
-                    fontSize: '16px',
-                    lineHeight: '1.6',
-                    color: '#fff',
-                    fontFamily: '"neue-haas-unica", sans-serif',
-                    fontWeight: 300
-                  }}>
+                    className="hover-underline text-white fw-300 yj-en-16"
+                    style={{ lineHeight: '1.6' }}>
                     Tai Kwun Conversations: The <em>Book of Changes</em> — A Living Classic
                   </div>
                 </div>
-                <div style={{
-                  fontSize: '16px',
-                  lineHeight: '1.6',
-                  color: '#fff',
-                  fontFamily: '"neue-haas-unica", sans-serif',
-                  fontWeight: 300,
-                  whiteSpace: 'nowrap',
-                  marginLeft: '40px'
-                }}>
+                <div className="text-white fw-300 yj-en-16" style={{ lineHeight: '1.6', whiteSpace: 'nowrap', marginLeft: '40px' }}>
                   08.02.2026
                 </div>
               </div>
@@ -587,30 +490,15 @@ We hope the immersive experiences of this show will allow abstract ideas to take
           {/* Section Title: Artist Bio */}
           <div className="section-title" style={{
             position: 'sticky',
-            top: '90px',
+            top: isMobile ? '50px' : '90px',
             backgroundColor: '#000',
             zIndex: 10
           }}>
-            <div style={{ 
-              height: '90px',
-              paddingLeft: '30px',
-              display: 'flex',
-              alignItems: 'center',
-              textAlign: 'left',
-              borderBottom: '1px solid #888'
-            }}>
-              <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1, fontWeight: 400, color: '#fff' }}>藝術家簡介</h1>
+            <div className="section-title-row">
+              <h1 className="text-white fw-400 section-title-text" style={{ lineHeight: 1.2 }}>藝術家簡介</h1>
             </div>
-            <div style={{ 
-              height: '90px',
-              paddingLeft: '30px',
-              display: 'flex',
-              alignItems: 'center',
-              textAlign: 'left',
-              borderBottom: '1px solid #888'
-
-            }}>
-              <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1, fontFamily:'neue-haas-unica, sans-serif', fontWeight: 300, color: '#fff' }}>Artist Bio</h1>
+            <div className="section-title-row">
+              <h1 className="text-white fw-300 section-title-text" style={{ lineHeight: 1.2, fontFamily: '"neue-haas-unica", sans-serif' }}>Artist Bio</h1>
             </div>
           </div>
           <div style={{
@@ -629,13 +517,7 @@ We hope the immersive experiences of this show will allow abstract ideas to take
             paddingRight: '30px',
             paddingTop: '60px'
           }}>
-            <div style={{
-              fontSize: '16px',
-              lineHeight: '1.8',
-              color: '#fff',
-              fontWeight: 300,
-              textAlign: 'left'
-            }}>
+            <div className="text-white fw-300 yj-cn-16" style={{ lineHeight: '1.8', textAlign: 'left' }}>
               鮑皓昕自1980年從美國回流返港，開展其攝影生涯。旅美十年期間，他曾為紐約的大西洋唱片公司及唱片封套設計公司、洛杉磯的華納兄弟唱片公司擔任美術總監。他為電影《踎低噴飯：萬世魔星》設計書籍、唱片封套及海報時，首次與米高沛林合作。自此，兩人攜手製作了11本以英國廣播公司BBC旅遊特輯為藍本的圖冊，包括《兩極之旅》、《環太平洋之旅》、《海明威歷險記》、《撒哈拉》、《喜馬拉雅》、《新歐洲》，以及《巴西》等。鮑氏本人的著作包括《手》、《中國探秘》、《易經—中國牆城》、《山水》、《環球吶喊》、《平凡時刻》、《夢之旅》，以及《末代皇帝．幕後剪影》。鮑氏為其於倫敦的福克斯·塔爾博特博物館及皇家地理學會的展覽出版了圖錄《與米高沛林同遊世界》，以及香港海事博物館的展覽圖錄《八千日環遊世界》。他還為公司企業製作的限量版書籍，包括華光海運的《雙船記》，安縵度假酒店的《安縵》、《不丹》及《安縵2》，意大利書籍印刷商特蘭提諾的《平凡時刻》、《四原色—中國》及《耀眼的陰影—黑白光影之國度》。鮑氏的旅行遊記及其他攝影作品曾在世界各大出版物及展覽中亮相，包括為貝托魯奇的電影《末代皇帝溥儀》及《小活佛》、泰利鍾斯的《海盗埃里克》、泰利基咸的《殺了堂吉訶德的男人》等拍攝的特別劇照。
             </div>
           </div>
@@ -646,14 +528,7 @@ We hope the immersive experiences of this show will allow abstract ideas to take
             paddingBottom: '60px',
             paddingRight: '30px'
           }}>
-            <div style={{
-              fontSize: '16px',
-              lineHeight: '1.4',
-              color: '#fff',
-              fontFamily:'neue-haas-unica, sans-serif', 
-              fontWeight: 300,
-              textAlign: 'left'
-            }}>
+            <div className="text-white fw-300 yj-en-16" style={{ lineHeight: '1.4', textAlign: 'left' }}>
 Basil Pao began his photographic career in 1980 upon his return to Hong Kong after ten years in the United States, where he was art director for Atlantic Records and Album Graphics Inc. in New York, and Warner Brothers Records in Los Angeles. He first worked with Michael Palin when he designed the book, album cover and poster for the Monty Python film <em>Life of Brian</em>. They have since collaborated on 11 illustrated books based on the BBC travel series <em>Pole to Pole, Full Circle, Hemingway Adventure, Sahara, Himalaya, New Europe and Brazil</em>. He is the author of <em>Hands, China Revealed, Yi’Jing-Book of Changes, Shan Shui-Mountain-Water, The Universal Scream, OM2-Ordinary Moments+, Carnival of Dreams and The Last Emperor Revisited</em>. His exhibition catalogues include <em>Travels with Michael Palin</em> for his exhibitions at the Fox Talbot Museum and the Royal Geographical Society in London; and <em>Around the World in 8000 Days</em> at the Hong Kong Maritime Museum. His corporate limited editions include <em>A Tale of Two Ventures</em> for Wah Kwong Maritime Transport; <em>AMAN, Bhutan and AMAN2</em> for Aman resorts; <em>OM-Ordinary Moments, CMYK-China, and Blazing Shadows-A World of Black & Light</em> for Printer Trento in Italy. Basil’s travel essays and other assignments, including his Special Stills photography for Bernardo Bertolucci’s <em>The Last Emperor and Little Buddha</em>, Terry Jones’ <em>Erik the Viking</em>, Terry Gilliam’s <em>The Man Who Killed Don Quixote</em> and other feature films, have appeared in publications and exhibitions all around the world.            </div>
           </div>
         </div>
@@ -690,6 +565,7 @@ Basil Pao began his photographic career in 1980 upon his return to Hong Kong aft
             {/* Close button */}
             <button
               onClick={() => setShowLightbox(false)}
+              className="text-white fw-300"
               style={{
                 position: 'fixed',
                 top: '20px',
@@ -698,11 +574,7 @@ Basil Pao began his photographic career in 1980 upon his return to Hong Kong aft
                 height: '50px',
                 background: 'transparent',
                 border: 'none',
-                color: '#fff',
-                fontSize: '40px',
                 cursor: 'pointer',
-                fontFamily: '"neue-haas-unica", sans-serif',
-                fontWeight: 300,
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center'

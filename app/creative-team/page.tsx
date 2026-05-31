@@ -6,7 +6,15 @@ import { useState, useEffect, useRef } from 'react';
 export default function CreativeTeam() {
   const [showLightbox, setShowLightbox] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
   const leftContentRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 980);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
 
   // Ensure body can scroll when component mounts
   useEffect(() => {
@@ -60,7 +68,7 @@ export default function CreativeTeam() {
           top: 0,
           left: 0,
           width: '100%',
-          height: '90px',
+          height: isMobile ? '50px' : '90px',
           borderBottom: '1px solid #888',
           backgroundColor: '#000 ',
           zIndex: 12
@@ -70,17 +78,19 @@ export default function CreativeTeam() {
       {/* Left fixed content block */}
       <div
         style={{
-          position: 'fixed',
-          top: '90px',
+          position: isMobile ? 'relative' : 'fixed',
+          top: isMobile ? 0 : '90px',
           left: 0,
-          width: '50vw',
-          height: 'calc(100vh - 90px)',
+          width: isMobile ? '100%' : '50vw',
+          height: isMobile ? 'auto' : 'calc(100vh - 90px)',
           backgroundColor: '#000',
           zIndex: 1,
-          borderRight: '1px solid #888',
+          borderRight: isMobile ? 'none' : '1px solid #888',
+          borderBottom: isMobile ? '1px solid #888' : 'none',
           display: 'flex',
           flexDirection: 'column',
-          overflow: 'hidden'
+          overflow: isMobile ? 'visible' : 'hidden',
+          marginTop: isMobile ? '50px' : 0
         }}
       >
         {/* Sticky section titles */}
@@ -90,27 +100,11 @@ export default function CreativeTeam() {
           backgroundColor: '#000',
           zIndex: 2
         }}>
-          <div style={{ 
-            height: '90px',
-            paddingLeft: '30px',
-            display: 'flex',
-            alignItems: 'center',
-            textAlign: 'left',
-            borderBottom: '1px solid #888',
-            minHeight: '90px'
-          }}>
-            <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1.2, fontWeight: 400, color: '#fff' }}>鳴謝</h1>
+          <div className="section-title-row">
+            <h1 className="text-white fw-400 section-title-text" style={{ lineHeight: 1.2 }}>鳴謝</h1>
           </div>
-          <div style={{ 
-            height: '90px',
-            paddingLeft: '30px',
-            display: 'flex',
-            alignItems: 'center',
-            textAlign: 'left',
-            borderBottom: '1px solid #888',
-            minHeight: '90px'
-          }}>
-            <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1.2,  fontFamily:'neue-haas-unica, sans-serif', fontWeight: 300, color: '#fff' }}>Acknowledgement</h1>
+          <div className="section-title-row">
+            <h1 className="text-white fw-300 section-title-text" style={{ lineHeight: 1.2, fontFamily: '"neue-haas-unica", sans-serif' }}>Acknowledgement</h1>
           </div>
         </div>
 
@@ -120,7 +114,7 @@ export default function CreativeTeam() {
           style={{
             display: 'flex',
             flexDirection: 'column',
-            transform: `translateY(-${scrollProgress}px)`,
+            transform: isMobile ? 'none' : `translateY(-${scrollProgress}px)`,
             flex: 1
           }}
         >
@@ -199,8 +193,8 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
       {/* Right scrollable content block */}
       <div
         style={{
-          paddingTop: '90px',
-          paddingLeft: '50vw',
+          paddingTop: isMobile ? 0 : '90px',
+          paddingLeft: isMobile ? 0 : '50vw',
           minHeight: '100vh',
           backgroundColor: '#000'
         }}
@@ -210,29 +204,15 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
           {/* Section Title: Artist Team */}
           <div className="section-title" style={{
             position: 'sticky',
-            top: '90px',
+            top: isMobile ? '50px' : '90px',
             backgroundColor: '#000',
             zIndex: 10
           }}>
-            <div style={{ 
-              height: '90px',
-              paddingLeft: '30px',
-              display: 'flex',
-              alignItems: 'center',
-              textAlign: 'left',
-              borderBottom: '1px solid #888',
-            }}>
-              <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1.2, fontWeight: 400, color: '#fff' }}>藝術家團隊</h1>
+            <div className="section-title-row">
+              <h1 className="text-white fw-400 section-title-text" style={{ lineHeight: 1.2 }}>藝術家團隊</h1>
             </div>
-            <div style={{ 
-              height: '90px',
-              paddingLeft: '30px',
-              display: 'flex',
-              alignItems: 'center',
-              textAlign: 'left',
-              borderBottom: '1px solid #888',
-            }}>
-              <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1.2, fontFamily:'neue-haas-unica, sans-serif', fontWeight: 300, color: '#fff' }}>Artist Team</h1>
+            <div className="section-title-row">
+              <h1 className="text-white fw-300 section-title-text" style={{ lineHeight: 1.2, fontFamily: '"neue-haas-unica", sans-serif' }}>Artist Team</h1>
             </div>
           </div>
           <div style={{
@@ -345,29 +325,15 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
           {/* Section Title: Tai Kwun Team */}
           <div className="section-title" style={{
             position: 'sticky',
-            top: '90px',
+            top: isMobile ? '50px' : '90px',
             backgroundColor: '#000',
             zIndex: 10
           }}>
-            <div style={{ 
-              height: '90px',
-              paddingLeft: '30px',
-              display: 'flex',
-              alignItems: 'center',
-              textAlign: 'left',
-              borderBottom: '1px solid #888',
-            }}>
-              <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1.2, fontWeight: 400, color: '#fff' }}>大館團隊</h1>
+            <div className="section-title-row">
+              <h1 className="text-white fw-400 section-title-text" style={{ lineHeight: 1.2 }}>大館團隊</h1>
             </div>
-            <div style={{ 
-              height: '90px',
-              paddingLeft: '30px',
-              display: 'flex',
-              alignItems: 'center',
-              textAlign: 'left',
-              borderBottom: '1px solid #888',
-            }}>
-              <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1.2, fontFamily:'neue-haas-unica, sans-serif', fontWeight: 300, color: '#fff' }}>Tai Kwun Team</h1>
+            <div className="section-title-row">
+              <h1 className="text-white fw-300 section-title-text" style={{ lineHeight: 1.2, fontFamily: '"neue-haas-unica", sans-serif' }}>Tai Kwun Team</h1>
             </div>
           </div>
          <div style={{
@@ -566,29 +532,15 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
           {/* Section Title: Exhibition Design and Production */}
           <div className="section-title" style={{
             position: 'sticky',
-            top: '90px',
+            top: isMobile ? '50px' : '90px',
             backgroundColor: '#000',
             zIndex: 10
           }}>
-            <div style={{ 
-              height: '90px',
-              paddingLeft: '30px',
-              display: 'flex',
-              alignItems: 'center',
-              textAlign: 'left',
-              borderBottom: '1px solid #888',
-            }}>
-              <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1.2, fontWeight: 400, color: '#fff' }}>展覽設計與製作</h1>
+            <div className="section-title-row">
+              <h1 className="text-white fw-400 section-title-text" style={{ lineHeight: 1.2 }}>展覽設計與製作</h1>
             </div>
-            <div style={{ 
-              height: '90px',
-              paddingLeft: '30px',
-              display: 'flex',
-              alignItems: 'center',
-              textAlign: 'left',
-              borderBottom: '1px solid #888',
-            }}>
-              <h1 style={{ margin: 0, fontSize: '40px', lineHeight: 1.2, fontFamily:'neue-haas-unica, sans-serif', fontWeight: 300, color: '#fff' }}>Exhibition Design and Production</h1>
+            <div className="section-title-row">
+              <h1 className="text-white fw-300 section-title-text" style={{ lineHeight: 1.2, fontFamily: '"neue-haas-unica", sans-serif' }}>Exhibition Design and Production</h1>
             </div>
           </div>
           <div style={{

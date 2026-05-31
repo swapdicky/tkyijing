@@ -379,45 +379,41 @@ export default function Home() {
         <img src="/images/logo-icon.svg" alt="Logo" style={{ width: '100%', height: '100%' }} />
       </div>
       {/* Scroll to explore text - shows before overlay hides */}
-      <div
-        style={{
-          position: 'fixed',
+      <div className="text-gray fw-400"
+         style={{ position: 'fixed',
           right: '1px',
           top: '50%',
           transform: 'rotate(90deg)',
           transformOrigin: 'center center',
           fontSize: '12px',
-          color: '#888',
+          
           fontFamily: '"neue-haas-unica", sans-serif',
-          fontWeight: 400,
+          
           whiteSpace: 'nowrap',
           zIndex: 99,
           pointerEvents: 'none',
           opacity: !hideOverlay ? 1 : 0,
-          transition: 'opacity 0.5s ease-out'
-        }}
+          transition: 'opacity 0.5s ease-out' }}
       >
         Scroll to explore
       </div>
       
       {/* Move over to explore text - shows after overlay hides and zoom is 150% */}
-      <div
-        style={{
-          position: 'fixed',
+      <div className="text-gray fw-400"
+         style={{ position: 'fixed',
           right: '-12px',
           top: '50%',
           transform: 'rotate(90deg)',
           transformOrigin: 'center center',
           fontSize: '12px',
-          color: '#888',
+          
           fontFamily: '"neue-haas-unica", sans-serif',
-          fontWeight: 400,
+          
           whiteSpace: 'nowrap',
           zIndex: 20,
           pointerEvents: 'none',
           opacity: (hideOverlay && zoom === 150) ? 1 : 0,
-          transition: 'opacity 0.5s ease-out'
-        }}
+          transition: 'opacity 0.5s ease-out' }}
       >
         Move over to explore
       </div>
@@ -464,48 +460,42 @@ export default function Home() {
             alignSelf: 'flex-end'
           }}>
             {/* Chinese Title Line 1 - 易經 */}
-            <div style={{ 
-              writingMode: 'vertical-rl',
+            <div className="text-black fw-400"  style={{ writingMode: 'vertical-rl',
               textOrientation: 'upright',
               fontSize: scrollProgress === 0 ? '24px' : '36px',
               lineHeight: '1',
-              fontWeight: '400',
+              
               letterSpacing: '0.2em',
-              color: '#000',
+              
               margin: 0,
-              transition: 'font-size 0.8s cubic-bezier(0.4, 0, 0.2, 1)'
-            }}>
+              transition: 'font-size 0.8s cubic-bezier(0.4, 0, 0.2, 1)' }}>
               易經：
             </div>
             
             {/* Chinese Title Line 2 - 昕聞鮑皓昕攝影藝術 */}
-            <div style={{ 
-              writingMode: 'vertical-rl',
+            <div className="text-black fw-300"  style={{ writingMode: 'vertical-rl',
               textOrientation: 'upright',
               fontSize: scrollProgress === 0 ? '24px' : '36px',
               lineHeight: '1.25',
-              fontWeight: '300',
+              
               letterSpacing: '0.2em',
-              color: '#000',
+              
               marginLeft: '10px',
-              transition: 'font-size 0.8s cubic-bezier(0.4, 0, 0.2, 1)'
-            }}>
+              transition: 'font-size 0.8s cubic-bezier(0.4, 0, 0.2, 1)' }}>
               鮑皓昕攝影藝術
             </div>
             
             {/* Chinese Content - Vertical */}
-            <div style={{ 
-              writingMode: 'vertical-rl',
+            <div className="text-black fw-300"  style={{ writingMode: 'vertical-rl',
               textOrientation: 'upright',
               fontSize: '18px',
               lineHeight: '1.4',
-              fontWeight: '300',
+              
               letterSpacing: '0.1em',
-              color: '#000',
+              
               transform: scrollProgress === 0 ? 'scale(.8)':'scale(1.2)',
               transformOrigin: 'right top',
-              transition: 'transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)'
-            }}>是次展覽透過香港攝影藝術家鮑皓昕的<br/>
+              transition: 'transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)' }}>是次展覽透過香港攝影藝術家鮑皓昕的<br/>
             藝術詮釋，凸顯︽易經︾無盡的關聯性與<br/>
             創造力。鮑皓昕兩個系列作品<br/>
             <span style={{marginTop: '-6px'}}></span>︽中國牆城︾<span style={{marginTop: '-4px'}}></span>和<span style={{marginTop: '-4px'}}></span>︽觀靜錄︾<span style={{marginTop: '-4px'}}></span>，探究文化遺產<br/>
@@ -530,30 +520,26 @@ export default function Home() {
             transition: 'width 0.8s cubic-bezier(0.4, 0, 0.2, 1)'
           }}>
             {/* English Title */}
-            <div style={{ 
-              fontSize: scrollProgress === 0 ? '16px' : '18px',
+            <div className="text-black fw-300"  style={{ fontSize: scrollProgress === 0 ? '16px' : '18px',
               marginBottom: '10px',
               lineHeight: '1.2',
-              color: '#000',
+              
               fontFamily: '"neue-haas-unica", sans-serif',
               fontStyle: 'normal',
-              fontWeight: '300',
-              transition: 'font-size 0.8s cubic-bezier(0.4, 0, 0.2, 1)'
-            }}>
-              <span style={{ fontWeight: '500' }}><em>Book of Changes</em>:</span> The Art of Basil Pao
+              
+              transition: 'font-size 0.8s cubic-bezier(0.4, 0, 0.2, 1)' }}>
+              <span className="fw-500"><em>Book of Changes</em>:</span> The Art of Basil Pao
             </div>
 
             {/* English Content */}
-            <div style={{ 
-              fontSize: scrollProgress === 0 ? '12px' : '16px',
+            <div className="text-black fw-300"  style={{ fontSize: scrollProgress === 0 ? '12px' : '16px',
               lineHeight: '1.2',
-              color: '#000',
+              
               textAlign: 'left',
               fontFamily: '"neue-haas-unica", sans-serif',
-              fontWeight: '300',
+              
               fontStyle: 'normal',
-              transition: 'font-size 0.8s cubic-bezier(0.4, 0, 0.2, 1)'
-            }}>
+              transition: 'font-size 0.8s cubic-bezier(0.4, 0, 0.2, 1)' }}>
 The current exhibition highlights the continued relevance of the <em>Book of Changes</em> through the artistic interpretation of Hong Kong photo artist Basil Pao. Two series of his works—<em>The Great Walls of China</em> and <em>Glimpses of Silence</em>—are presented here to explore the relation between heritage and artistic creation. Capturing a world of changing reality and changing appearances, these pictures are the testament to Pao's deep connections to the <em>Book of Changes</em> for embracing the authentic self and beholding the beauty and mystery of the world. The show offers a visual feast for observing the eternal energy and subtleties of change in all-embracing landscapes. It invites contemplation on the interaction and unity of Heaven, Earth, and Humanity—an ancient Chinese philosophical concept presented in the classic.            </div>
           </div>
         </div>
@@ -786,7 +772,7 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
                           <span key={i}>{line}{i < yijing[selectedBox - 1].meaningContent.split('\n').length - 1 && <br/>}</span>
                         ))}
                       </div>
-                      <div className="text-[20px] tracking-wide relative font-bold" style={{ writingMode: 'vertical-rl', textOrientation: 'upright', letterSpacing: '0.05em'}}>
+                      <div className="text-[20px] tracking-wide relative fw-600" style={{ writingMode: 'vertical-rl', textOrientation: 'upright', letterSpacing: '0.05em'}}>
                         {yijing[selectedBox - 1].meaning.split('\n').map((line, i) => (
                           <span key={i}>{line}{i < yijing[selectedBox - 1].meaning.split('\n').length - 1 && <br/>}</span>
                         ))}
@@ -797,12 +783,12 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
                           <span key={i}>{line}{i < yijing[selectedBox - 1].messageContent.split('\n').length - 1 && <br/>}</span>
                         ))}
                       </div>                  
-                      <div className="text-[20px] tracking-wide relative font-bold" style={{ writingMode: 'vertical-rl', textOrientation: 'upright', letterSpacing: '0.05em' }}>
+                      <div className="text-[20px] tracking-wide relative fw-600" style={{ writingMode: 'vertical-rl', textOrientation: 'upright', letterSpacing: '0.05em' }}>
                         {yijing[selectedBox - 1].message.split('\n').map((line, i) => (
                           <span key={i}>{line}{i < yijing[selectedBox - 1].message.split('\n').length - 1 && <br/>}</span>
                         ))}
                       </div>
-                      <h2 className="text-[56px] font-bold leading-none ml-4" style={{ writingMode: 'vertical-rl' }}>{yijing[selectedBox - 1].titletc}</h2>
+                      <h2 className="text-[56px] fw-600 leading-none ml-4" style={{ writingMode: 'vertical-rl' }}>{yijing[selectedBox - 1].titletc}</h2>
                     </>
                   )}
                 </div>
@@ -862,7 +848,7 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
                         
                         <div ref={scrollContentRef} className="space-y-4 custom-scrollbar" style={{ height: titleH3Tall ? '170px' : '200px', overflowY: 'auto', paddingRight: '12px' }}>
                           <div>
-                            <h4 className="font-bold text-[12px] mb-1 neue-haas-unica" style={{ lineHeight: '20px' }}>The Judgement</h4>
+                            <h4 className="fw-600 text-[12px] mb-1 neue-haas-unica" style={{ lineHeight: '20px' }}>The Judgement</h4>
                             <p className="text-black text-[14px] neue-haas-unica font-normal" style={{ lineHeight: '20px' }}>
                               {yijing[selectedBox - 1].thejudgement.split('\n').map((line, i) => (
                                 <span key={i}>{line}{i < yijing[selectedBox - 1].thejudgement.split('\n').length - 1 && <br />}</span>
@@ -871,7 +857,7 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
                           </div>
 
                           <div>
-                            <h4 className="font-bold text-[12px] mb-1 neue-haas-unica" style={{ lineHeight: '20px' }}>The Image</h4>
+                            <h4 className="fw-600 text-[12px] mb-1 neue-haas-unica" style={{ lineHeight: '20px' }}>The Image</h4>
                             <p className="text-black text-[14px] font-normal neue-haas-unica" style={{ lineHeight: '20px' }}>
                               {yijing[selectedBox - 1].theimage.split('\n').map((line, i) => (
                                 <span key={i}>{line}{i < yijing[selectedBox - 1].theimage.split('\n').length - 1 && <br />}</span>
@@ -909,8 +895,8 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
             />
             <button
               onClick={toggleMode}
-              className="text-[18px] neue-haas-unica flex items-center justify-center"
-              style={{ color: '#FFFFFF', fontWeight: '400', transform: 'translateY(1px)', position: 'absolute', left: '0', right: '0', textAlign: 'center',
+              className="text-[18px] neue-haas-unica flex items-center justify-center fw-400 text-white"
+               style={{ transform: 'translateY(1px)', position: 'absolute', left: '0', right: '0', textAlign: 'center',
                 paddingLeft: '45px' }}
             >
               {mode === "explore" ? "Explore" : "Overview"}
@@ -921,7 +907,7 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
           <div style={{ width: '2px', height: '50px', backgroundColor: '#333333' }}></div>
 
           {/* Right section - Zoom controls (175px) */}
-          <div className="flex items-center justify-center gap-3 neue-haas-unica text-[18px] font-normal" style={{ width: '175px', color: '#FFFFFF' }}>
+          <div className="flex items-center justify-center gap-3 neue-haas-unica text-[18px] fw-400 text-white" style={{ width: '175px' }}>
             <button
               onClick={() => {
                 if (zoom === 50) setZoom(100);

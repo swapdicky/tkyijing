@@ -11,6 +11,7 @@ export default function Exhibition() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [shouldOpenMenu, setShouldOpenMenu] = useState(false);
   const [windowHeight, setWindowHeight] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
   const sectionBreakRefs = useRef<(HTMLDivElement | null)[]>([]);
   const innerSectionRefs = useRef<(HTMLDivElement | null)[]>([]);
   const imageParallaxRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -36,23 +37,29 @@ export default function Exhibition() {
 
     let loadedCount = 0;
     const totalImages = imagesToPreload.length;
+    let hasTimedOut = false;
+
+    const markLoaded = () => {
+      loadedCount++;
+      if (loadedCount >= totalImages && !hasTimedOut) {
+        setIsLoaded(true);
+      }
+    };
 
     imagesToPreload.forEach((src) => {
       const img = new Image();
-      img.onload = () => {
-        loadedCount++;
-        if (loadedCount === totalImages) {
-          setIsLoaded(true);
-        }
-      };
-      img.onerror = () => {
-        loadedCount++;
-        if (loadedCount === totalImages) {
-          setIsLoaded(true);
-        }
-      };
+      img.onload = markLoaded;
+      img.onerror = markLoaded;
       img.src = src;
     });
+
+    // Fallback: show page after 3s even if images haven't loaded
+    const timeout = setTimeout(() => {
+      hasTimedOut = true;
+      setIsLoaded(true);
+    }, 3000);
+
+    return () => clearTimeout(timeout);
   }, []);
 
   // Track window height for responsive font sizing
@@ -70,7 +77,15 @@ export default function Exhibition() {
   }, []);
 
   useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 980 || window.innerHeight > window.innerWidth);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  useEffect(() => {
     if (!containerRef.current || !sectionsRef.current) return;
+    if (isMobile || !isLoaded) return;
 
     const container = containerRef.current;
     const sections = sectionsRef.current;
@@ -194,7 +209,7 @@ export default function Exhibition() {
       const totalWidth = sections.scrollWidth;
       const viewportWidth = window.innerWidth;
       const maxScroll = totalWidth - viewportWidth;
-      if (Math.abs(currentX + maxScroll) < 50) {
+      if (maxScroll > 0 && Math.abs(currentX + maxScroll) < 50) {
         setShouldOpenMenu(true);
       } else {
         setShouldOpenMenu(false);
@@ -226,44 +241,54 @@ export default function Exhibition() {
       window.removeEventListener('wheel', handleWheel);
       cancelAnimationFrame(animationFrame);
     };
-  }, []);
+  }, [isMobile, isLoaded]);
 
   return (
     <div 
       className={`bg-black overflow-hidden transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`} 
-      style={{ height: '100vh' }}
+      style={{ height: isMobile ? 'auto' : '100vh' }}
     >
       <Header forceOpenMenu={shouldOpenMenu} />
       
-      <div ref={containerRef} className="h-screen overflow-hidden" style={{ 
-        position: 'fixed',
-        top: 0,
+      <div ref={containerRef} style={{ 
+        position: isMobile ? 'relative' : 'fixed',
+        top: isMobile ? 0 : 0,
         left: 0,
         width: '100vw',
-        height: '100vh'
+        height: isMobile ? 'auto' : '100vh',
+        overflow: isMobile ? 'visible' : 'hidden'
       }}>
         <div 
           ref={sectionsRef}
-          className="flex h-screen"
-          style={{ width: "auto" }}
+          style={{ 
+            display: 'flex',
+            flexDirection: isMobile ? 'column' : 'row',
+            width: '100%',
+            height: isMobile ? 'auto' : '100vh'
+          }}
         >
           {/* Landing */}
-          <div className="h-screen  relative" style={{ minWidth: "50vw", zIndex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', padding: '90px 40px 60px' }}>
-      <div
-        style={{
-          position: 'absolute',
+          <div className="yj-padding-large" style={{ 
+            minHeight: isMobile ? '100vh' : '100vh',
+            minWidth: isMobile ? '100%' : '50vw',
+            zIndex: 1,
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'space-between',
+            position: 'relative'
+          }}>
+      <div className="text-gray fw-400 yj-en-12"
+         style={{ display: isMobile ? 'none' : 'block', position: 'absolute',
           left: '1px',
           top: '50%',
           transform: 'rotate(90deg)',
           transformOrigin: 'center center',
-          fontSize: '12px',
-          color: '#888',
+          
           fontFamily: '"neue-haas-unica", sans-serif',
-          fontWeight: 400,
+          
           whiteSpace: 'nowrap',
           zIndex: 99,
-          pointerEvents: 'none'
-        }}
+          pointerEvents: 'none' }}
       >
         Scroll to explore
       </div>
@@ -277,57 +302,41 @@ export default function Exhibition() {
               alignSelf: 'flex-end'
             }}>
               {/* Title */}
-              <h2 style={{
-                writingMode: 'vertical-rl',
+              <h2 className="text-white fw-300 yj-cn-40"  style={{ writingMode: 'vertical-rl',
                 textOrientation: 'upright',
-                fontSize: '40px',
-                fontWeight: '300',
+                
                 letterSpacing: '0.2em',
-                color: '#FFF',
-                margin: 0
-              }}>
+                
+                margin: 0 }}>
                 展覽簡介
               </h2>
               
               {/* Description text */}
-              <div style={{
-                writingMode: 'vertical-rl',
+              <div className="text-white fw-300 yj-cn-28"  style={{ writingMode: 'vertical-rl',
                 textOrientation: 'upright',
-                fontSize: '28px',
                 lineHeight: '1.4',
-                fontWeight: '300',
-                letterSpacing: '0.1em',
-                color: '#FFF'
-              }}>
+                
+                letterSpacing: '0.1em' }}>
                  <span style={{marginTop: "-8px"}}></span>︽易經︾<span style={{marginTop:'-8px'}}></span>無疑是中國文化遺產之精髓。<br/>儒家與道家思想同樣根植於此<br/>在中国人古代哲学、科学、国家治术，<br/>甚至當代生活也從中獲得靈感。<br/>甚至卜卦文獻和哲學論述，︽易經︾<br/>在中國人生活方方面面留下不可<br/>磨滅的影響。
               </div>
             </div>
 
             {/* English section - aligned to bottom */}
-              <div style={{width: '800px', maxWidth: "calc(50vw - 60px)"}}>
+              <div style={{width: '100%'}}>
               {/* Title */}
               <div 
-                className="neue-haas-unica"
-                style={{
-                fontSize: '24px',
-                marginBottom: '20px',
-                lineHeight: '1.2',
-                color: '#FFF',
-                fontWeight: '500'
-              }}>
+                className="neue-haas-unica text-white fw-500 yj-en-24"
+                 style={{ marginBottom: '20px',
+                lineHeight: '1.2' }}>
                 Exhibition Introduction
               </div>
 
               {/* English description */}
               <div 
-                className="neue-haas-unica"
-                style={{
-                fontSize: '20px',
-                lineHeight: '1.2',
-                color: '#FFF',
-                textAlign: 'left',
-                fontWeight: '300'
-              }}>
+                className="neue-haas-unica text-white fw-300 yj-en-20"
+                 style={{ lineHeight: '1.2',
+                
+                textAlign: 'left' }}>
 The <em>Yijing</em>, or <em>Book of Changes</em>, is unquestionably a quintessential Chinese cultural heritage. Confucianism and Daoism have their common roots here. Ancient Chinese philosophy, science, and statecraft and even modern living have all drawn inspiration from it. As a classical divination document and a philosophical exposition, this book has an enduring imprint on many aspects of
 Chinese life.              </div>
             </div>
@@ -337,12 +346,12 @@ Chinese life.              </div>
           <div 
             className="h-screen relative flex-shrink-0" 
             style={{ 
-              width: "80vw", 
+              width: isMobile ? '100%' : '80vw', 
               zIndex: 1, 
               backgroundColor: "#000",
               overflow: "hidden",
-              borderTopLeftRadius: "40px", 
-              borderBottomLeftRadius: "40px"
+              borderTopLeftRadius: "15px", 
+              borderBottomLeftRadius: "15px"
             }}
           >
             <div 
@@ -350,8 +359,9 @@ Chinese life.              </div>
               style={{
                 position: "absolute",
                 top: 0,
-                left: 0,
-                width: "130vw",
+                left: isMobile ? "50%" : 0,
+                width: isMobile ? "100%" : "130vw",
+                transform: isMobile ? "translateX(-50%)" : "none",
                 height: "100%",
                 backgroundImage: "url('/images/exhibition/ss1-landing.webp')",
                 backgroundSize: "auto 100%",
@@ -362,16 +372,17 @@ Chinese life.              </div>
           </div>
 
           {/* Section 1 */}
-          <div className="h-screen flex relative flex-shrink-0" style={{ backgroundColor: "#DDDDDD", zIndex: 2, borderTopLeftRadius: "40px", borderBottomLeftRadius: "40px", overflow: "hidden", marginLeft: "-40px", paddingRight: "90px" }}>
-            <div className="h-screen relative" style={{ width: "calc(50vw + 60px)", display: 'flex', flexDirection: 'column', justifyContent: 'space-between', padding: ' 90px 60px 60px 60px' }}>
+          <div style={{ minHeight: isMobile ? '100vh' : '100vh', display: 'flex', flexDirection: isMobile ? 'column' : 'row', position: 'relative', flexShrink: isMobile ? 0 : 0, backgroundColor: "#DDDDDD", zIndex: 2, borderTopLeftRadius: "15px", borderBottomLeftRadius: "15px", overflow: "hidden", marginLeft: isMobile ? '0' : "-40px", paddingRight: isMobile ? 0 : '90px' }}>
+            <div className="yj-padding-section" style={{ width: isMobile ? '100%' : 'calc(50vw + 60px)', minHeight: isMobile ? '100vh' : '100vh', position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               {/* Vertical line on the right */}
-              <div style={{
+              <div className="right-30" 
+              style={{
                 position: 'absolute',
                 top: '90px',
-                right: '30px',
                 width: '1px',
                 height: 'calc(100vh - 160px)',
-                backgroundColor: '#888'
+                backgroundColor: '#888',
+                display: isMobile ? 'none' : 'block'
               }}></div>
               {/* Chinese text section */}
               <div style={{
@@ -383,62 +394,49 @@ Chinese life.              </div>
                 alignSelf: 'flex-end'
               }}>
                 {/* Title */}
-                <h3 style={{
-                  writingMode: 'vertical-rl',
+                <h3 className="text-black fw-300 yj-cn-24"  style={{ writingMode: 'vertical-rl',
                   textOrientation: 'upright',
-                  fontSize: '24px',
-                  fontWeight: '300',
+                  
                   letterSpacing: '0.2em',
-                  color: '#000',
-                  marginLeft: "20px"
-                }}>
+                  
+                  marginLeft: "20px" }}>
                   策展人的話
                 </h3>
                 
                 {/* Description text */}
-                <div style={{
-                  writingMode: 'vertical-rl',
+                <div className="text-black fw-300 yj-cn-36"  style={{ writingMode: 'vertical-rl',
                   textOrientation: 'upright',
-                  fontSize: '36px',
                   lineHeight: '1.25',
-                  fontWeight: '300',
-                  letterSpacing: '0.1em',
-                  color: '#000'
-                }}>
-                  <span style={{ marginTop: '-40px', display: 'inline-block' }}>﹁</span>我們希望這次展覽帶來的<br />沉浸體驗能為抽象的<br />概念賦予意義，並激發<br />人們思考：當地球持續暖化、<br />人工智能科技不斷重塑<br />人類經驗之際，如何仍能<br />從傳統智慧中獲得禆益。﹂
+                  
+                  letterSpacing: '0.1em' }}>
+                  <span className="margin-n-40" style={{ display: 'inline-block' }}>﹁</span>我們希望這次展覽帶來的<br />沉浸體驗能為抽象的<br />概念賦予意義，並激發<br />人們思考：當地球持續暖化、<br />人工智能科技不斷重塑<br />人類經驗之際，如何仍能<br />從傳統智慧中獲得禆益。﹂
                 </div>
               </div>
 
               {/* English section - aligned to bottom */}
-              <div style={{width: '800px', maxWidth: "calc(50vw - 60px)"}}>
+              <div style={{width: '100%'}}>
                 {/* Title */}
-                <div style={{
-                  fontSize: '24px',
-                  marginBottom: '15px',
+                <div className="text-black fw-500 yj-en-24"  style={{ marginBottom: '15px',
                   lineHeight: '1.2',
-                  color: '#000',
+                  
                   fontFamily: '"neue-haas-unica", sans-serif',
-                  fontWeight: '500',
-                  fontStyle: 'normal'
-                }}>
+                  
+                  fontStyle: 'normal' }}>
                   Curatorial Statement
                 </div>
 
                 {/* English description */}
-                <div style={{
-                  fontSize: '20px',
-                  lineHeight: '1.2',
-                  color: '#000',
+                <div className="text-black fw-300 yj-en-20"  style={{ lineHeight: '1.2',
+                  
                   textAlign: 'left',
                   fontFamily: '"neue-haas-unica", sans-serif',
-                  fontWeight: 300,
-                  fontStyle: 'normal'
-                }}>
+                  
+                  fontStyle: 'normal' }}>
                   We hope the immersive experiences of this show will allow abstract ideas to take on meaning and inspire thoughts about the continued relevance of ancient wisdom, as we face a warming planet and advances of AI technologies that increasingly reshape the human experience.
                 </div>
               </div>
             </div>
-            <div className="flex-1 flex items-center" style={{ paddingTop: "90px", paddingBottom: "60px", paddingLeft: "30px", paddingRight: "30px", gap: "30px" }}>
+            <div style={{ paddingTop: isMobile ? '30px' : '90px', paddingBottom: isMobile ? '15px' : '60px', paddingLeft: isMobile ? '15px' : '30px', paddingRight: isMobile ? '15px' : '30px', gap: isMobile ? '20px' : '30px', display: 'flex', flexDirection: isMobile ? 'column' : 'row', alignItems: isMobile ? 'stretch' : 'center', flex: isMobile ? 'none' : 1 }}>
               <div 
                 ref={(el) => { 
                   innerSectionRefs.current[0] = el;
@@ -447,12 +445,12 @@ Chinese life.              </div>
                 className="flex-shrink-0" 
                 style={{ 
                   aspectRatio: "656/874", 
-                  height: "calc(100vh - 140px)",
-                  borderRadius: "40px",
+                  height: isMobile ? 'auto' : 'calc(100vh - 140px)',
+                  borderRadius: "15px",
                   overflow: "hidden",
                   position: "relative",
                   backgroundImage: "url('/images/exhibition/ss1a.webp')",
-                  backgroundSize: "auto 100%",
+                  backgroundSize: "cover",
                   backgroundPosition: "left center",
                   backgroundRepeat: "no-repeat"
                 }}
@@ -463,12 +461,12 @@ Chinese life.              </div>
                 className="flex-shrink-0" 
                 style={{ 
                   aspectRatio: "1311/874", 
-                  height: "calc(100vh - 140px)",
+                  height: isMobile ? 'auto' : 'calc(100vh - 140px)',
                   backgroundImage: "url('/images/exhibition/ss1b.webp')",
-                  backgroundSize: "auto 100%",
+                  backgroundSize: "cover",
                   backgroundPosition: "center",
-                  backgroundRepeat: "no-repeat",
-                  borderRadius: "40px"
+                  borderRadius: "15px",
+                  overflow: "hidden"
                 }}
               >
               </div>
@@ -477,12 +475,12 @@ Chinese life.              </div>
                 className="flex-shrink-0" 
                 style={{ 
                   aspectRatio: "656/874", 
-                  height: "calc(100vh - 140px)",
+                  height: isMobile ? 'auto' : 'calc(100vh - 140px)',
                   backgroundImage: "url('/images/exhibition/ss1c.webp')",
-                  backgroundSize: "auto 100%",
+                  backgroundSize: "cover",
                   backgroundPosition: "center",
-                  backgroundRepeat: "no-repeat",
-                  borderRadius: "40px"
+                  borderRadius: "15px",
+                  overflow: "hidden"
                 }}
               >
               </div>
@@ -493,12 +491,12 @@ Chinese life.              </div>
           <div 
             className="h-screen relative flex-shrink-0" 
             style={{ 
-              width: "80vw", 
+              width: isMobile ? '100%' : '80vw', 
               zIndex: 2, 
               overflow: "hidden",
-              borderTopLeftRadius: "40px", 
-              borderBottomLeftRadius: "40px",
-              marginLeft: "-40px"
+              borderTopLeftRadius: "15px", 
+              borderBottomLeftRadius: "15px",
+              marginLeft: isMobile ? '0' : "-40px"
             }}
           >
             <div 
@@ -506,8 +504,9 @@ Chinese life.              </div>
               style={{
                 position: "absolute",
                 top: 0,
-                left: 0,
-                width: "130vw",
+                left: isMobile ? "50%" : 0,
+                width: isMobile ? "100%" : "130vw",
+                transform: isMobile ? "translateX(-50%)" : "none",
                 height: "100%",
                 backgroundImage: "url('/images/exhibition/ss2-landing.webp')",
                 backgroundSize: "cover",
@@ -518,16 +517,17 @@ Chinese life.              </div>
           </div>
 
           {/* Section 2 */}
-          <div className="h-screen flex relative flex-shrink-0" style={{ backgroundColor: "#330E07", zIndex: 3, borderTopLeftRadius: "40px", borderBottomLeftRadius: "40px", overflow: "hidden", marginLeft: "-40px", paddingRight: "90px" }}>
-            <div className="h-screen relative" style={{ width: "calc(50vw + 60px)", display: 'flex', flexDirection: 'column', justifyContent: 'space-between', padding: ' 90px 60px 60px 60px' }}>
+          <div style={{ minHeight: isMobile ? '100vh' : '100vh', display: 'flex', flexDirection: isMobile ? 'column' : 'row', position: 'relative', flexShrink: isMobile ? 0 : 0, backgroundColor: "#330E07", zIndex: 3, borderTopLeftRadius: "15px", borderBottomLeftRadius: "15px", overflow: "hidden", marginLeft: isMobile ? '0' : "-40px", paddingRight: isMobile ? 0 : '90px' }}>
+            <div className="yj-padding-section" style={{ width: isMobile ? '100%' : 'calc(50vw + 60px)', minHeight: isMobile ? '100vh' : '100vh', position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               {/* Vertical line on the right */}
-              <div style={{
+              <div className="right-30" 
+              style={{
                 position: 'absolute',
                 top: '90px',
-                right: '30px',
                 width: '1px',
                 height: 'calc(100vh - 160px)',
-                backgroundColor: '#888'
+                backgroundColor: '#888',
+                display: isMobile ? 'none' : 'block'
               }}></div>
               {/* Chinese text section */}
               <div style={{
@@ -539,87 +539,71 @@ Chinese life.              </div>
                 alignSelf: 'flex-end'
               }}>
                 {/* Title */}
-                 <h3 style={{
-                  writingMode: 'vertical-rl',
+                 <h3 className="text-white fw-300 yj-cn-24"  style={{ writingMode: 'vertical-rl',
                   textOrientation: 'upright',
-                  fontSize: '24px',
-                  fontWeight: '300',
-                  letterSpacing: '0.2em',
-                  color: '#FFF'
-                }}>
+                  
+                  letterSpacing: '0.2em' }}>
                   藝術家的話
                 </h3>
-                <h2 style={{
-                  writingMode: 'vertical-rl',
+                <h2 className="text-white fw-bold yj-cn-36"  style={{ writingMode: 'vertical-rl',
                   textOrientation: 'upright',
-                  fontSize: '36px',
-                  fontWeight: 'bold',
+                  
                   letterSpacing: '0.2em',
-                  color: '#FFF',
+                  
                   lineHeight: '1',
                   marginLeft: "20px",
-                  marginTop: '-15px'
-                }}>
+                  marginTop: '-15px' }}>
                   ︽中國牆城︾<span style={{marginTop:'-14px'}}></span>系列
                 </h2>
                 
                 {/* Description text */}
-                <div style={{
-                  writingMode: 'vertical-rl',
+                <div className="text-white fw-300 yj-cn-18"  style={{ writingMode: 'vertical-rl',
                   textOrientation: 'upright',
-                  fontSize: windowHeight < 880 ? '16px' : '18px',
                   lineHeight: '1.4',
-                  fontWeight: '300',
-                  letterSpacing: '0.2em',
-                  color: '#FFF'
-                }}>
+                  
+                  letterSpacing: '0.2em' }}>
                   自我在五十年前初次接觸︽易經︾起，它就如<br/>一位睿智的的老朋友，每當我求問指點，它總能<br/>揭示我內心深處的想法，指引我如何在困境中<br/>求變。當中的玄妙箴言，曾在我人生的關鍵<br/>時刻發揮重要作用，例如當年我在猶豫是否該<br/>離開美國荷里活的工作，開啟創作生涯新篇章時，<br/>我占得﹁旅﹂︵第五十六卦︶，使我下定決心<br/>回港，成為旅遊攝影師。<br/><br/>
                   多年來，我不斷嘗試以視覺形式呈現︽易經︾<br/>的精髓，卻始終未能如願。直至<span style={{textCombineUpright: 'all'}}>20</span><span style={{textCombineUpright: 'all'}}>07</span>年我在編輯<br/><span style={{marginTop:'-6px'}}></span>︽中國探秘︾一書時，終於找到完美載體｜<br/>我在中國各地拍攝的斑駁牆垣特寫細節。歲月<br/>洗禮下，風雨在最基礎的建築上雕琢出繁複紋理<br/>與迷人質感。︽易經︾六十四卦源自古老二元<br/>體系，其形態極具當代感，與電腦時代遙相呼應。<br/>這些影像在視覺與概念上與大自然的抽象表現<br/>完美契合，成就了了︽中國牆城︾系列。
                 </div>
               </div>
 
               {/* English section - aligned to bottom */}
-              <div style={{width: '800px', maxWidth: "calc(50vw - 60px)"}}>
+              <div style={{width: '100%'}}>
                 {/* Title */}
-                <div style={{
-                  fontSize: '18px',
-                  marginBottom: '15px',
+                <div className="text-white fw-300 yj-en-18"  style={{ marginBottom: '15px',
                   lineHeight: '1.2',
-                  color: '#FFF',
+                  
                   fontFamily: '"neue-haas-unica", sans-serif',
-                  fontWeight: '300',
-                  fontStyle: 'normal'
-                }}>
+                  
+                  fontStyle: 'normal' }}>
                  Artist Statement<br/>
-                  <span style={{fontWeight: '500'}}><em>The Great Walls of China</em> Series</span>
+                  <span className="fw-500"><em>The Great Walls of China</em> Series</span>
                 </div>
 
                 {/* English description */}
-                <div style={{
-                  fontSize: windowHeight < 880 ? '12px' : '14px',
+                <div className="text-white fw-300 yj-en-14"  style={{
                   lineHeight: '1.2',
-                  color: '#FFF',
+                  
                   textAlign: 'left',
                   fontFamily: '"neue-haas-unica", sans-serif',
-                  fontWeight: 300,
-                  fontStyle: 'normal'
-                }}>
+                  
+                  fontStyle: 'normal' }}>
 Ever since I was introduced to the book 50 years ago, the <em>Yijing</em> has been the wise old friend who always revealed the secrets in the shadows of my heart and offered sagely guidance on how to bring about changes to my predicament each time I sought its advice. Its cryptic council had been crucial at critical turning points in my life, e.g. I drew "The Wanderer" (hexagram 56) when I was weighing the decision to quit my Hollywood corporate life and seek a new creative path, which subsequently led to my return to Hong Kong and eventually becoming a travel photographer.<br/><br/>
 Over the years, I failed repeatedly to create a visual representation of the <em>Yijing</em>. Then in 2007, when I was editing my <em>China Revealed</em> book, I finally found the perfect vehicle in a series of closeup details of weather-beaten walls that I had photographed from all over the country. Over time, the elements had created intricate patterns and wonderful textures on man's most basic structure. The strikingly contemporary form of the 64 hexagrams from an ancient binary system, with its echoes of the computer age, combined well with the abstract expressionist creations of nature both visually and conceptually, and the result is <em>The Great Walls of China</em> series.                </div>
               </div>
             </div>
-            <div className="flex-1 flex items-center" style={{ paddingTop: "90px", paddingBottom: "60px", paddingLeft: "30px", paddingRight: "30px", gap: "30px" }}>
+            <div style={{ paddingTop: isMobile ? '30px' : '90px', paddingBottom: isMobile ? '15px' : '60px', paddingLeft: isMobile ? '15px' : '30px', paddingRight: isMobile ? '15px' : '30px', gap: isMobile ? '20px' : '30px', display: 'flex', flexDirection: isMobile ? 'column' : 'row', alignItems: isMobile ? 'stretch' : 'center', flex: isMobile ? 'none' : 1 }}>
               <div 
                 ref={(el) => { innerSectionRefs.current[3] = el; }}
                 className="flex-shrink-0" 
                 style={{ 
                   aspectRatio: "1311/874", 
-                  height: "calc(100vh - 140px)",
+                  height: isMobile ? 'auto' : 'calc(100vh - 140px)',
                   backgroundImage: "url('/images/exhibition/ss2a.webp')",
-                  backgroundSize: "auto 100%",
+                  backgroundSize: "cover",
                   backgroundPosition: "center",
-                  backgroundRepeat: "no-repeat",
-                  borderRadius: "40px"
+                  borderRadius: "15px",
+                  overflow: "hidden"
                 }}>
               </div>
               <div 
@@ -627,12 +611,12 @@ Over the years, I failed repeatedly to create a visual representation of the <em
                 className="flex-shrink-0" 
                 style={{ 
                   aspectRatio: "1311/874", 
-                  height: "calc(100vh - 140px)",
+                  height: isMobile ? 'auto' : 'calc(100vh - 140px)',
                   backgroundImage: "url('/images/exhibition/ss2b.webp')",
-                  backgroundSize: "auto 100%",
+                  backgroundSize: "cover",
                   backgroundPosition: "center",
-                  backgroundRepeat: "no-repeat",
-                  borderRadius: "40px"
+                  borderRadius: "15px",
+                  overflow: "hidden"
                 }}>
               </div>
               <div 
@@ -640,12 +624,12 @@ Over the years, I failed repeatedly to create a visual representation of the <em
                 className="flex-shrink-0" 
                 style={{ 
                   aspectRatio: "656/874", 
-                  height: "calc(100vh - 140px)",
+                  height: isMobile ? 'auto' : 'calc(100vh - 140px)',
                   backgroundImage: "url('/images/exhibition/ss2c.webp')",
-                  backgroundSize: "auto 100%",
+                  backgroundSize: "cover",
                   backgroundPosition: "center",
-                  backgroundRepeat: "no-repeat",
-                  borderRadius: "40px"
+                  borderRadius: "15px",
+                  overflow: "hidden"
                 }}>
               </div>
               <div 
@@ -653,12 +637,12 @@ Over the years, I failed repeatedly to create a visual representation of the <em
                 className="flex-shrink-0" 
                 style={{ 
                   aspectRatio: "1311/874", 
-                  height: "calc(100vh - 140px)",
+                  height: isMobile ? 'auto' : 'calc(100vh - 140px)',
                   backgroundImage: "url('/images/exhibition/ss2d.webp')",
-                  backgroundSize: "auto 100%",
+                  backgroundSize: "cover",
                   backgroundPosition: "center",
-                  backgroundRepeat: "no-repeat",
-                  borderRadius: "40px"
+                  borderRadius: "15px",
+                  overflow: "hidden"
                 }}>
               </div>
             </div>
@@ -667,16 +651,17 @@ Over the years, I failed repeatedly to create a visual representation of the <em
 
 
           {/* Section 3 */}
-          <div className="h-screen flex relative flex-shrink-0" style={{ backgroundColor: "#000000", zIndex: 4, borderTopLeftRadius: "40px", borderBottomLeftRadius: "40px", overflow: "hidden", marginLeft: "-40px", paddingRight: "90px" }}>
-            <div className="h-screen relative" style={{ width: "calc(50vw + 60px)", display: 'flex', flexDirection: 'column', justifyContent: 'space-between', padding: ' 90px 60px 60px 60px' }}>
+          <div style={{ minHeight: isMobile ? '100vh' : '100vh', display: 'flex', flexDirection: isMobile ? 'column' : 'row', position: 'relative', flexShrink: isMobile ? 0 : 0, backgroundColor: "#000000", zIndex: 4, borderTopLeftRadius: "15px", borderBottomLeftRadius: "15px", overflow: "hidden", marginLeft: isMobile ? '0' : "-40px", paddingRight: isMobile ? 0 : '90px' }}>
+            <div className="yj-padding-section" style={{ width: isMobile ? '100%' : 'calc(50vw + 60px)', minHeight: isMobile ? '100vh' : '100vh', position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               {/* Vertical line on the right */}
-              <div style={{
+              <div className="right-30" 
+              style={{
                 position: 'absolute',
                 top: '90px',
-                right: '30px',
                 width: '1px',
                 height: 'calc(100vh - 160px)',
-                backgroundColor: '#888'
+                backgroundColor: '#888',
+                display: isMobile ? 'none' : 'block'
               }}></div>
               {/* Chinese text section */}
               <div style={{
@@ -688,28 +673,22 @@ Over the years, I failed repeatedly to create a visual representation of the <em
                 alignSelf: 'flex-end'
               }}>
                 {/* Title */}
-                <h3 style={{
-                  writingMode: 'vertical-rl',
+                <h3 className="text-white fw-bold yj-cn-36"  style={{ writingMode: 'vertical-rl',
                   textOrientation: 'upright',
-                  fontSize: '32px',
-                  fontWeight: 'bold',
+                  
                   letterSpacing: '0.2em',
-                  color: '#FFF',
-                  marginLeft: "20px"
-                }}>
+                  
+                  marginLeft: "20px" }}>
                  易經占卜
                 </h3>
                 
                 {/* Description text */}
-                <div style={{
-                  writingMode: 'vertical-rl',
+                <div className="text-white fw-300 yj-cn-24"  style={{ writingMode: 'vertical-rl',
                   textOrientation: 'upright',
-                  fontSize: windowHeight < 880 ? '18px' : '24px',
+
                   lineHeight: '1.25',
-                  fontWeight: '300',
-                  letterSpacing: '0.1em',
-                  color: '#FFF'
-                }}>
+                  
+                  letterSpacing: '0.1em' }}>
                   人類對預知未來的渴求，可被視為在複雜<br/>
                   世道中駕馭變化的一種嘗試，以掌握生命，<br/>
                   使它充滿意義。<br/><br/>
@@ -727,46 +706,41 @@ Over the years, I failed repeatedly to create a visual representation of the <em
               </div>
 
               {/* English section - aligned to bottom */}
-              <div style={{width: '800px', maxWidth: "calc(50vw - 60px)"}}>
+              <div style={{width: '100%'}}>
                 {/* Title */}
-                <div style={{
-                  fontSize: '18px',
-                  marginBottom: '10px',
+                <div className="text-white fw-500 yj-en-18"  style={{ marginBottom: '10px',
                   lineHeight: '1.2',
-                  color: '#FFF',
+                  
                   fontFamily: '"neue-haas-unica", sans-serif',
-                  fontWeight: '500',
-                  fontStyle: 'normal'
-                }}>
+                  
+                  fontStyle: 'normal' }}>
                   Divination with the <em>Book of Changes</em>
                 </div>
 
                 {/* English description */}
-                <div style={{
-                  fontSize: '14px',
-                  lineHeight: '1.2',
-                  color: '#FFF',
+                <div className="text-white fw-300 yj-en-14"  style={{ lineHeight: '1.2',
+                  
                   textAlign: 'left',
                   fontFamily: '"neue-haas-unica", sans-serif',
-                  fontWeight: 300,
-                  fontStyle: 'normal'
-                }}>
+                  
+                  fontStyle: 'normal' }}>
 The human desire to know the future can be viewed as an attempt to navigate the changes of our complicated world and to make life manageable and meaningful. <br/><br/>
 Historical accounts show a common use of yarrow stalk divination with the hexagrams in the <em>Book of Changes</em> to interpret the future. This involved the manipulation of yarrow stalks to assign a numerical value that determined the nature of each line (solid — or broken – –). The procedure was repeated six times to create the full hexagram. Later, the throwing of Chinese coins became a popular method of divination, which is still used today.<br/><br/>
 Nowadays, with the advance of digital technologies, an online consultation of the <em>Book of Changes</em> can simply involve throwing or clicking virtual coins six times to create a full hexagram.                </div>
               </div>
             </div>
-            <div className="flex-1 flex items-center" style={{ paddingTop: "90px", paddingBottom: "60px", paddingLeft: "30px", paddingRight: "30px", gap: "30px" }}>
+            <div style={{ paddingTop: isMobile ? '30px' : '90px', paddingBottom: isMobile ? '15px' : '60px', paddingLeft: isMobile ? '15px' : '30px', paddingRight: isMobile ? '15px' : '30px', gap: isMobile ? '20px' : '30px', display: 'flex', flexDirection: isMobile ? 'column' : 'row', alignItems: isMobile ? 'stretch' : 'center', flex: isMobile ? 'none' : 1 }}>
               <div 
                 ref={(el) => { innerSectionRefs.current[7] = el; }}
                 className="flex-shrink-0" 
                 style={{ 
                   aspectRatio: "656/874", 
-                  height: "calc(100vh - 140px)",
+                  height: isMobile ? 'auto' : 'calc(100vh - 140px)',
                   backgroundImage: "url('/images/exhibition/ss3a.webp')",
-                  backgroundSize: "100% auto",
+                  backgroundSize: "cover",
                   backgroundPosition: "center",
-                  borderRadius: "40px"
+                  borderRadius: "15px",
+                  overflow: "hidden"
                 }}>
               </div>
               <div 
@@ -774,11 +748,12 @@ Nowadays, with the advance of digital technologies, an online consultation of th
                 className="flex-shrink-0" 
                 style={{ 
                   aspectRatio: "656/874", 
-                  height: "calc(100vh - 140px)",
+                  height: isMobile ? 'auto' : 'calc(100vh - 140px)',
                   backgroundImage: "url('/images/exhibition/ss3b.webp')",
                   backgroundSize: "cover",
                   backgroundPosition: "center",
-                  borderRadius: "40px"
+                  borderRadius: "15px",
+                  overflow: "hidden"
                 }}>
               </div>
               <div 
@@ -786,11 +761,12 @@ Nowadays, with the advance of digital technologies, an online consultation of th
                 className="flex-shrink-0" 
                 style={{ 
                   aspectRatio: "656/874", 
-                  height: "calc(100vh - 140px)",
+                  height: isMobile ? 'auto' : 'calc(100vh - 140px)',
                   backgroundImage: "url('/images/exhibition/ss3c.webp')",
                   backgroundSize: "cover",
                   backgroundPosition: "center",
-                  borderRadius: "40px"
+                  borderRadius: "15px",
+                  overflow: "hidden"
                 }}>
               </div>
             </div>
@@ -800,12 +776,12 @@ Nowadays, with the advance of digital technologies, an online consultation of th
           <div 
             className="h-screen relative flex-shrink-0" 
             style={{ 
-              width: "80vw", 
+              width: isMobile ? '100%' : '80vw', 
               zIndex: 4, 
               backgroundColor: "#FFFFFF",
               overflow: "hidden",
-              borderTopLeftRadius: "40px", 
-              borderBottomLeftRadius: "40px"
+              borderTopLeftRadius: "15px", 
+              borderBottomLeftRadius: "15px"
             }}
           >
             <div 
@@ -813,8 +789,9 @@ Nowadays, with the advance of digital technologies, an online consultation of th
               style={{
                 position: "absolute",
                 top: 0,
-                left: 0,
-                width: "130vw",
+                left: isMobile ? "50%" : 0,
+                width: isMobile ? "100%" : "130vw",
+                transform: isMobile ? "translateX(-50%)" : "none",
                 height: "100%",
                 backgroundImage: "url('/images/exhibition/ss3-landing.jpg')",
                 backgroundSize: "cover",
@@ -825,16 +802,17 @@ Nowadays, with the advance of digital technologies, an online consultation of th
           </div>
 
           {/* Section 4 */}
-          <div className="h-screen flex relative flex-shrink-0" style={{ backgroundColor: "#1A3B45", zIndex: 5, borderTopLeftRadius: "40px", borderBottomLeftRadius: "40px", overflow: "hidden", marginLeft: "-40px", paddingRight: "90px" }}>
-            <div className="h-screen relative" style={{ width: "calc(50vw + 60px)", display: 'flex', flexDirection: 'column', justifyContent: 'space-between', padding: ' 90px 60px 60px 60px' }}>
+          <div style={{ minHeight: isMobile ? '100vh' : '100vh', display: 'flex', flexDirection: isMobile ? 'column' : 'row', position: 'relative', flexShrink: isMobile ? 0 : 0, backgroundColor: "#1A3B45", zIndex: 5, borderTopLeftRadius: "15px", borderBottomLeftRadius: "15px", overflow: "hidden", marginLeft: isMobile ? '0' : "-40px", paddingRight:  isMobile ? 0 : '90px'}}>
+            <div className="yj-padding-section" style={{ width: isMobile ? '100%' : 'calc(50vw + 60px)', minHeight: isMobile ? '100vh' : '100vh', position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               {/* Vertical line on the right */}
-              <div style={{
+              <div className="right-30" 
+              style={{
                 position: 'absolute',
                 top: '90px',
-                right: '30px',
                 width: '1px',
                 height: 'calc(100vh - 160px)',
-                backgroundColor: '#888'
+                backgroundColor: '#888',
+                display: isMobile ? 'none' : 'block'
               }}></div>
               {/* Chinese text section */}
               <div style={{
@@ -846,86 +824,70 @@ Nowadays, with the advance of digital technologies, an online consultation of th
                 alignSelf: 'flex-end'
               }}>
                 {/* Title */}
-                 <h3 style={{
-                  writingMode: 'vertical-rl',
+                 <h3 className="text-white fw-300 yj-cn-24"  style={{ writingMode: 'vertical-rl',
                   textOrientation: 'upright',
-                  fontSize: '24px',
-                  fontWeight: '300',
-                  letterSpacing: '0.2em',
-                  color: '#FFF'
-                }}>
+                  
+                  letterSpacing: '0.2em' }}>
                   藝術家的話
                 </h3>
-                <h2 style={{
-                  writingMode: 'vertical-rl',
+                <h2 className="text-white fw-bold yj-cn-36"  style={{ writingMode: 'vertical-rl',
                   textOrientation: 'upright',
-                  fontSize: '36px',
-                  fontWeight: 'bold',
+                  
                   letterSpacing: '0.2em',
-                  color: '#FFF',
+                  
                   lineHeight: '1',
                   marginLeft: "20px",
-                  marginTop: "-15px"
-                }}>
+                  marginTop: "-15px" }}>
                   ︽觀靜錄︾
                 </h2>
 
                 
                 {/* Description text */}
-                <div style={{
-                  writingMode: 'vertical-rl',
+                <div className="text-white fw-300 yj-cn-24"  style={{ writingMode: 'vertical-rl',
                   textOrientation: 'upright',
-                  fontSize: '24px',
                   lineHeight: '1.4',
-                  fontWeight: '300',
-                  letterSpacing: '0.1em',
-                  color: '#FFF'
-                }}>
+                  
+                  letterSpacing: '0.1em' }}>
                   <span style={{marginTop: "-7px"}}></span>︽易經︾<span style={{marginTop:'-6px'}}></span>的核心概念是﹁天人合一﹂。<br /><span style={{marginTop: "-7px"}}></span>︽觀靜錄︾<span style={{marginTop:'-6px'}}></span>系列收錄了無人機尚<br/>未普及之前的航拍作品，以及其他<br/>人跡罕至的遼闊景觀，嘗試以此攝影<br/>作品集詮釋此概念。過去四十年來，<br/>我有幸踏遍世界邊陲進行拍攝，<br/>我希望能與新一代的觀眾分享這批<br/>作品，讓他們欣賞地球的壯麗風采，<br/>進而踏上更新與保護的道路，而非<br/>重進而自我毀滅的覆轍。
                 </div>
               </div>
 
               {/* English section - aligned to bottom */}
-              <div style={{width: '800px', maxWidth: "calc(50vw - 60px)"}}>
+              <div style={{width: '100%'}}>
                 {/* Title */}
-                <div style={{
-                  fontSize: '18px',
-                  marginBottom: '15px',
+                <div className="text-white fw-300 yj-en-18"  style={{ marginBottom: '15px',
                   lineHeight: '1.2',
-                  color: '#FFF',
+                  
                   fontFamily: '"neue-haas-unica", sans-serif',
-                  fontWeight: '300',
-                  fontStyle: 'normal'
-                }}>
+                  
+                  fontStyle: 'normal' }}>
 Artist Statement<br/>
                  
-                  <span style={{fontWeight: '500'}}><em>Glimpses of Silence</em></span>
+                  <span className="fw-500"><em>Glimpses of Silence</em></span>
                 </div>
                 {/* English description */}
-                <div style={{
-                  fontSize: '14px',
-                  lineHeight: '1.2',
-                  color: '#FFF',
+                <div className="text-white fw-300 yj-en-14"  style={{ lineHeight: '1.2',
+                  
                   textAlign: 'left',
                   fontFamily: '"neue-haas-unica", sans-serif',
-                  fontWeight: 300,
-                  fontStyle: 'normal'
-                }}>
+                  
+                  fontStyle: 'normal' }}>
 The central concept of the <em>Book of Changes</em> is "Heaven and Humanity as One". <em>Glimpses of Silence</em>, a collection of pre-drone aerials and other vast landscapes with minimal human presence, is an attempt at elucidating that idea. It is my hope that by sharing these images from the far corners of our world that I've had the privilege to experience and photograph over the past 40 years, viewers from new generations will appreciate the splendour of our magnificent planet and embark on a path of renewal and preservation instead of following in our footsteps of self-destruction.
                 </div>
               </div>
             </div>
-            <div className="flex-1 flex items-center" style={{ paddingTop: "90px", paddingBottom: "60px", paddingLeft: "30px", paddingRight: "30px", gap: "30px" }}>
+            <div style={{ paddingTop: isMobile ? '30px' : '90px', paddingBottom: isMobile ? '15px' : '60px', paddingLeft: isMobile ? '15px' : '30px', paddingRight: isMobile ? '15px' : '30px', gap: isMobile ? '20px' : '30px', display: 'flex', flexDirection: isMobile ? 'column' : 'row', alignItems: isMobile ? 'stretch' : 'center', flex: isMobile ? 'none' : 1 }}>
               <div 
                 ref={(el) => { innerSectionRefs.current[10] = el; }}
                 className="flex-shrink-0" 
                 style={{ 
                   aspectRatio: "1748/874", 
-                  height: "calc(100vh - 140px)",
+                  height: isMobile ? 'auto' : 'calc(100vh - 140px)',
                   backgroundImage: "url('/images/exhibition/ss4a.webp')",
                   backgroundSize: "cover",
                   backgroundPosition: "center",
-                  borderRadius: "40px"
+                  borderRadius: "15px",
+                  overflow: "hidden"
                 }}>
               </div>
             </div>
