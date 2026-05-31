@@ -370,7 +370,7 @@ export default function Home() {
         left: scrollProgress >= 1 ? '30px' : '50%',
         width: '36px',
         height: '36px',
-        transform: scrollProgress >= 1 ? 'none' : 'translate(calc(-272px + 30px), calc(-50% - 50vh + 180px))',
+        transform: scrollProgress >= 1 ? 'none' : 'translate(calc(-50% - 272px + 58px ), calc(-50% - 50vh + 180px))',
         transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)',
         zIndex: 111,
         opacity: hideOverlay ? 0 : 1,
