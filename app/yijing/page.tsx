@@ -1227,10 +1227,11 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
                 <div
                   key={index}
                   onClick={() => {
-                    if (!isMobile) {
+                    if (isMobile) {
+                      setCurrentSlide(index);
+                    } else {
                       window.scrollTo({ top: getScrollTopForSlide(index), behavior: 'smooth' });
                     }
-                    setCurrentSlide(index);
                   }}
                   style={{
                     width: '6px',
@@ -1257,10 +1258,11 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
                 bottom: '110px' }}
               onClick={() => {
                 const next = currentSlide < 10 ? currentSlide + 1 : 0;
-                if (!isMobile) {
+                if (isMobile) {
+                  setCurrentSlide(next);
+                } else {
                   window.scrollTo({ top: getScrollTopForSlide(next), behavior: 'smooth' });
                 }
-                setCurrentSlide(next);
               }}
             >
               {currentSlide === 10 ? '第一章' : '下一章'}
@@ -1276,10 +1278,11 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
                 bottom: '55px' }}
               onClick={() => {
                 const next = currentSlide < 10 ? currentSlide + 1 : 0;
-                if (!isMobile) {
+                if (isMobile) {
+                  setCurrentSlide(next);
+                } else {
                   window.scrollTo({ top: getScrollTopForSlide(next), behavior: 'smooth' });
                 }
-                setCurrentSlide(next);
               }}
             >
               {currentSlide === 10 ? (
