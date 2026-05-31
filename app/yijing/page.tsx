@@ -24,6 +24,18 @@ export default function Yijing() {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
+  // Ensure body can scroll on desktop
+  useEffect(() => {
+    if (!isMobile) {
+      document.body.style.overflowY = 'auto';
+      document.body.style.overflowX = 'hidden';
+    }
+    return () => {
+      document.body.style.overflowY = '';
+      document.body.style.overflowX = '';
+    };
+  }, [isMobile]);
+
   const renderLeftContent = (index: number) => {
     if (index === 0) {
       return (
@@ -1295,7 +1307,7 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
 
           {/* Scroll spacer for desktop scroll-driven transitions */}
           {!isMobile && (
-            <div style={{ position: 'absolute', top: 0, left: 0, width: '1px', height: `${DESKTOP_TOTAL_SCROLL}px`, zIndex: -1, pointerEvents: 'none' }} />
+            <div style={{ width: '1px', height: `${DESKTOP_TOTAL_SCROLL}px`, opacity: 0, pointerEvents: 'none' }} />
           )}
         </>
       )}
