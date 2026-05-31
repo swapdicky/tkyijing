@@ -81,7 +81,7 @@ html {
 
 
 
-@media (min-width: 980px) and (max-width: 1380px), (max-height: 879px) {
+@media (min-width: 980px) and (max-width: 1380px), (max-height: 779px) {
   /* Chinese - iPad sizes (adjusted for full-width vertical layout) */
   .yj-cn-110 { font-size: 72px; }
   .yj-cn-40  { font-size: 28px; }
