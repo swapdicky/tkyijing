@@ -10,6 +10,11 @@ export default function Yijing() {
   const [isMobile, setIsMobile] = useState(false);
   const [mobilePhase, setMobilePhase] = useState<'left' | 'right'>('left');
   const rightContentRefs = useRef<{[key: number]: HTMLDivElement | null}>({});
+  const slide2InnerRef = useRef<HTMLDivElement>(null);
+  const DESKTOP_SLIDE_BUDGETS = [1000, 1000, 2000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000];
+  const DESKTOP_TOTAL_SCROLL = DESKTOP_SLIDE_BUDGETS.reduce((a, b) => a + b, 0);
+  const getScrollTopForSlide = (slideIndex: number) =>
+    DESKTOP_SLIDE_BUDGETS.slice(0, slideIndex).reduce((a, b) => a + b, 0);
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 980);
@@ -536,7 +541,7 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
               flexDirection: 'column',
               justifyContent: 'flex-end'
             }}>
-            <div className="yj-height-half-inner ">
+            <div ref={slide2InnerRef} className="yj-height-half-inner ">
             <div className="yj-en-18 text-white fw-500"  style={{ marginBottom: '10px' }}>
               <em>Yin Yang</em> and <em>Wu Xing</em>
             </div>
@@ -949,19 +954,6 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
             }
           }
         }
-      } else {
-        // Desktop behavior
-        if (deltaY > 0 && currentSlide < 10) {
-          setCurrentSlide(prev => Math.min(prev + 1, 10));
-        } else if (deltaY > 0 && currentSlide === 10) {
-          setShouldOpenMenu(true);
-        } else if (deltaY < 0 && currentSlide > 0) {
-          setCurrentSlide(prev => Math.max(prev - 1, 0));
-          setShouldOpenMenu(false);
-        } else {
-          scrollLockRef.current = false;
-          return;
-        }
       }
 
       // Wait for animation to complete before allowing next scroll
@@ -971,14 +963,17 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
     };
 
     const handleWheel = (e: WheelEvent) => {
+      if (!isMobile) return; // Desktop uses native scroll
       doScroll(e.deltaY);
     };
 
     let touchStartY = 0;
     const handleTouchStart = (e: TouchEvent) => {
+      if (!isMobile) return;
       touchStartY = e.touches[0].clientY;
     };
     const handleTouchEnd = (e: TouchEvent) => {
+      if (!isMobile) return;
       const touchEndY = e.changedTouches[0].clientY;
       const deltaY = touchStartY - touchEndY;
       const threshold = 50;
@@ -987,13 +982,42 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
       }
     };
 
+    // Desktop: scroll-driven slide transitions with custom budgets
+    const getSlideFromScroll = (scrollY: number) => {
+      let remaining = scrollY;
+      for (let i = 0; i < DESKTOP_SLIDE_BUDGETS.length; i++) {
+        if (remaining < DESKTOP_SLIDE_BUDGETS[i]) return { slide: i, offset: remaining };
+        remaining -= DESKTOP_SLIDE_BUDGETS[i];
+      }
+      return { slide: 10, offset: 0 };
+    };
+
+    const handleScroll = () => {
+      if (isMobile) return;
+      const { slide: newSlide, offset } = getSlideFromScroll(window.scrollY);
+      setCurrentSlide(newSlide);
+      setShouldOpenMenu(newSlide === 10);
+
+      // Map scroll within slide 2 to inner container scroll
+      if (newSlide === 2 && slide2InnerRef.current) {
+        const inner = slide2InnerRef.current;
+        const maxScroll = inner.scrollHeight - inner.clientHeight;
+        if (maxScroll > 0) {
+          const progress = Math.min(offset / DESKTOP_SLIDE_BUDGETS[2], 1);
+          inner.scrollTop = progress * maxScroll;
+        }
+      }
+    };
+
     window.addEventListener('wheel', handleWheel, { passive: true });
     window.addEventListener('touchstart', handleTouchStart, { passive: true });
     window.addEventListener('touchend', handleTouchEnd, { passive: true });
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => {
       window.removeEventListener('wheel', handleWheel);
       window.removeEventListener('touchstart', handleTouchStart);
       window.removeEventListener('touchend', handleTouchEnd);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, [currentSlide, isMobile, mobilePhase]);
 
@@ -1202,7 +1226,12 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
               {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((index) => (
                 <div
                   key={index}
-                  onClick={() => setCurrentSlide(index)}
+                  onClick={() => {
+                    if (!isMobile) {
+                      window.scrollTo({ top: getScrollTopForSlide(index), behavior: 'smooth' });
+                    }
+                    setCurrentSlide(index);
+                  }}
                   style={{
                     width: '6px',
                     height: '6px',
@@ -1227,11 +1256,11 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
                 position: 'absolute',
                 bottom: '110px' }}
               onClick={() => {
-                if (currentSlide < 10) {
-                  setCurrentSlide(currentSlide + 1);
-                } else {
-                  setCurrentSlide(0);
+                const next = currentSlide < 10 ? currentSlide + 1 : 0;
+                if (!isMobile) {
+                  window.scrollTo({ top: getScrollTopForSlide(next), behavior: 'smooth' });
                 }
+                setCurrentSlide(next);
               }}
             >
               {currentSlide === 10 ? '第一章' : '下一章'}
@@ -1246,11 +1275,11 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
                 position: 'absolute',
                 bottom: '55px' }}
               onClick={() => {
-                if (currentSlide < 10) {
-                  setCurrentSlide(currentSlide + 1);
-                } else {
-                  setCurrentSlide(0);
+                const next = currentSlide < 10 ? currentSlide + 1 : 0;
+                if (!isMobile) {
+                  window.scrollTo({ top: getScrollTopForSlide(next), behavior: 'smooth' });
                 }
+                setCurrentSlide(next);
               }}
             >
               {currentSlide === 10 ? (
@@ -1260,6 +1289,11 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
               )}
             </div>
           </div>
+
+          {/* Scroll spacer for desktop scroll-driven transitions */}
+          {!isMobile && (
+            <div style={{ position: 'absolute', top: 0, left: 0, width: '1px', height: `${DESKTOP_TOTAL_SCROLL}px`, zIndex: -1, pointerEvents: 'none' }} />
+          )}
         </>
       )}
     </div>
