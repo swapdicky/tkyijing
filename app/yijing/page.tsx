@@ -540,7 +540,7 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
             <div className="yj-en-18 text-white fw-500"  style={{ marginBottom: '10px' }}>
               <em>Yin Yang</em> and <em>Wu Xing</em>
             </div>
-            <div className="yj-en-12 text-white fw-300"  style={{ lineHeight: '1.5' }}>
+            <div className="yj-en-14 text-white fw-300"  style={{ lineHeight: '1.5' }}>
               <p style={{marginBottom:'10px'}}>
 
 The terms <em>yin</em>, the dark, and <em>yang</em>, the light, originally denote the shadowed and the light sides of a mountain or a river. <em>Yin</em> conveys the idea of coldness, clouds, rain, and anything feminine; while <em>yang</em> conveys the opposite idea of warmth, a clear sky, sunshine, and anything masculine.
