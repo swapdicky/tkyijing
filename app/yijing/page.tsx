@@ -10,6 +10,10 @@ export default function Yijing() {
   const [isMobileDetected, setIsMobileDetected] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [mobilePhase, setMobilePhase] = useState<'left' | 'right'>('left');
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [isHoveringLeft, setIsHoveringLeft] = useState(false);
+  const [isHoveringRight, setIsHoveringRight] = useState(false);
+  const [showCursor, setShowCursor] = useState(false);
   // Use desktop layout during SSR and initial hydration to avoid mismatch
   const isMobile = mounted ? isMobileDetected : false;
   const rightContentRefs = useRef<{[key: number]: HTMLDivElement | null}>({});
@@ -25,13 +29,34 @@ export default function Yijing() {
     checkMobile();
     window.scrollTo(0, 0);
     window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
+    
+    // Check initial mouse position on mount
+    const handleInitialMousePosition = (e: MouseEvent) => {
+      setMousePos({ x: e.clientX, y: e.clientY });
+      const windowWidth = window.innerWidth;
+      if (e.clientX < windowWidth / 2) {
+        setIsHoveringLeft(true);
+        setShowCursor(true);
+      } else if (e.clientX < windowWidth - 90) {
+        setIsHoveringRight(true);
+        setShowCursor(true);
+      }
+      // Remove listener after first detection
+      window.removeEventListener('mousemove', handleInitialMousePosition);
+    };
+    
+    window.addEventListener('mousemove', handleInitialMousePosition, { once: true });
+    
+    return () => {
+      window.removeEventListener('resize', checkMobile);
+      window.removeEventListener('mousemove', handleInitialMousePosition);
+    };
   }, []);
 
-  // Ensure body can scroll on desktop
+  // Hide scrollbar and prevent scroll on desktop
   useEffect(() => {
     if (!isMobile) {
-      document.body.style.overflowY = 'auto';
+      document.body.style.overflowY = 'hidden';
       document.body.style.overflowX = 'hidden';
     }
     return () => {
@@ -556,7 +581,26 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
               flexDirection: 'column',
               justifyContent: 'flex-end'
             }}>
-            <div ref={slide2InnerRef} className="yj-height-half-inner ">
+            <div 
+              ref={slide2InnerRef} 
+              className="yj-height-half-inner yj-custom-scrollbar"
+              onWheel={(e) => {
+                if (currentSlide === 2) {
+                  e.stopPropagation();
+                  const inner = slide2InnerRef.current;
+                  if (inner) {
+                    const maxScroll = inner.scrollHeight - inner.clientHeight;
+                    const newScrollTop = Math.max(0, Math.min(maxScroll, inner.scrollTop + e.deltaY));
+                    inner.scrollTop = newScrollTop;
+                  }
+                }
+              }}
+              style={{
+                overflowY: 'auto',
+                cursor: 'default',
+                scrollBehavior: 'smooth'
+              }}
+            >
             <div className="yj-en-18 text-white fw-500"  style={{ marginBottom: '10px' }}>
               <em>Yin Yang</em> and <em>Wu Xing</em>
             </div>
@@ -979,7 +1023,7 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
     };
 
     const handleWheel = (e: WheelEvent) => {
-      if (!isMobile) return; // Desktop uses native scroll
+      if (!isMobile) return; // Desktop uses click navigation
       doScroll(e.deltaY);
     };
 
@@ -998,41 +1042,13 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
       }
     };
 
-    // Desktop: scroll-driven slide transitions with custom budgets
-    const getSlideFromScroll = (scrollY: number) => {
-      let remaining = scrollY;
-      for (let i = 0; i < DESKTOP_SLIDE_BUDGETS.length; i++) {
-        if (remaining < DESKTOP_SLIDE_BUDGETS[i]) return { slide: i, offset: remaining };
-        remaining -= DESKTOP_SLIDE_BUDGETS[i];
-      }
-      return { slide: 10, offset: 0 };
-    };
-
-    const handleScroll = () => {
-      if (isMobile) return;
-      const { slide: newSlide, offset } = getSlideFromScroll(window.scrollY);
-      setCurrentSlide(newSlide);
-
-      // Map scroll within slide 2 to inner container scroll
-      if (newSlide === 2 && slide2InnerRef.current) {
-        const inner = slide2InnerRef.current;
-        const maxScroll = inner.scrollHeight - inner.clientHeight;
-        if (maxScroll > 0) {
-          const progress = Math.min(offset / DESKTOP_SLIDE_BUDGETS[2], 1);
-          inner.scrollTop = progress * maxScroll;
-        }
-      }
-    };
-
     window.addEventListener('wheel', handleWheel, { passive: true });
     window.addEventListener('touchstart', handleTouchStart, { passive: true });
     window.addEventListener('touchend', handleTouchEnd, { passive: true });
-    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => {
       window.removeEventListener('wheel', handleWheel);
       window.removeEventListener('touchstart', handleTouchStart);
       window.removeEventListener('touchend', handleTouchEnd);
-      window.removeEventListener('scroll', handleScroll);
     };
   }, [currentSlide, isMobile, mobilePhase]);
 
@@ -1124,6 +1140,24 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
         <>
           {/* Desktop: Left side white div with slides */}
           <div
+            onClick={(e) => {
+              e.stopPropagation();
+              if (currentSlide > 0) {
+                setCurrentSlide(prev => prev - 1);
+              }
+            }}
+            onMouseMove={(e) => {
+              setMousePos({ x: e.clientX, y: e.clientY });
+              setShowCursor(true);
+            }}
+            onMouseEnter={() => {
+              setIsHoveringLeft(true);
+              setShowCursor(true);
+            }}
+            onMouseLeave={() => {
+              setIsHoveringLeft(false);
+              setShowCursor(false);
+            }}
             style={{
               position: 'fixed',
               top: 0,
@@ -1131,7 +1165,9 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
               width: '50vw',
               height: '100vh',
               backgroundColor: '#FFF',
-              overflow: 'hidden'
+              overflow: 'hidden',
+              cursor: currentSlide > 0 ? 'none' : 'default',
+              zIndex: 10
             }}
           >
             {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((index) => {
@@ -1181,6 +1217,35 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
 
           {/* Desktop: Right side black div with slides */}
           <div
+            onClick={(e) => {
+              e.stopPropagation();
+              // Navigate to next slide on click
+              if (currentSlide < 10) {
+                setCurrentSlide(prev => prev + 1);
+              }
+            }}
+            onWheel={(e) => {
+              // Allow scrolling on entire right area when on slide 2
+              if (currentSlide === 2 && slide2InnerRef.current) {
+                e.stopPropagation();
+                const inner = slide2InnerRef.current;
+                const maxScroll = inner.scrollHeight - inner.clientHeight;
+                const newScrollTop = Math.max(0, Math.min(maxScroll, inner.scrollTop + e.deltaY));
+                inner.scrollTop = newScrollTop;
+              }
+            }}
+            onMouseMove={(e) => {
+              setMousePos({ x: e.clientX, y: e.clientY });
+              setShowCursor(true);
+            }}
+            onMouseEnter={() => {
+              setIsHoveringRight(true);
+              setShowCursor(true);
+            }}
+            onMouseLeave={() => {
+              setIsHoveringRight(false);
+              setShowCursor(false);
+            }}
             style={{
               position: 'fixed',
               top: 0,
@@ -1188,7 +1253,9 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
               width: 'calc(50vw - 90px)',
               height: '100vh',
               backgroundColor: '#000',
-              overflow: 'hidden'
+              overflow: 'hidden',
+              cursor: currentSlide < 10 ? 'none' : 'default',
+              zIndex: 10
             }}
           >
             {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((index) => {
@@ -1228,7 +1295,8 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
               alignItems: 'center',
               justifyContent: 'flex-end',
               flexDirection: 'column',
-              paddingBottom: '55px'
+              paddingBottom: '55px',
+              zIndex: 20
             }}
           >
             {/* Navigation dots */}
@@ -1236,17 +1304,15 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
               position: 'absolute',
               bottom: '155px',
               gap: '10px',
-              marginBottom: '25px'
+              marginBottom: '25px',
+              zIndex: 20
             }}>
               {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((index) => (
                 <div
                   key={index}
-                  onClick={() => {
-                    if (isMobile) {
-                      setCurrentSlide(index);
-                    } else {
-                      window.scrollTo({ top: getScrollTopForSlide(index), behavior: 'smooth' });
-                    }
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setCurrentSlide(index);
                   }}
                   style={{
                     width: '6px',
@@ -1267,17 +1333,14 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
                 textOrientation: 'mixed',
                 fontSize: '14px',
                 letterSpacing: '0.1em',
-                
                 cursor: 'pointer',
                 position: 'absolute',
-                bottom: '110px' }}
-              onClick={() => {
+                bottom: '110px',
+                zIndex: 20 }}
+              onClick={(e) => {
+                e.stopPropagation();
                 const next = currentSlide < 10 ? currentSlide + 1 : 0;
-                if (isMobile) {
-                  setCurrentSlide(next);
-                } else {
-                  window.scrollTo({ top: getScrollTopForSlide(next), behavior: 'smooth' });
-                }
+                setCurrentSlide(next);
               }}
             >
               {currentSlide === 10 ? '第一章' : '下一章'}
@@ -1287,17 +1350,14 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
                 textOrientation: 'mixed',
                 fontSize: '14px',
                 letterSpacing: '0.1em',
-                
                 cursor: 'pointer',
                 position: 'absolute',
-                bottom: '55px' }}
-              onClick={() => {
+                bottom: '55px',
+                zIndex: 20 }}
+              onClick={(e) => {
+                e.stopPropagation();
                 const next = currentSlide < 10 ? currentSlide + 1 : 0;
-                if (isMobile) {
-                  setCurrentSlide(next);
-                } else {
-                  window.scrollTo({ top: getScrollTopForSlide(next), behavior: 'smooth' });
-                }
+                setCurrentSlide(next);
               }}
             >
               {currentSlide === 10 ? (
@@ -1308,10 +1368,30 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
             </div>
           </div>
 
-          {/* Scroll spacer for desktop scroll-driven transitions */}
-          {!isMobile && (
-            <div style={{ width: '1px', height: `calc(${DESKTOP_TOTAL_SCROLL}px + 100vh)`, opacity: 0, pointerEvents: 'none' }} />
+          {/* Custom cursor with NEXT/PREV text */}
+          {!isMobile && showCursor && (
+            <div
+              style={{
+                position: 'fixed',
+                left: mousePos.x,
+                top: mousePos.y,
+                transform: 'translate(-50%, -50%)',
+                pointerEvents: 'none',
+                zIndex: 9999,
+                mixBlendMode: 'exclusion',
+                color: '#FFF',
+                fontSize: '16px',
+                fontWeight: '500',
+                fontFamily: '"neue-haas-unica", sans-serif',
+                letterSpacing: '0.1em',
+                whiteSpace: 'nowrap'
+              }}
+            >
+              {isHoveringLeft && currentSlide > 0 && 'PREV'}
+              {isHoveringRight && currentSlide < 10 && 'NEXT'}
+            </div>
           )}
+
         </>
       )}
     </div>

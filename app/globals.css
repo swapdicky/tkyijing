@@ -106,6 +106,30 @@ border-bottom: 1px solid #888;}
 
 .yj-height-half-inner-over .yj-height-half-inner{max-height: calc(50vh - 60px);overflow: hidden;}
 
+/* Custom scrollbar for slide 3 */
+.yj-custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.4) rgba(255, 255, 255, 0.1);
+}
+
+.yj-custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.yj-custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+.yj-custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 3px;
+}
+
+.yj-custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
 
 
 
