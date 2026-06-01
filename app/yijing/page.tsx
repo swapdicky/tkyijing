@@ -138,7 +138,7 @@ export default function Yijing() {
             gap: '20px',
             alignSelf: 'flex-end'
           }}>
-            <div className="yj-cn-40 text-black fw-300"  style={{ writingMode: 'vertical-rl',
+            <div className="yj-cn-40 text-black fw-600"  style={{ writingMode: 'vertical-rl',
               textOrientation: 'upright',
               lineHeight: '1.2',
               letterSpacing: '0.15em' }}>
@@ -943,7 +943,8 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
               setCurrentSlide(prev => prev + 1);
               setMobilePhase('left');
             } else {
-              setShouldOpenMenu(true);
+              // Reached last slide, do nothing
+              scrollLockRef.current = false;
             }
           }
         } else if (deltaY < 0) {
@@ -1011,7 +1012,6 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
       if (isMobile) return;
       const { slide: newSlide, offset } = getSlideFromScroll(window.scrollY);
       setCurrentSlide(newSlide);
-      setShouldOpenMenu(newSlide === 10);
 
       // Map scroll within slide 2 to inner container scroll
       if (newSlide === 2 && slide2InnerRef.current) {
@@ -1310,7 +1310,7 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
 
           {/* Scroll spacer for desktop scroll-driven transitions */}
           {!isMobile && (
-            <div style={{ width: '1px', height: `${DESKTOP_TOTAL_SCROLL}px`, opacity: 0, pointerEvents: 'none' }} />
+            <div style={{ width: '1px', height: `calc(${DESKTOP_TOTAL_SCROLL}px + 100vh)`, opacity: 0, pointerEvents: 'none' }} />
           )}
         </>
       )}
