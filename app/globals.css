@@ -232,7 +232,8 @@ a:hover .hover-underline::after {
 
 /* Mobile: 320px - 979px */
 @media (min-width: 320px) and (max-width: 979px) {
-
+  .screen-size-warning {
+    display: flex;}
 .yj-padding-large ,
 .yj-padding-medium ,
 .yj-padding-small { padding: 40px 20px; }
