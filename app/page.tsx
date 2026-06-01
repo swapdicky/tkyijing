@@ -360,21 +360,6 @@ export default function Home() {
 
   return (
     <div className="min-h-screen">
-      {/* Logo at top left - stays in place */}
-      <div style={{
-        position: 'fixed',
-        top: scrollProgress >= 1 ? '30px' : '50%',
-        left: scrollProgress >= 1 ? '30px' : '50%',
-        width: '36px',
-        height: '36px',
-        transform: scrollProgress >= 1 ? 'none' : 'translate(calc(-50% - 272px + 58px ), calc(-50% - 50vh + 180px))',
-        transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)',
-        zIndex: 111,
-        opacity: hideOverlay ? 0 : 1,
-        pointerEvents: 'none'
-      }}>
-        <img src="/images/logo-icon.svg" alt="Logo" style={{ width: '100%', height: '100%' }} />
-      </div>
       {/* Scroll to explore text - shows before overlay hides */}
       <div className="text-gray fw-400"
          style={{ position: 'fixed',
@@ -434,7 +419,7 @@ export default function Home() {
         <div 
           style={{
             width: scrollProgress >= 1 ? '50vw' : '524px',
-            height: scrollProgress >= 1 ? '100vh' : 'calc(100vh - 240px)',
+            height: scrollProgress >= 1 ? '100vh' : '724px',
             backgroundColor: 'white',
             position: 'absolute',
             top: '50%',
@@ -449,6 +434,17 @@ export default function Home() {
             maxHeight : scrollProgress >= 1 ?'100vh' : 'calc(100vh - 240px)'
           }}
         >
+          {/* Logo inside white box */}
+          <div style={{
+            position: 'absolute',
+            top: '30px',
+            left: '30px',
+            width: '36px',
+            height: '36px',
+            zIndex: 2
+          }}>
+            <img src="/images/logo-icon.svg" alt="Logo" style={{ width: '100%', height: '100%' }} />
+          </div>
 
           {/* Chinese text section - aligned to top right */}
           <div style={{
@@ -497,7 +493,7 @@ export default function Home() {
               transition: 'transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)' }}>是次展覽透過香港攝影藝術家鮑皓昕的<br/>
             藝術詮釋，凸顯︽易經︾無盡的關聯性與<br/>
             創造力。鮑皓昕兩個系列作品<br/>
-            <span style={{marginTop: '-6px'}}></span>︽中國牆城︾<span style={{marginTop: '-4px'}}></span>和<span style={{marginTop: '-4px'}}></span>︽觀靜錄︾<span style={{marginTop: '-4px'}}></span>，探究文化遺產<br/>
+            <span style={{marginTop: '-8px'}}></span>︽中國牆城︾<span style={{marginTop: '-4px'}}></span>和<span style={{marginTop: '-4px'}}></span>︽觀靜錄︾<span style={{marginTop: '-4px'}}></span>，探究文化遺產<br/>
             與藝術創作之間的關係。互動與合一的<br/>
             中國古代哲學概念。這些照片捕捉變化<br/>
             無窮的世界，見證鮑氏對︽易經︾的<br/>
