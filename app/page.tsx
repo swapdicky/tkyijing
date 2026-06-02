@@ -416,9 +416,9 @@ export default function Home() {
         }}
       >
         {/* White info box */}
-        <div 
+        <div
+          className={`${scrollProgress >= 1 ? 'info-box-width-expanded' : 'info-box-width'} ${scrollProgress >= 1 ? 'info-box-max-height-expanded' : 'info-box-max-height'}`}
           style={{
-            width: scrollProgress >= 1 ? '50vw' : '524px',
             height: scrollProgress >= 1 ? '100vh' : '724px',
             backgroundColor: 'white',
             position: 'absolute',
@@ -429,9 +429,8 @@ export default function Home() {
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
-            padding: scrollProgress >= 1 ? '30px 30px 40px 30px' : '40px 30px',
-            borderRadius: scrollProgress >= 1 ? '0' : '15px',
-            maxHeight : scrollProgress >= 1 ?'100vh' : 'calc(100vh - 240px)'
+            padding: scrollProgress >= 1 ? '30px' : '40px 30px',
+            borderRadius: scrollProgress >= 1 ? '0' : '15px'
           }}
         >
           {/* Logo inside white box */}
@@ -447,50 +446,31 @@ export default function Home() {
           </div>
 
           {/* Chinese text section - aligned to top right */}
-          <div style={{
+          <div 
+          className={`${scrollProgress === 0 ? 'info-scale-sm' : 'info-scale-lg'}`} 
+          style={{
             display: 'flex',
             flexDirection: 'row-reverse',
             justifyContent: 'flex-start',
             alignItems: 'flex-start',
-            alignSelf: 'flex-end'
+            alignSelf: 'flex-end',
+            textOrientation: 'upright',
+            transformOrigin: 'right top'
           }}>
             {/* Chinese Title Line 1 - 易經 */}
-            <div className="text-black fw-400"  style={{ writingMode: 'vertical-rl',
-              textOrientation: 'upright',
-              fontSize: scrollProgress === 0 ? '24px' : '36px',
-              lineHeight: '1',
-              
-              letterSpacing: '0.2em',
-              
-              margin: 0,
-              transition: 'font-size 0.8s cubic-bezier(0.4, 0, 0.2, 1)' }}>
-              易經：
-            </div>
-            
-            {/* Chinese Title Line 2 - 昕聞鮑皓昕攝影藝術 */}
-            <div className="text-black fw-300"  style={{ writingMode: 'vertical-rl',
-              textOrientation: 'upright',
-              fontSize: scrollProgress === 0 ? '24px' : '36px',
-              lineHeight: '1.25',
-              
-              letterSpacing: '0.2em',
-              
+            <div className={`text-black fw-400 info-title-sm `}  style={{ writingMode: 'vertical-rl',
               marginLeft: '10px',
-              transition: 'font-size 0.8s cubic-bezier(0.4, 0, 0.2, 1)' }}>
-              鮑皓昕攝影藝術
+              letterSpacing: '0.2em'}}>
+              易經：<br />
+              <span className="fw-300">鮑皓昕攝影藝術</span>
             </div>
+
+
             
             {/* Chinese Content - Vertical */}
-            <div className="text-black fw-300"  style={{ writingMode: 'vertical-rl',
+            <div className="text-black fw-300 info-content"  style={{ writingMode: 'vertical-rl',
               textOrientation: 'upright',
-              fontSize: '18px',
-              lineHeight: '1.4',
-              
-              letterSpacing: '0.1em',
-              
-              transform: scrollProgress === 0 ? 'scale(.8)':'scale(1.2)',
-              transformOrigin: 'right top',
-              transition: 'transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)' }}>是次展覽透過香港攝影藝術家鮑皓昕的<br/>
+              letterSpacing: '0.1em', }}>是次展覽透過香港攝影藝術家鮑皓昕的<br/>
             藝術詮釋，凸顯︽易經︾無盡的關聯性與<br/>
             創造力。鮑皓昕兩個系列作品<br/>
             <span style={{marginTop: '-8px'}}></span>︽中國牆城︾<span style={{marginTop: '-4px'}}></span>和<span style={{marginTop: '-4px'}}></span>︽觀靜錄︾<span style={{marginTop: '-4px'}}></span>，探究文化遺產<br/>
@@ -515,24 +495,20 @@ export default function Home() {
             transition: 'width 0.8s cubic-bezier(0.4, 0, 0.2, 1)'
           }}>
             {/* English Title */}
-            <div className="text-black fw-300"  style={{ fontSize: scrollProgress === 0 ? '16px' : '18px',
+            <div className={`text-black fw-300 ${scrollProgress === 0 ? 'info-en-title-sm' : 'info-en-title-lg'}`}  style={{
               marginBottom: '10px',
-              lineHeight: '1.2',
-              
               fontFamily: '"neue-haas-unica", sans-serif',
               fontStyle: 'normal',
-              
+
               transition: 'font-size 0.8s cubic-bezier(0.4, 0, 0.2, 1)' }}>
               <span className="fw-500"><em>Book of Changes</em>:</span> The Art of Basil Pao
             </div>
 
             {/* English Content */}
-            <div className="text-black fw-300"  style={{ fontSize: scrollProgress === 0 ? '12px' : '16px',
-              lineHeight: '1.2',
-              
+            <div className={`text-black fw-300 ${scrollProgress === 0 ? 'info-en-content-sm' : 'info-en-content-lg'}`}  style={{
               textAlign: 'left',
               fontFamily: '"neue-haas-unica", sans-serif',
-              
+
               fontStyle: 'normal',
               transition: 'font-size 0.8s cubic-bezier(0.4, 0, 0.2, 1)' }}>
 The current exhibition highlights the continued relevance of the <em>Book of Changes</em> through the artistic interpretation of Hong Kong photo artist Basil Pao. Two series of his works—<em>The Great Walls of China</em> and <em>Glimpses of Silence</em>—are presented here to explore the relation between heritage and artistic creation. Capturing a world of changing reality and changing appearances, these pictures are the testament to Pao's deep connections to the <em>Book of Changes</em> for embracing the authentic self and beholding the beauty and mystery of the world. The show offers a visual feast for observing the eternal energy and subtleties of change in all-embracing landscapes. It invites contemplation on the interaction and unity of Heaven, Earth, and Humanity—an ancient Chinese philosophical concept presented in the classic.            </div>
@@ -762,28 +738,28 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
                 <div className="flex gap-3 items-start">
                   {selectedBox && yijing[selectedBox - 1] && (
                     <>
-                      <div className="text-[16px] tracking-wide relative font-medium" style={{ writingMode: 'vertical-rl', textOrientation: 'upright', letterSpacing: '0.05em', paddingTop: '2.8em' }}><span style={{marginTop: '-6px'}}></span>
+                      <div className="yj-box-text-sm tracking-wide relative font-medium" style={{ writingMode: 'vertical-rl', textOrientation: 'upright', letterSpacing: '0.05em', paddingTop: '2.8em' }}><span style={{marginTop: '-6px'}}></span>
                         {yijing[selectedBox - 1].meaningContent.split('\n').map((line, i) => (
                           <span key={i}>{line}{i < yijing[selectedBox - 1].meaningContent.split('\n').length - 1 && <br/>}</span>
                         ))}
                       </div>
-                      <div className="text-[20px] tracking-wide relative fw-600" style={{ writingMode: 'vertical-rl', textOrientation: 'upright', letterSpacing: '0.05em'}}>
+                      <div className="yj-box-text-md tracking-wide relative fw-600" style={{ writingMode: 'vertical-rl', textOrientation: 'upright', letterSpacing: '0.05em'}}>
                         {yijing[selectedBox - 1].meaning.split('\n').map((line, i) => (
                           <span key={i}>{line}{i < yijing[selectedBox - 1].meaning.split('\n').length - 1 && <br/>}</span>
                         ))}
                       </div>
 
-                      <div className="text-[16px] tracking-wide relative font-medium" style={{ writingMode: 'vertical-rl', textOrientation: 'upright', letterSpacing: '0.05em', paddingTop: '2.8em' }}>
+                      <div className="yj-box-text-sm tracking-wide relative font-medium" style={{ writingMode: 'vertical-rl', textOrientation: 'upright', letterSpacing: '0.05em', paddingTop: '2.8em' }}>
                         {yijing[selectedBox - 1].messageContent.split('\n').map((line, i) => (
                           <span key={i}>{line}{i < yijing[selectedBox - 1].messageContent.split('\n').length - 1 && <br/>}</span>
                         ))}
-                      </div>                  
-                      <div className="text-[20px] tracking-wide relative fw-600" style={{ writingMode: 'vertical-rl', textOrientation: 'upright', letterSpacing: '0.05em' }}>
+                      </div>
+                      <div className="yj-box-text-md tracking-wide relative fw-600" style={{ writingMode: 'vertical-rl', textOrientation: 'upright', letterSpacing: '0.05em' }}>
                         {yijing[selectedBox - 1].message.split('\n').map((line, i) => (
                           <span key={i}>{line}{i < yijing[selectedBox - 1].message.split('\n').length - 1 && <br/>}</span>
                         ))}
                       </div>
-                      <h2 className="text-[56px] fw-600 leading-none ml-4" style={{ writingMode: 'vertical-rl' }}>{yijing[selectedBox - 1].titletc}</h2>
+                      <h2 className="yj-box-text-lg fw-600 leading-none ml-4" style={{ writingMode: 'vertical-rl' }}>{yijing[selectedBox - 1].titletc}</h2>
                     </>
                   )}
                 </div>
@@ -792,17 +768,17 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
               <div className="fixed bottom-0 left-0 right-0 px-12 pb-12">
                 <div className="flex items-end gap-8">
                   <div className="w-28 flex-shrink-0">
-                    <div className="w-20 h-20 mb-6 flex items-center justify-center">
+                    <div className="yj-hexagram-size flex items-center justify-center">
                       {selectedBox && generateHexagramSVG(selectedBox)}
                     </div>
                     {selectedBox && yijing[selectedBox - 1] && (
                       <>
                         <div className="flex gap-2 mb-4">
-                          <p className="leading-tight text-[16px]" style={{ writingMode: 'vertical-rl', letterSpacing: '0.3em' }}>{yijing[selectedBox - 1].abovetc}</p>
-                          <p className="leading-tight text-[16px]" style={{ writingMode: 'vertical-rl', letterSpacing: '0.3em' }}>{yijing[selectedBox - 1].belowtc}</p>
+                          <p className="leading-tight yj-box-text-sm" style={{ writingMode: 'vertical-rl', letterSpacing: '0.3em' }}>{yijing[selectedBox - 1].abovetc}</p>
+                          <p className="leading-tight yj-box-text-sm" style={{ writingMode: 'vertical-rl', letterSpacing: '0.3em' }}>{yijing[selectedBox - 1].belowtc}</p>
                         </div>
-                        
-                        <div className="text-[13px]">
+
+                        <div className="yj-box-text-2xs">
                           <div className="mb-4">
                             <p className="font-normal leading-tight neue-haas-unica">
                               above <em>{yijing[selectedBox - 1].above}</em>
@@ -826,7 +802,7 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
                   <div className="flex-1">
                     {selectedBox && yijing[selectedBox - 1] && (
                       <>
-                        <h3 ref={titleH3Ref} className="text-[22px] font-normal leading-tight mb-4 neue-haas-unica">
+                        <h3 ref={titleH3Ref} className="yj-box-text-xl font-normal leading-tight mb-4 neue-haas-unica">
                           {yijing[selectedBox - 1].title.split('\n').map((line, i, arr) => (
                             <span key={i}>
                               {i === 0 && line.includes('/') ? (
@@ -840,11 +816,11 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
                             </span>
                           ))}
                         </h3>
-                        
-                        <div ref={scrollContentRef} className="space-y-4 custom-scrollbar" style={{ height: titleH3Tall ? '170px' : '200px', overflowY: 'auto', paddingRight: '12px' }}>
+
+                        <div ref={scrollContentRef} className={`space-y-4 custom-scrollbar ${titleH3Tall ? 'yj-scroll-height-sm' : 'yj-scroll-height-lg'}`} style={{ overflowY: 'auto', paddingRight: '12px' }}>
                           <div>
-                            <h4 className="fw-600 text-[12px] mb-1 neue-haas-unica" style={{ lineHeight: '20px' }}>The Judgement</h4>
-                            <p className="text-black text-[14px] neue-haas-unica font-normal" style={{ lineHeight: '20px' }}>
+                            <h4 className="fw-600 yj-box-text-xs mb-1 neue-haas-unica">The Judgement</h4>
+                            <p className="text-black yj-box-text-base neue-haas-unica font-normal">
                               {yijing[selectedBox - 1].thejudgement.split('\n').map((line, i) => (
                                 <span key={i}>{line}{i < yijing[selectedBox - 1].thejudgement.split('\n').length - 1 && <br />}</span>
                               ))}
@@ -852,8 +828,8 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
                           </div>
 
                           <div>
-                            <h4 className="fw-600 text-[12px] mb-1 neue-haas-unica" style={{ lineHeight: '20px' }}>The Image</h4>
-                            <p className="text-black text-[14px] font-normal neue-haas-unica" style={{ lineHeight: '20px' }}>
+                            <h4 className="fw-600 yj-box-text-xs mb-1 neue-haas-unica">The Image</h4>
+                            <p className="text-black yj-box-text-base font-normal neue-haas-unica">
                               {yijing[selectedBox - 1].theimage.split('\n').map((line, i) => (
                                 <span key={i}>{line}{i < yijing[selectedBox - 1].theimage.split('\n').length - 1 && <br />}</span>
                               ))}

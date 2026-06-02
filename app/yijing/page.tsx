@@ -14,20 +14,16 @@ export default function Yijing() {
   const [isHoveringLeft, setIsHoveringLeft] = useState(false);
   const [isHoveringRight, setIsHoveringRight] = useState(false);
   const [showCursor, setShowCursor] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
   // Use desktop layout during SSR and initial hydration to avoid mismatch
   const isMobile = mounted ? isMobileDetected : false;
   const rightContentRefs = useRef<{[key: number]: HTMLDivElement | null}>({});
   const slide2InnerRef = useRef<HTMLDivElement>(null);
-  const DESKTOP_SLIDE_BUDGETS = [1000, 1000, 2000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000];
-  const DESKTOP_TOTAL_SCROLL = DESKTOP_SLIDE_BUDGETS.reduce((a, b) => a + b, 0);
-  const getScrollTopForSlide = (slideIndex: number) =>
-    DESKTOP_SLIDE_BUDGETS.slice(0, slideIndex).reduce((a, b) => a + b, 0);
 
   useEffect(() => {
     setMounted(true);
     const checkMobile = () => setIsMobileDetected(window.innerWidth < 980);
     checkMobile();
-    window.scrollTo(0, 0);
     window.addEventListener('resize', checkMobile);
     
     // Check initial mouse position on mount
@@ -47,9 +43,15 @@ export default function Yijing() {
     
     window.addEventListener('mousemove', handleInitialMousePosition, { once: true });
     
+    // Set loaded after a short delay to ensure content is ready
+    const loadTimer = setTimeout(() => {
+      setIsLoaded(true);
+    }, 100);
+    
     return () => {
       window.removeEventListener('resize', checkMobile);
       window.removeEventListener('mousemove', handleInitialMousePosition);
+      clearTimeout(loadTimer);
     };
   }, []);
 
@@ -84,7 +86,7 @@ export default function Yijing() {
             alignSelf: 'flex-end'
           }}>
             {/* 易經 title */}
-            <h2 className="yj-cn-40 text-black fw-600"  style={{ writingMode: 'vertical-rl',
+            <h2 className={`yj-cn-40 text-black fw-600 ${currentSlide === 0 ? 'v-fade' : ''}`}  style={{ writingMode: 'vertical-rl',
               textOrientation: 'upright',
               
               letterSpacing: '0.2em',
@@ -94,19 +96,25 @@ export default function Yijing() {
             </h2>
             
             {/* Description text */}
-            <div className="yj-cn-24 text-black fw-300"  style={{ writingMode: 'vertical-rl',
+            <div className="yj-cn-24 text-black fw-300" style={{ writingMode: 'vertical-rl',
               textOrientation: 'upright',
               lineHeight: '1.4',
-              
               letterSpacing: '0.1em' }}>
-              <span style={{marginTop:'-6px'}}></span>︽易經︾<span style={{marginTop:'-6px'}}></span>是一本古代卜辭書，在中國<br />哲學歷史中具有重要地位。<span style={{marginTop :"-6px"}}></span>﹁易﹂<span style={{marginTop :"-6px"}}></span><br />是變化的意思，<span style={{marginTop :"-6px"}}></span>︽易經︾<span style={{marginTop :"-6px"}}></span>呈現一個恆常<br />變動的世界。它代表了古人嘗試闡釋<br />人類在宇宙中定位的看法，強調<br />天人之間的互動與合一。作為傳統卜卦<br />文獻和哲學論述，<span style={{marginTop :"-6px"}}></span>︽易經︾<span style={{marginTop :"-6px"}}></span>在中國人<br />生活方方面面留下不可磨滅的影響。
+              <span className={currentSlide === 0 ? 'v-fade-delay-2' : ''}><span style={{marginTop:'-6px'}}></span>︽易經︾<span style={{marginTop:'-6px'}}></span>是一本古代卜辭書，在中國</span><br />
+              <span className={currentSlide === 0 ? 'v-fade-delay-3' : ''}>哲學歷史中具有重要地位。<span style={{marginTop :"-6px"}}></span>﹁易﹂<span style={{marginTop :"-6px"}}></span></span><br />
+              <span className={currentSlide === 0 ? 'v-fade-delay-4' : ''}>是變化的意思，<span style={{marginTop :"-6px"}}></span>︽易經︾<span style={{marginTop :"-6px"}}></span>呈現一個恆常</span><br />
+              <span className={currentSlide === 0 ? 'v-fade-delay-5' : ''}>變動的世界。它代表了古人嘗試闡釋</span><br />
+              <span className={currentSlide === 0 ? 'v-fade-delay-6' : ''}>人類在宇宙中定位的看法，強調</span><br />
+              <span className={currentSlide === 0 ? 'v-fade-delay-7' : ''}>天人之間的互動與合一。作為傳統卜卦</span><br />
+              <span className={currentSlide === 0 ? 'v-fade-delay-8' : ''}>文獻和哲學論述，<span style={{marginTop :"-6px"}}></span>︽易經︾<span style={{marginTop :"-6px"}}></span>在中國人</span><br />
+              <span className={currentSlide === 0 ? 'v-fade-delay-8' : ''}>生活方方面面留下不可磨滅的影響。</span>
             </div>
           </div>
 
           {/* English section - aligned to bottom */}
           <div>
             {/* Title */}
-            <div className="yj-en-24 text-black fw-500"  style={{ marginBottom: '10px',
+            <div className={`yj-en-24 text-black fw-500`}  style={{ marginBottom: '10px',
               lineHeight: '1.2',
               
               
@@ -115,7 +123,7 @@ export default function Yijing() {
             </div>
 
             {/* English description */}
-            <div className="yj-en-20 text-black fw-300"  style={{ lineHeight: '1.2',
+            <div className={`yj-en-20 text-black fw-300 `}  style={{ lineHeight: '1.2',
               
               textAlign: 'left',
               
@@ -1053,8 +1061,22 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
   }, [currentSlide, isMobile, mobilePhase]);
 
   return (
-    <div className={isMobile ? "min-h-screen" : "min-h-screen pt-16"}>
-      <Header forceOpenMenu={shouldOpenMenu} onMenuChange={(isOpen) => { if (!isOpen) setShouldOpenMenu(false); }} />
+    <>
+      {/* Loading overlay */}
+      {!isLoaded && (
+        <div style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '100vw',
+          height: '100vh',
+          backgroundColor: '#000',
+          zIndex: 99999
+        }} />
+      )}
+      
+      <div className={`${isMobile ? "min-h-screen" : "min-h-screen pt-16"} ${isLoaded ? 'page-fade-in' : ''}`} style={{ opacity: isLoaded ? 1 : 0 }}>
+        <Header forceOpenMenu={shouldOpenMenu} onMenuChange={(isOpen) => { if (!isOpen) setShouldOpenMenu(false); }} />
       
       {isMobile ? (
         <>
@@ -1082,7 +1104,7 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
                 pointerEvents: 'none',
                 opacity: 1 }}
             >
-              Scroll to explore
+              Click to explore
             </div>
 
             {/* Mobile: Each slide is a full-screen frame that slides vertically */}
@@ -1212,7 +1234,7 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
               opacity: currentSlide > 0 ? 0 : 1,
               transition: 'opacity 0.5s ease-out' }}
           >
-            Scroll to explore
+            Click to explore
           </div>
 
           {/* Desktop: Right side black div with slides */}
@@ -1380,20 +1402,21 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
                 zIndex: 9999,
                 mixBlendMode: 'exclusion',
                 color: '#FFF',
-                fontSize: '16px',
+                fontSize: '14px',
                 fontWeight: '500',
                 fontFamily: '"neue-haas-unica", sans-serif',
                 letterSpacing: '0.1em',
                 whiteSpace: 'nowrap'
               }}
             >
-              {isHoveringLeft && currentSlide > 0 && 'PREV'}
-              {isHoveringRight && currentSlide < 10 && 'NEXT'}
+              {isHoveringLeft && currentSlide > 0 && 'Prev'}
+              {isHoveringRight && currentSlide < 10 && 'Next'}
             </div>
           )}
 
         </>
       )}
-    </div>
+      </div>
+    </>
   );
 }

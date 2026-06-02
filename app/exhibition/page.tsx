@@ -372,17 +372,16 @@ Chinese life.              </div>
           </div>
 
           {/* Section 1 */}
-          <div style={{ minHeight: isMobile ? '100vh' : '100vh', display: 'flex', flexDirection: isMobile ? 'column' : 'row', position: 'relative', flexShrink: isMobile ? 0 : 0, backgroundColor: "#DDDDDD", zIndex: 2, borderTopLeftRadius: "15px", borderBottomLeftRadius: "15px", overflow: "hidden", marginLeft: isMobile ? '0' : "-40px", paddingRight: isMobile ? 0 : '90px' }}>
-            <div className="yj-padding-section" style={{ width: isMobile ? '100%' : 'calc(50vw + 60px)', minHeight: isMobile ? '100vh' : '100vh', position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+          <div className="ex-section" style={{ minHeight: '100vh', position: 'relative', flexShrink: 0, backgroundColor: "#DDDDDD", zIndex: 2, borderTopLeftRadius: "15px", borderBottomLeftRadius: "15px", overflow: "hidden" }}>
+            <div className="yj-padding-section ex-section-inner" style={{ minHeight: '100vh', position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               {/* Vertical line on the right */}
-              <div className="right-30" 
+              <div className="right-30 ex-vertical-line"
               style={{
                 position: 'absolute',
                 top: '90px',
                 width: '1px',
                 height: 'calc(100vh - 160px)',
-                backgroundColor: '#888',
-                display: isMobile ? 'none' : 'block'
+                backgroundColor: '#888'
               }}></div>
               {/* Chinese text section */}
               <div style={{
@@ -517,17 +516,16 @@ Chinese life.              </div>
           </div>
 
           {/* Section 2 */}
-          <div style={{ minHeight: isMobile ? '100vh' : '100vh', display: 'flex', flexDirection: isMobile ? 'column' : 'row', position: 'relative', flexShrink: isMobile ? 0 : 0, backgroundColor: "#330E07", zIndex: 3, borderTopLeftRadius: "15px", borderBottomLeftRadius: "15px", overflow: "hidden", marginLeft: isMobile ? '0' : "-40px", paddingRight: isMobile ? 0 : '90px' }}>
-            <div className="yj-padding-section" style={{ width: isMobile ? '100%' : 'calc(50vw + 60px)', minHeight: isMobile ? '100vh' : '100vh', position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+          <div className="ex-section" style={{ minHeight: '100vh', position: 'relative', flexShrink: 0, backgroundColor: "#330E07", zIndex: 3, borderTopLeftRadius: "15px", borderBottomLeftRadius: "15px", overflow: "hidden" }}>
+            <div className="yj-padding-section ex-section-inner" style={{ minHeight: '100vh', position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               {/* Vertical line on the right */}
-              <div className="right-30" 
+              <div className="right-30 ex-vertical-line"
               style={{
                 position: 'absolute',
                 top: '90px',
                 width: '1px',
                 height: 'calc(100vh - 160px)',
-                backgroundColor: '#888',
-                display: isMobile ? 'none' : 'block'
+                backgroundColor: '#888'
               }}></div>
               {/* Chinese text section */}
               <div style={{
@@ -651,17 +649,16 @@ Over the years, I failed repeatedly to create a visual representation of the <em
 
 
           {/* Section 3 */}
-          <div style={{ minHeight: isMobile ? '100vh' : '100vh', display: 'flex', flexDirection: isMobile ? 'column' : 'row', position: 'relative', flexShrink: isMobile ? 0 : 0, backgroundColor: "#000000", zIndex: 4, borderTopLeftRadius: "15px", borderBottomLeftRadius: "15px", overflow: "hidden", marginLeft: isMobile ? '0' : "-40px", paddingRight: isMobile ? 0 : '90px' }}>
-            <div className="yj-padding-section" style={{ width: isMobile ? '100%' : 'calc(50vw + 60px)', minHeight: isMobile ? '100vh' : '100vh', position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+          <div className="ex-section" style={{ minHeight: '100vh', position: 'relative', flexShrink: 0, backgroundColor: "#000000", zIndex: 4, borderTopLeftRadius: "15px", borderBottomLeftRadius: "15px", overflow: "hidden" }}>
+            <div className="yj-padding-section ex-section-inner" style={{ minHeight: '100vh', position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               {/* Vertical line on the right */}
-              <div className="right-30" 
+              <div className="right-30 ex-vertical-line"
               style={{
                 position: 'absolute',
                 top: '90px',
                 width: '1px',
                 height: 'calc(100vh - 160px)',
-                backgroundColor: '#888',
-                display: isMobile ? 'none' : 'block'
+                backgroundColor: '#888'
               }}></div>
               {/* Chinese text section */}
               <div style={{
@@ -802,17 +799,16 @@ Nowadays, with the advance of digital technologies, an online consultation of th
           </div>
 
           {/* Section 4 */}
-          <div style={{ minHeight: isMobile ? '100vh' : '100vh', display: 'flex', flexDirection: isMobile ? 'column' : 'row', position: 'relative', flexShrink: isMobile ? 0 : 0, backgroundColor: "#1A3B45", zIndex: 5, borderTopLeftRadius: "15px", borderBottomLeftRadius: "15px", overflow: "hidden", marginLeft: isMobile ? '0' : "-40px", paddingRight:  isMobile ? 0 : '90px'}}>
-            <div className="yj-padding-section" style={{ width: isMobile ? '100%' : 'calc(50vw + 60px)', minHeight: isMobile ? '100vh' : '100vh', position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+          <div className="ex-section" style={{ minHeight: '100vh', position: 'relative', flexShrink: 0, backgroundColor: "#1A3B45", zIndex: 5, borderTopLeftRadius: "15px", borderBottomLeftRadius: "15px", overflow: "hidden" }}>
+            <div className="yj-padding-section ex-section-inner" style={{ minHeight: '100vh', position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               {/* Vertical line on the right */}
-              <div className="right-30" 
+              <div className="right-30 ex-vertical-line"
               style={{
                 position: 'absolute',
                 top: '90px',
                 width: '1px',
                 height: 'calc(100vh - 160px)',
-                backgroundColor: '#888',
-                display: isMobile ? 'none' : 'block'
+                backgroundColor: '#888'
               }}></div>
               {/* Chinese text section */}
               <div style={{
