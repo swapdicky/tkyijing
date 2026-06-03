@@ -116,6 +116,10 @@ border-bottom: 1px solid #888;}
 /* Yijing hexagram container size classes */
 .yj-hexagram-size { width: 80px; height: 80px; margin-bottom: 24px; }
 
+/* Logo size classes */
+.logo-size { width: 215px; height: 36px; background-size: 215px auto; background-repeat: no-repeat; background-position: left center; }
+.logo-top { top: 30px; }
+
 /* Info box width classes */
 .info-box-width { width: 524px; }
 .info-box-width-expanded { width: 50vw; }
@@ -366,6 +370,7 @@ a:hover .hover-underline::after {
   .bottom-60{bottom: 30px;left: 50px;;}
   .margin-n-40{margin-top: -30px;}
   .right-30{right: 15px;}
+  .main-menu .border-t{height: 71px;}
 
   /* Info box width - iPad */
   .info-box-width { width: 524px; }
@@ -420,10 +425,10 @@ a:hover .hover-underline::after {
   .yj-en-12 { font-size: 11px; }
 
   /* Further reduced padding */
-  .yj-padding-large   { padding: 60px 40px 20px }
-  .yj-padding-medium  { padding: 30px 40px 20px  }
-  .yj-padding-small   { padding: 20px 40px 20px }
-  .yj-padding-section { padding: 60px 30px 40px 30px  }
+  .yj-padding-large   { padding: 90px 30px 30px }
+  .yj-padding-medium  { padding: 30px 30px 30px  }
+  .yj-padding-small   { padding: 20px 30px 30px }
+  .yj-padding-section { padding: 90px 30px 40px 30px  }
 
   /* Section title row */
   .section-title-row {height: 60px;min-height: 60px;}
@@ -434,6 +439,7 @@ a:hover .hover-underline::after {
   .bottom-60{bottom: 20px;left: 40px;}
   .margin-n-40{margin-top: -20px;}
   .right-30{right: 10px;}
+  .main-menu .border-t{height: 61px;}
 
   /* Info box width - small height */
   .info-box-width { width: 750px; }
@@ -463,6 +469,9 @@ a:hover .hover-underline::after {
 
   /* Yijing hexagram container size - small height */
   .yj-hexagram-size { width: 56px; height: 56px; margin-bottom: 16px; }
+
+  /* Logo size - small height (only for Yijing and Exhibition pages) */
+  .logo-size-small-height { width: 38px; }
 
   /* Info box scale transform classes */
   .info-scale-sm { transform: scale(1); transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1); transform-origin: right top; }
@@ -509,6 +518,10 @@ a:hover .hover-underline::after {
 
 .section-title-row {height: 50px;min-height: 50px;padding-left: 15px;}
 .section-title-text {font-size: 27px;}
+
+/* Logo size - mobile */
+.logo-size { width: 170px; height: 30px; background-size: 170px auto; }
+.logo-top { top: 10px; }
 
 }
 

@@ -9,6 +9,7 @@ export default function About() {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const leftContentRef = useRef<HTMLDivElement>(null);
+  const stickyTitlesRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < 980);
@@ -58,7 +59,9 @@ export default function About() {
       
       // Calculate how much the left content should move
       const leftContentHeight = leftContentRef.current.scrollHeight;
-      const viewportHeight = window.innerHeight - 90 - 180; // minus header (90px) and sticky titles (180px)
+      const headerHeight = isMobile ? 50 : 90;
+      const stickyTitlesHeight = stickyTitlesRef.current?.offsetHeight ?? 0;
+      const viewportHeight = window.innerHeight - headerHeight - stickyTitlesHeight;
       const maxScroll = leftContentHeight - viewportHeight;
       
       setScrollProgress(progress * maxScroll);
@@ -76,7 +79,7 @@ export default function About() {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleScroll);
     };
-  }, []);
+  }, [isMobile]);
   return (
     <div className="min-h-screen">
       <Header />
@@ -114,7 +117,7 @@ export default function About() {
         }}
       >
         {/* Sticky section titles */}
-        <div style={{
+        <div ref={stickyTitlesRef} style={{
           position: 'sticky',
           top: 0,
           backgroundColor: '#000',

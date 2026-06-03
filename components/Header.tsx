@@ -10,6 +10,8 @@ export default function Header({ isPanelOpen = false, hideOverlay = false, onMen
   const pathname = usePathname();
   const isHomePage = pathname === '/';
   const isYijingPage = pathname === '/yijing';
+  const isExhibitionPage = pathname === '/exhibition';
+  const isSmallHeightPage = isYijingPage || isExhibitionPage;
   const logoSrc = isMobile ? '/images/logo.svg' : (isYijingPage ? '/images/logo-b.svg' : '/images/logo.svg');
 
   useEffect(() => {
@@ -39,16 +41,10 @@ export default function Header({ isPanelOpen = false, hideOverlay = false, onMen
     <>
       {/* Logo placeholder */}
       <Link href="/">
-        <div 
-          className="fixed z-[95] cursor-pointer"
-          style={{ 
-            width: isMobile ? '170px' : '215px',
-            height: isMobile ? '30px' : '36px', 
+        <div
+          className={`fixed z-[95] cursor-pointer logo-size logo-top ${isSmallHeightPage ? 'logo-size-small-height' : ''}`}
+          style={{
             backgroundImage: `url(${logoSrc})`,
-            backgroundSize: 'contain',
-            backgroundRepeat: 'no-repeat',
-            backgroundPosition: 'center',
-            top: isMobile ? '10px' : '30px',
             left: isMobile ? '15px' : (isMenuOpen ? '30px' : ((isHomePage && hideOverlay && !isPanelOpen) ? '50%' : '30px')),
             transform: (isHomePage && hideOverlay && !isPanelOpen && !isMenuOpen) ? 'translateX(-50%)' : 'none',
             opacity: (isHomePage && !hideOverlay) ? 0 : 1,
@@ -90,38 +86,38 @@ export default function Header({ isPanelOpen = false, hideOverlay = false, onMen
           transform: isMenuOpen ? 'translateX(0)' : 'translateX(100%)'
         }}
       >
-        <div className="flex flex-col h-full" style={{ paddingTop: isMobile ? '50px' : '89px' }}>
+        <div className="flex flex-col h-full main-menu-wrapper" style={{ paddingTop: isMobile ? '50px' : '89px' }}>
           {/* Menu items */}
-          <div className="flex-1 flex flex-col justify-top">
+          <div className="flex-1 flex flex-col justify-top main-menu">
             <Link href="/exhibition" onClick={() => handleMenuToggle(false)}>
-              <div className="group border-b border-t cursor-pointer transition-opacity" style={{ height: isMobile ? '50px' : '90px', minHeight: isMobile ? '50px' : '90px', paddingLeft: isMobile ? '15px' : '30px', display: 'flex', alignItems: 'center', borderColor: '#888'}}>
+              <div className="group section-title-row border-t cursor-pointer transition-opacity" style={{ borderTopColor: '#888' }}>
                 <div className="flex items-baseline gap-3">
-                  <h2 className="font-normal text-white group-hover:text-[#888] transition-colors" style={{ fontSize: isMobile ? '27px' : '40px', lineHeight: '1'}}>展覽</h2>
-                  <h2 className="font-light text-white group-hover:text-[#888] transition-colors" style={{ fontFamily: '"neue-haas-unica", sans-serif', fontSize: isMobile ? '27px' : '40px', lineHeight: '1' }}>Exhibition</h2>
+                  <h2 className="font-normal text-white group-hover:text-[#888] transition-colors section-title-text">展覽</h2>
+                  <h2 className="font-light text-white group-hover:text-[#888] transition-colors section-title-text" style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Exhibition</h2>
                 </div>
               </div>
             </Link>
             <Link href="/yijing" onClick={() => handleMenuToggle(false)}>
-              <div className="group border-b cursor-pointer transition-opacity" style={{ height: isMobile ? '50px' : '90px', minHeight: isMobile ? '50px' : '90px', paddingLeft: isMobile ? '15px' : '30px', display: 'flex', alignItems: 'center', borderColor: '#888' }}>
+              <div className="group section-title-row cursor-pointer transition-opacity">
                 <div className="flex items-baseline gap-3">
-                  <h2 className="font-normal text-white group-hover:text-[#888] transition-colors" style={{ fontSize: isMobile ? '27px' : '40px', lineHeight: '1'}}>易經</h2>
-                  <h2 className="font-light text-white group-hover:text-[#888] transition-colors" style={{ fontFamily: '"neue-haas-unica", sans-serif', fontSize: isMobile ? '27px' : '40px', lineHeight: '1', fontStyle: "italic" }}>Yijing</h2>
+                  <h2 className="font-normal text-white group-hover:text-[#888] transition-colors section-title-text">易經</h2>
+                  <h2 className="font-light text-white group-hover:text-[#888] transition-colors section-title-text" style={{ fontFamily: '"neue-haas-unica", sans-serif', fontStyle: "italic" }}>Yijing</h2>
                 </div>
               </div>
             </Link>
             <Link href="/about" onClick={() => handleMenuToggle(false)}>
-              <div className="group border-b cursor-pointer transition-opacity" style={{ height: isMobile ? '50px' : '90px', minHeight: isMobile ? '50px' : '90px', paddingLeft: isMobile ? '15px' : '30px', display: 'flex', alignItems: 'center', borderColor: '#888' }}>
+              <div className="group section-title-row cursor-pointer transition-opacity">
                 <div className="flex items-baseline gap-3">
-                  <h2 className="font-normal text-white group-hover:text-[#888] transition-colors" style={{ fontSize: isMobile ? '27px' : '40px', lineHeight: '1'}}>關於</h2>
-                  <h2 className="font-light text-white group-hover:text-[#888] transition-colors" style={{ fontFamily: '"neue-haas-unica", sans-serif', fontSize: isMobile ? '27px' : '40px', lineHeight: '1' }}>About</h2>
+                  <h2 className="font-normal text-white group-hover:text-[#888] transition-colors section-title-text">關於</h2>
+                  <h2 className="font-light text-white group-hover:text-[#888] transition-colors section-title-text" style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>About</h2>
                 </div>
               </div>
             </Link>
             <Link href="/creative-team" onClick={() => handleMenuToggle(false)}>
-              <div className="group border-b cursor-pointer transition-opacity" style={{ height: isMobile ? '50px' : '90px', minHeight: isMobile ? '50px' : '90px', paddingLeft: isMobile ? '15px' : '30px', display: 'flex', alignItems: 'center', borderColor: '#888' }}>
+              <div className="group section-title-row cursor-pointer transition-opacity">
                 <div className="flex items-baseline gap-3">
-                  <h2 className="font-normal text-white group-hover:text-[#888] transition-colors" style={{ fontSize: isMobile ? '27px' : '40px', lineHeight: '1'}}>團隊</h2>
-                  <h2 className="font-light text-white group-hover:text-[#888] transition-colors" style={{ fontFamily: '"neue-haas-unica", sans-serif', fontSize: isMobile ? '27px' : '40px', lineHeight: '1' }}>Creative Team</h2>
+                  <h2 className="font-normal text-white group-hover:text-[#888] transition-colors section-title-text">團隊</h2>
+                  <h2 className="font-light text-white group-hover:text-[#888] transition-colors section-title-text" style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Creative Team</h2>
                 </div>
               </div>
             </Link>
