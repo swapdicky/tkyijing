@@ -185,7 +185,7 @@ export default function CreativeTeam() {
               fontFamily: '"neue-haas-unica", sans-serif'
             }}>
               <p>
-Notes: In this exhibition, the modern Chinese interpretation of the classical text is cited from <em>Fu Peirong jiedu Yijing (Fu Peirong's nterpretation of the Yijing)</em> (Taibei, 2022) and the English version is based on Richard Wilhelm's translation which was rendered into English by Cary F. Baynes (Princeton, 1997).              </p>
+Notes: In this exhibition, the modern Chinese interpretation of the classical text is cited from <em>Fu Peirong jiedu Yijing (Fu Peirong's Interpretation of the Yijing)</em> (Taibei, 2022) and the English version is based on Richard Wilhelm's translation which was rendered into English by Cary F. Baynes (Princeton, 1997).              </p>
             </div>
 
 

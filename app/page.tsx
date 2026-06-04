@@ -20,7 +20,7 @@ const hexagramMap: { [key: number]: string } = {
   43: '011111', 44: '111110', 45: '011000', 46: '000110', 47: '011010', 48: '010110',
   49: '011101', 50: '101110', 51: '001001', 52: '100100', 53: '110100', 54: '001011',
   55: '001101', 56: '101100', 57: '110110', 58: '011011', 59: '110010', 60: '010011',
-  61: '110011', 62: '100100', 63: '010101', 64: '101010'
+  61: '110011', 62: '001100', 63: '010101', 64: '101010'
 };
 
 // Function to generate hexagram SVG based on number (1-64)
@@ -30,7 +30,7 @@ const generateHexagramSVG = (number: number, color: string = 'black') => {
   const lines = pattern.split(''); // Lines from bottom to top
   
   return (
-    <svg width="100%" height="100%" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+    <svg width="100%" height="100%" viewBox="4 8 72 62" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
       {lines.map((bit, index) => {
         const y = 8 + (index * 11); // Start from top, 11px spacing between lines
         if (bit === '1') {
@@ -765,9 +765,9 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
                 </div>
               </div>
 
-              <div className="fixed bottom-0 left-0 right-0 px-12 pb-12">
-                <div className="flex items-end gap-8">
-                  <div className="w-28 flex-shrink-0">
+              <div className="fixed bottom-0 left-0 right-0 yj-bottom-bar">
+                <div className="flex items-end yj-bottom-gap">
+                  <div className="w-20 flex-shrink-0">
                     <div className="yj-hexagram-size flex items-center justify-center">
                       {selectedBox && generateHexagramSVG(selectedBox)}
                     </div>
@@ -820,20 +820,18 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
                         <div ref={scrollContentRef} className={`space-y-4 custom-scrollbar ${titleH3Tall ? 'yj-scroll-height-sm' : 'yj-scroll-height-lg'}`} style={{ overflowY: 'auto', paddingRight: '12px' }}>
                           <div>
                             <h4 className="fw-600 yj-box-text-xs mb-1 neue-haas-unica">The Judgement</h4>
-                            <p className="text-black yj-box-text-base neue-haas-unica font-normal">
-                              {yijing[selectedBox - 1].thejudgement.split('\n').map((line, i) => (
-                                <span key={i}>{line}{i < yijing[selectedBox - 1].thejudgement.split('\n').length - 1 && <br />}</span>
-                              ))}
-                            </p>
+                            <p
+                              className="text-black yj-box-text-base neue-haas-unica font-normal"
+                              dangerouslySetInnerHTML={{ __html: yijing[selectedBox - 1].thejudgement.replace(/\n/g, '<br />') }}
+                            />
                           </div>
 
                           <div>
                             <h4 className="fw-600 yj-box-text-xs mb-1 neue-haas-unica">The Image</h4>
-                            <p className="text-black yj-box-text-base font-normal neue-haas-unica">
-                              {yijing[selectedBox - 1].theimage.split('\n').map((line, i) => (
-                                <span key={i}>{line}{i < yijing[selectedBox - 1].theimage.split('\n').length - 1 && <br />}</span>
-                              ))}
-                            </p>
+                            <p
+                              className="text-black yj-box-text-base font-normal neue-haas-unica"
+                              dangerouslySetInnerHTML={{ __html: yijing[selectedBox - 1].theimage.replace(/\n/g, '<br />') }}
+                            />
                           </div>
                         </div>
                       </>

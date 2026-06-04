@@ -119,7 +119,7 @@ export default function Yijing() {
               
               
               fontStyle: 'normal' }}>
-              What is the <em>Yijing</em>, <em>Book of Changes</em>
+              What is the <em>Yijing</em>, <em>Book of Changes</em>？
             </div>
 
             {/* English description */}
@@ -128,7 +128,7 @@ export default function Yijing() {
               textAlign: 'left',
               
               fontStyle: 'normal' }}>
-              The <em>Book of Changes</em> is an ancient divination text that holds great significance in the history of Chinese philosophy. The term <em>yi</em> refers to the "ease" and "simplicity" of observing natural phenomena. Contrary to its common perception as a fortune-telling manual, this book represents an early effort to explain the Chinese view of humanity's place in the universe, which is defined by the interaction between the cosmos and the human self. As a classical divination document and a philosophical exposition, it has an enduring imprint on many aspects of Chinese life.
+              The <em>Book of Changes</em> is an ancient divination text that holds great significance in the history of Chinese philosophy. The term <em>yi</em> refers to change and transformation. Presenting a world of changing reality, this book represents an early effort to explain the Chinese view of humanity’s place in the universe, which stresses unity and dynamic interaction between the cosmos and the human self.  As a classical divination document and a philosophical exposition, it has an enduring imprint on many aspects of Chinese life.
             </div>
           </div>
         </div>
@@ -422,8 +422,8 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
               <div className="yj-en-18 text-black fw-500"  style={{ marginBottom: '10px' }}>Living Legacy</div>
             <div className="yj-en-14 text-black fw-300"  style={{ lineHeight: '1.25' }}>
 
-              <p style={{ marginBottom: '10px' }}>The <em>Book of Changes</em> was embraced and appropriated by later Chinese thinkers, giving rise to specialised studies of its commentarial traditions. Some thinkers regarded the book as a treatise on cosmological meanings and principles. The book's impact spanned the arts in a story of eight continuous waves' influence in the present.</p>
-              <p>The book's reception in the international world has been remarkable. Respective translations by Thomas McClatchie (1814-1885), James Legge (1815-1897), and Richard Wilhelm (1873-1930) introduced the ancient Chinese text to the world. The psychologist Carl Jung (1875-1961) linked the book's principle of synchronicity to the notion of meaningful coincidence and used it to the book's sequences of events for determining randomness in music composition. Eager Augustin (b. 1993) regarded I as "poetry", he never known your plus or system and similarity when exploring cybernetic theory or digital literary studies.</p>
+              <p style={{ marginBottom: '10px' }}>The <em>Book of Changes</em> was embraced and appropriated by later Chinese thinkers, giving rise to specialised studies of its commentarial traditions. approached the divination judgements based on images and numbers; others took the classic to be an explanation of meanings and principles. The book’s impact spanned the entire cultural history of China, and it continues to exert influence in the present.</p>
+              <p>The book's reception in the international world has been remarkable. Respective translations by Thomas McClatchie (1814-1885), James Legge (1815-1897), and Richard Wilhelm (1873-1930) introduced the ancient Chinese text to the world. The psychologist Carl Jung (1875-1961) linked it to his concept of synchronicity. The avant-garde composer John Cage (1912-1992) referred to the book’s sequences of events for determining randomness in music composition. Espen Aarseth (b. 1965) regarded it as “possibly the best-known example of cybertext in antiquity” when exploring cybertext theory in digital literary studies.</p>
             </div>
           </div>
         </div>
@@ -525,7 +525,7 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
               letterSpacing: '0.2em',
               
               lineHeight: '1.8' }}>
-              ﹁繫辭﹂上傳第五章
+              ︽繫辭︾上傳，第五章
             </div>
             <div className="yj-cn-110 text-white fw-300"  style={{ writingMode: 'vertical-rl',
               textOrientation: 'mixed',
@@ -610,7 +610,7 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
               }}
             >
             <div className="yj-en-18 text-white fw-500"  style={{ marginBottom: '10px' }}>
-              <em>Yin Yang</em> and <em>Wu Xing</em>
+              <em>YINYAND</em> AND <em>WUXING</em>
             </div>
             <div className="yj-en-14 text-white fw-300"  style={{ lineHeight: '1.5' }}>
               <p style={{marginBottom:'10px'}}>
@@ -716,10 +716,10 @@ Hence, the ancient Chinese developed a comprehensive scheme of symbolic correlat
               The 64 Hexagrams
             </div>
             <div className="yj-en-14 text-white fw-300"  style={{ lineHeight: '1.4' }}>
-              <p style={{ marginBottom: '10px' }}>The 64 hexagrams in the <em>Book of Changes</em> represent symbolically the images and the structure of change in the universe. The system of symbols has been used for divination.</p>
-              <p style={{ marginBottom: '10px' }}>In the original <em>Changes of Zhou</em>, each of the 64 hexagrams is given an image, a name, a short prose description called a "judgement" and a reading for each line.</p>
-              <p style={{ marginBottom: '10px' }}>Each hexagram contains a pair of trigrams that have individual names and symbols associated with each of the eight trigrams. Each hexagram expresses a series of situations that can change from one into another.</p>
-              <p>Interpretation requires an understanding of the relationships between the trigrams and the lines within each hexagram and an understanding of the various relationships between different hexagrams.</p>
+              <p style={{ marginBottom: '10px' }}>The 64 hexagrams in the <em>Book of Changes</em> represent symbolically the images and the structures of change in the universe. This system of symbols has been used for divination.</p>
+              <p style={{ marginBottom: '10px' }}>In the original <em>Changes of Zhou</em>, each of the 64 hexagrams is given an image, a name, a short, cryptic description called a “judgement”, and a reading for each line.</p>
+              <p style={{ marginBottom: '10px' }}>Each hexagram contains a pair of trigrams that have individual names and symbolic associations. As each of the six lines is thought of as capable of change, each hexagram expresses a series of situations that can change from one into another.</p>
+              <p>Interpretation requires an understanding of the relationship between the trigrams and the lines within each hexagram and an understanding of the various relationships between different hexagrams.</p>
             </div>
           </div>
         </>
@@ -762,7 +762,7 @@ Hence, the ancient Chinese developed a comprehensive scheme of symbolic correlat
               Heaven, Earth, and Humanity
             </div>
             <div className="yj-en-14 text-white fw-300"  style={{ lineHeight: '1.4' }}>
-              <p style={{ marginBottom: '10px' }}>The <em>Book of Changes</em> stresses the unity and dynamic interaction between the three cosmic powers of Heaven, Earth, and Humanity—the way Humanity finds its place between Heaven and Earth. It further emphasises morality as the key to cosmic order and individual wellbeing.</p>
+              <p style={{ marginBottom: '10px' }}>The <em>Book of Changes</em> stresses the unity and dynamic interaction between the three cosmic powers of Heaven, Earth, and Humanity—the way Humanity finds its place between Heaven and Earth. It further emphasizes morality as the key to cosmic order and individual wellbeing.</p>
               <p style={{ marginBottom: '10px' }}>The practice of divination offers the opportunity for humans to relate their situations to the natural phenomena of the hexagrams. The images and the lines guide human actions for self-realisation in each divine situation. They provide a moral relevance to the judgements of fortune and misfortune.</p>
               <p>In this way, the counsels for actions enable human participation in the totality of cosmic change for harmony and unity. This way of thinking underlines the importance of human agency in the art of knowing and mastering the future.</p>
             </div>
@@ -807,7 +807,7 @@ Hence, the ancient Chinese developed a comprehensive scheme of symbolic correlat
             </div>
             <div className="yj-en-14 text-white fw-300"  style={{ lineHeight: '1.4' }}>
               <p style={{ marginBottom: '10px' }}>The <em>Book of Changes</em> reveals how the ancient Chinese developed a numerical system that could be used for divination and explaining the operations of nature.</p>
-              <p>Two ancient Chinese diagrams, <em>Yellow River Chart</em> and <em>Writing from the Luo River</em>, represent the numbers of the natural order. Both diagrams, as received from antiquity, had been appended to the Book of Changes by the Song period (960–1279). They were linked to the five phases (<em>wuxing</em>) and the different correlational systems—such as, cardinal point, colour, and the calendrical system of Chinese calendar—to represent the interconnectedness of all things in a holistic totality of order.</p>
+              <p>Two ancient Chinese diagrams, <em>Yellow River Chart</em> and <em>Writing from the Luo River</em>, represent the numerical interpretations of the natural order. Both diagrams, as received from antiquity, had been appended to the Book of Changes by the Song period (960–1279). They were linked to the five phases (<em>wuxing</em>) and the different correlational systems—such as, cardinal point, colour, and the stem-branch system of Chinese calendar—to represent the interconnectedness of all things in a holistic totality of order.</p>
             </div>
           </div>
         </>
@@ -865,7 +865,7 @@ The <em>Yellow River Chart</em> has been traditionally attributed to the legenda
               lineHeight: '1.4',
               letterSpacing: '0.1em' }}>
               
-              <span style={{marginTop: "-18px"}}>  </span>﹁洛書﹂相傳是一隻從<br/>洛河出現的神龜背上的圖。<br/>此圖為三階幻方，無論<br/>縱、橫、斜向任意行列，<br/>字之和數皆為十五。這是<br/>已知世上最早的幻方。
+              <span style={{marginTop: "-18px"}}>  </span>﹁洛書﹂相傳是一隻從<br/>洛河出現的神龜背上的圖。<br/>此圖為三階幻方，無論<br/>縱、橫、斜向任意行列，<br/>數字之和皆為十五。這是<br/>已知世上最早的幻方。
             </div>
           </div>
 
@@ -943,7 +943,7 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
             <div className="yj-cn-15 text-white fw-300"  style={{ lineHeight: '1.4' }}>
               <p style={{ marginBottom: '10px' }}>《易經》六十四卦體系，被認為與哥特弗利德·威廉·萊布尼茲 （Gottfried Wilhelm Leibniz，1646–1716年） 所創的二進制存在關聯，該系統如今被廣泛應用於數位計算領域。</p>
               <p style={{ marginBottom: '10px' }}>萊布尼茲是一名在微積分學作出重大貢獻的德國哲學家和數學家，他被曾前往中國的法國耶穌會傳教士白晉（Joachim Bouvet，1656–1730年）引介下認識《易經》。萊布尼茲因中國六十四卦的抽象結構與二進制十分相似而感到著迷，並將此古代符號系統與他的二進制運算建立連結。</p>
-              <p>圖例跟據伏羲所創「先天八卦圖」中六十四卦的陣式，將陰以「0」代替，陽以「1」代替，即可得到零至六十三 數值的二進制表示法。</p>
+              <p>圖例跟據伏羲所創「先天八卦圖」中六十四卦的陣式，將陰以「0」代替，陽以「1」代替，即可得到零至六十三數值的二進制表示法。</p>
             </div>
           </div>
 
@@ -962,7 +962,7 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
             <div className="yj-en-14 text-white fw-300"  style={{ lineHeight: '1.4' }}>
               <p style={{ marginBottom: '10px' }}>The 64 hexagrams in the <em>Book of Changes</em> have been linked with the binary notation developed by Gottfried Wilhelm Leibniz (1646–1716), used nowadays in digital computation.</p>
               <p style={{ marginBottom: '10px' }}>Leibniz, a German philosopher and mathematician who made great contributions to calculus, was introduced to the <em>Book of Changes</em> by Joachim Bouvet (1656–1730), a French Jesuit missionary working in China. Fascinated by how the abstract structures of the hexagrams resembled his binary number system, he linked the ancient symbols with binary arithmetic.</p>
-              <p>The illustrations demonstrate the arrangement of the 64 hexagrams in the Former Heaven sequence attributed to Fu Xi. By replacing a <em>yin</em> symbol withthe number 0 and a yang symbol with the number 1, we get the binary notation for the numbers 0 to 63.</p>
+              <p>The illustrations demonstrate the arrangement of the 64 hexagrams in the Former Heaven sequence attributed to Fu Xi. By replacing a <em>yin</em> symbol with the number 0 and a yang symbol with the number 1, we get the binary notation for the numbers 0 to 63.</p>
             </div>
           </div>
         </>

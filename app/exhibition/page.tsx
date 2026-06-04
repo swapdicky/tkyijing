@@ -317,7 +317,7 @@ export default function Exhibition() {
                 lineHeight: '1.4',
                 
                 letterSpacing: '0.1em' }}>
-                 <span style={{marginTop: "-10px"}}></span>︽易經︾<span style={{marginTop:'-10px'}}></span>無疑是中國文化遺產之精髓。<br/>儒家與道家思想同樣根植於此<br/>在中国人古代哲学、科学、国家治术，<br/>甚至當代生活也從中獲得靈感。<br/>甚至卜卦文獻和哲學論述，︽易經︾<br/>在中國人生活方方面面留下不可<br/>磨滅的影響。
+                 <span style={{marginTop: "-10px"}}></span>︽易經︾<span style={{marginTop:'-10px'}}></span>無疑是中國文化遺產之精髓。<br/>儒家與道家思想同樣根植於此<br/>中國古代哲學、科學、國家治術，<br/>甚至當代生活也從中獲得靈感。<br/>作為傳統卜卦文獻和哲學論述，︽易經︾<br/>在中國人生活方方面面留下不可<br/>磨滅的影響。
               </div>
             </div>
 
@@ -672,11 +672,9 @@ Over the years, I failed repeatedly to create a visual representation of the <em
                 {/* Title */}
                 <h3 className="text-white fw-600 yj-cn-36"  style={{ writingMode: 'vertical-rl',
                   textOrientation: 'upright',
-                  
                   letterSpacing: '0.2em',
-                  
                   marginLeft: "20px" }}>
-                 易經占卜
+                 <span style={{marginTop:"-10px"}}></span>︽易經︾<span style={{marginTop:"-10px"}}></span>占卜
                 </h3>
                 
                 {/* Description text */}
@@ -693,7 +691,7 @@ Over the years, I failed repeatedly to create a visual representation of the <em
                   據史實記載，古人使用蓍草與︽易經︾<br/>
                   六十四卦作占卜。卜卦過程需要分出蓍草<br/>
                   計算數值以定每一爻︵連線<span style={{writingMode: 'horizontal-tb', display: 'inline-block', transform: 'rotate(-180deg)', transformOrigin: 'center', margin: '0 -2px', letterSpacing: '-1px',fontSize:"20px"}}>—</span>或<span style={{writingMode: 'horizontal-tb', display: 'inline-block', transform: 'rotate(-180deg)', transformOrigin: 'center', margin: '0 -2px', letterSpacing: '-1px'}}>- -</span>斷線︶，<br/>
-                  此過程六次，得出完整的一卦。後來，<br/>
+                  然後重覆此過程六次，得出完整的一卦。後來，<br/>
                   金錢卦逐漸普及，並沿襲至今。<br/><br/>
 
                   隨著數碼科技突破，今時今日在網上<br/>
@@ -844,7 +842,7 @@ Nowadays, with the advance of digital technologies, an online consultation of th
                   lineHeight: '1.4',
                   
                   letterSpacing: '0.1em' }}>
-                  <span style={{marginTop: "-7px"}}></span>︽易經︾<span style={{marginTop:'-6px'}}></span>的核心概念是﹁天人合一﹂。<br /><span style={{marginTop: "-7px"}}></span>︽觀靜錄︾<span style={{marginTop:'-6px'}}></span>系列收錄了無人機尚<br/>未普及之前的航拍作品，以及其他<br/>人跡罕至的遼闊景觀，嘗試以此攝影<br/>作品集詮釋此概念。過去四十年來，<br/>我有幸踏遍世界邊陲進行拍攝，<br/>我希望能與新一代的觀眾分享這批<br/>作品，讓他們欣賞地球的壯麗風采，<br/>進而踏上更新與保護的道路，而非<br/>重進而自我毀滅的覆轍。
+                  <span style={{marginTop: "-7px"}}></span>︽易經︾<span style={{marginTop:'-6px'}}></span>的核心概念是﹁天人合一﹂。<br /><span style={{marginTop: "-7px"}}></span>︽觀靜錄︾<span style={{marginTop:'-6px'}}></span>系列收錄了無人機尚<br/>未普及之前的航拍作品，以及其他<br/>人跡罕至的遼闊景觀，嘗試以此攝影<br/>作品集詮釋此概念。過去四十年來，<br/>我有幸踏遍世界邊陲進行拍攝，<br/>我希望能與新一代的觀眾分享這批<br/>作品，讓他們欣賞地球的壯麗風采，<br/>進而踏上更新與保護的道路，而非<br/>重蹈我輩自我毀滅的覆轍。
                 </div>
               </div>
 

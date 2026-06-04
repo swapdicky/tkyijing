@@ -103,6 +103,8 @@ border-bottom: 1px solid #888;}
 .margin-n-40{margin-top: -40px;}
 .right-30{right: 30px;}
 .yj-height-half{height: 50%;}
+.yj-bottom-gap{gap: 2rem;}
+.yj-bottom-bar{padding: 0 3rem 3rem 3rem;}
 
 /* Exhibition section responsive classes */
 .ex-section { display: flex; flex-direction: row; margin-left: -40px; padding-right: 90px; }
@@ -114,7 +116,7 @@ border-bottom: 1px solid #888;}
 .yj-scroll-height-lg { height: 200px; }
 
 /* Yijing hexagram container size classes */
-.yj-hexagram-size { width: 80px; height: 80px; margin-bottom: 24px; }
+.yj-hexagram-size { width: 80px; height: 80px; margin-bottom: 24px;}
 
 /* Logo size classes */
 .logo-size { width: 215px; height: 36px; background-size: 215px auto; background-repeat: no-repeat; background-position: left center; }
@@ -366,10 +368,12 @@ a:hover .hover-underline::after {
   .section-title-text {font-size: 34px;}
 
   /* Space */
-  .home-info-top{padding-top: 90px;}
+  .home-info-top{padding-top: 70px;}
   .bottom-60{bottom: 30px;left: 50px;;}
   .margin-n-40{margin-top: -30px;}
   .right-30{right: 15px;}
+  .yj-bottom-gap{gap: .5rem;}
+  .yj-bottom-bar{padding: 0 2rem 2rem 2rem;}
   .main-menu .border-t{height: 71px;}
 
   /* Info box width - iPad */
@@ -468,7 +472,7 @@ a:hover .hover-underline::after {
   .yj-scroll-height-lg { height: 156px; }
 
   /* Yijing hexagram container size - small height */
-  .yj-hexagram-size { width: 56px; height: 56px; margin-bottom: 16px; }
+  .yj-hexagram-size { width: 56px; height: 56px; margin-bottom: 16px;}
 
   /* Logo size - small height (only for Yijing and Exhibition pages) */
   .logo-size-small-height { width: 38px; }

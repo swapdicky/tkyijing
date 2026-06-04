@@ -20,14 +20,12 @@ export default function About() {
   
   const videos = [
     {
-      titleCn: '易經：鮑皓昕攝影藝術',
-      titleEn: '<em>Book of Changes</em>: The Art of Basil Pao',
+
       thumbnail: '/images/about/1.jpg',
       youtubeId: 'YOUR_YOUTUBE_ID_1'
     },
     {
-      titleCn: '第二條影片標題',
-      titleEn: 'Second Video Title',
+
       thumbnail: '/images/about/2.jpg',
       youtubeId: 'YOUR_YOUTUBE_ID_2'
     }
@@ -276,12 +274,10 @@ We hope the immersive experiences of this show will allow abstract ideas to take
                 {/* Left: Titles */}
                 <div>
                   <div className="text-white yj-cn-16" style={{ lineHeight: '1.6', marginBottom: '4px' }}>
-                    {videos[currentVideoIndex].titleCn}
                   </div>
                   <div
                     className="text-white fw-300 yj-en-16"
                     style={{ lineHeight: '1.6' }}
-                    dangerouslySetInnerHTML={{ __html: videos[currentVideoIndex].titleEn }}
                   />
                 </div>
                 
@@ -532,7 +528,7 @@ We hope the immersive experiences of this show will allow abstract ideas to take
             paddingRight: '30px'
           }}>
             <div className="text-white fw-300 yj-en-16" style={{ lineHeight: '1.4', textAlign: 'left' }}>
-Basil Pao began his photographic career in 1980 upon his return to Hong Kong after ten years in the United States, where he was art director for Atlantic Records and Album Graphics Inc. in New York, and Warner Brothers Records in Los Angeles. He first worked with Michael Palin when he designed the book, album cover and poster for the Monty Python film <em>Life of Brian</em>. They have since collaborated on 11 illustrated books based on the BBC travel series <em>Pole to Pole, Full Circle, Hemingway Adventure, Sahara, Himalaya, New Europe and Brazil</em>. He is the author of <em>Hands, China Revealed, Yi’Jing-Book of Changes, Shan Shui-Mountain-Water, The Universal Scream, OM2-Ordinary Moments+, Carnival of Dreams and The Last Emperor Revisited</em>. His exhibition catalogues include <em>Travels with Michael Palin</em> for his exhibitions at the Fox Talbot Museum and the Royal Geographical Society in London; and <em>Around the World in 8000 Days</em> at the Hong Kong Maritime Museum. His corporate limited editions include <em>A Tale of Two Ventures</em> for Wah Kwong Maritime Transport; <em>AMAN, Bhutan and AMAN2</em> for Aman resorts; <em>OM-Ordinary Moments, CMYK-China, and Blazing Shadows-A World of Black & Light</em> for Printer Trento in Italy. Basil’s travel essays and other assignments, including his Special Stills photography for Bernardo Bertolucci’s <em>The Last Emperor and Little Buddha</em>, Terry Jones’ <em>Erik the Viking</em>, Terry Gilliam’s <em>The Man Who Killed Don Quixote</em> and other feature films, have appeared in publications and exhibitions all around the world.            </div>
+Basil Pao began his photographic career in 1980 upon his return to Hong Kong after ten years in the United States, where he was art director for Atlantic Records and Album Graphics Inc. in New York, and Warner Brothers Records in Los Angeles. He first worked with Michael Palin when he designed the book, album cover and poster for the Monty Python film <em>Life of Brian</em>. They have since collaborated on 11 illustrated books based on the BBC travel series <em>Pole to Pole, Full Circle, Hemingway Adventure, Sahara, Himalaya, New Europe and Brazil</em>. He is the author of <em>Hands, China Revealed, Yi’Jing-Book of Changes, Shan Shui-Mountain-Water, The Universal Scream, OM2-Ordinary Moments+, Carnival of Dreams and The Last Emperor Revisited</em>. His exhibition catalogues include <em>Travels with Michael Palin</em> for his exhibitions at the Fox Talbot Museum and the Royal Geographical Society in London; and <em>Around the World in 8000 Days</em> at the Hong Kong Maritime Museum. His corporate limited editions include <em>A Tale of Two Ventures</em> for Wah Kwong Maritime Transport; <em>AMAN, Bhutan and AMAN2</em> for Aman resorts; <em>OM-Ordinary Moments, CMYK-China, and Blazing Shadows-A World of Black & Light</em> for Printer Trento in Italy. Basil’s travel essays and other assignments, including his Special Stills photography for Bernardo Bertolucci’s <em>The Last Emperor and Little Buddha</em>, Terry Jones’ <em>Erik the Viking</em>, Terry Gilliam’s <em>The Man Who Killed Don Quixote</em> and other feature films, have appeared in publications and exhibitions all around the world.            </div>
           </div>
         </div>
 </div>
