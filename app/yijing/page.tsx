@@ -412,8 +412,9 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
             <div className="yj-cn-16 text-black fw-300"  style={{ writingMode: 'vertical-rl',
               textOrientation: 'mixed',
               lineHeight: '1.4',
-              letterSpacing: '0.08em' }}>
-              <span style={{marginTop :"-6px"}}></span>︽易經︾被中國歷代思想家不斷詮釋和修訂，<br/>並發展了對其註釋傳統的專門研究和派別。一些<br/>思想家著重卜卦的﹁象數﹂；另一些深入考究<br/>經典的﹁義理﹂。此書的影響貫穿整個中國文化史，<br/>持續發揮影響至今。<br/><br/><span style={{marginTop :"-6px"}}></span>︽易經︾在國際世界亦備受尊崇。分別出自馬克萊奇<br/><span style={{marginTop :"-6px"}}></span>︵Thomas McClatchie，1814–1885年︶、理雅各<br/><span style={{marginTop :"-6px"}}></span>︵James Legge，1815–1897年︶、尉禮賢<br/><span style={{marginTop :"-6px"}}></span>︵Richard Wilhelm，1873–1930年︶之手的譯本，將此中國<br/>經典傳播至世界。心理學家卡爾‧榮格︵Carl Jung，<br/>1875–1961年︶將此古籍與他提出的﹁共時性﹂概念結合。<br/>先鋒派作曲家約翰‧基治︵John Cage，1912–1992年︶根據<br/><span style={{marginTop :"-6px"}}></span>︽易經︾的處境次序決定音樂創作的隨機性。<br/>艾斯班‧艾瑟特︵Espen Aarseth，1965年生︶在進行數碼<br/>文學研究時，將︽易經︾視為﹁可能是古代最著名的<br/>制動文本範例﹂。
+              letterSpacing: '0.08em',
+              fontFamily: '"Noto Serif TC", serif' }}>
+              <span style={{marginTop :"-6px"}}></span>︽易經︾被中國歷代思想家不斷詮釋和修訂，<br/>並發展了對其註釋傳統的專門研究和派別。一些<br/>思想家著重卜卦的﹁象數﹂；另一些深入考究<br/>經典的﹁義理﹂。此書的影響貫穿整個中國文化史，<br/>持續發揮影響至今。<br/><br/><span style={{marginTop :"-6px"}}></span>︽易經︾在國際世界亦備受尊崇。分別出自馬克萊奇<br/><span style={{marginTop :"-6px"}}></span>︵<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Thomas McClatchie</span>，<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1814–1885</span>年︶、理雅各<br/><span style={{marginTop :"-6px"}}></span>︵<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>James Legge</span>，<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1815–1897</span>年︶、尉禮賢<br/><span style={{marginTop :"-6px"}}></span>︵<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Richard Wilhelm</span>，<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1873–1930</span>年︶之手的譯本，將此中國<br/>經典傳播至世界。心理學家卡爾‧榮格︵<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Carl Jung</span>，<br/><span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1875–1961</span>年︶將此古籍與他提出的﹁共時性﹂概念結合。<br/>先鋒派作曲家約翰‧基治︵<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>John Cage</span>，<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1912–1992</span>年︶根據<br/><span style={{marginTop :"-6px"}}></span>︽易經︾的處境次序決定音樂創作的隨機性。<br/>艾斯班‧艾瑟特︵<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Espen Aarseth</span>，<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1965</span>年生︶在進行數碼<br/>文學研究時，將︽易經︾視為﹁可能是古代最著名的<br/>制動文本範例﹂。
             </div>
           </div>
 
@@ -472,9 +473,9 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
               <div className="yj-cn-18 text-white fw-600"  style={{ marginBottom: '10px' }}>
                 儒家五經之一
               </div>
-              <div className="yj-cn-16 text-white fw-300"  style={{ lineHeight: '1.4' }}>
+              <div className="yj-cn-16 text-white fw-300"  style={{ lineHeight: '1.4', fontFamily: '"Noto Serif TC", serif' }}>
                 <p style={{marginBottom:'10px'}}>
-                最初，此書將六十四卦的卦象、卦名與卦爻辭集結，名為《周易》，相傳為周文王（公元前十一世紀）所著。《周易》正文逐漸擴展至包含一系列為經作註解和闡釋哲理的「傳」（又稱《十翼》），相信是戰國時期（公元前475-221年）不同作者所撰注。
+                最初，此書將六十四卦的卦象、卦名與卦爻辭集結，名為《周易》，相傳為周文王（公元前十一世紀）所著。《周易》正文逐漸擴展至包含一系列為經作註解和闡釋哲理的「傳」（又稱《十翼》），相信是戰國時期（公元前<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>475-221</span>年）不同作者所撰注。
                 </p>
                 <p>
                 為《周易》所作的「傳」闡述八卦及六十四卦的象徵意義，解釋卦象、卦辭和爻辭，並就卦義作進一步解釋和延伸意義。隨着儒家觀念和道家自然哲學的融入，時至公元前一至二世紀的漢朝，此書包含「易傳」在內，被正式確立為一本儒家經典，稱為《易經》。
@@ -787,9 +788,9 @@ Hence, the ancient Chinese developed a comprehensive scheme of symbolic correlat
             <div className="yj-cn-20 text-white fw-600"  style={{ marginBottom: '10px' }}>
               《易經》與術數
             </div>
-            <div className="yj-cn-15 text-white fw-300"  style={{ lineHeight: '1.4' }}>
+            <div className="yj-cn-15 text-white fw-300"  style={{ lineHeight: '1.4', fontFamily: '"Noto Serif TC", serif' }}>
               <p style={{ marginBottom: '10px' }}>《易經》揭示出古代中國人如何建構出一套數字體系，用作命理占卜以及解釋自然運行規律。</p>
-              <p>「河圖」與「洛書」是兩幅中國古代的圖像，代表了對自然秩序的數字詮釋。這兩幅圖像自古流傳，至宋代（960–1279年）增補至《易經》之中。它們與「五行」以及各種對應系統如方位、顏色、干支曆法等相互關聯，以呈現天地萬物在整體規律中的相互依存性。</p>
+              <p>「河圖」與「洛書」是兩幅中國古代的圖像，代表了對自然秩序的數字詮釋。這兩幅圖像自古流傳，至宋代（<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>960–1279</span>年）增補至《易經》之中。它們與「五行」以及各種對應系統如方位、顏色、干支曆法等相互關聯，以呈現天地萬物在整體規律中的相互依存性。</p>
             </div>
           </div>
 
@@ -940,10 +941,10 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
             <div className="yj-cn-20 text-white fw-600"  style={{ marginBottom: '10px' }}>
               與現代科學的關係
             </div>
-            <div className="yj-cn-15 text-white fw-300"  style={{ lineHeight: '1.4' }}>
-              <p style={{ marginBottom: '10px' }}>《易經》六十四卦體系，被認為與哥特弗利德·威廉·萊布尼茲 （Gottfried Wilhelm Leibniz，1646–1716年） 所創的二進制存在關聯，該系統如今被廣泛應用於數位計算領域。</p>
-              <p style={{ marginBottom: '10px' }}>萊布尼茲是一名在微積分學作出重大貢獻的德國哲學家和數學家，他被曾前往中國的法國耶穌會傳教士白晉（Joachim Bouvet，1656–1730年）引介下認識《易經》。萊布尼茲因中國六十四卦的抽象結構與二進制十分相似而感到著迷，並將此古代符號系統與他的二進制運算建立連結。</p>
-              <p>圖例跟據伏羲所創「先天八卦圖」中六十四卦的陣式，將陰以「0」代替，陽以「1」代替，即可得到零至六十三數值的二進制表示法。</p>
+            <div className="yj-cn-15 text-white fw-300"  style={{ lineHeight: '1.4', fontFamily: '"Noto Serif TC", serif' }}>
+              <p style={{ marginBottom: '10px' }}>《易經》六十四卦體系，被認為與哥特弗利德·威廉·萊布尼茲 （<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Gottfried Wilhelm Leibniz</span>，<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1646–1716</span>年） 所創的二進制存在關聯，該系統如今被廣泛應用於數位計算領域。</p>
+              <p style={{ marginBottom: '10px' }}>萊布尼茲是一名在微積分學作出重大貢獻的德國哲學家和數學家，他被曾前往中國的法國耶穌會傳教士白晉（<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Joachim Bouvet</span>，<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1656–1730</span>年）引介下認識《易經》。萊布尼茲因中國六十四卦的抽象結構與二進制十分相似而感到著迷，並將此古代符號系統與他的二進制運算建立連結。</p>
+              <p>圖例跟據伏羲所創「先天八卦圖」中六十四卦的陣式，將陰以「<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>0</span>」代替，陽以「<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1</span>」代替，即可得到零至<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>63</span>數值的二進制表示法。</p>
             </div>
           </div>
 

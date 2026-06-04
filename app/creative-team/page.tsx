@@ -138,10 +138,11 @@ export default function CreativeTeam() {
               fontWeight: 300,
               color: '#fff',
               textAlign: 'left',
-              marginBottom: '20px'
+              marginBottom: '20px',
+              fontFamily: '"Noto Serif TC", serif'
             }}>
               <p style={{ marginBottom: '1em' }}>
-                我們向所有協助及參與本次展覽的人士致以最誠摯的謝意。特別感謝鮑皓昕先生設計的展覽海報，以及Teresa Coleman女士借出其收藏的道教宗師法衣。
+                我們向所有協助及參與本次展覽的人士致以最誠摯的謝意。特別感謝鮑皓昕先生設計的展覽海報，以及<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Teresa Coleman</span>女士借出其收藏的道教宗師法衣。
               </p>
               <p style={{ margin: 0 }}>
                 展覽及其內容並不反映香港賽馬會慈善信託基金或大館的立場或意見。                            
@@ -170,10 +171,11 @@ export default function CreativeTeam() {
               fontWeight: 300,
               color: '#888',
               textAlign: 'left',
-              marginBottom: '20px'
+              marginBottom: '20px',
+              fontFamily: '"Noto Serif TC", serif'
             }}>
               <p >
-註: 是次展覽中引用《傅佩榮解讀易經》（台北，2022）的白話中文譯解；英文版本根據衛禮賢（Richard Wilhelm）的譯本，由卡利‧貝恩斯（Cary F. Baynes）翻譯成英文（普林斯頓，1997）。              </p>
+註: 是次展覽中引用《傅佩榮解讀易經》（台北，<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>2022</span>）的白話中文譯解；英文版本根據衛禮賢（<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Richard Wilhelm</span>）的譯本，由卡利‧貝恩斯（<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Cary F. Baynes</span>）翻譯成英文（普林斯頓，<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1997</span>）。              </p>
 
             </div>
             <div style={{
