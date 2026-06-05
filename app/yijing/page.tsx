@@ -1083,7 +1083,7 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
         <>
           {/* Mobile wrapper: top 50px for header, bottom 30px */}
           <div style={{
-            position: 'fixed',
+            position: 'absolute',
             top: '50px',
             left: 0,
             width: '100vw',
@@ -1105,7 +1105,7 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
                 pointerEvents: 'none',
                 opacity: 1 }}
             >
-              Click to explore
+              Scroll to explore
             </div>
 
             {/* Mobile: Each slide is a full-screen frame that slides vertically */}
