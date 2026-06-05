@@ -26,11 +26,6 @@ export default function Yijing() {
     checkMobile();
     window.addEventListener('resize', checkMobile);
     
-    // Prevent body scroll on mobile
-    if (window.innerWidth < 980) {
-      document.body.style.overflow = 'hidden';
-    }
-    
     // Check initial mouse position on mount
     const handleInitialMousePosition = (e: MouseEvent) => {
       setMousePos({ x: e.clientX, y: e.clientY });
@@ -60,17 +55,15 @@ export default function Yijing() {
     };
   }, []);
 
-  // Hide scrollbar and prevent scroll on desktop
+  // Hide scrollbar and prevent scroll
   useEffect(() => {
-    if (!isMobile) {
-      document.body.style.overflowY = 'hidden';
-      document.body.style.overflowX = 'hidden';
-    }
+    document.body.style.overflowY = 'hidden';
+    document.body.style.overflowX = 'hidden';
     return () => {
       document.body.style.overflowY = '';
       document.body.style.overflowX = '';
     };
-  }, [isMobile]);
+  }, []);
 
   const renderLeftContent = (index: number) => {
     if (index === 0) {
@@ -1093,8 +1086,7 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
             left: 0,
             width: '100vw',
             height: 'calc(100vh - 200px)',
-            overflowY: 'auto',
-            overflowX: 'hidden',
+            overflow: 'hidden',
             zIndex: 1,
             borderRadius: '15px'
           }}>
