@@ -1084,7 +1084,7 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
           {/* Mobile wrapper: top 50px for header, bottom 30px */}
           <div style={{
             position: 'fixed',
-            top: '120px',
+            top: '50px',
             left: 0,
             width: '100vw',
             height: 'calc(100vh - 200px)',
