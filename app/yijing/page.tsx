@@ -1083,7 +1083,7 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
         <>
           {/* Mobile wrapper: top 50px for header, bottom 30px */}
           <div style={{
-            position: 'fixed',
+            position: 'absolute',
             top: '50px',
             left: 0,
             width: '100vw',
@@ -1095,7 +1095,7 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
             {/* Mobile: Scroll to explore text */}
             <div
               className="yj-en-12 text-white fw-400"
-               style={{ position: 'fixed',
+               style={{ position: 'absolute',
                 right: '15px',
                 bottom: '5px',
                 
