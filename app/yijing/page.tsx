@@ -1078,7 +1078,7 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
               {/* Mobile: Scroll to explore text */}
             <div
               className="yj-en-12 text-white fw-400"
-               style={{ position: 'absolute',
+               style={{ position: 'fixed',
                 right: '15px',
                 bottom: '5px',
                 
