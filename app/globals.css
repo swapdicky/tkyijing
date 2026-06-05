@@ -1,4 +1,3 @@
-@import url("https://use.typekit.net/pen4qeo.css");
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap');
 
 @tailwind base;
@@ -121,6 +120,10 @@ border-bottom: 1px solid #888;}
 /* Logo size classes */
 .logo-size { width: 215px; height: 36px; background-size: 215px auto; background-repeat: no-repeat; background-position: left center; }
 .logo-top { top: 30px; }
+
+/* Info box logo container */
+.info-box-logo {  position: absolute;  top: 30px;  left: 30px;  width: 36px;  height: 36px;  z-index: 2;}
+.info-box-logo img {  width: 100%;  height: 100%;}
 
 /* Info box width classes */
 .info-box-width { width: 524px; }
@@ -368,7 +371,7 @@ a:hover .hover-underline::after {
   .section-title-text {font-size: 34px;}
 
   /* Space */
-  .home-info-top{padding-top: 70px;}
+  .home-info-top{padding-top: 80px;}
   .bottom-60{bottom: 30px;left: 50px;;}
   .margin-n-40{margin-top: -30px;}
   .right-30{right: 15px;}
@@ -403,6 +406,9 @@ a:hover .hover-underline::after {
 
   /* Yijing hexagram container size - iPad */
   .yj-hexagram-size { width: 64px; height: 64px; margin-bottom: 20px; }
+
+  /* Info box logo - iPad */
+  .info-box-logo { width: 32px; height: 32px; top: 20px; left: 20px; }
 
 }
 
@@ -477,6 +483,9 @@ a:hover .hover-underline::after {
   /* Logo size - small height (only for Yijing and Exhibition pages) */
   .logo-size-small-height { width: 38px; }
 
+  /* Info box logo - small height */
+  .info-box-logo { width: 28px; height: 28px; top: 15px; left: 15px; }
+
   /* Info box scale transform classes */
   .info-scale-sm { transform: scale(1); transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1); transform-origin: right top; }
   .info-scale-lg { transform: scale(1.2); transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1); transform-origin: right top; }
@@ -489,7 +498,8 @@ a:hover .hover-underline::after {
 
 /* Mobile: 320px - 979px */
 @media (min-width: 320px) and (max-width: 979px) {
-  .screen-size-warning {    display: flex;}
+  .zoom-controls { display: none; }
+  .zoom-separator { display: none; }
 .yj-padding-large ,
 .yj-padding-medium ,
 .yj-padding-small { padding: 40px 20px; }
@@ -526,6 +536,16 @@ a:hover .hover-underline::after {
 /* Logo size - mobile */
 .logo-size { width: 170px; height: 30px; background-size: 170px auto; }
 .logo-top { top: 10px; }
+
+/* landing */
+.info-box-width{width: calc(100% - 30px);padding: 20px 15px !important;}
+.info-box-logo { width: 30px; height: 30px; top: 20px; left: 15px; }
+.info-box-max-height-expanded{width: 100vw;height: calc(100vh - 120px) !important;padding: 15px !important;border-radius: 15px !important;}
+.info-scale-lg{transform: scale(.9);}
+.logo-size{left: 100px !important;}
+.w-full{padding-bottom: 100px;}
+
+
 
 }
 

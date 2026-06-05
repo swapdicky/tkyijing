@@ -5,6 +5,7 @@ import { flushSync } from "react-dom";
 import { gsap } from "gsap";
 import Header from "@/components/Header";
 import { yijing } from "@/data/homepage";
+import React from "react";
 
 // I Ching hexagram mapping (1-64) to binary representation
 // 0 = yin (broken line), 1 = yang (solid line)
@@ -69,6 +70,7 @@ export default function Home() {
   const titleH3Ref = useRef<HTMLHeadingElement>(null);
   const [titleH3Tall, setTitleH3Tall] = useState(false);
   const scrollContentRef = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
 
   // Custom order for 8x8 grid
   const gridOrder = [
@@ -169,7 +171,66 @@ export default function Home() {
         cancelAnimationFrame(rafId);
       }
     };
-  }, [mode, isMousePaused, isLanding, hideOverlay]);
+  }, [mode, isMousePaused, isLanding, hideOverlay, zoom]);
+
+  // Touch drag effect for mobile
+  useEffect(() => {
+    let rafId: number | null = null;
+    let lastTime = 0;
+    const throttleDelay = 50;
+    let touchStartX = 0;
+    let touchStartY = 0;
+
+    const handleTouchStart = (e: TouchEvent) => {
+      if (!moduleRef.current || mode === "overview" || isMousePaused || isLanding || !hideOverlay) return;
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+      if (!moduleRef.current || mode === "overview" || isMousePaused || isLanding || !hideOverlay) return;
+
+      const currentTime = Date.now();
+      if (currentTime - lastTime < throttleDelay) return;
+      lastTime = currentTime;
+
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+      }
+
+      rafId = requestAnimationFrame(() => {
+        if (!moduleRef.current) return;
+
+        const { clientX, clientY } = e.touches[0];
+        const { innerWidth, innerHeight } = window;
+
+        const xPercent = (clientX / innerWidth - 0.5) * 2;
+        const yPercent = (clientY / innerHeight - 0.5) * 2;
+
+        const moveX = -xPercent * 50;
+        const moveY = -yPercent * 80;
+
+        gsap.to(moduleRef.current, {
+          x: `${moveX}vw`,
+          y: `${moveY}vw`,
+          duration: zoom === 150 ? 12 : 6,
+          ease: "power1.out",
+          overwrite: "auto",
+        });
+      });
+    };
+
+    window.addEventListener("touchstart", handleTouchStart, { passive: true });
+    window.addEventListener("touchmove", handleTouchMove, { passive: true });
+
+    return () => {
+      window.removeEventListener("touchstart", handleTouchStart);
+      window.removeEventListener("touchmove", handleTouchMove);
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+      }
+    };
+  }, [mode, isMousePaused, isLanding, hideOverlay, zoom]);
 
   useEffect(() => {
     if (!moduleRef.current || isPanelOpen) return;
@@ -194,9 +255,9 @@ export default function Home() {
 
     gridItemsRef.current.forEach((item, index) => {
       if (item) {
-        // Archived boxes get 2px visual thickness
+        // Archived boxes get 2px visual thickness, but mobile always 1px
         const isArchived = archivedBoxes.has(index + 1);
-        const finalWidth = isArchived ? borderWidth * 2 : borderWidth;
+        const finalWidth = isMobile ? 1 : (isArchived ? borderWidth * 2 : borderWidth);
         
         gsap.to(item, {
           borderWidth: `${finalWidth}px`,
@@ -222,23 +283,31 @@ export default function Home() {
         // Reset scroll to top to prevent jump when switching from 100% (180vh)
         window.scrollTo({ top: 0, behavior: 'instant' });
       } else if (zoom === 100) {
-        // Reduce scale to add 20px margin on each side
-        const scaleAdjustment = (window.innerWidth - 40) / window.innerWidth;
-        scaleValue = 0.57 * scaleAdjustment;
-        
-        // Scroll to center of the page (middle of 8x8 grid)
-        targetX = 0;
-        targetY = 15;
-        
-        // Page is min-h-[180vh], so middle = (180vh - 100vh) / 2 = 40vh
-        // Use fixed calculation to avoid timing issues with scrollHeight not yet updated
-        const viewportHeight = window.innerHeight;
-        const scrollToMiddle = viewportHeight * 0.4; // 40vh
-        
-        // Scroll on next frame to ensure layout has updated to 180vh
-        requestAnimationFrame(() => {
-          window.scrollTo({ top: scrollToMiddle, behavior: 'instant' });
-        });
+        // Mobile: 4-column grid is already 100vw, so scale differently
+        if (isMobile) {
+          // On mobile, scale to fit 4-column grid with margin
+          const scaleAdjustment = (window.innerWidth - 20) / window.innerWidth;
+          scaleValue = scaleAdjustment;
+          targetY = 0;
+        } else {
+          // Desktop: Reduce scale to add 20px margin on each side
+          const scaleAdjustment = (window.innerWidth - 40) / window.innerWidth;
+          scaleValue = 0.57 * scaleAdjustment;
+          
+          // Scroll to center of the page (middle of 8x8 grid)
+          targetX = 0;
+          targetY = 15;
+          
+          // Page is min-h-[180vh], so middle = (180vh - 100vh) / 2 = 40vh
+          // Use fixed calculation to avoid timing issues with scrollHeight not yet updated
+          const viewportHeight = window.innerHeight;
+          const scrollToMiddle = viewportHeight * 0.4; // 40vh
+          
+          // Scroll on next frame to ensure layout has updated to 180vh
+          requestAnimationFrame(() => {
+            window.scrollTo({ top: scrollToMiddle, behavior: 'instant' });
+          });
+        }
       }
       
       gsap.to(moduleRef.current, {
@@ -274,7 +343,7 @@ export default function Home() {
         });
       }
     }
-  }, [mode, zoom, isPanelOpen, archivedBoxes]);
+  }, [mode, zoom, isPanelOpen, archivedBoxes, isMobile]);
 
   useEffect(() => {
     if (zoom === 150) {
@@ -347,6 +416,17 @@ export default function Home() {
     const height = titleH3Ref.current.offsetHeight;
     setTitleH3Tall(height > 55);
   }, [selectedBox, isPanelOpen]);
+
+  // Detect mobile screen size
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 980);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const toggleMode = () => {
     if (mode === "explore") {
@@ -422,8 +502,8 @@ export default function Home() {
             height: scrollProgress >= 1 ? '100vh' : '724px',
             backgroundColor: 'white',
             position: 'absolute',
-            top: '50%',
-            left: scrollProgress === 2 ? '-50vw' : (scrollProgress === 1 ? '0' : '50%'),
+            top: isMobile && scrollProgress === 2 ? '-50%' : '50%',
+            left: isMobile && scrollProgress === 2 ? '0' : (scrollProgress === 2 ? '-50vw' : (scrollProgress === 1 ? '0' : '50%')),
             transform: scrollProgress >= 1 ? 'translateY(-50%)' : 'translate(-50%, -50%)',
             transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)',
             display: 'flex',
@@ -434,15 +514,8 @@ export default function Home() {
           }}
         >
           {/* Logo inside white box */}
-          <div style={{
-            position: 'absolute',
-            top: '30px',
-            left: '30px',
-            width: '36px',
-            height: '36px',
-            zIndex: 2
-          }}>
-            <img src="/images/logo-icon.svg" alt="Logo" style={{ width: '100%', height: '100%' }} />
+          <div className="info-box-logo">
+            <img src="/images/logo-icon.svg" alt="Logo" />
           </div>
 
           {/* Chinese text section - aligned to top right */}
@@ -554,11 +627,13 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
       <div className={`w-full ${mode === "overview" ? (zoom === 50 ? "min-h-screen" : "min-h-[180vh]") : "h-screen overflow-hidden"} relative`}>
         <div 
           ref={moduleRef}
-          className="grid grid-cols-8 gap-0 absolute top-1/2 left-1/2 w-[160vw]"
+          className={`grid gap-0 absolute top-1/2 left-1/2 ${isMobile && mode === "overview" ? "grid-cols-4 w-full" : (isMobile && mode === "explore" ? "grid-cols-8 w-[280vw]" : "grid-cols-8 w-[160vw]")}`}
           style={{ 
             willChange: "transform",
             transformStyle: "preserve-3d",
-            border: zoom === 150 ? '2px solid #000000' : '2px solid #333333'
+            border: isMobile ? (zoom === 150 ? '0px solid #000000' : '0px solid #333333') : (zoom === 150 ? '2px solid #000000' : '2px solid #333333'),
+            marginTop: isMobile && mode === "overview" ? '80px' : 0,
+            marginBottom: isMobile && mode === "overview" ? '200px' : 0
           }}
         >
           {Array.from({ length: 64 }).map((_, index) => {
@@ -567,11 +642,11 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
             <div
               key={index}
               ref={(el) => { gridItemsRef.current[index] = el; }}
-              className={`w-[20vw] h-[20vw] flex-shrink-0 relative group cursor-pointer ${
+              className={`${isMobile && mode === "overview" ? "w-[25vw] h-[25vw]" : (isMobile && mode === "explore" ? "w-[35vw] h-[35vw]" : "w-[20vw] h-[20vw]")} flex-shrink-0 relative group cursor-pointer ${
                 selectedBox === boxNumber ? 'active' : ''
               } ${archivedBoxes.has(boxNumber) && selectedBox !== boxNumber ? 'archive-active' : ''}`}
               style={{ 
-                borderWidth: archivedBoxes.has(boxNumber) ? '2px' : '1px',
+                borderWidth: isMobile ? '1px' : (archivedBoxes.has(boxNumber) ? '2px' : '1px'),
                 borderStyle: 'solid', 
                 borderColor: zoom === 150 ? '#000000' : '#333333',
                 backgroundColor: 'transparent'
@@ -666,9 +741,11 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
                 }}
               />
               <span 
-                className="absolute top-2 left-2 neue-haas-unica font-light" 
+                className="absolute neue-haas-unica font-light" 
                 style={{ 
-                  fontSize: '30px',
+                  fontSize: isMobile ? '10px' : '30px',
+                  top: isMobile ? '5px' : '8px',
+                  left: isMobile ? '5px' : '8px',
                   color: mode === 'overview' && !isPanelOpen ? '#888888' : '#000000'
                 }}
               >
@@ -808,7 +885,7 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
                               {i === 0 && line.includes('/') ? (
                                 <>
                                   {line.split('/').map((part, j) => (
-                                    j === 0 ? <em key={j}>{part}</em> : <><span key={j}> /</span><br/>{part}</>
+                                    j === 0 ? <em key={j}>{part}</em> : <React.Fragment key={j}><span> /</span><br/>{part}</React.Fragment>
                                   ))}
                                 </>
                               ) : line}
@@ -873,10 +950,10 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
           </div>
 
           {/* Center separator */}
-          <div style={{ width: '2px', height: '50px', backgroundColor: '#333333' }}></div>
+          <div className="zoom-separator" style={{ width: '2px', height: '50px', backgroundColor: '#333333' }}></div>
 
           {/* Right section - Zoom controls (175px) */}
-          <div className="flex items-center justify-center gap-3 neue-haas-unica text-[18px] fw-400 text-white" style={{ width: '175px' }}>
+          <div className="zoom-controls flex items-center justify-center gap-3 neue-haas-unica text-[18px] fw-400 text-white" style={{ width: '175px' }}>
             <button
               onClick={() => {
                 if (zoom === 50) setZoom(100);

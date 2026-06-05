@@ -15,8 +15,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="preconnect" href="https://use.typekit.net" />
-        <link rel="dns-prefetch" href="https://use.typekit.net" />
       </head>
       <body>
         {/* <Navigation /> */}
