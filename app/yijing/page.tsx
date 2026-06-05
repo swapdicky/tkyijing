@@ -1087,7 +1087,7 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
             top: '50px',
             left: 0,
             width: '100vw',
-            height: 'calc(100vh - 200px)',
+            height: 'calc(100vh -260px)',
             overflow: 'hidden',
             zIndex: 1,
             borderRadius: '15px'
