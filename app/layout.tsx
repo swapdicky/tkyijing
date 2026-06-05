@@ -13,10 +13,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" style={{ overscrollBehavior: 'none' }}>
       <head>
       </head>
-      <body>
+      <body style={{ overscrollBehavior: 'none' }}>
         {/* <Navigation /> */}
         <main>{children}</main>
         
