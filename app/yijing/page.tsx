@@ -1248,8 +1248,8 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
               }
             }}
             onWheel={(e) => {
-              // Allow scrolling on entire right area when on slide 2
-              if (currentSlide === 2 && slide2InnerRef.current) {
+              // Allow scrolling on entire right area when on slide 2 (desktop only)
+              if (!isMobile && currentSlide === 2 && slide2InnerRef.current) {
                 e.stopPropagation();
                 const inner = slide2InnerRef.current;
                 const maxScroll = inner.scrollHeight - inner.clientHeight;
