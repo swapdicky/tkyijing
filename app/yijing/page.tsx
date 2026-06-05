@@ -1069,8 +1069,8 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
           position: 'fixed',
           top: 0,
           left: 0,
-          width: '100vw',
-          height: '100vh',
+          width: '100%',
+          height: '100%',
           backgroundColor: '#000',
           zIndex: 99999
         }} />
@@ -1101,7 +1101,7 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
             top: '50px',
             left: 0,
             width: '100vw',
-            height: 'calc(100% - 240px)',
+            height: 'calc(100% - 100px)',
             overflow: 'hidden',
             zIndex: 1,
             borderRadius: '15px'
