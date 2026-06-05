@@ -26,6 +26,11 @@ export default function Yijing() {
     checkMobile();
     window.addEventListener('resize', checkMobile);
     
+    // Prevent body scroll on mobile
+    if (window.innerWidth < 980) {
+      document.body.style.overflow = 'hidden';
+    }
+    
     // Check initial mouse position on mount
     const handleInitialMousePosition = (e: MouseEvent) => {
       setMousePos({ x: e.clientX, y: e.clientY });
@@ -1087,8 +1092,9 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
             top: '50px',
             left: 0,
             width: '100vw',
-            height: 'calc(100vh -260px)',
-            overflow: 'hidden',
+            height: 'calc(100vh - 200px)',
+            overflowY: 'auto',
+            overflowX: 'hidden',
             zIndex: 1,
             borderRadius: '15px'
           }}>
