@@ -371,12 +371,12 @@ a:hover .hover-underline::after {
   .section-title-text {font-size: 34px;}
 
   /* Space */
-  .home-info-top{padding-top: 80px;}
+  .home-info-top{padding-top: 80px;padding-left: 30px;padding-right: 30px;}
   .bottom-60{bottom: 30px;left: 50px;;}
   .margin-n-40{margin-top: -30px;}
   .right-30{right: 15px;}
   .yj-bottom-gap{gap: .5rem;}
-  .yj-bottom-bar{padding: 0 2rem 2rem 2rem;}
+  .yj-bottom-bar{padding: 0 2rem 80px 2rem;}
   .main-menu .border-t{height: 71px;}
 
   /* Info box width - iPad */

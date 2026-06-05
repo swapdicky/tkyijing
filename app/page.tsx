@@ -71,6 +71,7 @@ export default function Home() {
   const [titleH3Tall, setTitleH3Tall] = useState(false);
   const scrollContentRef = useRef<HTMLDivElement>(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [activePanel, setActivePanel] = useState<'image' | 'info'>('image'); // Track which panel is visible on mobile
 
   // Custom order for 8x8 grid
   const gridOrder = [
@@ -206,14 +207,27 @@ export default function Home() {
         if (!moduleRef.current) return;
 
         const { clientX, clientY } = e.touches[0];
+        const { innerWidth, innerHeight } = window;
         
         // Calculate drag distance
         const deltaX = clientX - touchStartX;
         const deltaY = clientY - touchStartY;
         
-        // Apply drag to grid position
-        const newX = gridStartX + deltaX;
-        const newY = gridStartY + deltaY;
+        // Calculate grid dimensions (mode is always "explore" here due to early return)
+        const gridWidth = isMobile ? innerWidth * 2.8 : innerWidth * 1.6;
+        const gridHeight = gridWidth;
+        
+        // Calculate boundaries
+        const maxDragX = (gridWidth - innerWidth) / 2;
+        const maxDragY = (gridHeight - innerHeight) / 2;
+        
+        // Apply drag to grid position with boundaries
+        let newX = gridStartX + deltaX;
+        let newY = gridStartY + deltaY;
+        
+        // Clamp within boundaries
+        newX = Math.max(-maxDragX, Math.min(maxDragX, newX));
+        newY = Math.max(-maxDragY, Math.min(maxDragY, newY));
 
         gsap.set(moduleRef.current, {
           x: newX,
@@ -435,6 +449,50 @@ export default function Home() {
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
+
+  // Touch swipe detection for panel switching on mobile
+  useEffect(() => {
+    if (!isMobile || !isPanelOpen) return;
+
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    const handleTouchStart = (e: Event) => {
+      touchStartX = (e as TouchEvent).changedTouches[0].screenX;
+    };
+
+    const handleTouchEnd = (e: Event) => {
+      touchEndX = (e as TouchEvent).changedTouches[0].screenX;
+      handleSwipe();
+    };
+
+    const handleSwipe = () => {
+      const swipeThreshold = 50;
+      const diff = touchStartX - touchEndX;
+
+      if (diff > swipeThreshold) {
+        // Swiped left - switch to info panel
+        setActivePanel('info');
+      } else if (diff < -swipeThreshold) {
+        // Swiped right - switch to image panel
+        setActivePanel('image');
+      }
+    };
+
+    const wrapper = document.querySelector('[data-panel-wrapper]');
+    if (wrapper) {
+      wrapper.addEventListener('touchstart', handleTouchStart, { passive: true });
+      wrapper.addEventListener('touchend', handleTouchEnd, { passive: true });
+    }
+
+    return () => {
+      const wrapper = document.querySelector('[data-panel-wrapper]');
+      if (wrapper) {
+        wrapper.removeEventListener('touchstart', handleTouchStart);
+        wrapper.removeEventListener('touchend', handleTouchEnd);
+      }
+    };
+  }, [isMobile, isPanelOpen]);
 
   const toggleMode = () => {
     if (mode === "explore") {
@@ -666,6 +724,7 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
                 setSelectedBox(boxNumber);
                 setIsPanelOpen(true);
                 setIsMousePaused(true);
+                setActivePanel('image'); // Reset to image panel on mobile when opening
                 
                 // Add to archived boxes immediately when clicked
                 setArchivedBoxes(prev => {
@@ -700,20 +759,30 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
                 const targetScale = 1; // 150%
                 const vwToPx = window.innerWidth / 100;
                 const vhToPx = window.innerHeight / 100;
-                const boxSizeVw = 20;
+                const boxSizeVw = isMobile ? 35 : 20;
                 
-                // Calculate position to center the clicked box in the left space
-                const boxCenterXVw = (col - 3.5) * boxSizeVw;
-                const boxCenterYVw = (row - 3.5) * boxSizeVw;
+                let finalX, finalY;
                 
-                // Brown box width: 100vh * 349 / 1024, positioned at 50%
-                // Left space = 50vw - (brown box width / 2)
-                const brownBoxWidth = window.innerHeight * 349 / 1024;
-                const leftSpaceWidth = (50 * vwToPx) - (brownBoxWidth / 2);
-                const leftSpaceOffset = -(50 * vwToPx) + (leftSpaceWidth / 2);
-                const finalX = -boxCenterXVw * vwToPx + leftSpaceOffset;
-                // Y uses vw units but needs to center in vh viewport
-                const finalY = -boxCenterYVw * vwToPx;
+                if (isMobile) {
+                  // Mobile: center box in browser center
+                  const boxCenterXVw = (col - 3.5) * boxSizeVw;
+                  const boxCenterYVw = (row - 3.5) * boxSizeVw;
+                  finalX = -boxCenterXVw * vwToPx;
+                  finalY = -boxCenterYVw * vwToPx;
+                } else {
+                  // Desktop: Calculate position to center the clicked box in the left space
+                  const boxCenterXVw = (col - 3.5) * boxSizeVw;
+                  const boxCenterYVw = (row - 3.5) * boxSizeVw;
+                  
+                  // Brown box width: 100vh * 349 / 1024, positioned at 50%
+                  // Left space = 50vw - (brown box width / 2)
+                  const brownBoxWidth = window.innerHeight * 349 / 1024;
+                  const leftSpaceWidth = (50 * vwToPx) - (brownBoxWidth / 2);
+                  const leftSpaceOffset = -(50 * vwToPx) + (leftSpaceWidth / 2);
+                  finalX = -boxCenterXVw * vwToPx + leftSpaceOffset;
+                  // Y uses vw units but needs to center in vh viewport
+                  finalY = -boxCenterYVw * vwToPx;
+                }
                 
                 gsap.to(moduleRef.current, {
                   x: finalX,
@@ -764,58 +833,115 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
           })}
         </div>
 
-        {/* Brown image box */}
+        {/* Panel wrapper with dark background */}
         <div 
-          className="fixed top-0 z-40 transition-all duration-700 ease-out"
+          data-panel-wrapper
+          className="fixed top-0 h-screen transition-all duration-700 ease-out"
           style={{ 
-            pointerEvents: 'auto',
-            left: isPanelOpen ? '50%' : 'calc(100% + 300px)',
-            transform: isPanelOpen ? 'translateX(-50%)' : 'translateX(0)',
-            backgroundColor: '#8B4513',
-            height: '100vh',
-            width: 'calc(100vh * 349 / 1024)',
-            backgroundImage: 'url(/images/banner.jpg)',
-            backgroundSize: '100% 100%',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat'
+            pointerEvents: isPanelOpen ? 'auto' : 'none',
+            backgroundColor: isMobile ? 'rgba(0, 0, 0, 0.8)' : 'transparent',
+            zIndex: 150,
+            left: '0',
+            width: '100%',
+            opacity: isPanelOpen ? 1 : 0
           }}
         >
-        </div>
+          {/* Shared close button */}
+          <button
+            onClick={() => {
+              setIsPanelOpen(false);
+              setIsMousePaused(false);
+              setSelectedBox(null);
+              // Restore previous zoom level
+              setZoom(previousZoom);
+              setMode(previousZoom === 150 ? "explore" : "overview");
+            }}
+            className="fixed w-[50px] h-[50px] z-[200] flex items-center justify-center transition-colors"
+            style={{ 
+              top: isMobile ? '0' : '20px',
+              right: isMobile ? '0' : '20px',
+              fontSize: '32px',
+              lineHeight: '1',
+              color: isMobile ? (activePanel === 'info' ? 'black' : 'white') : 'white'
+            }}
+          >
+            ×
+          </button>
 
-        {/* White info panel */}
-        <div 
-          className="fixed top-0 h-screen bg-white border-l border-[#888888] transition-all duration-700 ease-out"
-          onWheel={(e) => {
-            if (scrollContentRef.current) {
-              scrollContentRef.current.scrollTop += e.deltaY;
-            }
-          }}
-          style={{ 
-            pointerEvents: 'auto',
-            right: 0,
-            zIndex: 110,
-            transform: isPanelOpen ? 'translateX(0)' : 'translateX(100%)',
-            width: isPanelOpen ? 'calc(50% - (100vh * 349 / 1024 / 2))' : '550px'
-          }}
-        >
-          <div className="h-full overflow-hidden text-black">
-            <button
-              onClick={() => {
-                setIsPanelOpen(false);
-                setIsMousePaused(false);
-                setSelectedBox(null);
-                // Restore previous zoom level
-                setZoom(previousZoom);
-                setMode(previousZoom === 150 ? "explore" : "overview");
-              }}
-              className="fixed top-[20px] right-[20px] w-[50px] h-[50px] z-[70] flex items-center justify-center text-black transition-colors"
+          {/* Panel indicator control for mobile */}
+          {isMobile && (
+            <div 
+              className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-[200] flex gap-4"
               style={{ 
-                fontSize: '32px',
-                lineHeight: '1'
+                display: isPanelOpen ? 'flex' : 'none',
+                backgroundColor: 'rgba(0, 0, 0, 0.3)',
+                borderRadius: '20px',
+                padding: '15px 50px'
               }}
             >
-              ×
-            </button>
+              <button
+                onClick={() => setActivePanel('image')}
+                className="transition-all duration-300"
+                style={{ 
+                  width: '5px',
+                  height: '5px',
+                  backgroundColor: activePanel === 'image' ? 'white' : 'rgba(255, 255, 255, 0.3)',
+                }}
+              />
+              <button
+                onClick={() => setActivePanel('info')}
+                className="transition-all duration-300"
+                style={{ 
+                  width: '6px',
+                  height: '6px',
+                  backgroundColor: activePanel === 'info' ? 'white' : 'rgba(255, 255, 255, 0.3)',
+                  transform: activePanel === 'info' ? 'scale(1.2)' : 'scale(1)'
+                }}
+              />
+            </div>
+          )}
+
+          {/* Brown image box */}
+          <div 
+            className="fixed top-0 z-40 transition-all duration-700 ease-out"
+            style={{ 
+              pointerEvents: isPanelOpen ? 'auto' : 'none',
+              left: isMobile 
+                ? (activePanel === 'image' ? '0' : '-100%')
+                : (isPanelOpen ? '50%' : 'calc(100% + 300px)'),
+              transform: isMobile ? 'translateX(0)' : (isPanelOpen ? 'translateX(-50%)' : 'translateX(0)'),
+              height: '100vh',
+              width: isMobile ? '100%' : 'calc(100vh * 349 / 1024)',
+              backgroundImage: 'url(/images/banner.jpg)',
+              backgroundSize: isMobile ? 'contain' : '100% 100%',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat'
+            }}
+          >
+          </div>
+
+          {/* White info panel */}
+          <div 
+            className="fixed top-0 h-screen bg-white border-l border-[#888888] transition-all duration-700 ease-out"
+            onWheel={(e) => {
+              if (scrollContentRef.current) {
+                scrollContentRef.current.scrollTop += e.deltaY;
+              }
+            }}
+            style={{ 
+              pointerEvents: isPanelOpen ? 'auto' : 'none',
+              right: 0,
+              zIndex: 110,
+              left: isMobile 
+                ? (activePanel === 'info' ? '0' : '100%')
+                : 'auto',
+              transform: isMobile ? 'translateX(0)' : (isPanelOpen ? 'translateX(0)' : 'translateX(100%)'),
+              width: isMobile 
+                ? '100%' 
+                : (isPanelOpen ? 'calc(50% - (100vh * 349 / 1024 / 2))' : '550px')
+            }}
+          >
+          <div className="h-full overflow-hidden text-black">
             
             <div className="px-12 min-h-screen flex flex-col relative home-info-top" style={{ paddingBottom: '280px' }}>
               <div className="flex items-start justify-between mb-8">
@@ -926,6 +1052,7 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
               </div>
             </div>
           </div>
+        </div>
         </div>
 
         <div 
