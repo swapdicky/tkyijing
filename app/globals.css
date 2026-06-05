@@ -446,7 +446,7 @@ a:hover .hover-underline::after {
 
   /* Space */
   .home-info-top{padding-top: 90px;}
-  .bottom-60{bottom: 20px;left: 40px;}
+  .bottom-60{bottom: 20px;left: 15px;}
   .margin-n-40{margin-top: -20px;}
   .right-30{right: 10px;}
   .main-menu .border-t{height: 61px;}
@@ -545,6 +545,7 @@ a:hover .hover-underline::after {
 .logo-size{left: 100px !important;}
 .w-full{padding-bottom: 100px;}
 .yj-height-half-inner-over .yj-height-half-inner{max-height: 10000px;}
+.yj-max-width-25vw{max-width: 70vw;transform: scale(.8);transform-origin: left bottom;}
 
 
 }
