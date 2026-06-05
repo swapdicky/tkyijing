@@ -55,15 +55,17 @@ export default function Yijing() {
     };
   }, []);
 
-  // Hide scrollbar and prevent scroll
+  // Hide scrollbar and prevent scroll on desktop
   useEffect(() => {
-    document.body.style.overflowY = 'hidden';
-    document.body.style.overflowX = 'hidden';
+    if (!isMobile) {
+      document.body.style.overflowY = 'hidden';
+      document.body.style.overflowX = 'hidden';
+    }
     return () => {
       document.body.style.overflowY = '';
       document.body.style.overflowX = '';
     };
-  }, []);
+  }, [isMobile]);
 
   const renderLeftContent = (index: number) => {
     if (index === 0) {
@@ -1093,9 +1095,11 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
             {/* Mobile: Scroll to explore text */}
             <div
               className="yj-en-12 text-white fw-400"
-               style={{ position: 'absolute',
+               style={{ position: 'fixed',
                 right: '15px',
                 bottom: '5px',
+                
+                
                 whiteSpace: 'nowrap',
                 zIndex: 200,
                 pointerEvents: 'none',
