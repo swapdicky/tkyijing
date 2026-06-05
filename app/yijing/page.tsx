@@ -1075,7 +1075,21 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
           zIndex: 99999
         }} />
       )}
-      
+              {/* Mobile: Scroll to explore text */}
+            <div
+              className="yj-en-12 text-white fw-400"
+               style={{ position: 'absolute',
+                right: '15px',
+                bottom: '5px',
+                
+                
+                whiteSpace: 'nowrap',
+                zIndex: 200,
+                pointerEvents: 'none',
+                opacity: 1 }}
+            >
+              Scroll to explore
+            </div>    
       <div className={`${isMobile ? "min-h-screen" : "min-h-screen pt-16"} ${isLoaded ? 'page-fade-in' : ''}`} style={{ opacity: isLoaded ? 1 : 0 }}>
         <Header forceOpenMenu={shouldOpenMenu} onMenuChange={(isOpen) => { if (!isOpen) setShouldOpenMenu(false); }} />
       
@@ -1092,21 +1106,7 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
             zIndex: 1,
             borderRadius: '15px'
           }}>
-            {/* Mobile: Scroll to explore text */}
-            <div
-              className="yj-en-12 text-white fw-400"
-               style={{ position: 'absolute',
-                right: '15px',
-                bottom: '5px',
-                
-                
-                whiteSpace: 'nowrap',
-                zIndex: 200,
-                pointerEvents: 'none',
-                opacity: 1 }}
-            >
-              Scroll to explore
-            </div>
+
 
             {/* Mobile: Each slide is a full-screen frame that slides vertically */}
             {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((index) => (
