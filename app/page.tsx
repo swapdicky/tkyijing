@@ -176,23 +176,27 @@ export default function Home() {
   // Touch drag effect for mobile
   useEffect(() => {
     let rafId: number | null = null;
-    let lastTime = 0;
-    const throttleDelay = 50;
     let touchStartX = 0;
     let touchStartY = 0;
+    let gridStartX = 0;
+    let gridStartY = 0;
+    let isDragging = false;
 
     const handleTouchStart = (e: TouchEvent) => {
       if (!moduleRef.current || mode === "overview" || isMousePaused || isLanding || !hideOverlay) return;
+      isDragging = true;
       touchStartX = e.touches[0].clientX;
       touchStartY = e.touches[0].clientY;
+      
+      // Get current grid position
+      const currentTransform = gsap.getProperty(moduleRef.current, "x");
+      const currentY = gsap.getProperty(moduleRef.current, "y");
+      gridStartX = currentTransform as number;
+      gridStartY = currentY as number;
     };
 
     const handleTouchMove = (e: TouchEvent) => {
-      if (!moduleRef.current || mode === "overview" || isMousePaused || isLanding || !hideOverlay) return;
-
-      const currentTime = Date.now();
-      if (currentTime - lastTime < throttleDelay) return;
-      lastTime = currentTime;
+      if (!moduleRef.current || mode === "overview" || isMousePaused || isLanding || !hideOverlay || !isDragging) return;
 
       if (rafId) {
         cancelAnimationFrame(rafId);
@@ -202,35 +206,39 @@ export default function Home() {
         if (!moduleRef.current) return;
 
         const { clientX, clientY } = e.touches[0];
-        const { innerWidth, innerHeight } = window;
+        
+        // Calculate drag distance
+        const deltaX = clientX - touchStartX;
+        const deltaY = clientY - touchStartY;
+        
+        // Apply drag to grid position
+        const newX = gridStartX + deltaX;
+        const newY = gridStartY + deltaY;
 
-        const xPercent = (clientX / innerWidth - 0.5) * 2;
-        const yPercent = (clientY / innerHeight - 0.5) * 2;
-
-        const moveX = -xPercent * 50;
-        const moveY = -yPercent * 80;
-
-        gsap.to(moduleRef.current, {
-          x: `${moveX}vw`,
-          y: `${moveY}vw`,
-          duration: zoom === 150 ? 12 : 6,
-          ease: "power1.out",
-          overwrite: "auto",
+        gsap.set(moduleRef.current, {
+          x: newX,
+          y: newY,
         });
       });
     };
 
+    const handleTouchEnd = () => {
+      isDragging = false;
+    };
+
     window.addEventListener("touchstart", handleTouchStart, { passive: true });
     window.addEventListener("touchmove", handleTouchMove, { passive: true });
+    window.addEventListener("touchend", handleTouchEnd);
 
     return () => {
       window.removeEventListener("touchstart", handleTouchStart);
       window.removeEventListener("touchmove", handleTouchMove);
+      window.removeEventListener("touchend", handleTouchEnd);
       if (rafId) {
         cancelAnimationFrame(rafId);
       }
     };
-  }, [mode, isMousePaused, isLanding, hideOverlay, zoom]);
+  }, [mode, isMousePaused, isLanding, hideOverlay]);
 
   useEffect(() => {
     if (!moduleRef.current || isPanelOpen) return;
