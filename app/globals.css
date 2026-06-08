@@ -595,7 +595,7 @@ a:hover .hover-underline::after {
 .info-box-max-height{height: 80% !important;margin-top: -10%;}
 .info-box-max-height-expanded{height: calc(100% - 30px) !important;}
 .info-en-content-lg{font-size: 14px !important;}
-.move-over-text{position: fixed;right: -35px;top: 50%;transform: rotate(90deg);transform-origin: center center;font-size: 12px;font-family: "neue-haas-unica", sans-serif !important;white-space: nowrap;z-index: 20;pointer-events: none;transition: opacity 0.5s ease-out;}
+.move-over-text{position: fixed;right: -35px;top: 50%;transform: rotate(90deg);transform-origin: center center;font-size: 12px;font-family: "neue-haas-unica", sans-serif !important;white-space: nowrap;z-index: 20;pointer-events: none;transition: opacity 0.5s ease-out;color:#FFF}
 .scroll-to-explore-text{position: fixed;right: -23px;top: 50%;transform: rotate(90deg);transform-origin: center center;font-size: 12px;font-family: "neue-haas-unica", sans-serif !important;white-space: nowrap;z-index: 99;pointer-events: none;transition: opacity 0.5s ease-out;}
 
 .ex-section-inner,.ex-padding-large{min-height: 85vh !important;}
