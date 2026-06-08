@@ -176,14 +176,14 @@ export default function Yijing() {
               textOrientation: 'upright',
               lineHeight: '1.2',
               letterSpacing: '0.15em' }}>
-              <span style={{marginTop :"-14px"}}></span>︽易經︾<span style={{marginTop :"-14px"}}></span>哲學的<br/>基礎概念是什麼？
+              <span className={currentSlide === 2 ? 'v-fade' : ''}><span style={{marginTop :"-14px"}}></span>︽易經︾<span style={{marginTop :"-14px"}}></span>哲學的</span><br/><span className={currentSlide === 2 ? 'v-fade-delay-2' : ''}>基礎概念是什麼？</span>
             </div>
             <div className="yj-cn-24 text-black fw-300"  style={{ writingMode: 'vertical-rl',
               textOrientation: 'upright',
               lineHeight: '1.4',
               
               letterSpacing: '0.1em' }}>
-               <span style={{marginTop :"-6px"}}></span>︽易經︾<span style={{marginTop :"-6px"}}></span>六十四卦體系的確立，<br/>乃基於﹁陰陽﹂和﹁五行﹂<br/>觀念所形成的關聯性宇宙觀，<br/>以觀萬物之態。這些概念被認為<br/>是宇宙創造與變化的過程，<br/>同時也體現萬物在整體規律中<br/>相互依存的本質。
+               <span className={currentSlide === 2 ? 'v-fade-delay-3' : ''}><span style={{marginTop :"-6px"}}></span>︽易經︾<span style={{marginTop :"-6px"}}></span>六十四卦體系的確立，</span><br/><span className={currentSlide === 2 ? 'v-fade-delay-4' : ''}>乃基於﹁陰陽﹂和﹁五行﹂</span><br/><span className={currentSlide === 2 ? 'v-fade-delay-5' : ''}>觀念所形成的關聯性宇宙觀，</span><br/><span className={currentSlide === 2 ? 'v-fade-delay-6' : ''}>以觀萬物之態。這些概念被認為</span><br/><span className={currentSlide === 2 ? 'v-fade-delay-7' : ''}>是宇宙創造與變化的過程，</span><br/><span className={currentSlide === 2 ? 'v-fade-delay-8' : ''}>同時也體現萬物在整體規律中</span><br/><span className={currentSlide === 2 ? 'v-fade-delay-8' : ''}>相互依存的本質。</span>
             </div>
           </div>
 
@@ -266,9 +266,9 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
               textOrientation: 'upright',
               lineHeight: '1.2',
               letterSpacing: '0.1em' }}>
-              <span style={{marginTop: "-12px"}}></span>︽易︾有太極，是生兩儀，<br/>兩儀生四象，四象生八卦。<br/>八卦定吉凶，吉凶生大業。
+              <span className={currentSlide === 5 ? 'v-fade' : ''}><span style={{marginTop: "-12px"}}></span>︽易︾有太極，是生兩儀，</span><br/><span className={currentSlide === 5 ? 'v-fade-delay-2' : ''}>兩儀生四象，四象生八卦。</span><br/><span className={currentSlide === 5 ? 'v-fade-delay-3' : ''}>八卦定吉凶，吉凶生大業。</span>
             </div>
-            <div className="yj-cn-20 text-black fw-300"  style={{ writingMode: 'vertical-rl',
+            <div className={`yj-cn-20 text-black fw-300 ${currentSlide === 5 ? 'v-fade-delay-4' : ''}`}  style={{ writingMode: 'vertical-rl',
               textOrientation: 'upright',
               lineHeight: '1.2',
               letterSpacing: '0.1em' }}>
@@ -316,9 +316,9 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
               textOrientation: 'upright',
               lineHeight: '1.2',
               letterSpacing: '0.1em' }}>
-              天一，地二；天三，地四；天五，<br/>地六；天七，地八；天九，地十。<br/>天數五，地數五，五位相得而<br/>各有合。天數二十有五，地數三十，<br/>凡天地之數，五十有五，此所以<br/>成變化而行鬼神也。
+              <span className={currentSlide === 6 ? 'v-fade' : ''}>天一，地二；天三，地四；天五，</span><br/><span className={currentSlide === 6 ? 'v-fade-delay-2' : ''}>地六；天七，地八；天九，地十。</span><br/><span className={currentSlide === 6 ? 'v-fade-delay-3' : ''}>天數五，地數五，五位相得而</span><br/><span className={currentSlide === 6 ? 'v-fade-delay-4' : ''}>各有合。天數二十有五，地數三十，</span><br/><span className={currentSlide === 6 ? 'v-fade-delay-5' : ''}>凡天地之數，五十有五，此所以</span><br/><span className={currentSlide === 6 ? 'v-fade-delay-6' : ''}>成變化而行鬼神也。</span>
             </div>
-            <div className="yj-cn-20 text-black fw-300"  style={{ writingMode: 'vertical-rl',
+            <div className={`yj-cn-20 text-black fw-300 ${currentSlide === 6 ? 'v-fade-delay-7' : ''}`}  style={{ writingMode: 'vertical-rl',
               textOrientation: 'upright',
               lineHeight: '1.2',
               letterSpacing: '0.1em' }}>
@@ -406,13 +406,13 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
             alignSelf: 'flex-end',
             flex: 1
           }}>
-            <div className="yj-cn-40 text-black fw-600"  style={{ writingMode: 'vertical-rl',
+            <div className={`yj-cn-40 text-black fw-600 ${currentSlide === 9 ? 'v-fade' : ''}`}  style={{ writingMode: 'vertical-rl',
               textOrientation: 'upright',
               lineHeight: '1.2',
               letterSpacing: '0.12em' }}>
               活著的傳承
             </div>
-            <div className="yj-cn-16 text-black fw-300"  style={{ writingMode: 'vertical-rl',
+            <div className={`yj-cn-16 text-black fw-300 ${currentSlide === 9 ? 'v-fade' : ''}`}  style={{ writingMode: 'vertical-rl',
               textOrientation: 'mixed',
               lineHeight: '1.4',
               letterSpacing: '0.08em',
@@ -525,7 +525,7 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
               alignItems: 'flex-start',
               justifyContent: 'space-between'
             }}>
-            <div className="yj-cn-20 text-white fw-300"  style={{ writingMode: 'vertical-rl',
+            <div className={`yj-cn-20 text-white fw-300 ${currentSlide === 1 ? 'v-fade-delay-3' : ''}`}  style={{ writingMode: 'vertical-rl',
               textOrientation: 'upright',
               letterSpacing: '0.2em',
               
@@ -538,7 +538,7 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
               
               lineHeight: '1.2',
               letterSpacing: '0.05em' }}>
-              一陰一陽<br/>之謂道。
+              <span className={currentSlide === 1 ? 'v-fade' : ''}>一陰一陽</span><br/><span className={currentSlide === 1 ? 'v-fade-delay-2' : ''}>之謂道。</span>
             </div>
           </div>
           <div className="yj-padding-large" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' }}>
@@ -838,7 +838,7 @@ Hence, the ancient Chinese developed a comprehensive scheme of symbolic correlat
               textOrientation: 'upright',
               lineHeight: '1.4',
               letterSpacing: '0.1em' }}>
-              <span style={{marginTop: "-18px"}}>  </span>﹁河圖﹂相傳是伏羲所創。<br/>圖中一至十以奇數︵陽︶<br/>與偶數︵陰︶成對排列。<br/>所有奇數相加總和是<br/>二十五，偶數相加是三十，<br/>全部數字總和是五十五。<br/>此圖揭示了這些數字<br/>如何與﹁五行﹂及對應的<br/>方位和顏色相互連結。
+              <span className={currentSlide === 7 ? 'v-fade' : ''}><span style={{marginTop: "-18px"}}>  </span>﹁河圖﹂相傳是伏羲所創。</span><br/><span className={currentSlide === 7 ? 'v-fade-delay-2' : ''}>圖中一至十以奇數︵陽︶</span><br/><span className={currentSlide === 7 ? 'v-fade-delay-3' : ''}>與偶數︵陰︶成對排列。</span><br/><span className={currentSlide === 7 ? 'v-fade-delay-4' : ''}>所有奇數相加總和是</span><br/><span className={currentSlide === 7 ? 'v-fade-delay-5' : ''}>二十五，偶數相加是三十，</span><br/><span className={currentSlide === 7 ? 'v-fade-delay-6' : ''}>全部數字總和是五十五。</span><br/><span className={currentSlide === 7 ? 'v-fade-delay-7' : ''}>此圖揭示了這些數字</span><br/><span className={currentSlide === 7 ? 'v-fade-delay-8' : ''}>如何與﹁五行﹂及對應的</span><br/><span className={currentSlide === 7 ? 'v-fade-delay-8' : ''}>方位和顏色相互連結。</span>
             </div>
           </div>
 
@@ -870,7 +870,7 @@ The <em>Yellow River Chart</em> has been traditionally attributed to the legenda
               lineHeight: '1.4',
               letterSpacing: '0.1em' }}>
               
-              <span style={{marginTop: "-18px"}}>  </span>﹁洛書﹂相傳是一隻從<br/>洛河出現的神龜背上的圖。<br/>此圖為三階幻方，無論<br/>縱、橫、斜向任意行列，<br/>數字之和皆為十五。這是<br/>已知世上最早的幻方。
+              <span className={currentSlide === 8 ? 'v-fade' : ''}><span style={{marginTop: "-18px"}}>  </span>﹁洛書﹂相傳是一隻從</span><br/><span className={currentSlide === 8 ? 'v-fade-delay-2' : ''}>洛河出現的神龜背上的圖。</span><br/><span className={currentSlide === 8 ? 'v-fade-delay-3' : ''}>此圖為三階幻方，無論</span><br/><span className={currentSlide === 8 ? 'v-fade-delay-4' : ''}>縱、橫、斜向任意行列，</span><br/><span className={currentSlide === 8 ? 'v-fade-delay-5' : ''}>數字之和皆為十五。這是</span><br/><span className={currentSlide === 8 ? 'v-fade-delay-6' : ''}>已知世上最早的幻方。</span>
             </div>
           </div>
 
