@@ -539,7 +539,7 @@ export default function Home() {
           style={{
             height: scrollProgress >= 1 ? '100%' : '724px',
             backgroundColor: 'white',
-            position: 'absolute',
+            position: 'fixed',
             top: isMobile && scrollProgress === 2 ? '-50%' : '50%',
             left: isMobile && scrollProgress === 2 ? '0' : (scrollProgress === 2 ? '-50vw' : (scrollProgress === 1 ? '0' : '50%')),
             transform: scrollProgress >= 1 ? 'translateY(-50%)' : 'translate(-50%, -50%)',
