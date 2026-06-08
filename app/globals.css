@@ -579,7 +579,7 @@ a:hover .hover-underline::after {
 .info-box-logo { width: 30px; height: 30px; top: 20px; left: 15px; }
 .info-box-max-height-expanded{width: 100vw;height: calc(100vh - 120px) !important;padding: 15px !important;border-radius: 15px !important;}
 .info-scale-lg{transform: scale(.9);}
-.w-full{margin-top: 260px;padding-bottom: 100px;}
+.w-full{margin-top: 140px;padding-bottom: 100px;}
 .w-full.h-screen{margin: 0;padding:0;}
 .yj-height-half-inner-over .yj-height-half-inner{max-height: 10000px;}
 .yj-max-width-25vw{max-width: 70vw;transform: scale(.8);transform-origin: left bottom;left: 15px;}
@@ -597,6 +597,8 @@ a:hover .hover-underline::after {
 .info-en-content-lg{font-size: 14px !important;}
 .move-over-text{position: fixed;right: -35px;top: 50%;transform: rotate(90deg);transform-origin: center center;font-size: 12px;font-family: "neue-haas-unica", sans-serif !important;white-space: nowrap;z-index: 20;pointer-events: none;transition: opacity 0.5s ease-out;}
 .scroll-to-explore-text{position: fixed;right: -23px;top: 50%;transform: rotate(90deg);transform-origin: center center;font-size: 12px;font-family: "neue-haas-unica", sans-serif !important;white-space: nowrap;z-index: 99;pointer-events: none;transition: opacity 0.5s ease-out;}
+
+.ex-section-inner,.ex-padding-large{min-height: 85vh !important;}
 
 }
 
