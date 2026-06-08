@@ -525,7 +525,7 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
               <h1 className="text-white fw-300 section-title-text" style={{ lineHeight: 1.2, fontFamily: '"neue-haas-unica", sans-serif' }}>Exhibition Design and Production</h1>
             </div>
           </div>
-          <div className="ct-team-section">
+          <div className="ct-team-section" style={{border:'none'}}>
 
             {/* Row 1: Exhibition Design */}
             <div style={{
