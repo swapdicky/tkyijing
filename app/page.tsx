@@ -644,7 +644,7 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
         transition: 'bottom 0.5s ease-out',
         pointerEvents: isLanding ? 'auto' : 'none',
         zIndex: 10,
-        paddingTop: '100%',
+        paddingTop: '1000%',
         opacity: isLanding ? 1 : 0,
         transitionProperty: 'opacity',
         transitionDuration: '0.5s',
