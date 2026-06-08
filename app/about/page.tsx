@@ -103,7 +103,7 @@ export default function About() {
           top: isMobile ? 0 : '90px',
           left: 0,
           width: isMobile ? '100%' : '50vw',
-          height: isMobile ? 'auto' : 'calc(100vh - 90px)',
+          height: isMobile ? 'auto' : 'calc(100% - 90px)',
           backgroundColor: '#000',
           zIndex: 1,
           borderRight: isMobile ? 'none' : '1px solid #888',
@@ -145,14 +145,9 @@ export default function About() {
             flexDirection: 'column',
             justifyContent: 'flex-end',
                }}>    
-          <div style={{ 
+          <div className="ct-team-section">
 
-            paddingLeft: '80px',
-            paddingBottom: '40px',
-            paddingRight: '30px',
-            paddingTop: '80px'
-          }}>
-            <div className="text-white fw-300 yj-cn-16" style={{ lineHeight: '1.4', textAlign: 'left' }}>
+            <div className="text-white fw-300 yj-cn-16" style={{ lineHeight: '1.4', textAlign: 'left', marginBottom: '20px' }}>
               <p style={{ marginBottom: '1em' }}>
                 自然變化的韻律與人類創造性的轉化，顯現為萬物存在與形成之間的恆常流轉。這來自《易經》的奧妙洞見，啟發了是次展覽的策劃理念。展覽揭示文化遺產如何持續激發創造性想像，為當代詮釋賦予新意。
               </p>
@@ -166,15 +161,7 @@ export default function About() {
 我們希望展覽帶來的沉浸體驗能為抽象的概念賦予意義，並激發人們思考：當地球持續暖化、人工智能科技不斷重塑人類經驗之際，如何仍能從傳統智慧中獲得禆益。
               </p>
             </div>
-          </div>
 
-
-          <div style={{ 
-
-            paddingLeft: '80px',
-            paddingBottom: '60px',
-            paddingRight: '30px'
-          }}>
             <div className="text-white fw-300 yj-en-16" style={{ lineHeight: '1.4', textAlign: 'left' }}>
               <p style={{ marginBottom: '1em' }}>
 Nature’s rhythm of change and humanity’s creative transformation manifest as a constant flux of being and becoming. This profound insight from the <em>Yijing</em>, or <em>Book of Changes</em>, inspired the current exhibition which shows how heritage never ceases to stir creative imagination for making meaning.
@@ -199,7 +186,7 @@ We hope the immersive experiences of this show will allow abstract ideas to take
         style={{
           paddingTop: isMobile ? 0 : '90px',
           paddingLeft: isMobile ? 0 : '50vw',
-          minHeight: '100vh',
+          minHeight: '100%',
           backgroundColor: '#000'
         }}
       >
@@ -221,11 +208,7 @@ We hope the immersive experiences of this show will allow abstract ideas to take
           </div>
           
           {/* Video preview block */}
-          <div style={{
-            padding: '80px 40px',
-            backgroundColor: '#000',
-            borderBottom: '1px solid #888'
-          }}>
+          <div className="about-video-section">
             <div style={{
               display: 'flex',
               flexDirection: 'column',
@@ -352,21 +335,9 @@ We hope the immersive experiences of this show will allow abstract ideas to take
               <h1 className="text-white fw-300 section-title-text" style={{ lineHeight: 1.2, fontFamily: '"neue-haas-unica", sans-serif' }}>Public Programmes</h1>
             </div>
           </div>
-          <div style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            padding: '80px 40px',
-            backgroundColor: '#000',
-            borderBottom: '1px solid #888',
-          }}>
+          <div className="about-program-section">
             {/* First block */}
-            <div style={{
-              width: '100%',
-              maxWidth: '640px',
-              marginBottom: '80px'
-            }}>
+            <div className="about-program-block">
               {/* Image container */}
 
                 <div style={{
@@ -501,32 +472,19 @@ We hope the immersive experiences of this show will allow abstract ideas to take
             </div>
           </div>
           <div style={{
-            minHeight: 'calc(100vh - 90px)',
+            minHeight: 'calc(100% - 90px)',
             flex: 1,
             display: 'flex',
             flexDirection: 'column',
                         justifyContent: 'flex-end'         
           }}>
           {/* Artist Bio Content - Chinese */}
-          <div style={{ 
+          <div className="ct-team-section">
 
-
-            paddingLeft: '80px',
-            paddingBottom: '40px',
-            paddingRight: '30px',
-            paddingTop: '60px'
-          }}>
-            <div className="text-white fw-300 yj-cn-16" style={{ lineHeight: '1.8', textAlign: 'left', fontFamily: '"Noto Serif TC", serif' }}>
+            <div className="text-white fw-300 yj-cn-16" style={{ lineHeight: '1.8', textAlign: 'left', fontFamily: '"Noto Serif TC", serif', marginBottom: '20px' }}>
               鮑皓昕自<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1980</span>年從美國回流返港，開展其攝影生涯。旅美十年期間，他曾為紐約的大西洋唱片公司及唱片封套設計公司、洛杉磯的華納兄弟唱片公司擔任美術總監。他為電影《踎低噴飯：萬世魔星》設計書籍、唱片封套及海報時，首次與米高沛林合作。自此，兩人攜手製作了<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>11</span>本以英國廣播公司<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>BBC</span>旅遊特輯為藍本的圖冊，包括《兩極之旅》、《環太平洋之旅》、《海明威歷險記》、《撒哈拉》、《喜馬拉雅》、《新歐洲》，以及《巴西》等。鮑氏本人的著作包括《手》、《中國探秘》、《易經—中國牆城》、《山水》、《環球吶喊》、《平凡時刻》、《夢之旅》，以及《末代皇帝．幕後剪影》。鮑氏為其於倫敦的福克斯·塔爾博特博物館及皇家地理學會的展覽出版了圖錄《與米高沛林同遊世界》，以及香港海事博物館的展覽圖錄《八千日環遊世界》。他還為公司企業製作的限量版書籍，包括華光海運的《雙船記》，安縵度假酒店的《安縵》、《不丹》及《安縵<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>2</span>》，意大利書籍印刷商特蘭提諾的《平凡時刻》、《四原色—中國》及《耀眼的陰影—黑白光影之國度》。鮑氏的旅行遊記及其他攝影作品曾在世界各大出版物及展覽中亮相，包括為貝托魯奇的電影《末代皇帝溥儀》及《小活佛》、泰利鍾斯的《海盗埃里克》、泰利基咸的《殺了堂吉訶德的男人》等拍攝的特別劇照。
             </div>
-          </div>
 
-          {/* Artist Bio Content - English */}
-          <div style={{ 
-            paddingLeft: '80px',
-            paddingBottom: '60px',
-            paddingRight: '30px'
-          }}>
             <div className="text-white fw-300 yj-en-16" style={{ lineHeight: '1.4', textAlign: 'left' }}>
 Basil Pao began his photographic career in 1980 upon his return to Hong Kong after ten years in the United States, where he was art director for Atlantic Records and Album Graphics Inc. in New York, and Warner Brothers Records in Los Angeles. He first worked with Michael Palin when he designed the book, album cover and poster for the Monty Python film <em>Life of Brian</em>. They have since collaborated on 11 illustrated books based on the BBC travel series <em>Pole to Pole, Full Circle, Hemingway Adventure, Sahara, Himalaya, New Europe and Brazil</em>. He is the author of <em>Hands, China Revealed, Yi’Jing-Book of Changes, Shan Shui-Mountain-Water, The Universal Scream, OM2-Ordinary Moments+, Carnival of Dreams and The Last Emperor Revisited</em>. His exhibition catalogues include <em>Travels with Michael Palin</em> for his exhibitions at the Fox Talbot Museum and the Royal Geographical Society in London; and <em>Around the World in 8000 Days</em> at the Hong Kong Maritime Museum. His corporate limited editions include <em>A Tale of Two Ventures</em> for Wah Kwong Maritime Transport; <em>AMAN, Bhutan and AMAN2</em> for Aman resorts; <em>OM-Ordinary Moments, CMYK-China, and Blazing Shadows-A World of Black & Light</em> for Printer Trento in Italy. Basil’s travel essays and other assignments, including his Special Stills photography for Bernardo Bertolucci’s <em>The Last Emperor and Little Buddha</em>, Terry Jones’ <em>Erik the Viking</em>, Terry Gilliam’s <em>The Man Who Killed Don Quixote</em> and other feature films, have appeared in publications and exhibitions all around the world.            </div>
           </div>
@@ -543,7 +501,7 @@ Basil Pao began his photographic career in 1980 upon his return to Hong Kong aft
             top: 0,
             left: 0,
             width: '100vw',
-            height: '100vh',
+            height: '100%',
             backgroundColor: 'rgba(0, 0, 0, 0.95)',
             display: 'flex',
             alignItems: 'center',

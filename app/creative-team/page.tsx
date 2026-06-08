@@ -121,16 +121,8 @@ export default function CreativeTeam() {
             flex: 1
           }}
         >
-          <div style={{ 
-            flex: 1,
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'flex-end',
-            paddingLeft: '80px',
-            paddingBottom: '60px',
-            paddingRight: '30px',
-            paddingTop: '120px'
-            
+          <div className="ct-left-content" style={{ 
+            flex: 1
           }}>
             <div style={{
               fontSize: '16px',
@@ -220,15 +212,7 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
               <h1 className="text-white fw-300 section-title-text" style={{ lineHeight: 1.2, fontFamily: '"neue-haas-unica", sans-serif' }}>Artist Team</h1>
             </div>
           </div>
-          <div style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            padding: '60px 30px',
-            backgroundColor: '#000',
-            borderBottom: '1px solid #888',
-          }}>
+          <div className="ct-team-section">
             <div style={{
               width: '100%',
               display: 'flex',
@@ -341,15 +325,8 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
               <h1 className="text-white fw-300 section-title-text" style={{ lineHeight: 1.2, fontFamily: '"neue-haas-unica", sans-serif' }}>Tai Kwun Team</h1>
             </div>
           </div>
-         <div style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            padding: '60px 30px',
-            backgroundColor: '#000',
-            borderBottom: '1px solid #888',
-          }}>
+          <div className="ct-team-section">
+
             <div style={{
               width: '100%',
               display: 'flex',
@@ -548,14 +525,8 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
               <h1 className="text-white fw-300 section-title-text" style={{ lineHeight: 1.2, fontFamily: '"neue-haas-unica", sans-serif' }}>Exhibition Design and Production</h1>
             </div>
           </div>
-          <div style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            padding: '60px 30px',
-            backgroundColor: '#000',
-            minHeight : 'calc(100vh - 270px)'
-          }}>
+          <div className="ct-team-section">
+
             {/* Row 1: Exhibition Design */}
             <div style={{
               width: '100%',

@@ -320,7 +320,7 @@ export default function Home() {
           targetX = 0;
           targetY = 15;
           
-          // Page is min-h-[180vh], so middle = (180vh - 100vh) / 2 = 40vh
+          // Page is min-h-[180vh], so middle = (180vh - 100%) / 2 = 40vh
           // Use fixed calculation to avoid timing issues with scrollHeight not yet updated
           const viewportHeight = window.innerHeight;
           const scrollToMiddle = viewportHeight * 0.4; // 40vh
@@ -507,41 +507,15 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Scroll to explore text - shows before overlay hides */}
-      <div className="text-gray fw-400"
-         style={{ position: 'fixed',
-          right: '1px',
-          top: '50%',
-          transform: 'rotate(90deg)',
-          transformOrigin: 'center center',
-          fontSize: '12px',
-          
-          fontFamily: '"neue-haas-unica", sans-serif',
-          
-          whiteSpace: 'nowrap',
-          zIndex: 99,
-          pointerEvents: 'none',
-          opacity: !hideOverlay ? 1 : 0,
-          transition: 'opacity 0.5s ease-out' }}
+      <div className="text-gray fw-400 scroll-to-explore-text"
+         style={{ opacity: !hideOverlay ? 1 : 0 }}
       >
         Scroll to explore
       </div>
       
       {/* Move over to explore text - shows after overlay hides and zoom is 150% */}
-      <div className="text-gray fw-400"
-         style={{ position: 'fixed',
-          right: '-12px',
-          top: '50%',
-          transform: 'rotate(90deg)',
-          transformOrigin: 'center center',
-          fontSize: '12px',
-          
-          fontFamily: '"neue-haas-unica", sans-serif',
-          
-          whiteSpace: 'nowrap',
-          zIndex: 20,
-          pointerEvents: 'none',
-          opacity: (hideOverlay && zoom === 150) ? 1 : 0,
-          transition: 'opacity 0.5s ease-out' }}
+      <div className="text-gray fw-400 move-over-text"
+         style={{ opacity: (hideOverlay && zoom === 150) ? 1 : 0 }}
       >
         Move over to explore
       </div>
@@ -549,11 +523,9 @@ export default function Home() {
 
       {/* Fixed overlay layer */}
       <div 
-        className="fixed top-0 left-0 flex items-center justify-center"
+        className="fixed top-0 left-0 flex items-center justify-center yj-full-viewport"
         onClick={advanceScroll}
         style={{ 
-          width: '100vw',
-          height: '100vh',
           backgroundColor: 'rgba(0, 0, 0, 0.1)',
           zIndex: 110,
           opacity: hideOverlay ? 0 : 1,
@@ -565,7 +537,7 @@ export default function Home() {
         <div
           className={`${scrollProgress >= 1 ? 'info-box-width-expanded' : 'info-box-width'} ${scrollProgress >= 1 ? 'info-box-max-height-expanded' : 'info-box-max-height'}`}
           style={{
-            height: scrollProgress >= 1 ? '100vh' : '724px',
+            height: scrollProgress >= 1 ? '100%' : '724px',
             backgroundColor: 'white',
             position: 'absolute',
             top: isMobile && scrollProgress === 2 ? '-50%' : '50%',
@@ -669,7 +641,7 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
         transition: 'bottom 0.5s ease-out',
         pointerEvents: isLanding ? 'auto' : 'none',
         zIndex: 10,
-        paddingTop: '100vh',
+        paddingTop: '100%',
         opacity: isLanding ? 1 : 0,
         transitionProperty: 'opacity',
         transitionDuration: '0.5s',
@@ -736,7 +708,7 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
                 // Save current zoom level before switching
                 setPreviousZoom(zoom);
                 
-                // Switch to explore mode FIRST so page becomes 100vh before scrolling
+                // Switch to explore mode FIRST so page becomes 100% before scrolling
                 // Use flushSync to force React to re-render synchronously before scrollTo
                 // This prevents jump when at 100% (page is 180vh, scroll is mid)
                 flushSync(() => {
@@ -744,7 +716,7 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
                   setZoom(150);
                 });
                 
-                // Now page is 100vh, scroll to top and disable scrolling
+                // Now page is 100%, scroll to top and disable scrolling
                 window.scrollTo({ top: 0, behavior: 'instant' });
                 document.body.style.overflow = 'hidden';
                 
@@ -774,7 +746,7 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
                   const boxCenterXVw = (col - 3.5) * boxSizeVw;
                   const boxCenterYVw = (row - 3.5) * boxSizeVw;
                   
-                  // Brown box width: 100vh * 349 / 1024, positioned at 50%
+                  // Brown box width: 100% * 349 / 1024, positioned at 50%
                   // Left space = 50vw - (brown box width / 2)
                   const brownBoxWidth = window.innerHeight * 349 / 1024;
                   const leftSpaceWidth = (50 * vwToPx) - (brownBoxWidth / 2);
@@ -871,12 +843,12 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
           {/* Panel indicator control for mobile */}
           {isMobile && (
             <div 
-              className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-[200] flex gap-4"
+              className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-[200] flex gap-4"
               style={{ 
                 display: isPanelOpen ? 'flex' : 'none',
                 backgroundColor: 'rgba(0, 0, 0, 0.3)',
                 borderRadius: '20px',
-                padding: '15px 50px'
+                padding: '10px 30px'
               }}
             >
               <button
@@ -910,8 +882,8 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
                 ? (activePanel === 'image' ? '0' : '-100%')
                 : (isPanelOpen ? '50%' : 'calc(100% + 300px)'),
               transform: isMobile ? 'translateX(0)' : (isPanelOpen ? 'translateX(-50%)' : 'translateX(0)'),
-              height: '100vh',
-              width: isMobile ? '100%' : 'calc(100vh * 349 / 1024)',
+              height: '100%',
+              width: isMobile ? '100%' : 'calc(100% * 349 / 1024)',
               backgroundImage: 'url(/images/banner.jpg)',
               backgroundSize: isMobile ? 'contain' : '100% 100%',
               backgroundPosition: 'center',
@@ -938,7 +910,7 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
               transform: isMobile ? 'translateX(0)' : (isPanelOpen ? 'translateX(0)' : 'translateX(100%)'),
               width: isMobile 
                 ? '100%' 
-                : (isPanelOpen ? 'calc(50% - (100vh * 349 / 1024 / 2))' : '550px')
+                : (isPanelOpen ? 'calc(50% - (100% * 349 / 1024 / 2))' : '550px')
             }}
           >
           <div className="h-full overflow-hidden text-black">
@@ -1111,7 +1083,7 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
               onClick={() => {
                 if (zoom === 150) setZoom(100);
                 else if (zoom === 100) {
-                  // Scroll to top first to prevent jump when page shrinks from 180vh to 100vh
+                  // Scroll to top first to prevent jump when page shrinks from 180vh to 100%
                   window.scrollTo({ top: 0, behavior: 'instant' });
                   setZoom(50);
                 }

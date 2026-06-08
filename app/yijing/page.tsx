@@ -148,7 +148,8 @@ export default function Yijing() {
             alt="Yin Yang" 
             style={{
               width: '100%',
-              height: 'auto'
+              height: 'auto',
+              transform: isMobile ? 'scale(1.2)' : 'none'
             }}
           />
         </div>
@@ -214,6 +215,7 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
               width: '100%',
               height: 'auto',
               maxHeight: '120%',
+              transform: isMobile ? 'scale(1.2)' : 'none',
               objectFit: 'contain'
             }}
           />
@@ -235,6 +237,7 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
             style={{
               width: '100%',
               height: 'auto',
+              transform: isMobile ? 'scale(1.2)' : 'none',
               maxHeight: '120%',
               objectFit: 'contain'
             }}
@@ -354,6 +357,7 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
               width: '100%',
               height: 'auto',
               maxHeight: '130%',
+              transform: isMobile ? 'scale(1.2)' : 'none',
               objectFit: 'contain'
             }}
           />
@@ -376,6 +380,7 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
             style={{
               width: '100%',
               height: 'auto',
+              transform: isMobile ? 'scale(1.2)' : 'none',
               maxHeight: '130%',
               objectFit: 'contain'
             }}
@@ -442,6 +447,7 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
             alt="64 Hexagrams" 
             style={{
               width: '100%',
+              transform: isMobile ? 'scale(1.2)' : 'none',
               height: 'auto',
               maxHeight: '120%',
               objectFit: 'contain'
@@ -609,7 +615,7 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
               }}
             >
             <div className="yj-en-18 text-white fw-500"  style={{ marginBottom: '10px' }}>
-              <em>YINYAND</em> AND <em>WUXING</em>
+              <em>Yinyand</em> and  <em>Wuxing</em>
             </div>
             <div className="yj-en-14 text-white fw-300"  style={{ lineHeight: '1.5' }}>
               <p style={{marginBottom:'10px'}}>
@@ -1073,21 +1079,39 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
           zIndex: 99999
         }} />
       )}
+          {/* Mobile navigation dots - outside border div */}
+          {mounted && isMobile && (
+            <div className="yj-nav-dots-mobile" style={{ position: 'fixed', bottom: '12px', left: '15px',zIndex : '99999' }}>
+              {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((index) => (
+                <div
+                  key={index}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setCurrentSlide(index);
+                  }}
+                  className={`yj-nav-dot yj-nav-dot-mobile ${currentSlide === index ? 'yj-nav-dot-active' : 'yj-nav-dot-inactive'}`}
+                />
+              ))}
+            </div>
+          )}
+
               {/* Mobile: Scroll to explore text */}
-            <div
-              className="yj-en-12 text-white fw-400"
-               style={{ position: 'fixed',
-                right: '15px',
-                bottom: '5px',
-                
-                
-                whiteSpace: 'nowrap',
-                zIndex: 200,
-                pointerEvents: 'none',
-                opacity: 1 }}
-            >
-              Scroll to explore
-            </div>    
+            {mounted && isMobile && (
+              <div
+                className="yj-en-12 text-white fw-400"
+                 style={{ position: 'fixed',
+                  right: '15px',
+                  bottom: '5px',
+                  
+                  
+                  whiteSpace: 'nowrap',
+                  zIndex: 200,
+                  pointerEvents: 'none',
+                  opacity: 1 }}
+              >
+                Scroll to explore
+              </div>
+            )}    
       <div className={`${isMobile ? "min-h-screen" : "min-h-screen pt-16"} ${isLoaded ? 'page-fade-in' : ''}`} style={{ opacity: isLoaded ? 1 : 0 }}>
         <Header forceOpenMenu={shouldOpenMenu} onMenuChange={(isOpen) => { if (!isOpen) setShouldOpenMenu(false); }} />
       
@@ -1120,7 +1144,7 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
                 transition: 'transform 0.7s ease-out'
               }}>
                 {/* Left content layer (white) */}
-                <div style={{
+                <div className="yj-mobile-left-content" style={{
                   position: 'absolute',
                   top: 0,
                   left: 0,
@@ -1128,8 +1152,7 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
                   height: '100%',
                   backgroundColor: '#FFF',
                   zIndex: 1,
-                  overflow: 'hidden',
-                  padding: '40px 20px'
+                  overflow: 'hidden'
                 }}>
                   {renderLeftContent(index)}
                 </div>
@@ -1303,61 +1326,28 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
             })}
           </div>
 
+
+
           {/* Rightmost border div */}
-          <div
-            style={{
-              position: 'fixed',
-              top: 0,
-              right: 0,
-              width: '90px',
-              height: '100vh',
-              borderLeft: '1px solid #888',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'flex-end',
-              flexDirection: 'column',
-              paddingBottom: '55px',
-              zIndex: 20
-            }}
-          >
-            {/* Navigation dots */}
-            <div style={{
-              position: 'absolute',
-              bottom: '155px',
-              gap: '10px',
-              marginBottom: '25px',
-              zIndex: 20
-            }}>
-              {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((index) => (
-                <div
-                  key={index}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setCurrentSlide(index);
-                  }}
-                  style={{
-                    width: '6px',
-                    height: '6px',
-                    backgroundColor: currentSlide === index ? '#FFF' : 'transparent',
-                    border: currentSlide === index ? 'none' : '1px solid #888',
-                    cursor: 'pointer',
-                    transition: 'background-color 0.3s ease, border 0.3s ease',
-                    marginBottom: '5px'
-                  }}
-                />
-              ))}
-            </div>
+          <div className="yj-right-border">
+            {/* Navigation dots - desktop only */}
+            {!isMobile && (
+              <div className="yj-nav-dots-desktop">
+                {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((index) => (
+                  <div
+                    key={index}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setCurrentSlide(index);
+                    }}
+                    className={`yj-nav-dot yj-nav-dot-desktop ${currentSlide === index ? 'yj-nav-dot-active' : 'yj-nav-dot-inactive'}`}
+                  />
+                ))}
+              </div>
+            )}
 
             {/* Next/Back button */}
-            <div className="text-white"
-               style={{ writingMode: 'vertical-rl',
-                textOrientation: 'mixed',
-                fontSize: '14px',
-                letterSpacing: '0.1em',
-                cursor: 'pointer',
-                position: 'absolute',
-                bottom: '110px',
-                zIndex: 20 }}
+            <div className="text-white yj-nav-button yj-nav-button-cn"
               onClick={(e) => {
                 e.stopPropagation();
                 const next = currentSlide < 10 ? currentSlide + 1 : 0;
@@ -1366,15 +1356,7 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
             >
               {currentSlide === 10 ? '第一章' : '下一章'}
             </div>
-            <div className="text-white"
-               style={{ writingMode: 'vertical-rl',
-                textOrientation: 'mixed',
-                fontSize: '14px',
-                letterSpacing: '0.1em',
-                cursor: 'pointer',
-                position: 'absolute',
-                bottom: '55px',
-                zIndex: 20 }}
+            <div className="text-white yj-nav-button yj-nav-button-en"
               onClick={(e) => {
                 e.stopPropagation();
                 const next = currentSlide < 10 ? currentSlide + 1 : 0;
@@ -1382,9 +1364,9 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
               }}
             >
               {currentSlide === 10 ? (
-                <span className="fw-300"  style={{ fontFamily: '"neue-haas-unica", sans-serif',  marginTop: '15px', lineHeight: '1', display: 'inline-block', marginLeft: '6px' }}>Back</span>
+                <span className="fw-300 yj-nav-button-en-text">Back</span>
               ) : (
-                <span className="fw-300"  style={{ fontFamily: '"neue-haas-unica", sans-serif',  marginTop: '15px', lineHeight: '1', display: 'inline-block', marginLeft: '6px' }}>Next</span>
+                <span className="fw-300 yj-nav-button-en-text">Next</span>
               )}
             </div>
           </div>
