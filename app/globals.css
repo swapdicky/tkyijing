@@ -184,6 +184,8 @@ border-bottom: 1px solid #888;}
 .about-program-block{width: 100%;max-width: 640px;margin-bottom: 80px;}
 .about-video-section{padding: 80px 40px;background-color: #000;border-bottom: 1px solid #888;}
 
+.move-over-text{position: fixed;right: -18px;top: 50%;transform: rotate(90deg);transform-origin: center center;font-size: 12px;font-family: "neue-haas-unica", sans-serif !important;white-space: nowrap;z-index: 20;pointer-events: none;transition: opacity 0.5s ease-out;}
+.scroll-to-explore-text{position: fixed;right: -4px;top: 50%;transform: rotate(90deg);transform-origin: center center;font-size: 12px;font-family: "neue-haas-unica", sans-serif !important;white-space: nowrap;z-index: 99;pointer-events: none;transition: opacity 0.5s ease-out;}
 
 
 /* Page fade-in animation */

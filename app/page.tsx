@@ -536,6 +536,7 @@ export default function Home() {
         {/* White info box */}
         <div
           className={`${scrollProgress >= 1 ? 'info-box-width-expanded' : 'info-box-width'} ${scrollProgress >= 1 ? 'info-box-max-height-expanded' : 'info-box-max-height'}`}
+          onClick={advanceScroll}
           style={{
             height: scrollProgress >= 1 ? '100%' : '724px',
             backgroundColor: 'white',
@@ -690,8 +691,8 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
                 backgroundColor: 'transparent'
               }}
               onClick={(e) => {
-                // Disable click when menu is open
-                if (isMenuOpen) return;
+                // Disable click when menu is open or during intro animation
+                if (isMenuOpen || !hideOverlay) return;
                 
                 setSelectedBox(boxNumber);
                 setIsPanelOpen(true);
@@ -834,7 +835,7 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
               right: isMobile ? '0' : '20px',
               fontSize: '32px',
               lineHeight: '1',
-              color: isMobile ? (activePanel === 'info' ? 'black' : 'white') : 'white'
+              color: isMobile ? (activePanel === 'info' ? 'black' : 'white') : 'black'
             }}
           >
             ×
@@ -883,10 +884,10 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
                 : (isPanelOpen ? '50%' : 'calc(100% + 300px)'),
               transform: isMobile ? 'translateX(0)' : (isPanelOpen ? 'translateX(-50%)' : 'translateX(0)'),
               height: '100%',
-              width: isMobile ? '100%' : 'calc(100% * 349 / 1024)',
+              width: isMobile ? '100%' : 'calc(100vh * 698 / 2048)',
               backgroundImage: 'url(/images/banner.jpg)',
               backgroundSize: isMobile ? 'contain' : '100% 100%',
-              backgroundPosition: 'center',
+              backgroundPosition: 'center center',
               backgroundRepeat: 'no-repeat'
             }}
           >
@@ -910,7 +911,7 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
               transform: isMobile ? 'translateX(0)' : (isPanelOpen ? 'translateX(0)' : 'translateX(100%)'),
               width: isMobile 
                 ? '100%' 
-                : (isPanelOpen ? 'calc(50% - (100% * 349 / 1024 / 2))' : '550px')
+                : (isPanelOpen ? 'calc(50% - (100vh * 698 / 2048 / 2))' : '550px')
             }}
           >
           <div className="h-full overflow-hidden text-black">
