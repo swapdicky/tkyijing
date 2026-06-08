@@ -584,7 +584,7 @@ a:hover .hover-underline::after {
 .yj-height-half-inner-over .yj-height-half-inner{max-height: 10000px;}
 .yj-max-width-25vw{max-width: 70vw;transform: scale(.8);transform-origin: left bottom;left: 15px;}
 .yj-full-viewport{width: 100vw;height: 100%;}
-.h-screen{height: 100%;}
+.h-screen{height: 100vh;}
 
 
 /* Info box scale transform classes */
