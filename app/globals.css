@@ -35,6 +35,7 @@ html {
   opacity: 1;
 }
 
+.w-6{width: 20px;}
 
 
 @layer utilities {
