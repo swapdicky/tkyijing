@@ -147,7 +147,7 @@ export default function Yijing() {
           position: 'relative'
         }}>
           <img 
-            src="/images/TK_YiJIng_Graphs/yijing-graphs-02.svg" 
+            src="/images/TK_YiJIng_Graphs/yijing-graphs-02.jpg" 
             alt="Yin Yang" 
             style={{
               width: '100%',
@@ -157,7 +157,7 @@ export default function Yijing() {
           />
           {isMobile && (
             <button
-              onClick={() => setLightboxImage('/images/TK_YiJIng_Graphs/yijing-graphs-02.svg')}
+              onClick={() => setLightboxImage('/images/TK_YiJIng_Graphs/yijing-graphs-02.jpg')}
             style={{
               position: 'absolute',
               top: '0',
@@ -239,7 +239,7 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
           position: 'relative'
         }}>
           <img 
-            src="/images/TK_YiJIng_Graphs/yijing-graphs-04.svg" 
+            src="/images/TK_YiJIng_Graphs/yijing-graphs-04.jpg" 
             alt="8 Trigrams" 
             style={{
               width: '100%',
@@ -251,7 +251,7 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
           />
           {isMobile && (
             <button
-              onClick={() => setLightboxImage('/images/TK_YiJIng_Graphs/yijing-graphs-04.svg')}
+              onClick={() => setLightboxImage('/images/TK_YiJIng_Graphs/yijing-graphs-04.jpg')}
             style={{
               position: 'absolute',
               top: '0',
@@ -289,7 +289,7 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
           position: 'relative'
         }}>
           <img 
-            src="/images/TK_YiJIng_Graphs/yijing-graphs-05.svg" 
+            src="/images/TK_YiJIng_Graphs/yijing-graphs-05.jpg" 
             alt="64 Hexagrams" 
             style={{
               width: '100%',
@@ -301,7 +301,7 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
           />
           {isMobile && (
             <button
-              onClick={() => setLightboxImage('/images/TK_YiJIng_Graphs/yijing-graphs-05.svg')}
+              onClick={() => setLightboxImage('/images/TK_YiJIng_Graphs/yijing-graphs-05.jpg')}
             style={{
               position: 'absolute',
               top: '0',
@@ -435,7 +435,7 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
             position: 'relative'
           }}>
           <img 
-            src="/images/TK_YiJIng_Graphs/yijing-graphs-08.svg" 
+            src="/images/TK_YiJIng_Graphs/yijing-graphs-08.jpg" 
             alt="Luo River Diagram" 
             style={{
               width: '100%',
@@ -447,7 +447,7 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
           />
           {isMobile && (
             <button
-              onClick={() => setLightboxImage('/images/TK_YiJIng_Graphs/yijing-graphs-08.svg')}
+              onClick={() => setLightboxImage('/images/TK_YiJIng_Graphs/yijing-graphs-08.jpg')}
             style={{
               position: 'absolute',
               top: '5px',
@@ -486,7 +486,7 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
             position: 'relative'
           }}>
           <img 
-            src="/images/TK_YiJIng_Graphs/yijing-graphs-09.svg" 
+            src="/images/TK_YiJIng_Graphs/yijing-graphs-09.jpg" 
             alt="Yellow River Chart" 
             style={{
               width: '100%',
@@ -498,7 +498,7 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
           />
           {isMobile && (
             <button
-              onClick={() => setLightboxImage('/images/TK_YiJIng_Graphs/yijing-graphs-09.svg')}
+              onClick={() => setLightboxImage('/images/TK_YiJIng_Graphs/yijing-graphs-09.jpg')}
             style={{
               position: 'absolute',
               top: '0',
@@ -593,7 +593,7 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
           position: 'relative'
         }}>
           <img 
-            src="/images/TK_YiJIng_Graphs/yijing-graphs-11.svg" 
+            src="/images/TK_YiJIng_Graphs/yijing-graphs-11.jpg" 
             alt="64 Hexagrams" 
             style={{
               width: '100%',
@@ -605,7 +605,7 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
           />
           {isMobile && (
             <button
-              onClick={() => setLightboxImage('/images/TK_YiJIng_Graphs/yijing-graphs-11.svg')}
+              onClick={() => setLightboxImage('/images/TK_YiJIng_Graphs/yijing-graphs-11.jpg')}
             style={{
               position: 'absolute',
               top: '5px',
@@ -1016,7 +1016,7 @@ Hence, the ancient Chinese developed a comprehensive scheme of symbolic correlat
             display: 'flex',
             justifyContent: 'flex-end'
           }}>
-            <div className="yj-cn-28 text-white fw-300"  style={{ writingMode: 'vertical-rl',
+            <div className="yj-cn-36 text-white fw-300"  style={{ writingMode: 'vertical-rl',
               textOrientation: 'upright',
               lineHeight: '1.4',
               letterSpacing: '0.1em' }}>
@@ -1047,7 +1047,7 @@ The <em>Yellow River Chart</em> has been traditionally attributed to the legenda
             display: 'flex',
             justifyContent: 'flex-end'
           }}>
-            <div className="yj-cn-28 text-white fw-300"  style={{ writingMode: 'vertical-rl',
+            <div className="yj-cn-36 text-white fw-300"  style={{ writingMode: 'vertical-rl',
               textOrientation: 'upright',
               lineHeight: '1.4',
               letterSpacing: '0.1em' }}>
