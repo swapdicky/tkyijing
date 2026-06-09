@@ -147,7 +147,7 @@ export default function About() {
                }}>    
           <div className="ct-left-content">
 
-            <div className="text-white fw-300 yj-cn-16" style={{ lineHeight: '1.4', textAlign: 'left', marginBottom: '20px' }}>
+            <div className="text-white fw-300 yj-cn-16" style={{ lineHeight: '1.4', textAlign: 'left', marginBottom: '1em' }}>
               <p style={{ marginBottom: '1em' }}>
                 自然變化的韻律與人類創造性的轉化，顯現為萬物存在與形成之間的恆常流轉。這來自《易經》的奧妙洞見，啟發了是次展覽的策劃理念。展覽揭示文化遺產如何持續激發創造性想像，為當代詮釋賦予新意。
               </p>
@@ -219,7 +219,7 @@ We hope the immersive experiences of this show will allow abstract ideas to take
                 position: 'relative',
                 width: '100%',
                 maxWidth: '640px',
-                marginBottom: '20px',
+                marginBottom: '1em',
                 overflow: 'hidden',
                 borderRadius: '15px'
               }}>
@@ -351,7 +351,7 @@ We hope the immersive experiences of this show will allow abstract ideas to take
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  marginBottom: '20px'
+                  marginBottom: '1em'
                 }}>
                   {/* Image placeholder */}
                 </div>
@@ -410,7 +410,7 @@ We hope the immersive experiences of this show will allow abstract ideas to take
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                marginBottom: '20px'
+                marginBottom: '1em'
               }}>
                 {/* Image placeholder */}
               </div>
@@ -479,9 +479,9 @@ We hope the immersive experiences of this show will allow abstract ideas to take
                         justifyContent: 'flex-end'         
           }}>
           {/* Artist Bio Content - Chinese */}
-          <div className="ct-team-section" style={{border:'none'}}>
+          <div className="ct-left-content" style={{border:'none'}}>
 
-            <div className="text-white fw-300 yj-cn-16" style={{ lineHeight: '1.8', textAlign: 'left', fontFamily: '"Noto Serif TC", serif', marginBottom: '20px' }}>
+            <div className="text-white fw-300 yj-cn-16" style={{ lineHeight: '1.8', textAlign: 'left', fontFamily: '"Noto Serif TC", serif', marginBottom: '1em' }}>
               鮑皓昕自<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1980</span>年從美國回流返港，開展其攝影生涯。旅美十年期間，他曾為紐約的大西洋唱片公司及唱片封套設計公司、洛杉磯的華納兄弟唱片公司擔任美術總監。他為電影《踎低噴飯：萬世魔星》設計書籍、唱片封套及海報時，首次與米高沛林合作。自此，兩人攜手製作了<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>11</span>本以英國廣播公司<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>BBC</span>旅遊特輯為藍本的圖冊，包括《兩極之旅》、《環太平洋之旅》、《海明威歷險記》、《撒哈拉》、《喜馬拉雅》、《新歐洲》，以及《巴西》等。鮑氏本人的著作包括《手》、《中國探秘》、《易經—中國牆城》、《山水》、《環球吶喊》、《平凡時刻》、《夢之旅》，以及《末代皇帝．幕後剪影》。鮑氏為其於倫敦的福克斯·塔爾博特博物館及皇家地理學會的展覽出版了圖錄《與米高沛林同遊世界》，以及香港海事博物館的展覽圖錄《八千日環遊世界》。他還為公司企業製作的限量版書籍，包括華光海運的《雙船記》，安縵度假酒店的《安縵》、《不丹》及《安縵<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>2</span>》，意大利書籍印刷商特蘭提諾的《平凡時刻》、《四原色—中國》及《耀眼的陰影—黑白光影之國度》。鮑氏的旅行遊記及其他攝影作品曾在世界各大出版物及展覽中亮相，包括為貝托魯奇的電影《末代皇帝溥儀》及《小活佛》、泰利鍾斯的《海盗埃里克》、泰利基咸的《殺了堂吉訶德的男人》等拍攝的特別劇照。
             </div>
 

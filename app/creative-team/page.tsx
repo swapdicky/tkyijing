@@ -129,7 +129,7 @@ export default function CreativeTeam() {
               fontWeight: 300,
               color: '#fff',
               textAlign: 'left',
-              marginBottom: '20px'
+              marginBottom: '1em'
             }}>
               <p style={{ marginBottom: '1em' }}>
                 我們向所有協助及參與本次展覽的人士致以最誠摯的謝意。特別感謝鮑皓昕先生設計的展覽海報，以及<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Teresa Coleman</span>女士借出其收藏的道教宗師法衣。
@@ -143,7 +143,7 @@ export default function CreativeTeam() {
               fontWeight: 300,
               color: '#fff',
               textAlign: 'left',
-              marginBottom: '20px'
+              marginBottom: '1em'
             }}>
               <p style={{ marginBottom: '1em' }}>
                 We offer our thanks and warmest appreciation to everyone involved in realising this exhibition. Special thanks to Mr. Basil Pao for designing the key promotional image for the exhibition and to Ms. Teresa Coleman for lending a Daoist priest's robe from her collection.
@@ -158,7 +158,7 @@ export default function CreativeTeam() {
               fontWeight: 300,
               color: '#888',
               textAlign: 'left',
-              marginBottom: '20px'
+              marginBottom: '1em'
             }}>
               <p >
 註: 是次展覽中引用《傅佩榮解讀易經》（台北，<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>2022</span>）的白話中文譯解；英文版本根據衛禮賢（<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Richard Wilhelm</span>）的譯本，由卡利‧貝恩斯（<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Cary F. Baynes</span>）翻譯成英文（普林斯頓，<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1997</span>）。              </p>
