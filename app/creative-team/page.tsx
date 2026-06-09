@@ -143,7 +143,7 @@ export default function CreativeTeam() {
               fontWeight: 300,
               color: '#fff',
               textAlign: 'left',
-              marginBottom: '30px'
+              marginBottom: '20px'
             }}>
               <p style={{ marginBottom: '1em' }}>
                 We offer our thanks and warmest appreciation to everyone involved in realising this exhibition. Special thanks to Mr. Basil Pao for designing the key promotional image for the exhibition and to Ms. Teresa Coleman for lending a Daoist priest's robe from her collection.
@@ -278,13 +278,19 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
 
               {/* Right column */}
               <div style={{ flex: 1 }}>
-
+                <div className="yj-cn-16" style={{
+                  lineHeight: 1.2,
+                  color: '#fff',
+                  marginBottom: '6px',
+                  fontWeight: 500
+                }}>
+                  　
+                </div>
                 <div className="yj-cn-16" style={{
                   lineHeight: 1.2,
                   color: '#fff',
                   fontFamily: '"neue-haas-unica", sans-serif',
-                  fontWeight: 300,
-                  marginTop: '28px'
+                  fontWeight: 300
                 }}>
                   Studio 8 Limited
                 </div>
@@ -402,7 +408,7 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
                   color: '#fff',
                   fontFamily: '"neue-haas-unica", sans-serif',
                   fontWeight: 300,
-                  marginBottom: '20px'
+                  marginBottom: '6px'
                 }}>
                   Ching Ching Cheung
                 </div>
@@ -522,13 +528,21 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
                   Exhibition Design
                 </div>
               </div>
+              
               <div style={{ flex: 1 }}>
                 <div className="yj-cn-16" style={{
                   lineHeight: 1.2,
                   color: '#fff',
+                  marginBottom: '6px',
+                  fontWeight: 500
+                }}>
+                  　
+                </div>                
+                <div className="yj-cn-16" style={{
+                  lineHeight: 1.2,
+                  color: '#fff',
                   fontFamily: '"neue-haas-unica", sans-serif',
-                  fontWeight: 300,
-                  marginTop: '28px'
+                  fontWeight: 300
                 }}>
                   Atelier Nuno Limited
                 </div>
@@ -564,9 +578,16 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
                 <div className="yj-cn-16" style={{
                   lineHeight: 1.2,
                   color: '#fff',
+                  marginBottom: '6px',
+                  fontWeight: 500
+                }}>
+                  　
+                </div>
+                <div className="yj-cn-16" style={{
+                  lineHeight: 1.2,
+                  color: '#fff',
                   fontFamily: '"neue-haas-unica", sans-serif',
-                  fontWeight: 300,
-                  marginTop: '28px'
+                  fontWeight: 300
                 }}>
                   HATO
                 </div>
@@ -647,9 +668,16 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
                 <div className="yj-cn-16" style={{
                   lineHeight: 1.2,
                   color: '#fff',
+                  marginBottom: '6px',
+                  fontWeight: 500
+                }}>
+                  　
+                </div>                
+                <div className="yj-cn-16" style={{
+                  lineHeight: 1.2,
+                  color: '#fff',
                   fontFamily: '"neue-haas-unica", sans-serif',
-                  fontWeight: 300,
-                  marginTop: '28px'
+                  fontWeight: 300
                 }}>
                   WARE
                 </div>
@@ -726,12 +754,19 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
                 </div>
               </div>
               <div style={{ flex: 1 }}>
+                 <div className="yj-cn-16" style={{
+                  lineHeight: 1.2,
+                  color: '#fff',
+                  marginBottom: '6px',
+                  fontWeight: 500
+                }}>
+                  　
+                </div>               
                 <div className="yj-cn-16" style={{
                   lineHeight: 1.2,
                   color: '#fff',
                   fontFamily: '"neue-haas-unica", sans-serif',
-                  fontWeight: 300,
-                  marginTop: '28px'
+                  fontWeight: 300
                 }}>
                   Toby Ng Design
                 </div>

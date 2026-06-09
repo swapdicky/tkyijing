@@ -216,20 +216,38 @@ export default function Home() {
         const deltaY = clientY - touchStartY;
         
         // Calculate grid dimensions (mode is always "explore" here due to early return)
+        // Grid is square: 280vw x 280vw on mobile, 160vw x 160vw on desktop
         const gridWidth = isMobile ? innerWidth * 2.8 : innerWidth * 1.6;
-        const gridHeight = gridWidth;
+        const gridHeight = gridWidth; // Square grid
         
-        // Calculate boundaries
-        const maxDragX = (gridWidth - innerWidth) / 2;
-        const maxDragY = (gridHeight - innerHeight) / 2;
+        // Grid is centered with xPercent: -50%, yPercent: -50%
+        // So the actual boundaries are:
+        // - Can drag right by (gridWidth/2 - innerWidth/2) to show left edge
+        // - Can drag left by (gridWidth/2 - innerWidth/2) to show right edge
+        // Same for vertical
+        const halfGridWidth = gridWidth / 2;
+        const halfGridHeight = gridHeight / 2;
+        const halfViewportWidth = innerWidth / 2;
+        const halfViewportHeight = innerHeight / 2;
+        
+        // Add extra margin to ensure we can see all edges with comfortable spacing
+        const marginLeft = 100;
+        const marginRight = 100;
+        const marginForGridTop = 0; // When dragging down to see grid top
+        const marginForGridBottom = 200; // When dragging up to see grid bottom
+        
+        const maxDragRight = halfGridWidth - halfViewportWidth + marginRight;
+        const maxDragLeft = -(halfGridWidth - halfViewportWidth + marginLeft);
+        const maxDragDown = halfGridHeight - halfViewportHeight + marginForGridTop; // Drag down = show grid top
+        const maxDragUp = -(halfGridHeight - halfViewportHeight + marginForGridBottom); // Drag up = show grid bottom
         
         // Apply drag to grid position with boundaries
         let newX = gridStartX + deltaX;
         let newY = gridStartY + deltaY;
         
         // Clamp within boundaries
-        newX = Math.max(-maxDragX, Math.min(maxDragX, newX));
-        newY = Math.max(-maxDragY, Math.min(maxDragY, newY));
+        newX = Math.max(maxDragLeft, Math.min(maxDragRight, newX));
+        newY = Math.max(maxDragUp, Math.min(maxDragDown, newY));
 
         gsap.set(moduleRef.current, {
           x: newX,
@@ -296,6 +314,20 @@ export default function Home() {
       document.body.style.overflowX = "hidden";
       gsap.killTweensOf(moduleRef.current);
       
+      // Mobile overview: no transform needed, use normal scroll
+      if (isMobile) {
+        gsap.set(moduleRef.current, {
+          x: 0,
+          y: 0,
+          scale: 1,
+          xPercent: 0,
+          yPercent: 0
+        });
+        window.scrollTo({ top: 0, behavior: 'instant' });
+        return;
+      }
+      
+      // Desktop overview logic
       let scaleValue = 0.57 * (zoom / 100);
       let targetX = 0;
       let targetY = 0;
@@ -307,31 +339,23 @@ export default function Home() {
         // Reset scroll to top to prevent jump when switching from 100% (180vh)
         window.scrollTo({ top: 0, behavior: 'instant' });
       } else if (zoom === 100) {
-        // Mobile: 4-column grid is already 100vw, so scale differently
-        if (isMobile) {
-          // On mobile, scale to fit 4-column grid with margin
-          const scaleAdjustment = (window.innerWidth - 20) / window.innerWidth;
-          scaleValue = scaleAdjustment;
-          targetY = 0;
-        } else {
-          // Desktop: Reduce scale to add 20px margin on each side
-          const scaleAdjustment = (window.innerWidth - 40) / window.innerWidth;
-          scaleValue = 0.57 * scaleAdjustment;
-          
-          // Scroll to center of the page (middle of 8x8 grid)
-          targetX = 0;
-          targetY = 15;
-          
-          // Page is min-h-[180vh], so middle = (180vh - 100%) / 2 = 40vh
-          // Use fixed calculation to avoid timing issues with scrollHeight not yet updated
-          const viewportHeight = window.innerHeight;
-          const scrollToMiddle = viewportHeight * 0.4; // 40vh
-          
-          // Scroll on next frame to ensure layout has updated to 180vh
-          requestAnimationFrame(() => {
-            window.scrollTo({ top: scrollToMiddle, behavior: 'instant' });
-          });
-        }
+        // Desktop: Reduce scale to add 20px margin on each side
+        const scaleAdjustment = (window.innerWidth - 40) / window.innerWidth;
+        scaleValue = 0.57 * scaleAdjustment;
+        
+        // Scroll to center of the page (middle of 8x8 grid)
+        targetX = 0;
+        targetY = 15;
+        
+        // Page is min-h-[180vh], so middle = (180vh - 100%) / 2 = 40vh
+        // Use fixed calculation to avoid timing issues with scrollHeight not yet updated
+        const viewportHeight = window.innerHeight;
+        const scrollToMiddle = viewportHeight * 0.4; // 40vh
+        
+        // Scroll on next frame to ensure layout has updated to 180vh
+        requestAnimationFrame(() => {
+          window.scrollTo({ top: scrollToMiddle, behavior: 'instant' });
+        });
       }
       
       gsap.to(moduleRef.current, {
@@ -538,6 +562,15 @@ export default function Home() {
       setMode("overview");
       setZoom(100);
     } else {
+      // When switching from overview to explore on mobile, set initial transform
+      if (isMobile && moduleRef.current) {
+        gsap.set(moduleRef.current, {
+          xPercent: -50,
+          yPercent: -50,
+          x: 0,
+          y: 0
+        });
+      }
       setMode("explore");
       setZoom(150);
     }
@@ -545,16 +578,16 @@ export default function Home() {
 
   return (
     <div className="min-h-screen">
-      {/* Scroll to explore text - shows before overlay hides */}
+      {/* Scroll to explore text - shows before overlay hides and when panel is closed */}
       <div className="text-gray fw-400 scroll-to-explore-text"
-         style={{ opacity: !hideOverlay ? 1 : 0 }}
+         style={{ opacity: (!hideOverlay && !isPanelOpen) ? 1 : 0 }}
       >
         Scroll to explore
       </div>
       
-      {/* Move over to explore text - shows after overlay hides and zoom is 150% */}
+      {/* Move over to explore text - shows after overlay hides and zoom is 150% and when panel is closed */}
       <div className="text-gray fw-400 move-over-text"
-         style={{ opacity: (hideOverlay && zoom === 150) ? 1 : 0 }}
+         style={{ opacity: (hideOverlay && zoom === 150 && !isPanelOpen) ? 1 : 0 }}
       >
         Move over to explore
       </div>
@@ -704,13 +737,22 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
       <div className={`w-full ${mode === "overview" ? (zoom === 50 ? "min-h-screen" : "min-h-[180vh]") : "h-screen overflow-hidden"} relative`}>
         <div 
           ref={moduleRef}
-          className={`grid gap-0 absolute top-1/2 left-1/2 ${isMobile && mode === "overview" ? "grid-cols-4 w-full" : (isMobile && mode === "explore" ? "grid-cols-8 w-[280vw]" : "grid-cols-8 w-[160vw]")}`}
+          className={`grid gap-0 ${
+            isMobile && mode === "overview" 
+              ? "grid-cols-4 w-full relative" 
+              : isMobile && mode === "explore"
+              ? "grid-cols-8 w-[280vw] absolute top-1/2 left-1/2"
+              : "grid-cols-8 w-[160vw] absolute top-1/2 left-1/2"
+          }`}
           style={{ 
             willChange: "transform",
             transformStyle: "preserve-3d",
             border: isMobile ? (zoom === 150 ? '0px solid #000000' : '0px solid #333333') : (zoom === 150 ? '2px solid #000000' : '2px solid #333333'),
             marginTop: isMobile && mode === "overview" ? '80px' : 0,
-            marginBottom: isMobile && mode === "overview" ? '200px' : 0
+            marginBottom: isMobile && mode === "overview" ? '80px' : 0,
+            transform: isMobile && mode === "overview" ? 'none' : undefined,
+            left: isMobile && mode === "overview" ? 0 : undefined,
+            top: isMobile && mode === "overview" ? 0 : undefined
           }}
         >
           {Array.from({ length: 64 }).map((_, index) => {
@@ -747,6 +789,18 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
                 // Save current zoom level before switching
                 setPreviousZoom(zoom);
                 
+                if (!moduleRef.current) return;
+                
+                // For mobile, set initial transform before mode switch to prevent jump
+                if (isMobile) {
+                  gsap.set(moduleRef.current, {
+                    xPercent: -50,
+                    yPercent: -50,
+                    x: 0,
+                    y: 0
+                  });
+                }
+                
                 // Switch to explore mode FIRST so page becomes 100% before scrolling
                 // Use flushSync to force React to re-render synchronously before scrollTo
                 // This prevents jump when at 100% (page is 180vh, scroll is mid)
@@ -758,8 +812,6 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
                 // Now page is 100%, scroll to top and disable scrolling
                 window.scrollTo({ top: 0, behavior: 'instant' });
                 document.body.style.overflow = 'hidden';
-                
-                if (!moduleRef.current) return;
                 
                 // Calculate position to center this box
                 const row = Math.floor(index / 8);
@@ -849,9 +901,9 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
           data-panel-wrapper
           className="fixed top-0 h-screen transition-all duration-700 ease-out"
           style={{ 
-            pointerEvents: isPanelOpen ? 'auto' : 'none',
+            pointerEvents: isPanelOpen ? 'none' : 'none',
             backgroundColor: isMobile ? 'rgba(0, 0, 0, 0.8)' : 'transparent',
-            zIndex: 150,
+            zIndex: 101,
             left: '0',
             width: '100%',
             opacity: isPanelOpen ? 1 : 0
@@ -873,7 +925,8 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
               right: isMobile ? '0' : '20px',
               fontSize: '32px',
               lineHeight: '1',
-              color: isMobile ? (activePanel === 'info' ? 'black' : 'white') : 'black'
+              color: isMobile ? (activePanel === 'info' ? 'black' : 'white') : 'black',
+            pointerEvents: isPanelOpen ? 'auto' : 'none',
             }}
           >
             ×
@@ -903,10 +956,9 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
                 onClick={() => setActivePanel('info')}
                 className="transition-all duration-300"
                 style={{ 
-                  width: '6px',
-                  height: '6px',
-                  backgroundColor: activePanel === 'info' ? 'white' : 'rgba(255, 255, 255, 0.3)',
-                  transform: activePanel === 'info' ? 'scale(1.2)' : 'scale(1)'
+                  width: '5px',
+                  height: '5px',
+                  backgroundColor: activePanel === 'info' ? 'white' : 'rgba(255, 255, 255, 0.3)'
                 }}
               />
             </div>

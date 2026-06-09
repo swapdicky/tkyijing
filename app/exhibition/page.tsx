@@ -120,7 +120,7 @@ export default function Exhibition() {
 
   useEffect(() => {
     if (!containerRef.current || !sectionsRef.current) return;
-    if (isMobile || !isLoaded) return;
+    if (isMobile) return;
 
     const container = containerRef.current;
     const sections = sectionsRef.current;
@@ -130,6 +130,8 @@ export default function Exhibition() {
 
     const handleWheel = (e: WheelEvent) => {
       e.preventDefault();
+      
+      if (!isLoaded) return;
       
       const totalWidth = sections.scrollWidth;
       const viewportWidth = window.innerWidth;
@@ -234,6 +236,11 @@ export default function Exhibition() {
     };
 
     const animate = () => {
+      if (!isLoaded) {
+        animationFrame = requestAnimationFrame(animate);
+        return;
+      }
+      
       // Minimal lerp for slight smoothness
       currentX += (targetX - currentX) * 0.35;
       
@@ -263,14 +270,11 @@ export default function Exhibition() {
       animationFrame = requestAnimationFrame(animate);
     };
 
-    // Initialize parallax positions before starting animation
-    updateImageParallax();
+    // Add wheel event listener immediately
+    window.addEventListener('wheel', handleWheel, { passive: false });
     
     // Start animation loop
     animate();
-
-    // Add wheel event listener
-    window.addEventListener('wheel', handleWheel, { passive: false });
 
     return () => {
       window.removeEventListener('wheel', handleWheel);
@@ -529,7 +533,8 @@ The <em>Book of Changes</em> is unquestionably a quintessential Chinese cultural
                   lineHeight: '1.4',
                   fontFamily: '"Noto Serif TC", serif',
                   letterSpacing: '0.2em',
-                  marginBottom: isMobile ? "120px" : 0 }}>
+                  marginBottom: isMobile ? "120px" : 0 ,
+              height: isMobile ? '530px' : 'auto'}}>
                   {isMobile ? (
                     <>
 自我在五十年前初次接觸︽易經︾起，它就如一位睿智的<br/>
@@ -671,7 +676,8 @@ Over the years, I failed repeatedly to create a visual representation of the <em
                   lineHeight: '1.25',
                   
                   letterSpacing: '0.1em',
-                  marginBottom: isMobile ? "120px" : 0  }}>
+                  marginBottom: isMobile ? "120px" : 0 ,
+              height: isMobile ? '420px' : 'auto' }}>
                   人類對預知未來的渴求，可被視為在複雜<br/>
                   世道中駕馭變化的一種嘗試，以掌握生命，<br/>
                   使它充滿意義。<br/><br/>
@@ -814,7 +820,7 @@ Nowadays, with the advance of digital technologies, an online consultation of th
                   
                   lineHeight: '1',
                   marginLeft: "20px",
-                  marginTop: "-15px" }}>
+                  marginTop: isMobile ? "-9px" : "-15px" }}>
                   ︽觀靜錄︾
                 </h2>
 
