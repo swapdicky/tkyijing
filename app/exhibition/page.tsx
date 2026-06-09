@@ -77,6 +77,13 @@ export default function Exhibition() {
   }, []);
 
   useEffect(() => {
+    // Reset scroll position when page loads
+    window.scrollTo(0, 0);
+    
+    // Reset body overflow (home page may have set it to hidden)
+    document.body.style.overflow = 'auto';
+    document.body.style.overflowX = 'hidden';
+    
     const checkMobile = () => setIsMobile(window.innerWidth < 980 || window.innerHeight > window.innerWidth);
     checkMobile();
     window.addEventListener('resize', checkMobile);
@@ -129,6 +136,8 @@ export default function Exhibition() {
     let animationFrame: number;
 
     const handleWheel = (e: WheelEvent) => {
+      // Double check mobile status to prevent blocking scroll on mobile
+      if (isMobile) return;
       if (!isLoaded) return;
       
       e.preventDefault();
@@ -288,7 +297,8 @@ export default function Exhibition() {
       style={{ 
         height: isMobile ? 'auto' : '100vh',
         overflow: isMobile ? 'visible' : 'hidden',
-        opacity: isMobile ? 1 : (isLoaded ? 1 : 0)
+        opacity: isMobile ? 1 : (isLoaded ? 1 : 0),
+        minHeight: isMobile ? '100vh' : 'auto'
       }}
     >
       <Header forceOpenMenu={shouldOpenMenu} />
