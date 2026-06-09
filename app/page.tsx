@@ -1044,7 +1044,7 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
               </div>
 
               <div className="fixed bottom-0 left-0 right-0 yj-bottom-bar">
-                <div className="flex items-end yj-bottom-gap">
+                <div className="flex items-start yj-bottom-gap">
                   <div className="w-20 flex-shrink-0">
                     <div className="yj-hexagram-size flex items-center justify-center">
                       {selectedBox && generateHexagramSVG(selectedBox)}

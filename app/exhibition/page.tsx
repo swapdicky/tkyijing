@@ -11,7 +11,7 @@ export default function Exhibition() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [shouldOpenMenu, setShouldOpenMenu] = useState(false);
   const [windowHeight, setWindowHeight] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(true); // Default to mobile-first to prevent scroll blocking
   const sectionBreakRefs = useRef<(HTMLDivElement | null)[]>([]);
   const innerSectionRefs = useRef<(HTMLDivElement | null)[]>([]);
   const imageParallaxRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -85,7 +85,7 @@ export default function Exhibition() {
 
   // Mobile scroll-based image pan effect
   useEffect(() => {
-    if (!isMobile || !isLoaded) return;
+    if (!isMobile) return;
 
     const handleMobileScroll = () => {
       imageParallaxRefs.current.forEach((imgEl, index) => {
@@ -116,7 +116,7 @@ export default function Exhibition() {
     return () => {
       window.removeEventListener('scroll', handleMobileScroll);
     };
-  }, [isMobile, isLoaded]);
+  }, [isMobile]);
 
   useEffect(() => {
     if (!containerRef.current || !sectionsRef.current) return;
@@ -129,9 +129,9 @@ export default function Exhibition() {
     let animationFrame: number;
 
     const handleWheel = (e: WheelEvent) => {
-      e.preventDefault();
-      
       if (!isLoaded) return;
+      
+      e.preventDefault();
       
       const totalWidth = sections.scrollWidth;
       const viewportWidth = window.innerWidth;
@@ -284,8 +284,12 @@ export default function Exhibition() {
 
   return (
     <div 
-      className={`bg-black overflow-hidden transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`} 
-      style={{ height: isMobile ? 'auto' : '100vh' }}
+      className={`bg-black transition-opacity duration-1000`} 
+      style={{ 
+        height: isMobile ? 'auto' : '100vh',
+        overflow: isMobile ? 'visible' : 'hidden',
+        opacity: isMobile ? 1 : (isLoaded ? 1 : 0)
+      }}
     >
       <Header forceOpenMenu={shouldOpenMenu} />
       

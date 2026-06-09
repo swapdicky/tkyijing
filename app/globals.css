@@ -36,6 +36,15 @@ html {
 }
 
 .w-6{width: 20px;}
+.gap-1\.5{gap:5px}
+.mt-n-14{margin-top: -14px;}
+.mt-n-12{margin-top: -12px;}
+.mt-n-8{margin-top: -8px;}
+.mt-n-6{margin-top: -6px;}
+.space-before-bracket{margin-top: -8px;}
+.space-after-bracket{margin-top: -6px;}
+.space-before-paren{margin-top: -8px;}
+.space-after-paren{margin-top: -6px;}
 
 
 @layer utilities {
@@ -605,6 +614,14 @@ a:hover .hover-underline::after {
 .yj-padding-small { padding: 20px 15px; }
 .yj-padding-section { padding: 90px 15px 60px 15px; }
 .yj-height-half { height: auto; overflow: visible; }
+.mt-n-14{margin-top: -10px;}
+.mt-n-12{margin-top: -2px;}
+
+.mt-n-6{margin-top: -6px;}
+.space-before-bracket{margin-top: -8px;}
+.space-after-bracket{margin-top: -6px;}
+.space-before-paren{margin-top: -8px;}
+.space-after-paren{margin-top: -6px;}
 
 /* Exhibition section - mobile */
 .ex-section { flex-direction: column; margin-left: 0; padding-right: 0; }
@@ -671,7 +688,7 @@ a:hover .hover-underline::after {
 .info-box-max-height-expanded{height: calc(100% - 30px) !important;}
 .info-en-content-lg{font-size: 14px !important;}
 .move-over-text{position: fixed;right: -35px;top: 50%;transform: rotate(90deg);transform-origin: center center;font-size: 12px;font-family: "neue-haas-unica", sans-serif !important;white-space: nowrap;z-index: 20;pointer-events: none;transition: opacity 0.5s ease-out;color:#FFF}
-.scroll-to-explore-text{position: fixed;right: -23px;top: 50%;transform: rotate(90deg);transform-origin: center center;font-size: 12px;font-family: "neue-haas-unica", sans-serif !important;white-space: nowrap;z-index: 99;pointer-events: none;transition: opacity 0.5s ease-out;color:#FFF}
+.scroll-to-explore-text{position: fixed;right: -23px;top: 50%;transform: rotate(90deg);transform-origin: center center;font-size: 12px;font-family: "neue-haas-unica", sans-serif !important;white-space: nowrap;z-index: 99;pointer-events: none;transition: opacity 0.5s ease-out;color:#FFF;display: none !important;}
 
 .yj-mobile-left-content .yj-en-24{margin-top: 120px;}
 
