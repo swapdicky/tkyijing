@@ -83,6 +83,41 @@ export default function Exhibition() {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
+  // Mobile scroll-based image pan effect
+  useEffect(() => {
+    if (!isMobile || !isLoaded) return;
+
+    const handleMobileScroll = () => {
+      imageParallaxRefs.current.forEach((imgEl, index) => {
+        if (!imgEl) return;
+        
+        const rect = imgEl.getBoundingClientRect();
+        const viewportHeight = window.innerHeight;
+        
+        // Calculate progress: 0 when entering from bottom, 1 when leaving from top
+        const elementHeight = rect.height;
+        const startPosition = viewportHeight; // Bottom edge of viewport
+        const endPosition = -elementHeight; // Top edge (element completely off screen)
+        
+        const totalDistance = startPosition - endPosition;
+        const currentDistance = startPosition - rect.top;
+        const progress = Math.min(1, Math.max(0, currentDistance / totalDistance));
+        
+        // Pan from 0% (left) to 100% (right) as element moves through viewport
+        const bgPositionX = progress * 100;
+        
+        imgEl.style.backgroundPosition = `${bgPositionX}% center`;
+      });
+    };
+
+    window.addEventListener('scroll', handleMobileScroll, { passive: true });
+    handleMobileScroll(); // Initial call
+
+    return () => {
+      window.removeEventListener('scroll', handleMobileScroll);
+    };
+  }, [isMobile, isLoaded]);
+
   useEffect(() => {
     if (!containerRef.current || !sectionsRef.current) return;
     if (isMobile || !isLoaded) return;
@@ -268,7 +303,7 @@ export default function Exhibition() {
           }}
         >
           {/* Landing */}
-          <div className="yj-padding-large ex-padding-large" style={{ 
+          <div className="yj-padding-section ex-section-inner" style={{ 
             minHeight: isMobile ? '100vh' : '100vh',
             minWidth: isMobile ? '100%' : '50vw',
             zIndex: 1,
@@ -316,8 +351,9 @@ export default function Exhibition() {
                 textOrientation: 'upright',
                 lineHeight: '1.4',
                 
-                letterSpacing: '0.1em' }}>
-                 <span style={{marginTop: "-10px"}}></span>︽易經︾<span style={{marginTop:'-10px'}}></span>無疑是中國文化遺產之精髓。<br/>儒家與道家思想同樣根植於此<br/>中國古代哲學、科學、國家治術，<br/>甚至當代生活也從中獲得靈感。<br/>作為傳統卜卦文獻和哲學論述，︽易經︾<br/>在中國人生活方方面面留下不可<br/>磨滅的影響。
+                letterSpacing: '0.1em',
+                marginBottom: isMobile ? "120px" : 0  }}>
+                 <span style={{marginTop: "-10px"}}></span>︽易經︾<span style={{marginTop:'-10px'}}></span>無疑是中國文化遺產<br/>之精髓。儒家與道家思想同樣<br/>根植於此。是次展覽呈獻<br/>香港攝影藝術家鮑皓昕兩個<br/>系列作品：︽中國牆城︾<br/>和︽觀靜錄︾，探究文化遺產<br/>與藝術創作之間的關係。
               </div>
             </div>
 
@@ -337,8 +373,9 @@ export default function Exhibition() {
                  style={{ lineHeight: '1.2',
                 
                 textAlign: 'left' }}>
-The <em>Yijing</em>, or <em>Book of Changes</em>, is unquestionably a quintessential Chinese cultural heritage. Confucianism and Daoism have their common roots here. Ancient Chinese philosophy, science, and statecraft and even modern living have all drawn inspiration from it. As a classical divination document and a philosophical exposition, this book has an enduring imprint on many aspects of
-Chinese life.              </div>
+The <em>Book of Changes</em> is unquestionably a quintessential Chinese cultural heritage. Two series of works by Hong Kong photo artist Basil Pao—<em>The Great Walls of China</em> and <em>Glimpses of Silence</em>—are presented here to explore the relation between heritage and artistic creation.
+
+</div>
             </div>
           </div>
 
@@ -350,8 +387,6 @@ Chinese life.              </div>
               zIndex: 1, 
               backgroundColor: "#000",
               overflow: "hidden",
-              borderTopLeftRadius: "15px", 
-              borderBottomLeftRadius: "15px"
             }}
           >
             <div 
@@ -372,80 +407,18 @@ Chinese life.              </div>
           </div>
 
           {/* Section 1 */}
-          <div className="ex-section" style={{ minHeight: '100vh', position: 'relative', flexShrink: 0, backgroundColor: "#DDDDDD", zIndex: 2, borderTopLeftRadius: "15px", borderBottomLeftRadius: "15px", overflow: "hidden" }}>
-            <div className="yj-padding-section ex-section-inner" style={{ minHeight: '100vh', position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-              {/* Vertical line on the right */}
-              <div className="right-30 ex-vertical-line"
-              style={{
-                position: 'absolute',
-                top: '90px',
-                width: '1px',
-                height: 'calc(100vh - 160px)',
-                backgroundColor: '#888'
-              }}></div>
-              {/* Chinese text section */}
-              <div style={{
-                display: 'flex',
-                flexDirection: 'row-reverse',
-                gap: '0px',
-                justifyContent: 'flex-start',
-                alignItems: 'flex-start',
-                alignSelf: 'flex-end'
-              }}>
-                {/* Title */}
-                <h3 className="text-black fw-300 yj-cn-24"  style={{ writingMode: 'vertical-rl',
-                  textOrientation: 'upright',
-                  
-                  letterSpacing: '0.2em',
-                  
-                  marginLeft: "20px" }}>
-                  策展人的話
-                </h3>
-                
-                {/* Description text */}
-                <div className="text-black fw-300 yj-cn-36"  style={{ writingMode: 'vertical-rl',
-                  textOrientation: 'upright',
-                  lineHeight: '1.25',
-                  
-                  letterSpacing: '0.1em' }}>
-                  <span className="margin-n-40" style={{ display: 'inline-block' }}>﹁</span>我們希望這次展覽帶來的<br />沉浸體驗能為抽象的<br />概念賦予意義，並激發<br />人們思考：當地球持續暖化、<br />人工智能科技不斷重塑<br />人類經驗之際，如何仍能<br />從傳統智慧中獲得禆益。﹂
-                </div>
-              </div>
+          <div className="ex-section radius-top-left-15 radius-bottom-left-15" style={{ minHeight: isMobile ? 'auto' : '100vh', position: 'relative', flexShrink: 0, backgroundColor: "#DDDDDD", zIndex: 2, overflow: "hidden" }}>
 
-              {/* English section - aligned to bottom */}
-              <div style={{width: '100%'}}>
-                {/* Title */}
-                <div className="text-black fw-500 yj-en-24"  style={{ marginBottom: '15px',
-                  lineHeight: '1.2',
-                  
-                  fontFamily: '"neue-haas-unica", sans-serif',
-                  
-                  fontStyle: 'normal' }}>
-                  Curatorial Statement
-                </div>
-
-                {/* English description */}
-                <div className="text-black fw-300 yj-en-20"  style={{ lineHeight: '1.2',
-                  
-                  textAlign: 'left',
-                  fontFamily: '"neue-haas-unica", sans-serif',
-                  
-                  fontStyle: 'normal' }}>
-                  We hope the immersive experiences of this show will allow abstract ideas to take on meaning and inspire thoughts about the continued relevance of ancient wisdom, as we face a warming planet and advances of AI technologies that increasingly reshape the human experience.
-                </div>
-              </div>
-            </div>
             <div style={{ paddingTop: isMobile ? '30px' : '90px', paddingBottom: isMobile ? '15px' : '60px', paddingLeft: isMobile ? '15px' : '30px', paddingRight: isMobile ? '15px' : '30px', gap: isMobile ? '20px' : '30px', display: 'flex', flexDirection: isMobile ? 'column' : 'row', alignItems: isMobile ? 'stretch' : 'center', flex: isMobile ? 'none' : 1 }}>
               <div 
                 ref={(el) => { 
                   innerSectionRefs.current[0] = el;
                   imageParallaxRefs.current[0] = el;
                 }}
-                className="flex-shrink-0" 
+                className="flex-shrink-0 radius-15" 
                 style={{ 
                   aspectRatio: "656/874", 
                   height: isMobile ? 'auto' : 'calc(100vh - 140px)',
-                  borderRadius: "15px",
                   overflow: "hidden",
                   position: "relative",
                   backgroundImage: "url('/images/exhibition/ss1a.webp')",
@@ -457,28 +430,26 @@ Chinese life.              </div>
               </div>
               <div 
                 ref={(el) => { innerSectionRefs.current[1] = el; }}
-                className="flex-shrink-0" 
+                className="flex-shrink-0 radius-15" 
                 style={{ 
                   aspectRatio: "1311/874", 
                   height: isMobile ? 'auto' : 'calc(100vh - 140px)',
                   backgroundImage: "url('/images/exhibition/ss1b.webp')",
                   backgroundSize: "cover",
                   backgroundPosition: "center",
-                  borderRadius: "15px",
                   overflow: "hidden"
                 }}
               >
               </div>
               <div 
                 ref={(el) => { innerSectionRefs.current[2] = el; }}
-                className="flex-shrink-0" 
+                className="flex-shrink-0 radius-15" 
                 style={{ 
                   aspectRatio: "656/874", 
                   height: isMobile ? 'auto' : 'calc(100vh - 140px)',
                   backgroundImage: "url('/images/exhibition/ss1c.webp')",
                   backgroundSize: "cover",
                   backgroundPosition: "center",
-                  borderRadius: "15px",
                   overflow: "hidden"
                 }}
               >
@@ -493,8 +464,6 @@ Chinese life.              </div>
               width: isMobile ? '100%' : '80vw', 
               zIndex: 2, 
               overflow: "hidden",
-              borderTopLeftRadius: "15px", 
-              borderBottomLeftRadius: "15px",
               marginLeft: isMobile ? '0' : "-40px"
             }}
           >
@@ -516,8 +485,8 @@ Chinese life.              </div>
           </div>
 
           {/* Section 2 */}
-          <div className="ex-section" style={{ minHeight: '100vh', position: 'relative', flexShrink: 0, backgroundColor: "#330E07", zIndex: 3, borderTopLeftRadius: "15px", borderBottomLeftRadius: "15px", overflow: "hidden" }}>
-            <div className="yj-padding-section ex-section-inner" style={{ minHeight: '100vh', position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+          <div className="ex-section radius-top-left-15 radius-bottom-left-15" style={{ minHeight: isMobile ? 'auto' : '100vh', position: 'relative', flexShrink: 0, backgroundColor: "#330E07", zIndex: 3, overflow: "hidden" }}>
+            <div className="yj-padding-section ex-section-inner" style={{  minHeight: isMobile ? 'auto' : '100vh', position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               {/* Vertical line on the right */}
               <div className="right-30 ex-vertical-line"
               style={{
@@ -560,11 +529,23 @@ Chinese life.              </div>
                   lineHeight: '1.4',
                   fontFamily: '"Noto Serif TC", serif',
                   letterSpacing: '0.2em',
-                  marginBottom: isMobile ? "80px" : 0 }}>
+                  marginBottom: isMobile ? "120px" : 0 }}>
                   {isMobile ? (
                     <>
-                      自我在五十年前初次接觸︽易經︾起，它就如一位睿智的的老朋友，<br/>每當我求問指點，它總能揭示我內心深處的想法，<br/>指引我如何在困境中求變。當中的玄妙箴言，<br/>曾在我人生的關鍵時刻發揮重要作用，<br/>例如當年我在猶豫是否該離開美國荷里活的工作，<br/>開啟創作生涯新篇章時，我占得﹁旅﹂︵第五十六卦︶，<br/>使我下定決心回港，成為旅遊攝影師。<br/><br/>
-                      多年來，我不斷嘗試以視覺形式呈現︽易經︾的精髓，<br/>卻始終未能如願。直至<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>2007</span>我在編輯<span style={{marginTop:'-6px'}}></span>︽中國探秘︾一書時，<br/>終於找到完美載體<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>—</span>我在中國各地拍攝的斑駁牆垣特寫細節。<br/>歲月洗禮下，風雨在最基礎的建築上雕琢出繁複紋理與迷人質感。<br/>︽易經︾六十四卦源自古老二元體系，其形態極具當代感，<br/>與電腦時代遙相呼應。這些影像在視覺與概念上<br/>與大自然的抽象表現完美契合，成就了了︽中國牆城︾系列。
+自我在五十年前初次接觸︽易經︾起，它就如一位睿智的<br/>
+老朋友，每當我求問指點，它總能揭示我內心深處的想法，<br/>
+指引我如何在困境中揭示我內心深處的想法，曾在我人生的<br/>
+關鍵時刻發揮重要作用，例如當年我在猶豫是否該離開<br/>
+美國荷里活的工作，開啟創作生涯新篇章時，我占得﹁旅﹂<br/>
+<span style={{marginTop: "-8px"}}></span>︵第五十六卦︶，使我下定決心回港，成為旅遊攝影師。<br/><br/>
+
+多年來，我不斷嘗試以視覺形式呈現︽易經︾的精髓，<br/>
+卻始終未能如願。直至<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>2007</span>年我在編輯︽中國探秘︾一書時，<br/>
+終於找到完美載體｜我在中國各地拍攝的斑駁牆垣特寫細節。<br/>
+歲月洗禮下，風雨在最基礎的建築上雕琢出繁複紋理與<br/>
+迷人質感。︽易經︾六十四卦源自古老二元體系，其形態<br/>
+極具當代感，與電腦時代遙相呼應。這些影像在視覺與概念<br/>
+具當代感，抽象表現完美契合，成就了︽中國牆城︾系列。
                     </>
                   ) : (
                     <>
@@ -603,54 +584,50 @@ Over the years, I failed repeatedly to create a visual representation of the <em
             <div style={{ paddingTop: isMobile ? '30px' : '90px', paddingBottom: isMobile ? '15px' : '60px', paddingLeft: isMobile ? '15px' : '30px', paddingRight: isMobile ? '15px' : '30px', gap: isMobile ? '20px' : '30px', display: 'flex', flexDirection: isMobile ? 'column' : 'row', alignItems: isMobile ? 'stretch' : 'center', flex: isMobile ? 'none' : 1 }}>
               <div 
                 ref={(el) => { innerSectionRefs.current[3] = el; }}
-                className="flex-shrink-0" 
+                className="flex-shrink-0 radius-15" 
                 style={{ 
                   aspectRatio: "1311/874", 
                   height: isMobile ? 'auto' : 'calc(100vh - 140px)',
                   backgroundImage: "url('/images/exhibition/ss2a.webp')",
                   backgroundSize: "cover",
                   backgroundPosition: "center",
-                  borderRadius: "15px",
                   overflow: "hidden"
                 }}>
               </div>
               <div 
                 ref={(el) => { innerSectionRefs.current[4] = el; }}
-                className="flex-shrink-0" 
+                className="flex-shrink-0 radius-15" 
                 style={{ 
                   aspectRatio: "1311/874", 
                   height: isMobile ? 'auto' : 'calc(100vh - 140px)',
                   backgroundImage: "url('/images/exhibition/ss2b.webp')",
                   backgroundSize: "cover",
                   backgroundPosition: "center",
-                  borderRadius: "15px",
-                  overflow: "hidden"
+                      overflow: "hidden"
                 }}>
               </div>
               <div 
                 ref={(el) => { innerSectionRefs.current[5] = el; }}
-                className="flex-shrink-0" 
+                className="flex-shrink-0 radius-15" 
                 style={{ 
                   aspectRatio: "656/874", 
                   height: isMobile ? 'auto' : 'calc(100vh - 140px)',
                   backgroundImage: "url('/images/exhibition/ss2c.webp')",
                   backgroundSize: "cover",
                   backgroundPosition: "center",
-                  borderRadius: "15px",
-                  overflow: "hidden"
+                      overflow: "hidden"
                 }}>
               </div>
               <div 
                 ref={(el) => { innerSectionRefs.current[6] = el; }}
-                className="flex-shrink-0" 
+                className="flex-shrink-0 radius-15" 
                 style={{ 
                   aspectRatio: "1311/874", 
                   height: isMobile ? 'auto' : 'calc(100vh - 140px)',
                   backgroundImage: "url('/images/exhibition/ss2d.webp')",
                   backgroundSize: "cover",
                   backgroundPosition: "center",
-                  borderRadius: "15px",
-                  overflow: "hidden"
+                      overflow: "hidden"
                 }}>
               </div>
             </div>
@@ -659,8 +636,8 @@ Over the years, I failed repeatedly to create a visual representation of the <em
 
 
           {/* Section 3 */}
-          <div className="ex-section" style={{ minHeight: '100vh', position: 'relative', flexShrink: 0, backgroundColor: "#000000", zIndex: 4, borderTopLeftRadius: "15px", borderBottomLeftRadius: "15px", overflow: "hidden" }}>
-            <div className="yj-padding-section ex-section-inner" style={{ minHeight: '100vh', position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+          <div className="ex-section radius-top-left-15 radius-bottom-left-15" style={{ minHeight: isMobile ? 'auto' : '100vh', position: 'relative', flexShrink: 0, backgroundColor: "#000000", zIndex: 4, overflow: "hidden" }}>
+            <div className="yj-padding-section ex-section-inner" style={{  minHeight: isMobile ? 'auto' : '100vh', position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               {/* Vertical line on the right */}
               <div className="right-30 ex-vertical-line"
               style={{
@@ -693,7 +670,8 @@ Over the years, I failed repeatedly to create a visual representation of the <em
 
                   lineHeight: '1.25',
                   
-                  letterSpacing: '0.1em' }}>
+                  letterSpacing: '0.1em',
+                  marginBottom: isMobile ? "120px" : 0  }}>
                   人類對預知未來的渴求，可被視為在複雜<br/>
                   世道中駕馭變化的一種嘗試，以掌握生命，<br/>
                   使它充滿意義。<br/><br/>
@@ -737,41 +715,38 @@ Nowadays, with the advance of digital technologies, an online consultation of th
             <div style={{ paddingTop: isMobile ? '30px' : '90px', paddingBottom: isMobile ? '15px' : '60px', paddingLeft: isMobile ? '15px' : '30px', paddingRight: isMobile ? '15px' : '30px', gap: isMobile ? '20px' : '30px', display: 'flex', flexDirection: isMobile ? 'column' : 'row', alignItems: isMobile ? 'stretch' : 'center', flex: isMobile ? 'none' : 1 }}>
               <div 
                 ref={(el) => { innerSectionRefs.current[7] = el; }}
-                className="flex-shrink-0" 
+                className="flex-shrink-0 radius-15" 
                 style={{ 
                   aspectRatio: "656/874", 
                   height: isMobile ? 'auto' : 'calc(100vh - 140px)',
                   backgroundImage: "url('/images/exhibition/ss3a.webp')",
                   backgroundSize: "cover",
                   backgroundPosition: "center",
-                  borderRadius: "15px",
-                  overflow: "hidden"
+                      overflow: "hidden"
                 }}>
               </div>
               <div 
                 ref={(el) => { innerSectionRefs.current[8] = el; }}
-                className="flex-shrink-0" 
+                className="flex-shrink-0 radius-15" 
                 style={{ 
                   aspectRatio: "656/874", 
                   height: isMobile ? 'auto' : 'calc(100vh - 140px)',
                   backgroundImage: "url('/images/exhibition/ss3b.webp')",
                   backgroundSize: "cover",
                   backgroundPosition: "center",
-                  borderRadius: "15px",
-                  overflow: "hidden"
+                      overflow: "hidden"
                 }}>
               </div>
               <div 
                 ref={(el) => { innerSectionRefs.current[9] = el; }}
-                className="flex-shrink-0" 
+                className="flex-shrink-0 radius-15" 
                 style={{ 
                   aspectRatio: "656/874", 
                   height: isMobile ? 'auto' : 'calc(100vh - 140px)',
                   backgroundImage: "url('/images/exhibition/ss3c.webp')",
                   backgroundSize: "cover",
                   backgroundPosition: "center",
-                  borderRadius: "15px",
-                  overflow: "hidden"
+                      overflow: "hidden"
                 }}>
               </div>
             </div>
@@ -785,8 +760,6 @@ Nowadays, with the advance of digital technologies, an online consultation of th
               zIndex: 4, 
               backgroundColor: "#FFFFFF",
               overflow: "hidden",
-              borderTopLeftRadius: "15px", 
-              borderBottomLeftRadius: "15px"
             }}
           >
             <div 
@@ -807,8 +780,8 @@ Nowadays, with the advance of digital technologies, an online consultation of th
           </div>
 
           {/* Section 4 */}
-          <div className="ex-section" style={{ minHeight: '100vh', position: 'relative', flexShrink: 0, backgroundColor: "#1A3B45", zIndex: 5, borderTopLeftRadius: "15px", borderBottomLeftRadius: "15px", overflow: "hidden" }}>
-            <div className="yj-padding-section ex-section-inner" style={{ minHeight: '100vh', position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+          <div className="ex-section radius-top-left-15 radius-bottom-left-15" style={{ minHeight: isMobile ? 'auto' : '100vh', position: 'relative', flexShrink: 0, backgroundColor: "#1A3B45", zIndex: 5, overflow: "hidden" }}>
+            <div className="yj-padding-section ex-section-inner" style={{  minHeight: isMobile ? 'auto' : '100vh', position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               {/* Vertical line on the right */}
               <div className="right-30 ex-vertical-line"
               style={{
@@ -851,7 +824,8 @@ Nowadays, with the advance of digital technologies, an online consultation of th
                   textOrientation: 'upright',
                   lineHeight: '1.4',
                   
-                  letterSpacing: '0.1em' }}>
+                  letterSpacing: '0.1em',
+                  marginBottom: isMobile ? "120px" : 0  }}>
                   <span style={{marginTop: "-7px"}}></span>︽易經︾<span style={{marginTop:'-6px'}}></span>的核心概念是﹁天人合一﹂。<br /><span style={{marginTop: "-7px"}}></span>︽觀靜錄︾<span style={{marginTop:'-6px'}}></span>系列收錄了無人機尚<br/>未普及之前的航拍作品，以及其他<br/>人跡罕至的遼闊景觀，嘗試以此攝影<br/>作品集詮釋此概念。過去四十年來，<br/>我有幸踏遍世界邊陲進行拍攝，<br/>我希望能與新一代的觀眾分享這批<br/>作品，讓他們欣賞地球的壯麗風采，<br/>進而踏上更新與保護的道路，而非<br/>重蹈我輩自我毀滅的覆轍。
                 </div>
               </div>
@@ -882,16 +856,20 @@ The central concept of the <em>Book of Changes</em> is "Heaven and Humanity as O
             </div>
             <div style={{ paddingTop: isMobile ? '30px' : '90px', paddingBottom: isMobile ? '15px' : '60px', paddingLeft: isMobile ? '15px' : '30px', paddingRight: isMobile ? '15px' : '30px', gap: isMobile ? '20px' : '30px', display: 'flex', flexDirection: isMobile ? 'column' : 'row', alignItems: isMobile ? 'stretch' : 'center', flex: isMobile ? 'none' : 1 }}>
               <div 
-                ref={(el) => { innerSectionRefs.current[10] = el; }}
-                className="flex-shrink-0" 
+                ref={(el) => { 
+                  innerSectionRefs.current[10] = el;
+                  imageParallaxRefs.current[10] = el;
+                }}
+                className="flex-shrink-0 radius-15" 
                 style={{ 
-                  aspectRatio: "1748/874", 
-                  height: isMobile ? 'auto' : 'calc(100vh - 140px)',
+                  aspectRatio: isMobile ? "656/456" : "1748/874", 
+                  height: isMobile ? 'auto' : 'calc(50vh - 140px)',
                   backgroundImage: "url('/images/exhibition/ss4a.webp')",
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                  borderRadius: "15px",
-                  overflow: "hidden"
+                  backgroundSize: isMobile ? "auto 100%" : "cover",
+                  backgroundPosition: "left center",
+                  backgroundRepeat: "no-repeat",
+                  overflow: "hidden",
+                  position: "relative"
                 }}>
               </div>
             </div>

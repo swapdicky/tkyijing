@@ -80,7 +80,7 @@ export default function Header({ isPanelOpen = false, hideOverlay = false, onMen
 
       {/* Menu panel */}
       <div 
-        className="fixed top-0 right-0 h-screen bg-black z-[90] transition-transform duration-700 ease-out"
+        className="fixed top-0 right-0 h-screen bg-black z-[90] transition-transform duration-700 ease-out menu-panel"
         style={{ 
           width: isMobile ? '100vw' : '50vw',
           transform: isMenuOpen ? 'translateX(0)' : 'translateX(100%)'
@@ -154,7 +154,6 @@ export default function Header({ isPanelOpen = false, hideOverlay = false, onMen
               </div>
             <div className="flex justify-between items-center px-6" style={{ height: '60px', fontFamily: '"neue-haas-unica", sans-serif', color: '#888', fontSize: '12px', fontWeight: '300' }}>
               <div>© 2026 The Jockey Club CPS Limited All rights reserved.</div>
-              <div>Site by <a href="https://www.toby-ng.com/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors underline">Toby Ng Design</a></div>
             </div>
             {/* Logos */}
             <div className="flex justify-between items-start mb-6 px-6" style={{ borderTop: '1px solid #888', paddingTop: '20px'}}>

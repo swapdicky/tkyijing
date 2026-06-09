@@ -117,7 +117,7 @@ export default function About() {
         {/* Sticky section titles */}
         <div ref={stickyTitlesRef} style={{
           position: 'sticky',
-          top: 0,
+          top: isMobile ? '50px' : 0,
           backgroundColor: '#000',
           zIndex: 2
         }}>
@@ -145,7 +145,7 @@ export default function About() {
             flexDirection: 'column',
             justifyContent: 'flex-end',
                }}>    
-          <div className="ct-team-section">
+          <div className="ct-left-content">
 
             <div className="text-white fw-300 yj-cn-16" style={{ lineHeight: '1.4', textAlign: 'left', marginBottom: '20px' }}>
               <p style={{ marginBottom: '1em' }}>
@@ -267,11 +267,32 @@ We hope the immersive experiences of this show will allow abstract ideas to take
                 {/* Right: Next Video button and dots */}
                 <div style={{
                   display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'flex-end',
+                  flexDirection: 'row',
+                  alignItems: 'center',
                   gap: '15px',
                   marginLeft: '40px'
                 }}>
+                  {/* Navigation dots */}
+                  <div style={{
+                    display: 'flex',
+                    gap: '10px'
+                  }}>
+                    {videos.map((_, dotIndex) => (
+                      <div
+                        key={dotIndex}
+                        onClick={() => setCurrentVideoIndex(dotIndex)}
+                        style={{
+                          width: '6px',
+                          height: '6px',
+                          backgroundColor: currentVideoIndex === dotIndex ? '#FFF' : 'transparent',
+                          border: currentVideoIndex === dotIndex ? 'none' : '1px solid #888',
+                          cursor: 'pointer',
+                          transition: 'background-color 0.3s, border 0.3s'
+                        }}
+                      />
+                    ))}
+                  </div>
+                  
                   <button
                     onClick={handleNextVideo}
                     className="text-gray fw-300 yj-en-12"
@@ -292,27 +313,6 @@ We hope the immersive experiences of this show will allow abstract ideas to take
                       <>觀看更多 <span className="neue-haas-unica">Next Video</span></>
                     )}
                   </button>
-                  
-                  {/* Navigation dots */}
-                  <div style={{
-                    display: 'flex',
-                    gap: '10px'
-                  }}>
-                    {videos.map((_, dotIndex) => (
-                      <div
-                        key={dotIndex}
-                        onClick={() => setCurrentVideoIndex(dotIndex)}
-                        style={{
-                          width: '6px',
-                          height: '6px',
-                          backgroundColor: currentVideoIndex === dotIndex ? '#FFF' : 'transparent',
-                          border: currentVideoIndex === dotIndex ? 'none' : '1px solid #888',
-                          cursor: 'pointer',
-                          transition: 'background-color 0.3s ease, border 0.3s ease'
-                        }}
-                      />
-                    ))}
-                  </div>
                 </div>
               </div>
             </div>

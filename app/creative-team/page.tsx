@@ -99,7 +99,7 @@ export default function CreativeTeam() {
         {/* Sticky section titles */}
         <div ref={stickyTitlesRef} style={{
           position: 'sticky',
-          top: 0,
+          top: isMobile ? '50px' : 0,
           backgroundColor: '#000',
           zIndex: 2
         }}>
@@ -124,14 +124,12 @@ export default function CreativeTeam() {
           <div className="ct-left-content" style={{ 
             flex: 1
           }}>
-            <div style={{
-              fontSize: '16px',
+            <div className="yj-cn-16" style={{
               lineHeight: '1.4',
               fontWeight: 300,
               color: '#fff',
               textAlign: 'left',
-              marginBottom: '20px',
-              fontFamily: '"Noto Serif TC", serif'
+              marginBottom: '20px'
             }}>
               <p style={{ marginBottom: '1em' }}>
                 我們向所有協助及參與本次展覽的人士致以最誠摯的謝意。特別感謝鮑皓昕先生設計的展覽海報，以及<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Teresa Coleman</span>女士借出其收藏的道教宗師法衣。
@@ -140,14 +138,12 @@ export default function CreativeTeam() {
                 展覽及其內容並不反映香港賽馬會慈善信託基金或大館的立場或意見。                            
               </p>
             </div>
-            <div style={{
-              fontSize: '16px',
+            <div className="yj-en-16" style={{
               lineHeight: '1.4',
               fontWeight: 300,
               color: '#fff',
               textAlign: 'left',
-              fontFamily: '"neue-haas-unica", sans-serif',
-              marginBottom: '40px'
+              marginBottom: '30px'
             }}>
               <p style={{ marginBottom: '1em' }}>
                 We offer our thanks and warmest appreciation to everyone involved in realising this exhibition. Special thanks to Mr. Basil Pao for designing the key promotional image for the exhibition and to Ms. Teresa Coleman for lending a Daoist priest's robe from her collection.
@@ -157,26 +153,22 @@ export default function CreativeTeam() {
               </p>
             </div>
 
-            <div style={{
-              fontSize: '14px',
+            <div className="yj-cn-14" style={{
               lineHeight: '1.4',
               fontWeight: 300,
               color: '#888',
               textAlign: 'left',
-              marginBottom: '20px',
-              fontFamily: '"Noto Serif TC", serif'
+              marginBottom: '20px'
             }}>
               <p >
 註: 是次展覽中引用《傅佩榮解讀易經》（台北，<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>2022</span>）的白話中文譯解；英文版本根據衛禮賢（<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Richard Wilhelm</span>）的譯本，由卡利‧貝恩斯（<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Cary F. Baynes</span>）翻譯成英文（普林斯頓，<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1997</span>）。              </p>
 
             </div>
-            <div style={{
-              fontSize: '14px',
+            <div className="yj-en-14" style={{
               lineHeight: '1.4',
               fontWeight: 300,
               color: '#888',
-              textAlign: 'left',
-              fontFamily: '"neue-haas-unica", sans-serif'
+              textAlign: 'left'
             }}>
               <p>
 Notes: In this exhibition, the modern Chinese interpretation of the classical text is cited from <em>Fu Peirong jiedu Yijing (Fu Peirong's Interpretation of the Yijing)</em> (Taibei, 2022) and the English version is based on Richard Wilhelm's translation which was rendered into English by Cary F. Baynes (Princeton, 1997).              </p>
@@ -217,24 +209,21 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
               width: '100%',
               display: 'flex',
               gap: '30px',
-              marginBottom: '40px'
+              marginBottom: '30px'
             }}>
               {/* Left column */}
               <div style={{ flex: 1 }}>
-                <div style={{
-                  fontSize: '16px',
+                <div className="yj-cn-16" style={{
                   lineHeight: 1.2,
                   color: '#fff',
-                  marginBottom: '10px',
-                  fontWeight: 400
+                  marginBottom: '6px',
+                  fontWeight: 500
                 }}>
                   藝術家
                 </div>
-                <div style={{
-                  fontSize: '16px',
+                <div className="yj-en-16" style={{
                   lineHeight: 1.2,
                   color: '#fff',
-                  fontFamily: '"neue-haas-unica", sans-serif',
                   fontWeight: 400
                 }}>
                   Artist
@@ -243,17 +232,15 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
 
               {/* Right column */}
               <div style={{ flex: 1 }}>
-                <div style={{
-                  fontSize: '16px',
+                <div className="yj-cn-16" style={{
                   lineHeight: 1.2,
                   color: '#fff',
-                  marginBottom: '10px',
+                  marginBottom: '6px',
                   fontWeight: 400
                 }}>
                   鮑皓昕
                 </div>
-                <div style={{
-                  fontSize: '16px',
+                <div className="yj-cn-16" style={{
                   lineHeight: 1.2,
                   color: '#fff',
                   fontFamily: '"neue-haas-unica", sans-serif',
@@ -270,18 +257,16 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
             }}>
               {/* Left column */}
               <div style={{ flex: 1 }}>
-                <div style={{
-                  fontSize: '16px',
+                <div className="yj-cn-16" style={{
                   lineHeight: 1.2,
                   color: '#fff',
-                  marginBottom: '10px',
-                  fontWeight: 400
+                  marginBottom: '6px',
+                  fontWeight: 500
                 }}>
                   展品製作
 
                 </div>
-                <div style={{
-                  fontSize: '16px',
+                <div className="yj-cn-16" style={{
                   lineHeight: 1.2,
                   color: '#fff',
                   fontFamily: '"neue-haas-unica", sans-serif',
@@ -294,8 +279,7 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
               {/* Right column */}
               <div style={{ flex: 1 }}>
 
-                <div style={{
-                  fontSize: '16px',
+                <div className="yj-cn-16" style={{
                   lineHeight: 1.2,
                   color: '#fff',
                   fontFamily: '"neue-haas-unica", sans-serif',
@@ -331,21 +315,19 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
               width: '100%',
               display: 'flex',
               gap: '30px',
-              marginBottom: '40px'
+              marginBottom: '30px'
             }}>
               {/* Left column */}
               <div style={{ flex: 1 }}>
-                <div style={{
-                  fontSize: '16px',
+                <div className="yj-cn-16" style={{
                   lineHeight: 1.2,
                   color: '#fff',
-                  marginBottom: '10px',
-                  fontWeight: 400
+                  marginBottom: '6px',
+                  fontWeight: 500
                 }}>
                   策展
                 </div>
-                <div style={{
-                  fontSize: '16px',
+                <div className="yj-cn-16" style={{
                   lineHeight: 1.2,
                   color: '#fff',
                   fontFamily: '"neue-haas-unica", sans-serif',
@@ -357,18 +339,16 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
 
               {/* Right column */}
               <div style={{ flex: 1 }}>
-                <div style={{
-                  fontSize: '16px',
+                <div className="yj-cn-16" style={{
                   lineHeight: 1.2,
                   color: '#fff',
-                  marginBottom: '10px',
+                  marginBottom: '6px',
                   fontWeight: 400
                 }}>
                   鍾妙芬
 
                 </div>
-                <div style={{
-                  fontSize: '16px',
+                <div className="yj-cn-16" style={{
                   lineHeight: 1.2,
                   color: '#fff',
                   fontFamily: '"neue-haas-unica", sans-serif',
@@ -382,23 +362,21 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
               width: '100%',
               display: 'flex',
               gap: '30px',
-              marginBottom: '40px'
+              marginBottom: '30px'
             }}>
               {/* Left column */}
               <div style={{ flex: 1 }}>
-                <div style={{
-                  fontSize: '16px',
+                <div className="yj-cn-16" style={{
                   lineHeight: 1.2,
                   color: '#fff',
-                  marginBottom: '10px',
-                  fontWeight: 400
+                  marginBottom: '6px',
+                  fontWeight: 500
                 }}>
                   項目管理
 
 
                 </div>
-                <div style={{
-                  fontSize: '16px',
+                <div className="yj-cn-16" style={{
                   lineHeight: 1.2,
                   color: '#fff',
                   fontFamily: '"neue-haas-unica", sans-serif',
@@ -410,18 +388,16 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
 
               {/* Right column */}
               <div style={{ flex: 1 }}>
-                <div style={{
-                  fontSize: '16px',
+                <div className="yj-cn-16" style={{
                   lineHeight: 1.2,
                   color: '#fff',
-                  marginBottom: '10px',
+                  marginBottom: '6px',
                   fontWeight: 400
                 }}>
                  張晴晴
 
                 </div>
-                <div style={{
-                  fontSize: '16px',
+                <div className="yj-cn-16" style={{
                   lineHeight: 1.2,
                   color: '#fff',
                   fontFamily: '"neue-haas-unica", sans-serif',
@@ -430,18 +406,16 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
                 }}>
                   Ching Ching Cheung
                 </div>
-                <div style={{
-                  fontSize: '16px',
+                <div className="yj-cn-16" style={{
                   lineHeight: 1.2,
                   color: '#fff',
-                  marginBottom: '10px',
+                  marginBottom: '6px',
                   fontWeight: 400
                 }}>
                  許曉昕
 
                 </div>                
-                <div style={{
-                  fontSize: '16px',
+                <div className="yj-cn-16" style={{
                   lineHeight: 1.2,
                   color: '#fff',
                   fontFamily: '"neue-haas-unica", sans-serif',
@@ -458,20 +432,18 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
             }}>
               {/* Left column */}
               <div style={{ flex: 1 }}>
-                <div style={{
-                  fontSize: '16px',
+                <div className="yj-cn-16" style={{
                   lineHeight: 1.2,
                   color: '#fff',
-                  marginBottom: '10px',
-                  fontWeight: 400
+                  marginBottom: '6px',
+                  fontWeight: 500
                 }}>
                   設計管理
 
 
 
                 </div>
-                <div style={{
-                  fontSize: '16px',
+                <div className="yj-cn-16" style={{
                   lineHeight: 1.2,
                   color: '#fff',
                   fontFamily: '"neue-haas-unica", sans-serif',
@@ -483,19 +455,17 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
 
               {/* Right column */}
               <div style={{ flex: 1 }}>
-                <div style={{
-                  fontSize: '16px',
+                <div className="yj-cn-16" style={{
                   lineHeight: 1.2,
                   color: '#fff',
-                  marginBottom: '10px',
+                  marginBottom: '6px',
                   fontWeight: 400
                 }}>
                  易卓嵐
 
 
                 </div>
-                <div style={{
-                  fontSize: '16px',
+                <div className="yj-cn-16" style={{
                   lineHeight: 1.2,
                   color: '#fff',
                   fontFamily: '"neue-haas-unica", sans-serif',
@@ -532,20 +502,18 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
               width: '100%',
               display: 'flex',
               gap: '30px',
-              marginBottom: '40px'
+              marginBottom: '30px'
             }}>
               <div style={{ flex: 1 }}>
-                <div style={{
-                  fontSize: '16px',
+                <div className="yj-cn-16" style={{
                   lineHeight: 1.2,
                   color: '#fff',
-                  marginBottom: '10px',
-                  fontWeight: 400
+                  marginBottom: '6px',
+                  fontWeight: 500
                 }}>
                   展覽設計
                 </div>
-                <div style={{
-                  fontSize: '16px',
+                <div className="yj-cn-16" style={{
                   lineHeight: 1.2,
                   color: '#fff',
                   fontFamily: '"neue-haas-unica", sans-serif',
@@ -555,8 +523,7 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
                 </div>
               </div>
               <div style={{ flex: 1 }}>
-                <div style={{
-                  fontSize: '16px',
+                <div className="yj-cn-16" style={{
                   lineHeight: 1.2,
                   color: '#fff',
                   fontFamily: '"neue-haas-unica", sans-serif',
@@ -573,20 +540,18 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
               width: '100%',
               display: 'flex',
               gap: '30px',
-              marginBottom: '40px'
+              marginBottom: '30px'
             }}>
               <div style={{ flex: 1 }}>
-                <div style={{
-                  fontSize: '16px',
+                <div className="yj-cn-16" style={{
                   lineHeight: 1.2,
                   color: '#fff',
-                  marginBottom: '10px',
-                  fontWeight: 400
+                  marginBottom: '6px',
+                  fontWeight: 500
                 }}>
                   平面製作
                 </div>
-                <div style={{
-                  fontSize: '16px',
+                <div className="yj-cn-16" style={{
                   lineHeight: 1.2,
                   color: '#fff',
                   fontFamily: '"neue-haas-unica", sans-serif',
@@ -596,8 +561,7 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
                 </div>
               </div>
               <div style={{ flex: 1 }}>
-                <div style={{
-                  fontSize: '16px',
+                <div className="yj-cn-16" style={{
                   lineHeight: 1.2,
                   color: '#fff',
                   fontFamily: '"neue-haas-unica", sans-serif',
@@ -614,20 +578,18 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
               width: '100%',
               display: 'flex',
               gap: '30px',
-              marginBottom: '40px'
+              marginBottom: '30px'
             }}>
               <div style={{ flex: 1 }}>
-                <div style={{
-                  fontSize: '16px',
+                <div className="yj-cn-16" style={{
                   lineHeight: 1.2,
                   color: '#fff',
-                  marginBottom: '10px',
-                  fontWeight: 400
+                  marginBottom: '6px',
+                  fontWeight: 500
                 }}>
                   展覽製作
                 </div>
-                <div style={{
-                  fontSize: '16px',
+                <div className="yj-cn-16" style={{
                   lineHeight: 1.2,
                   color: '#fff',
                   fontFamily: '"neue-haas-unica", sans-serif',
@@ -637,17 +599,15 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
                 </div>
               </div>
               <div style={{ flex: 1 }}>
-                <div style={{
-                  fontSize: '16px',
+                <div className="yj-cn-16" style={{
                   lineHeight: 1.2,
                   color: '#fff',
-                  marginBottom: '10px',
+                  marginBottom: '6px',
                   fontWeight: 400
                 }}>
                   雅卓創意有限公司
                 </div>
-                <div style={{
-                  fontSize: '16px',
+                <div className="yj-cn-16" style={{
                   lineHeight: 1.2,
                   color: '#fff',
                   fontFamily: '"neue-haas-unica", sans-serif',
@@ -663,20 +623,18 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
               width: '100%',
               display: 'flex',
               gap: '30px',
-              marginBottom: '40px'
+              marginBottom: '30px'
             }}>
               <div style={{ flex: 1 }}>
-                <div style={{
-                  fontSize: '16px',
+                <div className="yj-cn-16" style={{
                   lineHeight: 1.2,
                   color: '#fff',
-                  marginBottom: '10px',
-                  fontWeight: 400
+                  marginBottom: '6px',
+                  fontWeight: 500
                 }}>
                   互動設計
                 </div>
-                <div style={{
-                  fontSize: '16px',
+                <div className="yj-cn-16" style={{
                   lineHeight: 1.2,
                   color: '#fff',
                   fontFamily: '"neue-haas-unica", sans-serif',
@@ -686,8 +644,7 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
                 </div>
               </div>
               <div style={{ flex: 1 }}>
-                <div style={{
-                  fontSize: '16px',
+                <div className="yj-cn-16" style={{
                   lineHeight: 1.2,
                   color: '#fff',
                   fontFamily: '"neue-haas-unica", sans-serif',
@@ -704,20 +661,18 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
               width: '100%',
               display: 'flex',
               gap: '30px',
-              marginBottom: '40px'
+              marginBottom: '30px'
             }}>
               <div style={{ flex: 1 }}>
-                <div style={{
-                  fontSize: '16px',
+                <div className="yj-cn-16" style={{
                   lineHeight: 1.2,
                   color: '#fff',
-                  marginBottom: '10px',
-                  fontWeight: 400
+                  marginBottom: '6px',
+                  fontWeight: 500
                 }}>
                   影音裝置
                 </div>
-                <div style={{
-                  fontSize: '16px',
+                <div className="yj-cn-16" style={{
                   lineHeight: 1.2,
                   color: '#fff',
                   fontFamily: '"neue-haas-unica", sans-serif',
@@ -727,17 +682,15 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
                 </div>
               </div>
               <div style={{ flex: 1 }}>
-                <div style={{
-                  fontSize: '16px',
+                <div className="yj-cn-16" style={{
                   lineHeight: 1.2,
                   color: '#fff',
-                  marginBottom: '10px',
+                  marginBottom: '6px',
                   fontWeight: 400
                 }}>
                   適頎系統有限公司
                 </div>
-                <div style={{
-                  fontSize: '16px',
+                <div className="yj-cn-16" style={{
                   lineHeight: 1.2,
                   color: '#fff',
                   fontFamily: '"neue-haas-unica", sans-serif',
@@ -755,17 +708,15 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
               gap: '30px'
             }}>
               <div style={{ flex: 1 }}>
-                <div style={{
-                  fontSize: '16px',
+                <div className="yj-cn-16" style={{
                   lineHeight: 1.2,
                   color: '#fff',
-                  marginBottom: '10px',
-                  fontWeight: 400
+                  marginBottom: '6px',
+                  fontWeight: 500
                 }}>
                   網頁設計
                 </div>
-                <div style={{
-                  fontSize: '16px',
+                <div className="yj-cn-16" style={{
                   lineHeight: 1.2,
                   color: '#fff',
                   fontFamily: '"neue-haas-unica", sans-serif',
@@ -775,8 +726,7 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
                 </div>
               </div>
               <div style={{ flex: 1 }}>
-                <div style={{
-                  fontSize: '16px',
+                <div className="yj-cn-16" style={{
                   lineHeight: 1.2,
                   color: '#fff',
                   fontFamily: '"neue-haas-unica", sans-serif',

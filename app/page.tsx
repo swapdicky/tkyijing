@@ -347,13 +347,16 @@ export default function Home() {
       document.body.style.overflow = "hidden";
       gsap.killTweensOf(moduleRef.current);
       
+      // On mobile landing, start with scale 0.8, then scale to 1 after overlay hides
+      const targetScale = (isMobile && !hideOverlay) ? 0.8 : 1;
+      
       if (zoom === 50) {
         gsap.to(moduleRef.current, {
           x: 0,
           y: 0,
           xPercent: -50,
           yPercent: -50,
-          scale: 1,
+          scale: targetScale,
           duration: 1.5,
           ease: "power3.inOut",
         });
@@ -361,13 +364,13 @@ export default function Home() {
         gsap.to(moduleRef.current, {
           xPercent: -50,
           yPercent: -50,
-          scale: 1,
+          scale: targetScale,
           duration: 1.5,
           ease: "power3.inOut",
         });
       }
     }
-  }, [mode, zoom, isPanelOpen, archivedBoxes, isMobile]);
+  }, [mode, zoom, isPanelOpen, archivedBoxes, isMobile, hideOverlay]);
 
   useEffect(() => {
     if (zoom === 150) {
@@ -377,14 +380,20 @@ export default function Home() {
     }
   }, [zoom]);
 
-  // Handle menu open/close - center grid on box number 32
+  // Handle menu open/close - center grid on box number 32 (desktop only)
   useEffect(() => {
     if (!moduleRef.current) return;
     
     if (isMenuOpen) {
-      // Menu opened - pause mouse effect and center on box number 32
+      // Menu opened - pause mouse effect
       setIsMousePaused(true);
       
+      // On mobile, don't move the grid
+      if (isMobile) {
+        return;
+      }
+      
+      // Desktop only: center on box number 32
       // If not at 150%, remember current zoom and switch to 150% first
       if (zoom !== 150) {
         preMenuZoomRef.current = zoom;
@@ -432,7 +441,7 @@ export default function Home() {
         setZoom(restoreZoom);
       }
     }
-  }, [isMenuOpen, zoom, isPanelOpen]);
+  }, [isMenuOpen, zoom, isPanelOpen, isMobile]);
 
   // Measure title h3 height when selectedBox changes
   useEffect(() => {
@@ -451,6 +460,34 @@ export default function Home() {
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
+
+  // Apply zoom correction after scrollProgress completes on mobile
+  useEffect(() => {
+    if (!isMobile || !hideOverlay) return;
+
+    // Get or create viewport meta tag
+    let viewportMeta = document.querySelector('meta[name="viewport"]') as HTMLMetaElement;
+    if (!viewportMeta) {
+      viewportMeta = document.createElement('meta');
+      viewportMeta.name = 'viewport';
+      document.head.appendChild(viewportMeta);
+    }
+
+    // Store original content
+    const originalContent = viewportMeta.content || 'width=device-width, initial-scale=1';
+
+    // Temporarily set to prevent zoom
+    viewportMeta.content = 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no';
+
+    // Reset after a short delay to allow the layout to stabilize
+    const timeout = setTimeout(() => {
+      viewportMeta.content = originalContent;
+    }, 100);
+
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [isMobile, hideOverlay]);
 
   // Touch swipe detection for panel switching on mobile
   useEffect(() => {
@@ -586,11 +623,10 @@ export default function Home() {
               textOrientation: 'upright',
               letterSpacing: '0.1em', }}>是次展覽透過香港攝影藝術家鮑皓昕的<br/>
             藝術詮釋，凸顯︽易經︾無盡的關聯性與<br/>
-            創造力。鮑皓昕兩個系列作品<br/>
+            創造力。鮑皓昕兩個系列作品|<br/>
             <span style={{marginTop: '-8px'}}></span>︽中國牆城︾<span style={{marginTop: '-4px'}}></span>和<span style={{marginTop: '-4px'}}></span>︽觀靜錄︾<span style={{marginTop: '-4px'}}></span>，探究文化遺產<br/>
-            與藝術創作之間的關係。互動與合一的<br/>
-            中國古代哲學概念。這些照片捕捉變化<br/>
-            無窮的世界，見證鮑氏對︽易經︾的<br/>
+            與藝術創作之間的關係。這些照片捕捉<br/>
+            變化無窮的世界，見證鮑氏對<span style={{marginTop: '-8px'}}></span>︽易經︾<span style={{marginTop: '-8px'}}></span>的<br/>
             深刻領悟，藉此擁抱真實自我，飽覽天地<br/>
             之壯麗與奧秘。這是一場視覺盛宴，<br/>
             讓觀眾體會天地造化之中氣的微妙變化，<br/>

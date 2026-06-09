@@ -18,7 +18,9 @@ export default function Yijing() {
   // Use desktop layout during SSR and initial hydration to avoid mismatch
   const isMobile = mounted ? isMobileDetected : false;
   const rightContentRefs = useRef<{[key: number]: HTMLDivElement | null}>({});
+  const leftContentRefs = useRef<{[key: number]: HTMLDivElement | null}>({});
   const slide2InnerRef = useRef<HTMLDivElement>(null);
+  const [lightboxImage, setLightboxImage] = useState<string | null>(null);
 
   useEffect(() => {
     setMounted(true);
@@ -141,10 +143,11 @@ export default function Yijing() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          height: '100%'
+          height: '100%',
+          position: 'relative'
         }}>
           <img 
-            src="/images/TK_YiJIng_Graphs/yijing-graphs-02.jpg" 
+            src="/images/TK_YiJIng_Graphs/yijing-graphs-02.svg" 
             alt="Yin Yang" 
             style={{
               width: '100%',
@@ -152,6 +155,32 @@ export default function Yijing() {
               transform: isMobile ? 'scale(1.2)' : 'none'
             }}
           />
+          {isMobile && (
+            <button
+              onClick={() => setLightboxImage('/images/TK_YiJIng_Graphs/yijing-graphs-02.svg')}
+            style={{
+              position: 'absolute',
+              top: '0',
+              right: '-10px',
+              width: '30px',
+              height: '30px',
+              backgroundColor: 'transparent',
+              border: 'none',
+              color: '#000',
+              fontSize: '44px',
+              lineHeight: '1',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              zIndex: 10,
+              transition: 'all 0.3s'
+            }}
+
+            >
+              +
+            </button>
+          )}
         </div>
       );
     }
@@ -206,10 +235,11 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          height: '100%'
+          height: '100%',
+          position: 'relative'
         }}>
           <img 
-            src="/images/TK_YiJIng_Graphs/yijing-graphs-04.jpg" 
+            src="/images/TK_YiJIng_Graphs/yijing-graphs-04.svg" 
             alt="8 Trigrams" 
             style={{
               width: '100%',
@@ -219,6 +249,32 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
               objectFit: 'contain'
             }}
           />
+          {isMobile && (
+            <button
+              onClick={() => setLightboxImage('/images/TK_YiJIng_Graphs/yijing-graphs-04.svg')}
+            style={{
+              position: 'absolute',
+              top: '0',
+              right: '-10px',
+              width: '30px',
+              height: '30px',
+              backgroundColor: 'transparent',
+              border: 'none',
+              color: '#000',
+              fontSize: '44px',
+              lineHeight: '1',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              zIndex: 10,
+              transition: 'all 0.3s'
+            }}
+
+            >
+              +
+            </button>
+          )}
         </div>
       );
     }
@@ -229,10 +285,11 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          height: '100%'
+          height: '100%',
+          position: 'relative'
         }}>
           <img 
-            src="/images/TK_YiJIng_Graphs/yijing-graphs-05.jpg" 
+            src="/images/TK_YiJIng_Graphs/yijing-graphs-05.svg" 
             alt="64 Hexagrams" 
             style={{
               width: '100%',
@@ -242,6 +299,32 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
               objectFit: 'contain'
             }}
           />
+          {isMobile && (
+            <button
+              onClick={() => setLightboxImage('/images/TK_YiJIng_Graphs/yijing-graphs-05.svg')}
+            style={{
+              position: 'absolute',
+              top: '0',
+              right: '-10px',
+              width: '30px',
+              height: '30px',
+              backgroundColor: 'transparent',
+              border: 'none',
+              color: '#000',
+              fontSize: '44px',
+              lineHeight: '1',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              zIndex: 10,
+              transition: 'all 0.3s'
+            }}
+
+            >
+              +
+            </button>
+          )}
         </div>
       );
     }
@@ -348,10 +431,11 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            height: '100%'
+            height: '100%',
+            position: 'relative'
           }}>
           <img 
-            src="/images/TK_YiJIng_Graphs/yijing-graphs-08.jpg" 
+            src="/images/TK_YiJIng_Graphs/yijing-graphs-08.svg" 
             alt="Luo River Diagram" 
             style={{
               width: '100%',
@@ -361,6 +445,32 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
               objectFit: 'contain'
             }}
           />
+          {isMobile && (
+            <button
+              onClick={() => setLightboxImage('/images/TK_YiJIng_Graphs/yijing-graphs-08.svg')}
+            style={{
+              position: 'absolute',
+              top: '5px',
+              right: '-10px',
+              width: '30px',
+              height: '30px',
+              backgroundColor: 'transparent',
+              border: 'none',
+              color: '#000',
+              fontSize: '44px',
+              lineHeight: '1',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              zIndex: 10,
+              transition: 'all 0.3s'
+            }}
+
+            >
+              +
+            </button>
+          )}
         </div>
       );
     }
@@ -372,10 +482,11 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            height: '100%'
+            height: '100%',
+            position: 'relative'
           }}>
           <img 
-            src="/images/TK_YiJIng_Graphs/yijing-graphs-09.jpg" 
+            src="/images/TK_YiJIng_Graphs/yijing-graphs-09.svg" 
             alt="Yellow River Chart" 
             style={{
               width: '100%',
@@ -385,6 +496,32 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
               objectFit: 'contain'
             }}
           />
+          {isMobile && (
+            <button
+              onClick={() => setLightboxImage('/images/TK_YiJIng_Graphs/yijing-graphs-09.svg')}
+            style={{
+              position: 'absolute',
+              top: '0',
+              right: '-10px',
+              width: '30px',
+              height: '30px',
+              backgroundColor: 'transparent',
+              border: 'none',
+              color: '#000',
+              fontSize: '44px',
+              lineHeight: '1',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              zIndex: 10,
+              transition: 'all 0.3s'
+            }}
+
+            >
+              +
+            </button>
+          )}
         </div>
       );
     }
@@ -395,8 +532,7 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
           style={{
             display: 'flex',
             flexDirection: 'column',
-            justifyContent: 'space-between',
-            height: '100%'
+            justifyContent: 'space-between'
           }}>
           {/* Vertical Chinese text */}
           <div style={{
@@ -416,15 +552,36 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
               textOrientation: 'mixed',
               lineHeight: '1.4',
               letterSpacing: '0.08em',
-              fontFamily: '"Noto Serif TC", serif' }}>
-              <span style={{marginTop :"-6px"}}></span>︽易經︾被中國歷代思想家不斷詮釋和修訂，<br/>並發展了對其註釋傳統的專門研究和派別。一些<br/>思想家著重卜卦的﹁象數﹂；另一些深入考究<br/>經典的﹁義理﹂。此書的影響貫穿整個中國文化史，<br/>持續發揮影響至今。<br/><br/><span style={{marginTop :"-6px"}}></span>︽易經︾在國際世界亦備受尊崇。分別出自馬克萊奇<br/><span style={{marginTop :"-6px"}}></span>︵<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Thomas McClatchie</span>，<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1814–1885</span>年︶、理雅各<br/><span style={{marginTop :"-6px"}}></span>︵<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>James Legge</span>，<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1815–1897</span>年︶、尉禮賢<br/><span style={{marginTop :"-6px"}}></span>︵<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Richard Wilhelm</span>，<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1873–1930</span>年︶之手的譯本，將此中國<br/>經典傳播至世界。心理學家卡爾‧榮格︵<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Carl Jung</span>，<br/><span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1875–1961</span>年︶將此古籍與他提出的﹁共時性﹂概念結合。<br/>先鋒派作曲家約翰‧基治︵<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>John Cage</span>，<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1912–1992</span>年︶根據<br/><span style={{marginTop :"-6px"}}></span>︽易經︾的處境次序決定音樂創作的隨機性。<br/>艾斯班‧艾瑟特︵<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Espen Aarseth</span>，<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1965</span>年生︶在進行數碼<br/>文學研究時，將︽易經︾視為﹁可能是古代最著名的<br/>制動文本範例﹂。
+              fontFamily: '"Noto Serif TC", serif',
+              marginBottom: isMobile ? '120px' : '0',
+              height: isMobile ? '710px' : 'auto' }}>
+              {isMobile ? (
+                <>
+                  <span style={{marginTop :"-6px"}}></span>︽易經︾被中國歷代思想家不斷詮釋和修訂，並發展了對其註釋傳統的<br/>
+                  專門研究和派別。一些思想家著重卜卦的﹁象數﹂；另一些深入考究<br/>
+                  經典的﹁義理﹂。此書的影響貫穿整個中國文化史，持續發揮影響至今。<br/><br/>
+                  
+                  <span style={{marginTop :"-6px"}}></span>︽易經︾在國際世界亦備受尊崇。分別出自馬克萊奇︵<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Thomas McClatchie</span>，<br/>
+                  <span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1814–1885</span>年︶、理雅各︵<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>James Legge</span>，<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1815–1897</span>年︶、尉禮賢︵<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Richard Wilhelm</span>，<br/>
+                  <span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1873–1930</span>年︶之手的譯本，將此中國經典傳播至世界。心理學家卡爾‧榮格<br/>
+                  ︵<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Carl Jung</span>，<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1875–1961</span>年︶將此古籍與他提出的﹁共時性﹂概念結合。先鋒派作曲家<br/>
+                  約翰‧基治︵<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>John Cage</span>，<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1912–1992</span>年︶根據︽易經︾的處境次序決定音樂創作的<br/>
+                  隨機性。艾斯班‧艾瑟特︵<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Espen Aarseth</span>，<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1965</span>年生︶在進行數碼文學研究時，<br/>
+                  將︽易經︾視為﹁可能是古代最著名的制動文本範例﹂。
+                </>
+              ) : (
+                <>
+                  <span style={{marginTop :"-6px"}}></span>︽易經︾被中國歷代思想家不斷詮釋和修訂，<br/>並發展了對其註釋傳統的專門研究和派別。一些<br/>思想家著重卜卦的﹁象數﹂；另一些深入考究<br/>經典的﹁義理﹂。此書的影響貫穿整個中國文化史，<br/>持續發揮影響至今。<br/><br/><span style={{marginTop :"-6px"}}></span>︽易經︾在國際世界亦備受尊崇。分別出自馬克萊奇<br/><span style={{marginTop :"-6px"}}></span>︵<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Thomas McClatchie</span>，<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1814–1885</span>年︶、理雅各<br/><span style={{marginTop :"-6px"}}></span>︵<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>James Legge</span>，<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1815–1897</span>年︶、尉禮賢<br/><span style={{marginTop :"-6px"}}></span>︵<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Richard Wilhelm</span>，<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1873–1930</span>年︶之手的譯本，將此中國<br/>經典傳播至世界。心理學家卡爾‧榮格︵<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Carl Jung</span>，<br/><span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1875–1961</span>年︶將此古籍與他提出的﹁共時性﹂概念結合。<br/>先鋒派作曲家約翰‧基治︵<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>John Cage</span>，<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1912–1992</span>年︶根據<br/><span style={{marginTop :"-6px"}}></span>︽易經︾的處境次序決定音樂創作的隨機性。<br/>艾斯班‧艾瑟特︵<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Espen Aarseth</span>，<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1965</span>年生︶在進行數碼<br/>文學研究時，將︽易經︾視為﹁可能是古代最著名的<br/>制動文本範例﹂。
+                </>
+              )}
             </div>
           </div>
 
           {/* English text at bottom */}
           <div>
               <div className="yj-en-18 text-black fw-500"  style={{ marginBottom: '10px' }}>Living Legacy</div>
-            <div className="yj-en-14 text-black fw-300"  style={{ lineHeight: '1.25' }}>
+            <div className="yj-en-14 text-black fw-300"  style={{ lineHeight: '1.25' ,
+              marginBottom: isMobile ? '60px' : '0'}}>
 
               <p style={{ marginBottom: '10px' }}>The <em>Book of Changes</em> was embraced and appropriated by later Chinese thinkers, giving rise to specialised studies of its commentarial traditions. approached the divination judgements based on images and numbers; others took the classic to be an explanation of meanings and principles. The book’s impact spanned the entire cultural history of China, and it continues to exert influence in the present.</p>
               <p>The book's reception in the international world has been remarkable. Respective translations by Thomas McClatchie (1814-1885), James Legge (1815-1897), and Richard Wilhelm (1873-1930) introduced the ancient Chinese text to the world. The psychologist Carl Jung (1875-1961) linked it to his concept of synchronicity. The avant-garde composer John Cage (1912-1992) referred to the book’s sequences of events for determining randomness in music composition. Espen Aarseth (b. 1965) regarded it as “possibly the best-known example of cybertext in antiquity” when exploring cybertext theory in digital literary studies.</p>
@@ -441,9 +598,10 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
           alignItems: 'center',
           justifyContent: 'center',
           height: '100%',
+          position: 'relative'
         }}>
           <img 
-            src="/images/TK_YiJIng_Graphs/yijing-graphs-11.jpg" 
+            src="/images/TK_YiJIng_Graphs/yijing-graphs-11.svg" 
             alt="64 Hexagrams" 
             style={{
               width: '100%',
@@ -453,6 +611,32 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
               objectFit: 'contain'
             }}
           />
+          {isMobile && (
+            <button
+              onClick={() => setLightboxImage('/images/TK_YiJIng_Graphs/yijing-graphs-11.svg')}
+            style={{
+              position: 'absolute',
+              top: '5px',
+              right: '-10px',
+              width: '30px',
+              height: '30px',
+              backgroundColor: 'transparent',
+              border: 'none',
+              color: '#000',
+              fontSize: '44px',
+              lineHeight: '1',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              zIndex: 10,
+              transition: 'all 0.3s'
+            }}
+
+            >
+              +
+            </button>
+          )}
         </div>
       );
     }
@@ -599,12 +783,18 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
               className="yj-height-half-inner yj-custom-scrollbar"
               onWheel={(e) => {
                 if (currentSlide === 2) {
-                  e.stopPropagation();
                   const inner = slide2InnerRef.current;
                   if (inner) {
                     const maxScroll = inner.scrollHeight - inner.clientHeight;
-                    const newScrollTop = Math.max(0, Math.min(maxScroll, inner.scrollTop + e.deltaY));
-                    inner.scrollTop = newScrollTop;
+                    const isAtBottom = inner.scrollTop >= maxScroll - 5;
+                    const isAtTop = inner.scrollTop <= 5;
+                    
+                    // Only stop propagation if we can still scroll within this element
+                    if ((e.deltaY > 0 && !isAtBottom) || (e.deltaY < 0 && !isAtTop)) {
+                      e.stopPropagation();
+                      const newScrollTop = Math.max(0, Math.min(maxScroll, inner.scrollTop + e.deltaY));
+                      inner.scrollTop = newScrollTop;
+                    }
                   }
                 }
               }}
@@ -986,11 +1176,21 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
         if (deltaY > 0) {
           // Scroll down on mobile
           if (mobilePhase === 'left') {
+            // Check if left content can scroll further down
+            const lc = leftContentRefs.current[currentSlide];
+            const canScroll = lc && lc.scrollHeight - lc.clientHeight > 10; // At least 10px scrollable
+            if (canScroll && lc.scrollTop + lc.clientHeight < lc.scrollHeight - 5) {
+              lc.scrollTop += deltaY;
+              scrollLockRef.current = false;
+              return;
+            }
+            // Scrolled to bottom of left content, switch to right
             setMobilePhase('right');
           } else {
             // Currently showing right - check if content can scroll further down
             const rc = rightContentRefs.current[currentSlide];
-            if (rc && rc.scrollHeight > rc.clientHeight && rc.scrollTop + rc.clientHeight < rc.scrollHeight - 2) {
+            const canScroll = rc && rc.scrollHeight - rc.clientHeight > 10; // At least 10px scrollable
+            if (canScroll && rc.scrollTop + rc.clientHeight < rc.scrollHeight - 5) {
               rc.scrollTop += deltaY;
               scrollLockRef.current = false;
               return;
@@ -1009,12 +1209,19 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
           if (mobilePhase === 'right') {
             // Check if content can scroll further up
             const rc = rightContentRefs.current[currentSlide];
-            if (rc && rc.scrollHeight > rc.clientHeight && rc.scrollTop > 2) {
+            const canScroll = rc && rc.scrollHeight - rc.clientHeight > 10; // At least 10px scrollable
+            if (canScroll && rc.scrollTop > 5) {
               rc.scrollTop += deltaY;
               scrollLockRef.current = false;
               return;
             }
+            // Scrolled to top of right content, switch back to left
             setMobilePhase('left');
+            // Reset left content scroll to bottom
+            const lc = leftContentRefs.current[currentSlide];
+            if (lc) {
+              lc.scrollTop = lc.scrollHeight;
+            }
           } else {
             // Currently showing left, go to prev slide
             if (currentSlide > 0) {
@@ -1076,12 +1283,12 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
           width: '100%',
           height: '100%',
           backgroundColor: '#000',
-          zIndex: 99999
+          zIndex: 9
         }} />
       )}
           {/* Mobile navigation dots - outside border div */}
           {mounted && isMobile && (
-            <div className="yj-nav-dots-mobile" style={{ position: 'fixed', bottom: '12px', left: '15px',zIndex : '99999' }}>
+            <div className="yj-nav-dots-mobile" style={{ position: 'fixed', bottom: '12px', left: '15px',zIndex : '99' }}>
               {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((index) => (
                 <div
                   key={index}
@@ -1112,7 +1319,7 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
                 Scroll to explore
               </div>
             )}    
-      <div className={`${isMobile ? "min-h-screen" : "min-h-screen pt-16"} ${isLoaded ? 'page-fade-in' : ''}`} style={{ opacity: isLoaded ? 1 : 0 }}>
+      <div className={`${!mounted || !isMobile ? "min-h-screen pt-16" : ""} ${isLoaded ? 'page-fade-in' : ''}`} style={{ opacity: isLoaded ? 1 : 0, overflow: mounted && isMobile ? 'hidden' : 'auto', height: mounted && isMobile ? '100%' : 'auto' }}>
         <Header forceOpenMenu={shouldOpenMenu} onMenuChange={(isOpen) => { if (!isOpen) setShouldOpenMenu(false); }} />
       
       {isMobile ? (
@@ -1144,7 +1351,9 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
                 transition: 'transform 0.7s ease-out'
               }}>
                 {/* Left content layer (white) */}
-                <div className="yj-mobile-left-content" style={{
+                <div
+                  ref={(el) => { leftContentRefs.current[index] = el; }}
+                  className="yj-mobile-left-content" style={{
                   position: 'absolute',
                   top: 0,
                   left: 0,
@@ -1152,7 +1361,8 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
                   height: '100%',
                   backgroundColor: '#FFF',
                   zIndex: 1,
-                  overflow: 'hidden'
+                  overflowY: 'auto',
+                  overflowX: 'hidden'
                 }}>
                   {renderLeftContent(index)}
                 </div>
@@ -1207,7 +1417,7 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
               top: 0,
               left: 0,
               width: '50vw',
-              height: '100vh',
+              height: '100%',
               backgroundColor: '#FFF',
               overflow: 'hidden',
               cursor: currentSlide > 0 ? 'none' : 'default',
@@ -1295,7 +1505,7 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
               top: 0,
               right: '90px',
               width: 'calc(50vw - 90px)',
-              height: '100vh',
+              height: '100%',
               backgroundColor: '#000',
               overflow: 'hidden',
               cursor: currentSlide < 10 ? 'none' : 'default',
@@ -1398,6 +1608,63 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
         </>
       )}
       </div>
+
+      {/* Lightbox for zoomed images */}
+      {lightboxImage && (
+        <div
+          onClick={() => setLightboxImage(null)}
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100vw',
+            height: '100%',
+            backgroundColor: 'rgba(0, 0, 0, 0.95)',
+            zIndex: 9999,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            cursor: 'zoom-out'
+          }}
+        >
+          <button
+            onClick={() => setLightboxImage(null)}
+            style={{
+              position: 'absolute',
+              top: '2px',
+              right: '2px',
+              width: '40px',
+              height: '40px',
+              backgroundColor: 'transparent',
+              border: 'none',
+              color: '#FFF',
+              fontSize: '48px',
+              lineHeight: '1',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              zIndex: 10000,
+              transition: 'all 0.3s',
+              transform: 'rotate(45deg)'
+            }}
+
+          >
+            +
+          </button>
+          <img
+            src={lightboxImage}
+            alt="Zoomed view"
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              maxWidth: 'calc(100vw - 30px)',
+              maxHeight: 'calc(100% - 30px)',
+              objectFit: 'contain',
+              cursor: 'default'
+            }}
+          />
+        </div>
+      )}
     </>
   );
 }
