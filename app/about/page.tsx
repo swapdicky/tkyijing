@@ -384,7 +384,7 @@ We hope the immersive experiences of this show will allow abstract ideas to take
                     <em>Book of Changes</em>: The Art of Basil Pao — Curator's Guided Tour
                   </div>
                 </div>
-                <div className="text-gray fw-300  yj-en-12" style={{ lineHeight: '1.6', whiteSpace: 'nowrap', marginLeft: '40px',marginTop: '5px' }}>
+                <div className="text-gray fw-300  yj-en-12" style={{ lineHeight: '1.6', whiteSpace: 'nowrap', marginLeft: '20px',marginTop: '2px' }}>
                   17 & 31.1.2026
                 </div>
               </div>
@@ -443,7 +443,7 @@ We hope the immersive experiences of this show will allow abstract ideas to take
                     Tai Kwun Conversations: The <em>Book of Changes</em> — A Living Classic
                   </div>
                 </div>
-                <div className="text-gray fw-300  yj-en-12" style={{ lineHeight: '1.6', whiteSpace: 'nowrap', marginLeft: '40px' ,marginTop: '5px'}}>
+                <div className="text-gray fw-300  yj-en-12" style={{ lineHeight: '1.6', whiteSpace: 'nowrap', marginLeft: '20px' ,marginTop: '2px'}}>
                   08.02.2026
                 </div>
               </div>

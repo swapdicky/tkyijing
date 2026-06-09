@@ -750,6 +750,8 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
             border: isMobile ? (zoom === 150 ? '0px solid #000000' : '0px solid #333333') : (zoom === 150 ? '2px solid #000000' : '2px solid #333333'),
             marginTop: isMobile && mode === "overview" ? '80px' : 0,
             marginBottom: isMobile && mode === "overview" ? '80px' : 0,
+            paddingLeft: isMobile && mode === "overview" ? '15px' : 0,
+            paddingRight: isMobile && mode === "overview" ? '15px' : 0,
             transform: isMobile && mode === "overview" ? 'none' : undefined,
             left: isMobile && mode === "overview" ? 0 : undefined,
             top: isMobile && mode === "overview" ? 0 : undefined
@@ -761,10 +763,12 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
             <div
               key={index}
               ref={(el) => { gridItemsRef.current[index] = el; }}
-              className={`${isMobile && mode === "overview" ? "w-[25vw] h-[25vw]" : (isMobile && mode === "explore" ? "w-[35vw] h-[35vw]" : "w-[20vw] h-[20vw]")} flex-shrink-0 relative group cursor-pointer ${
+              className={`${isMobile && mode === "explore" ? "w-[35vw] h-[35vw]" : !isMobile ? "w-[20vw] h-[20vw]" : ""} flex-shrink-0 relative group cursor-pointer ${
                 selectedBox === boxNumber ? 'active' : ''
               } ${archivedBoxes.has(boxNumber) && selectedBox !== boxNumber ? 'archive-active' : ''}`}
               style={{ 
+                width: isMobile && mode === "overview" ? 'calc((100vw - 30px) / 4)' : undefined,
+                height: isMobile && mode === "overview" ? 'calc((100vw - 30px) / 4)' : undefined,
                 borderWidth: isMobile ? '1px' : (archivedBoxes.has(boxNumber) ? '2px' : '1px'),
                 borderStyle: 'solid', 
                 borderColor: zoom === 150 ? '#000000' : '#333333',

@@ -522,8 +522,8 @@ The <em>Book of Changes</em> is unquestionably a quintessential Chinese cultural
                   letterSpacing: '0.2em',
                   
                   lineHeight: '1',
-                  marginLeft: "20px",
-                  marginTop: '-15px' }}>
+                  marginLeft:isMobile ? "15px" : '20px',
+                  marginTop: isMobile ? "-9px" : '-15px' }}>
                   ︽中國牆城︾<span style={{marginTop:'-14px'}}></span>系列
                 </h2>
                 
