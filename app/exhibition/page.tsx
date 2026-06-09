@@ -402,7 +402,6 @@ The <em>Book of Changes</em> is unquestionably a quintessential Chinese cultural
             className="h-screen relative flex-shrink-0" 
             style={{ 
               width: isMobile ? '100%' : '80vw', 
-              zIndex: 1, 
               backgroundColor: "#000",
               overflow: "hidden",
             }}
@@ -425,9 +424,9 @@ The <em>Book of Changes</em> is unquestionably a quintessential Chinese cultural
           </div>
 
           {/* Section 1 */}
-          <div className="ex-section radius-top-left-15 radius-bottom-left-15" style={{ minHeight: isMobile ? 'auto' : '100vh', position: 'relative', flexShrink: 0, backgroundColor: "#DDDDDD", zIndex: 2, overflow: "hidden" }}>
+          <div className="ex-section radius-15" style={{ minHeight: isMobile ? 'auto' : '100vh', position: 'relative', flexShrink: 0, backgroundColor: "#DDDDDD", overflow: "hidden" }}>
 
-            <div style={{ paddingTop: isMobile ? '30px' : '90px', paddingBottom: isMobile ? '15px' : '60px', paddingLeft: isMobile ? '15px' : '30px', paddingRight: isMobile ? '15px' : '30px', gap: isMobile ? '20px' : '30px', display: 'flex', flexDirection: isMobile ? 'column' : 'row', alignItems: isMobile ? 'stretch' : 'center', flex: isMobile ? 'none' : 1 }}>
+            <div style={{ paddingTop: isMobile ? '30px' : '90px', paddingBottom: isMobile ? '15px' : '60px', paddingLeft: isMobile ? '15px' : '60px', paddingRight: isMobile ? '15px' : '0px', gap: isMobile ? '20px' : '30px', display: 'flex', flexDirection: isMobile ? 'column' : 'row', alignItems: isMobile ? 'stretch' : 'center', flex: isMobile ? 'none' : 1 }}>
               <div 
                 ref={(el) => { 
                   innerSectionRefs.current[0] = el;
@@ -480,7 +479,6 @@ The <em>Book of Changes</em> is unquestionably a quintessential Chinese cultural
             className="h-screen relative flex-shrink-0" 
             style={{ 
               width: isMobile ? '100%' : '80vw', 
-              zIndex: 2, 
               overflow: "hidden",
               marginLeft: isMobile ? '0' : "-40px"
             }}
@@ -503,7 +501,7 @@ The <em>Book of Changes</em> is unquestionably a quintessential Chinese cultural
           </div>
 
           {/* Section 2 */}
-          <div className="ex-section radius-top-left-15 radius-bottom-left-15" style={{ minHeight: isMobile ? 'auto' : '100vh', position: 'relative', flexShrink: 0, backgroundColor: "#330E07", zIndex: 3, overflow: "hidden" }}>
+          <div className="ex-section radius-15" style={{ minHeight: isMobile ? 'auto' : '100vh', position: 'relative', flexShrink: 0, backgroundColor: "#330E07",  overflow: "hidden" }}>
             <div className="yj-padding-section ex-section-inner" style={{  minHeight: isMobile ? 'auto' : '100vh', position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               {/* Vertical line on the right */}
               <div className="right-30 ex-vertical-line"
@@ -655,7 +653,7 @@ Over the years, I failed repeatedly to create a visual representation of the <em
 
 
           {/* Section 3 */}
-          <div className="ex-section radius-top-left-15 radius-bottom-left-15" style={{ minHeight: isMobile ? 'auto' : '100vh', position: 'relative', flexShrink: 0, backgroundColor: "#000000", zIndex: 4, overflow: "hidden" }}>
+          <div className="ex-section radius-15" style={{ minHeight: isMobile ? 'auto' : '100vh', position: 'relative', flexShrink: 0, backgroundColor: "#000000", overflow: "hidden" }}>
             <div className="yj-padding-section ex-section-inner" style={{  minHeight: isMobile ? 'auto' : '100vh', position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               {/* Vertical line on the right */}
               <div className="right-30 ex-vertical-line"
@@ -777,9 +775,9 @@ Nowadays, with the advance of digital technologies, an online consultation of th
             className="h-screen relative flex-shrink-0" 
             style={{ 
               width: isMobile ? '100%' : '80vw', 
-              zIndex: 4, 
               backgroundColor: "#FFFFFF",
               overflow: "hidden",
+              marginLeft: isMobile ? '0' : "-40px"
             }}
           >
             <div 
@@ -800,7 +798,7 @@ Nowadays, with the advance of digital technologies, an online consultation of th
           </div>
 
           {/* Section 4 */}
-          <div className="ex-section radius-top-left-15 radius-bottom-left-15" style={{ minHeight: isMobile ? 'auto' : '100vh', position: 'relative', flexShrink: 0, backgroundColor: "#1A3B45", zIndex: 5, overflow: "hidden" }}>
+          <div className="ex-section radius-15" style={{ minHeight: isMobile ? 'auto' : '100vh', position: 'relative', flexShrink: 0, backgroundColor: "#1A3B45",  overflow: "hidden" }}>
             <div className="yj-padding-section ex-section-inner" style={{  minHeight: isMobile ? 'auto' : '100vh', position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               {/* Vertical line on the right */}
               <div className="right-30 ex-vertical-line"
