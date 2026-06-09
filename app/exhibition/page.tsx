@@ -530,7 +530,7 @@ The <em>Book of Changes</em> is unquestionably a quintessential Chinese cultural
                 {/* Description text */}
                 <div className="text-white fw-300 yj-cn-18"  style={{ writingMode: 'vertical-rl',
                   textOrientation: 'mixed',
-                  lineHeight: '1.4',
+                  lineHeight:  isMobile ? '1.3' : '1.4',
                   fontFamily: '"Noto Serif TC", serif',
                   letterSpacing: '0.2em',
                   marginBottom: isMobile ? "120px" : 0 ,
