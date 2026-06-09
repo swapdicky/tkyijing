@@ -605,33 +605,42 @@ export default function Home() {
           transition: 'opacity 0.5s ease-out'
         }}
       >
-        {/* White info box */}
-        <div
-          className={`${scrollProgress >= 1 ? 'info-box-width-expanded' : 'info-box-width'} ${scrollProgress >= 1 ? 'info-box-max-height-expanded' : 'info-box-max-height'}`}
-          onClick={advanceScroll}
-          style={{
-            height: scrollProgress >= 1 ? '100%' : '724px',
-            backgroundColor: 'white',
-            position: 'fixed',
-            top: isMobile && scrollProgress === 2 ? '-50%' : '50%',
-            left: isMobile && scrollProgress === 2 ? '0' : (scrollProgress === 2 ? '-50vw' : (scrollProgress === 1 ? '0' : '50%')),
-            transform: scrollProgress >= 1 ? 'translateY(-50%)' : 'translate(-50%, -50%)',
-            transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'space-between',
-            padding: scrollProgress >= 1 ? '30px' : '40px 30px',
-            borderRadius: scrollProgress >= 1 ? '0' : '15px'
-          }}
-        >
           {/* Logo inside white box */}
           <div className="info-box-logo">
             <img src="/images/logo-icon.svg" alt="Logo" />
           </div>
+      <div className="fixed top-0 flex items-center justify-center yj-full-viewport" style={{
+        left: scrollProgress >= 1 ? '-150%' : '0',
+        transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)'
+      }}>
+        <div className="flex flex-col items-center justify-center" style={{ width: '100%', height: '100%' }}>
+           <h1 className="text-white fw-300 home-title">易經：鮑皓昕攝影藝術</h1>
+           <h1 className="text-white fw-300 home-title" style={{ fontFamily: '"neue-haas-unica", sans-serif' }}><em>Book of Changes</em>: The Art of Basil Pao</h1>
+        </div>
+      </div>
+
+        {/* White info box */}
+        <div
+          className="info-box-width-expanded  info-box-max-height-expanded"
+          onClick={advanceScroll}
+          style={{
+            height: '100%',
+            backgroundColor: 'white',
+            position: 'fixed',
+            top: 0,
+            left: isMobile && scrollProgress === 2 ? '0' : (scrollProgress === 2 ? '-50vw' : (scrollProgress === 1 ? '0' : '152%')),
+            transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'space-between',
+            padding: scrollProgress >= 1 ? '30px' : '40px 30px'
+          }}
+        >
+
 
           {/* Chinese text section - aligned to top right */}
           <div 
-          className={`${scrollProgress === 0 ? 'info-scale-sm' : 'info-scale-lg'}`} 
+          className={`${scrollProgress === 0 ? 'info-scale-lg' : 'info-scale-lg'}`} 
           style={{
             display: 'flex',
             flexDirection: 'row-reverse',
@@ -678,7 +687,7 @@ export default function Home() {
             transition: 'width 0.8s cubic-bezier(0.4, 0, 0.2, 1)'
           }}>
             {/* English Title */}
-            <div className={`text-black fw-300 ${scrollProgress === 0 ? 'info-en-title-sm' : 'info-en-title-lg'}`}  style={{
+            <div className={`text-black fw-300 ${scrollProgress === 0 ? 'info-en-title-lg' : 'info-en-title-lg'}`}  style={{
               marginBottom: '10px',
               fontFamily: '"neue-haas-unica", sans-serif',
               fontStyle: 'normal',
@@ -688,7 +697,7 @@ export default function Home() {
             </div>
 
             {/* English Content */}
-            <div className={`text-black fw-300 ${scrollProgress === 0 ? 'info-en-content-sm' : 'info-en-content-lg'}`}  style={{
+            <div className={`text-black fw-300 ${scrollProgress === 0 ? 'info-en-content-lg' : 'info-en-content-lg'}`}  style={{
               textAlign: 'left',
               fontFamily: '"neue-haas-unica", sans-serif',
 
