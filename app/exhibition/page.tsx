@@ -110,8 +110,12 @@ export default function Exhibition() {
         const currentDistance = startPosition - rect.top;
         const progress = Math.min(1, Math.max(0, currentDistance / totalDistance));
         
+        // ss4a.webp (index 10) needs 200% multiplier to show full background
+        const isSs4a = index === 10;
+        const multiplier = isSs4a ? 200 : 100;
+        
         // Pan from 0% (left) to 100% (right) as element moves through viewport
-        const bgPositionX = progress * 100;
+        const bgPositionX = progress * multiplier;
         
         imgEl.style.backgroundPosition = `${bgPositionX}% center`;
       });
@@ -223,22 +227,41 @@ export default function Exhibition() {
     const updateImageParallax = () => {
       const viewportWidth = window.innerWidth;
       
-      imageParallaxRefs.current.forEach((imgEl) => {
+      imageParallaxRefs.current.forEach((imgEl, index) => {
         if (!imgEl) return;
         
         const rect = imgEl.getBoundingClientRect();
         
-        // Calculate progress: 0 when entering from right, 1 when leaving from left
-        const elementWidth = rect.width;
-        const startPosition = viewportWidth; // Right edge of viewport
-        const endPosition = -elementWidth; // Left edge (element completely off screen)
+        // ss4a.webp (index 10) is the last element - use vertical scroll on mobile
+        const isSs4a = index === 10;
         
-        const totalDistance = startPosition - endPosition;
-        const currentDistance = startPosition - rect.left;
-        let progress = Math.min(1, Math.max(0, currentDistance / totalDistance));
+        let progress;
+        if (isMobile && isSs4a) {
+          // Calculate progress based on vertical position: 0 when entering from bottom, 1 when reaching top
+          const elementHeight = rect.height;
+          const viewportHeight = window.innerHeight;
+          const startPosition = viewportHeight; // Bottom edge of viewport
+          const endPosition = -elementHeight; // Top edge (element completely off screen)
+          
+          const totalDistance = startPosition - endPosition;
+          const currentDistance = startPosition - rect.top;
+          progress = Math.min(1, Math.max(0, currentDistance / totalDistance));
+        } else {
+          // Calculate progress: 0 when entering from right, 1 when leaving from left
+          const elementWidth = rect.width;
+          const startPosition = viewportWidth; // Right edge of viewport
+          const endPosition = -elementWidth; // Left edge (element completely off screen)
+          
+          const totalDistance = startPosition - endPosition;
+          const currentDistance = startPosition - rect.left;
+          progress = Math.min(1, Math.max(0, currentDistance / totalDistance));
+        }
+        
+        // ss4a.webp needs 200% multiplier on mobile to show full background
+        const multiplier = (isMobile && isSs4a) ? 200 : 100;
         
         // Pan smoothly from 0% (left) to 100% (right) as element moves across viewport
-        const bgPositionX = progress * 100;
+        const bgPositionX = progress * multiplier;
         
         imgEl.style.backgroundPosition = `${bgPositionX}% center`;
       });
@@ -888,7 +911,7 @@ The central concept of the <em>Book of Changes</em> is "Heaven and Humanity as O
                 </div>
               </div>
             </div>
-            <div style={{ paddingTop: isMobile ? '30px' : '90px', paddingBottom: isMobile ? '15px' : '60px', paddingLeft: isMobile ? '15px' : '30px', paddingRight: isMobile ? '15px' : '30px', gap: isMobile ? '20px' : '30px', display: 'flex', flexDirection: isMobile ? 'column' : 'row', alignItems: isMobile ? 'stretch' : 'center', flex: isMobile ? 'none' : 1 }}>
+            <div style={{ paddingTop: isMobile ? '30px' : '90px', paddingBottom: isMobile ? '60px' : '60px', paddingLeft: isMobile ? '15px' : '30px', paddingRight: isMobile ? '15px' : '30px', gap: isMobile ? '20px' : '30px', display: 'flex', flexDirection: isMobile ? 'column' : 'row', alignItems: isMobile ? 'stretch' : 'center', flex: isMobile ? 'none' : 1 }}>
               <div 
                 ref={(el) => { 
                   innerSectionRefs.current[10] = el;
@@ -896,7 +919,7 @@ The central concept of the <em>Book of Changes</em> is "Heaven and Humanity as O
                 }}
                 className="flex-shrink-0 radius-15" 
                 style={{ 
-                  aspectRatio: isMobile ? "372／495" : "1748/874", 
+                  aspectRatio: isMobile ? "372/495" : "1748/874", 
                   height: isMobile ? 'auto' : 'calc(50vh - 140px)',
                   backgroundImage: "url('/images/exhibition/ss4a.webp')",
                   backgroundSize: isMobile ? "auto 100%" : "cover",
