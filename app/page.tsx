@@ -545,31 +545,50 @@ export default function Home() {
     };
   }, [isMobile, hideOverlay]);
 
-  // Touch swipe detection for panel switching on mobile
+  // Touch swipe and mouse drag detection for panel switching
   useEffect(() => {
-    if (!isMobile || !isPanelOpen) return;
+    if (!isPanelOpen) return;
 
-    let touchStartX = 0;
-    let touchEndX = 0;
+    let startX = 0;
+    let endX = 0;
 
     const handleTouchStart = (e: Event) => {
-      touchStartX = (e as TouchEvent).changedTouches[0].screenX;
+      startX = (e as TouchEvent).changedTouches[0].screenX;
     };
 
     const handleTouchEnd = (e: Event) => {
-      touchEndX = (e as TouchEvent).changedTouches[0].screenX;
+      endX = (e as TouchEvent).changedTouches[0].screenX;
       handleSwipe();
+    };
+
+    const handleMouseDown = (e: Event) => {
+      startX = (e as MouseEvent).screenX;
+    };
+
+    const handleMouseUp = (e: Event) => {
+      endX = (e as MouseEvent).screenX;
+      handleSwipe();
+    };
+
+    const handleWheel = (e: Event) => {
+      if ((e as WheelEvent).deltaY > 0) {
+        // Scroll down - switch to info panel
+        setActivePanel('info');
+      } else {
+        // Scroll up - switch to image panel
+        setActivePanel('image');
+      }
     };
 
     const handleSwipe = () => {
       const swipeThreshold = 50;
-      const diff = touchStartX - touchEndX;
+      const diff = startX - endX;
 
       if (diff > swipeThreshold) {
-        // Swiped left - switch to info panel
+        // Swiped/dragged left - switch to info panel
         setActivePanel('info');
       } else if (diff < -swipeThreshold) {
-        // Swiped right - switch to image panel
+        // Swiped/dragged right - switch to image panel
         setActivePanel('image');
       }
     };
@@ -578,6 +597,9 @@ export default function Home() {
     if (wrapper) {
       wrapper.addEventListener('touchstart', handleTouchStart, { passive: true });
       wrapper.addEventListener('touchend', handleTouchEnd, { passive: true });
+      wrapper.addEventListener('mousedown', handleMouseDown);
+      wrapper.addEventListener('mouseup', handleMouseUp);
+      wrapper.addEventListener('wheel', handleWheel, { passive: true });
     }
 
     return () => {
@@ -585,9 +607,12 @@ export default function Home() {
       if (wrapper) {
         wrapper.removeEventListener('touchstart', handleTouchStart);
         wrapper.removeEventListener('touchend', handleTouchEnd);
+        wrapper.removeEventListener('mousedown', handleMouseDown);
+        wrapper.removeEventListener('mouseup', handleMouseUp);
+        wrapper.removeEventListener('wheel', handleWheel);
       }
     };
-  }, [isMobile, isPanelOpen]);
+  }, [isPanelOpen]);
 
   const toggleMode = () => {
     if (mode === "explore") {
@@ -648,7 +673,7 @@ export default function Home() {
         <div className="flex flex-col items-center justify-center" style={{ width: '100%', height: '100%' }}>
            <h1 className="text-white fw-300 home-title" style={{marginBottom: isMobile ? '5px' : '10px'}}>易經：鮑皓昕攝影藝術</h1>
            <h1 className="text-white fw-300 home-title" style={{ fontFamily: '"neue-haas-unica", sans-serif' ,marginBottom: isMobile ? '30px' : '0'}}><em>Book of Changes</em>: The Art of Basil Pao</h1>
-            <h5 className="text-white  yj-en-14 fw-300">Scroll to explore</h5>
+            {isMobile && <h5 className="text-white  yj-en-14 fw-300">Scroll to explore</h5>}
         
         
         </div>
