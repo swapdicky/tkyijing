@@ -529,7 +529,7 @@ a:hover .hover-underline::after {
   .mt-n-12{margin-top: -10px;}
   .mt-n-8{margin-top: -8px;}
   .mt-n-6{margin-top: -2px;}
-  .mb-30-bottom{margin-bottom: 60px;}
+  .mb-30-bottom{margin-bottom: 30px;}
 
   /* Text spacing utilities */
   .space-before-bracket{margin-top: -8px;}
