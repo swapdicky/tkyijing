@@ -998,6 +998,7 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
               setIsPanelOpen(false);
               setIsMousePaused(false);
               setSelectedBox(null);
+              setActivePanel('image'); // Reset to image panel on close
               // Restore previous zoom level
               setZoom(previousZoom);
               setMode(previousZoom === 150 ? "explore" : "overview");
@@ -1066,7 +1067,7 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
               backgroundSize: isMobile ? '50% auto' : 'cover',
               backgroundPosition: 'center center',
               backgroundRepeat: 'no-repeat',
-              transition: isMobile ? 'left 0.3s ease-out' : undefined
+              transition: isMobile && isPanelOpen ? 'left 0.3s ease-out' : undefined
             }}
           >
           </div>
@@ -1090,7 +1091,7 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
               width: isMobile
                 ? '100%'
                 : (isPanelOpen ? 'calc(50% - (100vh * 698 / 2048 / 2))' : '550px'),
-              transition: isMobile ? 'left 0.3s ease-out' : undefined
+              transition: isMobile && isPanelOpen ? 'left 0.3s ease-out' : undefined
             }}
           >
           <div className="h-full overflow-hidden text-black">
