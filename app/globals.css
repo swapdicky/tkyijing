@@ -674,7 +674,7 @@ a:hover .hover-underline::after {
 /* landing */
 .info-box-width{width: calc(100% - 30px);padding: 20px 15px !important;}
 .info-box-logo { width: 30px; height: 30px; top: 10px; left: 15px; }
-.info-box-max-height-expanded{width: 100vw;height: 100% !important;padding: 15px !important;border-radius: 15px !important;}
+.info-box-max-height-expanded{width: 100vw;height: 100% !important;padding:50px 15px !important;border-radius: 15px !important;}
 .info-scale-lg{transform: scale(.9);}
 .w-full{}
 .w-full.h-screen{margin: 0;padding:0;}

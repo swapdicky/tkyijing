@@ -78,7 +78,7 @@ export default function Home() {
   useEffect(() => {
     const loadTimer = setTimeout(() => {
       setIsLoaded(true);
-    }, 100);
+    }, 800);
     return () => clearTimeout(loadTimer);
   }, []);
 
@@ -570,16 +570,6 @@ export default function Home() {
       handleSwipe();
     };
 
-    const handleWheel = (e: Event) => {
-      if ((e as WheelEvent).deltaY > 0) {
-        // Scroll down - switch to info panel
-        setActivePanel('info');
-      } else {
-        // Scroll up - switch to image panel
-        setActivePanel('image');
-      }
-    };
-
     const handleSwipe = () => {
       const swipeThreshold = 50;
       const diff = startX - endX;
@@ -599,7 +589,6 @@ export default function Home() {
       wrapper.addEventListener('touchend', handleTouchEnd, { passive: true });
       wrapper.addEventListener('mousedown', handleMouseDown);
       wrapper.addEventListener('mouseup', handleMouseUp);
-      wrapper.addEventListener('wheel', handleWheel, { passive: true });
     }
 
     return () => {
@@ -609,7 +598,6 @@ export default function Home() {
         wrapper.removeEventListener('touchend', handleTouchEnd);
         wrapper.removeEventListener('mousedown', handleMouseDown);
         wrapper.removeEventListener('mouseup', handleMouseUp);
-        wrapper.removeEventListener('wheel', handleWheel);
       }
     };
   }, [isPanelOpen]);
@@ -634,7 +622,21 @@ export default function Home() {
   };
 
   return (
-    <div className={`min-h-screen ${isLoaded ? 'page-fade-in' : ''}`} style={{ opacity: isLoaded ? 1 : 0 }}>
+    <>
+    <div style={{
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      width: '100%',
+      height: '100%',
+      backgroundColor: 'black',
+      opacity: isLoaded ? 0 : 1,
+      transition: 'opacity 1s ease-out',
+      zIndex: 9999,
+      pointerEvents: 'none'
+    }}></div>
+
+    <div className="min-h-screen">
       {/* Scroll to explore text - shows before overlay hides and when panel is closed */}
       <div className="text-gray fw-400 scroll-to-explore-text"
          style={{ opacity: (!hideOverlay && !isPanelOpen) ? 1 : 0 }}
@@ -670,7 +672,7 @@ export default function Home() {
         left: scrollProgress >= 1 ? '-150%' : '0',
         transition: 'left 2.4s cubic-bezier(0.4, 0, 0.2, 1)'
       }}>
-        <div className="flex flex-col items-center justify-center" style={{ width: '100%', height: '100%' }}>
+        <div className="flex flex-col items-center justify-center">
            <h1 className="text-white fw-300 home-title" style={{marginBottom: isMobile ? '5px' : '10px'}}>易經：鮑皓昕攝影藝術</h1>
            <h1 className="text-white fw-300 home-title" style={{ fontFamily: '"neue-haas-unica", sans-serif' ,marginBottom: isMobile ? '30px' : '0'}}><em>Book of Changes</em>: The Art of Basil Pao</h1>
             {isMobile && <h5 className="text-white  yj-en-14 fw-300">Scroll to explore</h5>}
@@ -767,7 +769,22 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
           </div>
         </div>
       </div>
+      {/* Landing footer */}
+      <div style={{
+        position: 'absolute',
+        bottom: '0',
+        left: 0,
+        width: '100%',
+        height: '100%',
+        backgroundColor: 'rgba(0, 0, 0, 0.3)',
+        transition: 'all 0.5s ease-out',
+        pointerEvents: 'none',
+        zIndex: 9,
+        backdropFilter: 'blur(10px)',
+        opacity: scrollProgress >= 2  ? 0 : 1
+      }}>
 
+      </div>
       {/* Landing footer */}
       <div style={{
         position: 'fixed',
@@ -775,19 +792,17 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
         left: 0,
         width: '100%',
         padding: '25px',
-        backgroundColor: 'rgba(0, 0, 0, .6)',
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
         transition: 'all 0.5s ease-out',
         pointerEvents: isLanding ? 'auto' : 'none',
         zIndex: 10,
-        paddingTop: '200%',
         opacity: isLanding ? 1 : 0,
         transitionProperty: 'opacity',
         transitionDuration: '0.5s',
         transitionTimingFunction: 'ease-out',
-        backdropFilter: 'blur(10px)'
+   
       }}>
         <img 
           src="/images/TK-logo.svg" 
@@ -1023,18 +1038,18 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
           )}
 
           {/* Brown image box */}
-          <div 
+          <div
             className="fixed top-0 z-40 transition-all duration-700 ease-out"
-            style={{ 
+            style={{
               pointerEvents: isPanelOpen ? 'auto' : 'none',
-              left: isMobile 
+              left: isMobile
                 ? (activePanel === 'image' ? '0' : '-100%')
                 : (isPanelOpen ? '50%' : 'calc(100% + 300px)'),
               transform: isMobile ? 'translateX(0)' : (isPanelOpen ? 'translateX(-50%)' : 'translateX(0)'),
               height: '100%',
               width: isMobile ? '100%' : 'calc(100vh * 698 / 2048)',
-              backgroundImage: 'url(/images/banner.jpg)',
-              backgroundSize: isMobile ? 'contain' : '100% 100%',
+              backgroundImage: selectedBox ? `url(/images/Hex64_IMG/${selectedBox}.jpg)` : 'url(/images/banner.jpg)',
+              backgroundSize: isMobile ? '50% auto' : '100% 100%',
               backgroundPosition: 'center center',
               backgroundRepeat: 'no-repeat'
             }}
@@ -1251,5 +1266,6 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
         </div>
       </div>
     </div>
+    </>
   );
 }
