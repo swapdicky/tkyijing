@@ -406,17 +406,17 @@ The <em>Book of Changes</em> is unquestionably a quintessential Chinese cultural
               overflow: "hidden",
             }}
           >
-            <div 
+            <div
               ref={(el) => { sectionBreakRefs.current[0] = el; }}
               style={{
                 position: "absolute",
                 top: 0,
-                left: isMobile ? "50%" : 0,
+                left: isMobile ? "50%" : "0",
                 width: isMobile ? "100%" : "130vw",
-                transform: isMobile ? "translateX(-50%)" : "none",
+                transform: isMobile ? "translateX(-50%)" : "translateX(-30.5083%)",
                 height: "100%",
-                backgroundImage: "url('/images/exhibition/ss1-landing.webp')",
-                backgroundSize: "auto 100%",
+                backgroundImage: `url('/images/exhibition/ss1-landing.webp')`,
+                backgroundSize: "cover",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat"
               }}>
@@ -483,14 +483,14 @@ The <em>Book of Changes</em> is unquestionably a quintessential Chinese cultural
               marginLeft: isMobile ? '0' : "-40px"
             }}
           >
-            <div 
+            <div
               ref={(el) => { sectionBreakRefs.current[1] = el; }}
               style={{
                 position: "absolute",
                 top: 0,
                 left: isMobile ? "50%" : 0,
                 width: isMobile ? "100%" : "130vw",
-                transform: isMobile ? "translateX(-50%)" : "none",
+                transform: isMobile ? "translateX(-50%)" : "translateX(0%)",
                 height: "100%",
                 backgroundImage: "url('/images/exhibition/ss2-landing.webp')",
                 backgroundSize: "cover",
@@ -780,14 +780,14 @@ Nowadays, with the advance of digital technologies, an online consultation of th
               marginLeft: isMobile ? '0' : "-40px"
             }}
           >
-            <div 
+            <div
               ref={(el) => { sectionBreakRefs.current[3] = el; }}
               style={{
                 position: "absolute",
                 top: 0,
                 left: isMobile ? "50%" : 0,
                 width: isMobile ? "100%" : "130vw",
-                transform: isMobile ? "translateX(-50%)" : "none",
+                transform: isMobile ? "translateX(-50%)" : "translateX(0%)",
                 height: "100%",
                 backgroundImage: "url('/images/exhibition/ss3-landing.jpg')",
                 backgroundSize: "cover",
