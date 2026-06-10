@@ -73,6 +73,7 @@ export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
   const [activePanel, setActivePanel] = useState<'image' | 'info'>('image'); // Track which panel is visible on mobile
   const [isLoaded, setIsLoaded] = useState(false);
+  const scrollPositionRef = useRef(0);
 
   // Set loaded state for fade-in animation
   useEffect(() => {
@@ -342,8 +343,6 @@ export default function Home() {
     });
 
     if (mode === "overview") {
-      document.body.style.overflow = "auto";
-      document.body.style.overflowX = "hidden";
       gsap.killTweensOf(moduleRef.current);
       
       // Mobile overview: no transform needed, use normal scroll
@@ -355,7 +354,6 @@ export default function Home() {
           xPercent: 0,
           yPercent: 0
         });
-        window.scrollTo({ top: 0, behavior: 'instant' });
         return;
       }
       
@@ -368,8 +366,6 @@ export default function Home() {
         scaleValue = 0.57 * 0.5;
         targetX = 0;
         targetY = 0;
-        // Reset scroll to top to prevent jump when switching from 100% (180vh)
-        window.scrollTo({ top: 0, behavior: 'instant' });
       } else if (zoom === 100) {
         // Desktop: Reduce scale to add 20px margin on each side
         const scaleAdjustment = (window.innerWidth - 40) / window.innerWidth;
@@ -601,6 +597,16 @@ export default function Home() {
       }
     };
   }, [isPanelOpen]);
+
+  // Disable body scroll when panel is open
+  useEffect(() => {
+    if (isPanelOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      // Restore scroll when panel closes
+      document.body.style.overflow = mode === 'overview' ? 'auto' : 'hidden';
+    }
+  }, [isPanelOpen, mode]);
 
   const toggleMode = () => {
     if (mode === "explore") {
@@ -861,7 +867,10 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
               onClick={(e) => {
                 // Disable click when menu is open, during intro animation, or before scrollProgress completes
                 if (isMenuOpen || !hideOverlay || scrollProgress !== 2) return;
-                
+
+                // Save scroll position before opening panel
+                scrollPositionRef.current = window.scrollY;
+
                 setSelectedBox(boxNumber);
                 setIsPanelOpen(true);
                 setIsMousePaused(true);
@@ -991,6 +1000,10 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
               // Restore previous zoom level
               setZoom(previousZoom);
               setMode(previousZoom === 150 ? "explore" : "overview");
+              // Restore scroll position
+              setTimeout(() => {
+                window.scrollTo({ top: scrollPositionRef.current, behavior: 'instant' });
+              }, 0);
             }}
             className="fixed w-[50px] h-[50px] z-[200] flex items-center justify-center transition-colors"
             style={{ 
