@@ -777,7 +777,7 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
       </div>
       {/* Landing footer */}
       <div style={{
-        position: 'absolute',
+        position: 'fixed',
         bottom: '0',
         left: 0,
         width: '100%',
@@ -988,6 +988,7 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
             zIndex: 101,
             left: '0',
             width: '100%',
+            height: '100%',
             opacity: isPanelOpen ? 1 : 0
           }}
         >
@@ -1052,7 +1053,7 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
 
           {/* Brown image box */}
           <div
-            className="fixed top-0 z-40 transition-all duration-700 ease-out"
+            className={`fixed top-0 z-40 ${!isMobile ? 'transition-all duration-700 ease-out' : ''}`}
             style={{
               pointerEvents: isPanelOpen ? 'auto' : 'none',
               left: isMobile
@@ -1061,33 +1062,35 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
               transform: isMobile ? 'translateX(0)' : (isPanelOpen ? 'translateX(-50%)' : 'translateX(0)'),
               height: '100%',
               width: isMobile ? '100%' : 'calc(100vh * 698 / 2048)',
-              backgroundImage: selectedBox ? `url(/images/Hex64_IMG/${selectedBox}.jpg)` : 'url(/images/banner.jpg)',
-              backgroundSize: isMobile ? '50% auto' : '100% 100%',
+              backgroundImage: selectedBox ? `url(/images/Hex64_IMG/${selectedBox}.jpg)` : 'none',
+              backgroundSize: isMobile ? '50% auto' : 'cover',
               backgroundPosition: 'center center',
-              backgroundRepeat: 'no-repeat'
+              backgroundRepeat: 'no-repeat',
+              transition: isMobile ? 'left 0.3s ease-out' : undefined
             }}
           >
           </div>
 
           {/* White info panel */}
-          <div 
-            className="fixed top-0 h-screen bg-white border-l border-[#888888] transition-all duration-700 ease-out"
+          <div
+            className={`fixed top-0 h-screen bg-white border-l border-[#888888] ${!isMobile ? 'transition-all duration-700 ease-out' : ''}`}
             onWheel={(e) => {
               if (scrollContentRef.current) {
                 scrollContentRef.current.scrollTop += e.deltaY;
               }
             }}
-            style={{ 
+            style={{
               pointerEvents: isPanelOpen ? 'auto' : 'none',
               right: 0,
               zIndex: 110,
-              left: isMobile 
+              left: isMobile
                 ? (activePanel === 'info' ? '0' : '100%')
                 : 'auto',
               transform: isMobile ? 'translateX(0)' : (isPanelOpen ? 'translateX(0)' : 'translateX(100%)'),
-              width: isMobile 
-                ? '100%' 
-                : (isPanelOpen ? 'calc(50% - (100vh * 698 / 2048 / 2))' : '550px')
+              width: isMobile
+                ? '100%'
+                : (isPanelOpen ? 'calc(50% - (100vh * 698 / 2048 / 2))' : '550px'),
+              transition: isMobile ? 'left 0.3s ease-out' : undefined
             }}
           >
           <div className="h-full overflow-hidden text-black">
