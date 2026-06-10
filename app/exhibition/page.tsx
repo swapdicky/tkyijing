@@ -896,7 +896,7 @@ The central concept of the <em>Book of Changes</em> is "Heaven and Humanity as O
                 }}
                 className="flex-shrink-0 radius-15" 
                 style={{ 
-                  aspectRatio: isMobile ? "656/456" : "1748/874", 
+                  aspectRatio: isMobile ? "372／495" : "1748/874", 
                   height: isMobile ? 'auto' : 'calc(50vh - 140px)',
                   backgroundImage: "url('/images/exhibition/ss4a.webp')",
                   backgroundSize: isMobile ? "auto 100%" : "cover",
