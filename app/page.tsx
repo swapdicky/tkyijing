@@ -696,7 +696,7 @@ export default function Home() {
             backgroundColor: 'white',
             position: 'fixed',
             top: 0,
-            left: isMobile && scrollProgress === 2 ? '0' : (scrollProgress === 2 ? '-50vw' : (scrollProgress === 1 ? '0' : '152%')),
+            left: scrollProgress === 2 ? '-150%' : (scrollProgress === 1 ? '0' : '152%'),
             transition: 'all 2.4s cubic-bezier(0.4, 0, 0.2, 1)',
             display: 'flex',
             flexDirection: 'column',
@@ -977,19 +977,31 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
             );
           })}
         </div>
-
-        {/* Panel wrapper with dark background */}
-        <div 
+        <div
           data-panel-wrapper
           className="fixed top-0 h-screen transition-all duration-700 ease-out"
-          style={{ 
+          style={{
             pointerEvents: isPanelOpen ? 'auto' : 'none',
             backgroundColor: isMobile ? 'rgba(0, 0, 0, 0.8)' : 'transparent',
-            zIndex: 101,
+            zIndex: 100,
             left: '0',
             width: '100%',
             height: '100%',
             opacity: isPanelOpen ? 1 : 0
+          }}
+        ></div>
+        {/* Panel wrapper with dark background */}
+        <div
+          data-panel-wrapper
+          className="fixed top-0 h-screen transition-all duration-700 ease-out"
+          style={{
+            pointerEvents: isPanelOpen ? 'auto' : 'none',
+            zIndex: 101,
+            left: '0',
+            width: '100%',
+            height: '100%',
+            opacity: isPanelOpen ? 1 : 0,
+            transform: isMobile ? (isPanelOpen ? 'translateX(0)' : 'translateX(100%)') : 'none'
           }}
         >
           {/* Shared close button */}

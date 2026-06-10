@@ -691,7 +691,7 @@ Over the years, I failed repeatedly to create a visual representation of the <em
 
 
           {/* Section 3 */}
-          <div className="ex-section radius-15" style={{ minHeight: isMobile ? 'auto' : '100vh', position: 'relative', flexShrink: 0, backgroundColor: "#000000", overflow: "hidden" }}>
+          <div className="ex-section radius-15" style={{ minHeight: isMobile ? 'auto' : '100vh', position: 'relative', flexShrink: 0, backgroundColor: "#000000", overflow: "hidden" , marginTop: isMobile ? '-40px' : '', zIndex: isMobile ? '1' : '2' }}>
             <div className="yj-padding-section ex-section-inner" style={{  minHeight: isMobile ? 'auto' : '100vh', position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               {/* Vertical line on the right */}
               <div className="right-30 ex-vertical-line"
