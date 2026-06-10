@@ -72,9 +72,18 @@ export default function Home() {
   const scrollContentRef = useRef<HTMLDivElement>(null);
   const [isMobile, setIsMobile] = useState(false);
   const [activePanel, setActivePanel] = useState<'image' | 'info'>('image'); // Track which panel is visible on mobile
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  // Set loaded state for fade-in animation
+  useEffect(() => {
+    const loadTimer = setTimeout(() => {
+      setIsLoaded(true);
+    }, 100);
+    return () => clearTimeout(loadTimer);
+  }, []);
 
   // Custom order for 8x8 grid (desktop: custom order, mobile: 1-64)
-  const gridOrder = isMobile 
+  const gridOrder = isMobile
     ? Array.from({ length: 64 }, (_, i) => i + 1) // 1-64 for mobile
     : [
         2, 23, 8, 20, 16, 35, 45, 12,
@@ -126,6 +135,29 @@ export default function Home() {
 
     window.addEventListener('wheel', handleWheel, { passive: true });
     return () => window.removeEventListener('wheel', handleWheel);
+  }, []);
+
+  // Touch effect for mobile scroll
+  useEffect(() => {
+    let touchStartY = 0;
+    const handleTouchStart = (e: TouchEvent) => {
+      touchStartY = e.touches[0].clientY;
+    };
+    const handleTouchEnd = (e: TouchEvent) => {
+      const touchEndY = e.changedTouches[0].clientY;
+      const deltaY = touchStartY - touchEndY;
+      const threshold = 50;
+      if (deltaY > threshold) {
+        advanceScroll();
+      }
+    };
+
+    window.addEventListener('touchstart', handleTouchStart, { passive: true });
+    window.addEventListener('touchend', handleTouchEnd, { passive: true });
+    return () => {
+      window.removeEventListener('touchstart', handleTouchStart);
+      window.removeEventListener('touchend', handleTouchEnd);
+    };
   }, []);
 
   useEffect(() => {
@@ -577,7 +609,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className={`min-h-screen ${isLoaded ? 'page-fade-in' : ''}`} style={{ opacity: isLoaded ? 1 : 0 }}>
       {/* Scroll to explore text - shows before overlay hides and when panel is closed */}
       <div className="text-gray fw-400 scroll-to-explore-text"
          style={{ opacity: (!hideOverlay && !isPanelOpen) ? 1 : 0 }}
@@ -614,8 +646,11 @@ export default function Home() {
         transition: 'left 2.4s cubic-bezier(0.4, 0, 0.2, 1)'
       }}>
         <div className="flex flex-col items-center justify-center" style={{ width: '100%', height: '100%' }}>
-           <h1 className="text-white fw-300 home-title" style={{marginBottom: '10px'}}>易經：鮑皓昕攝影藝術</h1>
-           <h1 className="text-white fw-300 home-title" style={{ fontFamily: '"neue-haas-unica", sans-serif' }}><em>Book of Changes</em>: The Art of Basil Pao</h1>
+           <h1 className="text-white fw-300 home-title" style={{marginBottom: isMobile ? '5px' : '10px'}}>易經：鮑皓昕攝影藝術</h1>
+           <h1 className="text-white fw-300 home-title" style={{ fontFamily: '"neue-haas-unica", sans-serif' ,marginBottom: isMobile ? '30px' : '0'}}><em>Book of Changes</em>: The Art of Basil Pao</h1>
+            <h5 className="text-white  yj-en-14 fw-300">Scroll to explore</h5>
+        
+        
         </div>
       </div>
 
@@ -719,10 +754,10 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        transition: 'bottom 0.5s ease-out',
+        transition: 'all 0.5s ease-out',
         pointerEvents: isLanding ? 'auto' : 'none',
         zIndex: 10,
-        paddingTop: '1000%',
+        paddingTop: '200%',
         opacity: isLanding ? 1 : 0,
         transitionProperty: 'opacity',
         transitionDuration: '0.5s',
@@ -784,8 +819,8 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
                 backgroundColor: 'transparent'
               }}
               onClick={(e) => {
-                // Disable click when menu is open or during intro animation
-                if (isMenuOpen || !hideOverlay) return;
+                // Disable click when menu is open, during intro animation, or before scrollProgress completes
+                if (isMenuOpen || !hideOverlay || scrollProgress !== 2) return;
                 
                 setSelectedBox(boxNumber);
                 setIsPanelOpen(true);
