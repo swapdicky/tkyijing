@@ -532,7 +532,8 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
           style={{
             display: 'flex',
             flexDirection: 'column',
-            justifyContent: 'space-between'
+            justifyContent: 'space-between',
+              height: isMobile ? 'auto' : '100%' 
           }}>
           {/* Vertical Chinese text */}
           <div style={{
@@ -551,10 +552,10 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
             <div className={`yj-cn-16 text-black fw-300 ${currentSlide === 9 ? 'v-fade' : ''}`}  style={{ writingMode: 'vertical-rl',
               textOrientation: 'mixed',
               lineHeight: '1.4',
-              letterSpacing: '0.01em',
+              letterSpacing: '0.05em',
               fontFamily: '"Noto Serif TC", serif',
               marginBottom: isMobile ? '120px' : '0',
-              height: isMobile ? '600px' : 'auto' }}>
+              height: isMobile ? '550px' : 'auto' }}>
               {isMobile ? (
                 <>
                   <span className="space-before-bracket"></span>︽易經︾<span className="space-after-bracket"></span>被中國歷代思想家不斷詮釋和修訂，並發展了對其<br/>註釋傳統的專門研究和派別。一些思想家著重卜卦的<br/><span className="space-before-bracket"></span>﹁象數﹂<span className="space-after-bracket"></span>；另一些深入考究經典的<span className="space-before-bracket"></span>﹁義理﹂<span className="space-after-bracket"></span>。此書的影響貫穿<br/>整個中國文化史，持續發揮影響至今。<br/><br/>
@@ -563,7 +564,7 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
                 </>
               ) : (
                 <>
-                  <span className="mt-n-6"></span>︽易經︾被中國歷代思想家不斷詮釋和修訂，<br/>並發展了對其註釋傳統的專門研究和派別。一些<br/>思想家著重卜卦的<span className="mt-n-6"></span>﹁象數﹂<span className="mt-n-6"></span>；另一些深入考究<br/>經典的<span className="mt-n-6"></span>﹁義理﹂<span className="mt-n-6"></span>。此書的影響貫穿整個中國文化史，<br/>持續發揮影響至今。<br/><br/><span className="mt-n-6"></span>︽易經︾在國際世界亦備受尊崇。分別出自<br/>馬克萊奇<span className="mt-n-6"></span>︵<span style={{ fontFamily: '"neue-haas-unica", sans-serif', letterSpacing: '0.03em' }}>Thomas McClatchie</span>，<span style={{ fontFamily: '"neue-haas-unica", sans-serif', letterSpacing: '0.03em' }}>1814–1885</span>年︶<span className="mt-n-6"></span>、理雅各<br/><span className="mt-n-6"></span>︵<span style={{ fontFamily: '"neue-haas-unica", sans-serif', letterSpacing: '0.03em' }}>James Legge</span>，<span style={{ fontFamily: '"neue-haas-unica", sans-serif', letterSpacing: '0.03em' }}>1815–1897</span>年︶<span className="mt-n-6"></span>、尉禮賢<span className="mt-n-6"></span>︵<span style={{ fontFamily: '"neue-haas-unica", sans-serif', letterSpacing: '0.03em' }}>Richard Wilhelm</span>，<br/><span style={{ fontFamily: '"neue-haas-unica", sans-serif', letterSpacing: '0.03em' }}>1873–1930</span>年︶<span className="mt-n-6"></span>之手的譯本，將此中國經典傳播至<br/>世界。心理學家卡爾‧榮格︵<span style={{ fontFamily: '"neue-haas-unica", sans-serif', letterSpacing: '0.03em' }}>Carl Jung</span>，<span style={{ fontFamily: '"neue-haas-unica", sans-serif', letterSpacing: '0.03em' }}>1875–1961</span>年︶<span className="mt-n-6"></span><br/>將此古籍與他提出的<span className="mt-n-6"></span>﹁共時性﹂<span className="mt-n-6"></span>概念結合。<br/>先鋒派作曲家約翰‧基治<span className="mt-n-6"></span>︵<span style={{ fontFamily: '"neue-haas-unica", sans-serif', letterSpacing: '0.03em' }}>John Cage</span>，<span style={{ fontFamily: '"neue-haas-unica", sans-serif', letterSpacing: '0.03em' }}>1912–1992</span>年︶<span className="mt-n-6"></span><br/>根據<span className="mt-n-6"></span>︽易經︾的處境次序決定音樂創作的隨機性。<br/>艾斯班‧艾瑟特<span className="mt-n-6"></span>︵<span style={{ fontFamily: '"neue-haas-unica", sans-serif', letterSpacing: '0.03em' }}>Espen Aarseth</span>，<span style={{ fontFamily: '"neue-haas-unica", sans-serif', letterSpacing: '0.03em' }}>1965</span>年生︶<span className="mt-n-6"></span>在進行<br/>數碼文學研究時，將<span className="mt-n-6"></span>︽易經︾視為<span className="mt-n-6"></span>﹁可能是古代最<br/>著名的制動文本範例﹂<span className="mt-n-6"></span>。
+                  <span className="mt-n-6"></span>︽易經︾被中國歷代思想家不斷詮釋和修訂，<br/>並發展了對其註釋傳統的專門研究和派別。一些<br/>思想家著重卜卦的<span className="mt-n-6"></span>﹁象數﹂<span className="mt-n-6"></span>；另一些深入考究<br/>經典的<span className="mt-n-6"></span>﹁義理﹂<span className="mt-n-6"></span>。此書的影響貫穿整個中國文化史，<br/>持續發揮影響至今。<br/><br/><span className="mt-n-6"></span>︽易經︾在國際世界亦備受尊崇。分別出自<br/>馬克萊奇<span className="mt-n-6"></span>︵<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Thomas McClatchie</span>，<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1814–1885</span>年︶<span className="mt-n-6"></span>、<br/>理雅各<span className="mt-n-6"></span>︵<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>James Legge</span>，<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1815–1897</span>年︶<span className="mt-n-6"></span>、尉禮賢<br/><span className="mt-n-6"></span>︵<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Richard Wilhelm</span>，<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1873–1930</span>年︶<span className="mt-n-6"></span>之手的譯本，<br/>將此中國經典傳播至世界。心理學家卡爾‧榮格<br/><span className="mt-n-6"></span>︵<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Carl Jung</span>，<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1875–1961</span>年︶<span className="mt-n-6"></span>將此古籍與他提出的<br/><span className="mt-n-6"></span>﹁共時性﹂<span className="mt-n-6"></span>概念結合。先鋒派作曲家約翰‧基治<br/><span className="mt-n-6"></span>︵<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>John Cage</span>，<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1912–1992</span>年︶<span className="mt-n-6"></span>根據<span className="mt-n-6"></span>︽易經︾的處境<br/>次序決定音樂創作的隨機性。艾斯班‧艾瑟特<br/><span className="mt-n-6"></span>︵<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Espen Aarseth</span>，<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1965</span>年生︶<span className="mt-n-6"></span>在進行數碼文學<br/>研究時，將<span className="mt-n-6"></span>︽易經︾視為<span className="mt-n-6"></span>﹁可能是古代最著名的<br/>制動文本範例﹂<span className="mt-n-6"></span>。
                 </>
               )}
             </div>
@@ -1020,7 +1021,7 @@ Hence, the ancient Chinese developed a comprehensive scheme of symbolic correlat
               textOrientation: 'upright',
               lineHeight: '1.4',
               letterSpacing: '0.1em' }}>
-              <span className={currentSlide === 7 ? 'v-fade' : ''}><span className="mt-n-12"></span>﹁河圖﹂相傳是伏羲所創。</span><br/><span className={currentSlide === 7 ? 'v-fade-delay-2' : ''}>圖中一至十以奇數︵陽︶</span><br/><span className={currentSlide === 7 ? 'v-fade-delay-3' : ''}>與偶數︵陰︶成對排列。</span><br/><span className={currentSlide === 7 ? 'v-fade-delay-4' : ''}>所有奇數相加總和是</span><br/><span className={currentSlide === 7 ? 'v-fade-delay-5' : ''}>二十五，偶數相加是三十，</span><br/><span className={currentSlide === 7 ? 'v-fade-delay-6' : ''}>全部數字總和是五十五。</span><br/><span className={currentSlide === 7 ? 'v-fade-delay-7' : ''}>此圖揭示了這些數字</span><br/><span className={currentSlide === 7 ? 'v-fade-delay-8' : ''}>如何與﹁五行﹂及對應的</span><br/><span className={currentSlide === 7 ? 'v-fade-delay-8' : ''}>方位和顏色相互連結。</span>
+              <span className={currentSlide === 7 ? 'v-fade' : ''}><span className="mt-n-28"></span>﹁河圖﹂相傳是伏羲所創。</span><br/><span className={currentSlide === 7 ? 'v-fade-delay-2' : ''}>圖中一至十以奇數︵陽︶</span><br/><span className={currentSlide === 7 ? 'v-fade-delay-3' : ''}>與偶數︵陰︶成對排列。</span><br/><span className={currentSlide === 7 ? 'v-fade-delay-4' : ''}>所有奇數相加總和是</span><br/><span className={currentSlide === 7 ? 'v-fade-delay-5' : ''}>二十五，偶數相加是三十，</span><br/><span className={currentSlide === 7 ? 'v-fade-delay-6' : ''}>全部數字總和是五十五。</span><br/><span className={currentSlide === 7 ? 'v-fade-delay-7' : ''}>此圖揭示了這些數字</span><br/><span className={currentSlide === 7 ? 'v-fade-delay-8' : ''}>如何與﹁五行﹂及對應的</span><br/><span className={currentSlide === 7 ? 'v-fade-delay-8' : ''}>方位和顏色相互連結。</span>
             </div>
           </div>
 
@@ -1052,7 +1053,7 @@ The <em>Yellow River Chart</em> has been traditionally attributed to the legenda
               lineHeight: '1.4',
               letterSpacing: '0.1em' }}>
               
-              <span className={currentSlide === 8 ? 'v-fade' : ''}><span className="mt-n-12"></span>﹁洛書﹂相傳是一隻從</span><br/><span className={currentSlide === 8 ? 'v-fade-delay-2' : ''}>洛河出現的神龜背上的圖。</span><br/><span className={currentSlide === 8 ? 'v-fade-delay-3' : ''}>此圖為三階幻方，無論</span><br/><span className={currentSlide === 8 ? 'v-fade-delay-4' : ''}>縱、橫、斜向任意行列，</span><br/><span className={currentSlide === 8 ? 'v-fade-delay-5' : ''}>數字之和皆為十五。這是</span><br/><span className={currentSlide === 8 ? 'v-fade-delay-6' : ''}>已知世上最早的幻方。</span>
+              <span className={currentSlide === 8 ? 'v-fade' : ''}><span className="mt-n-28"></span>﹁洛書﹂相傳是一隻從</span><br/><span className={currentSlide === 8 ? 'v-fade-delay-2' : ''}>洛河出現的神龜背上的圖。</span><br/><span className={currentSlide === 8 ? 'v-fade-delay-3' : ''}>此圖為三階幻方，無論</span><br/><span className={currentSlide === 8 ? 'v-fade-delay-4' : ''}>縱、橫、斜向任意行列，</span><br/><span className={currentSlide === 8 ? 'v-fade-delay-5' : ''}>數字之和皆為十五。這是</span><br/><span className={currentSlide === 8 ? 'v-fade-delay-6' : ''}>已知世上最早的幻方。</span>
             </div>
           </div>
 
@@ -1069,7 +1070,7 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
           display: 'flex',
           flexDirection: 'column',
           height: '100%',
-          padding: '90px 40px',
+          padding: isMobile ? '20px' : '90px 40px',
           justifyContent: 'space-between'
         }}>
           <div style={{
@@ -1082,7 +1083,7 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
               src="/images/yijing/image5.png" 
               alt="Fortune Teller" 
               style={{
-                width: '80%',
+                width: isMobile ? '100%' : '80%',
                 height: 'auto',
                 maxHeight: '60%',
                 objectFit: 'contain',
@@ -1092,7 +1093,8 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
           </div>
           <div style={{
             display: 'flex',
-            justifyContent: 'space-between'
+            justifyContent: 'space-between',
+            height: '150px'
           }}>
             <div className="yj-en-14 text-white fw-300"  style={{ lineHeight: '1.4' }}>
               <span className="fw-500"><em>Fortune Teller</em></span><br/>
@@ -1104,7 +1106,7 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
               textOrientation: 'mixed',
               lineHeight: '1.4',
               letterSpacing: '0.25em' }}>
-              <span className="space-before-bracket"></span>︽算命師︾<span className="space-after-bracket"></span><br/>羅伯特·魯克斯頓<br/><span className="space-before-paren"></span>︵1876–1946年︶<span className="space-after-paren"></span><br/>1902年 <br/>倫敦大學<br/>亞非學院圖書館
+              <span className="space-before-bracket"></span>︽算命師︾<span className="space-after-bracket"></span><br/>羅伯特·魯克斯頓<br/><span className="space-before-paren"></span>︵<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1876–1946</span>年︶<span className="space-after-paren"></span><br/><span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1902</span>年 <br/>倫敦大學<br/>亞非學院圖書館
             </div>
           </div>
         </div>

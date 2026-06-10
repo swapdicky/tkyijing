@@ -293,11 +293,11 @@ export default function Exhibition() {
 
   return (
     <div 
-      className={`bg-black transition-opacity duration-1000`} 
+      className={`bg-black transition-opacity duration-1000 ${isLoaded ? 'page-fade-in' : ''}`} 
       style={{ 
         height: isMobile ? 'auto' : '100vh',
         overflow: isMobile ? 'visible' : 'hidden',
-        opacity: isMobile ? 1 : (isLoaded ? 1 : 0),
+        opacity: isLoaded ? 1 : 0,
         minHeight: isMobile ? '100vh' : 'auto'
       }}
     >

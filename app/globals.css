@@ -37,6 +37,7 @@ html {
 
 .w-6{width: 20px;}
 .gap-1\.5{gap:5px}
+.mt-n-28{margin-top: -28px;}
 .mt-n-14{margin-top: -14px;}
 .mt-n-12{margin-top: -12px;}
 .mt-n-8{margin-top: -8px;}
@@ -617,16 +618,18 @@ a:hover .hover-underline::after {
 .yj-padding-section { padding: 90px 15px 60px 15px; }
 .yj-height-half { height: auto; overflow: visible; }
 .mt-n-14{margin-top: -10px;}
-.mt-n-12{margin-top: -2px;}
+.mt-n-12{margin-top: -10px;}
+.mt-n-28{margin-top: -21px;}
 
-.mt-n-6{margin-top: -6px;}
+
+.mt-n-6{margin-top: -2px;}
 .space-before-bracket{margin-top: -8px;}
 .space-after-bracket{margin-top: -6px;}
 .space-before-paren{margin-top: -8px;}
 .space-after-paren{margin-top: -6px;}
 
 /* Exhibition section - mobile */
-.ex-section { flex-direction: column; margin-left: 0; padding-right: 0; }
+.ex-section { flex-direction: column; margin-left: 0; padding-right: 0;padding-left: 0; }
 .ex-section-inner { width: 100%;  }
 .ex-vertical-line { display: none; }
 .ex-padding-large{padding-top: 80px;}

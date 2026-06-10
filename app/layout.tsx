@@ -5,6 +5,9 @@ import Navigation from "@/components/Navigation";
 export const metadata: Metadata = {
   title: "TK Yijing",
   description: "TK Yijing Exhibition",
+  icons: {
+    icon: '/images/logo-icon-b.svg',
+  },
 };
 
 export default function RootLayout({
@@ -15,6 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en" style={{ overscrollBehavior: 'none' }}>
       <head>
+        <link rel="stylesheet" href="https://use.typekit.net/pen4qeo.css" />
       </head>
       <body style={{ overscrollBehavior: 'none' }}>
         {/* <Navigation /> */}

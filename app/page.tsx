@@ -607,14 +607,14 @@ export default function Home() {
       >
           {/* Logo inside white box */}
           <div className="info-box-logo">
-            <img src="/images/logo-icon.svg" alt="Logo" />
+            <img src={scrollProgress === 0 ? "/images/logo-icon.svg" : "/images/logo-icon-b.svg"} alt="Logo" />
           </div>
       <div className="fixed top-0 flex items-center justify-center yj-full-viewport" style={{
         left: scrollProgress >= 1 ? '-150%' : '0',
-        transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)'
+        transition: 'left 2.4s cubic-bezier(0.4, 0, 0.2, 1)'
       }}>
         <div className="flex flex-col items-center justify-center" style={{ width: '100%', height: '100%' }}>
-           <h1 className="text-white fw-300 home-title">易經：鮑皓昕攝影藝術</h1>
+           <h1 className="text-white fw-300 home-title" style={{marginBottom: '10px'}}>易經：鮑皓昕攝影藝術</h1>
            <h1 className="text-white fw-300 home-title" style={{ fontFamily: '"neue-haas-unica", sans-serif' }}><em>Book of Changes</em>: The Art of Basil Pao</h1>
         </div>
       </div>
@@ -629,7 +629,7 @@ export default function Home() {
             position: 'fixed',
             top: 0,
             left: isMobile && scrollProgress === 2 ? '0' : (scrollProgress === 2 ? '-50vw' : (scrollProgress === 1 ? '0' : '152%')),
-            transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)',
+            transition: 'all 2.4s cubic-bezier(0.4, 0, 0.2, 1)',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
@@ -804,17 +804,13 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
                 
                 if (!moduleRef.current) return;
                 
-                // For mobile, set initial transform before mode switch to prevent jump
+                // Mobile: Just open panel, don't change mode or center grid
                 if (isMobile) {
-                  gsap.set(moduleRef.current, {
-                    xPercent: -50,
-                    yPercent: -50,
-                    x: 0,
-                    y: 0
-                  });
+                  // No mode/zoom changes, no grid animations
+                  return;
                 }
                 
-                // Switch to explore mode FIRST so page becomes 100% before scrolling
+                // Desktop only: Switch to explore mode and center the clicked box
                 // Use flushSync to force React to re-render synchronously before scrollTo
                 // This prevents jump when at 100% (page is 180vh, scroll is mid)
                 flushSync(() => {
@@ -834,31 +830,20 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
                 
                 const targetScale = 1; // 150%
                 const vwToPx = window.innerWidth / 100;
-                const vhToPx = window.innerHeight / 100;
-                const boxSizeVw = isMobile ? 35 : 20;
+                const boxSizeVw = 20;
                 
-                let finalX, finalY;
+                // Desktop: Calculate position to center the clicked box in the left space
+                const boxCenterXVw = (col - 3.5) * boxSizeVw;
+                const boxCenterYVw = (row - 3.5) * boxSizeVw;
                 
-                if (isMobile) {
-                  // Mobile: center box in browser center
-                  const boxCenterXVw = (col - 3.5) * boxSizeVw;
-                  const boxCenterYVw = (row - 3.5) * boxSizeVw;
-                  finalX = -boxCenterXVw * vwToPx;
-                  finalY = -boxCenterYVw * vwToPx;
-                } else {
-                  // Desktop: Calculate position to center the clicked box in the left space
-                  const boxCenterXVw = (col - 3.5) * boxSizeVw;
-                  const boxCenterYVw = (row - 3.5) * boxSizeVw;
-                  
-                  // Brown box width: 100% * 349 / 1024, positioned at 50%
-                  // Left space = 50vw - (brown box width / 2)
-                  const brownBoxWidth = window.innerHeight * 349 / 1024;
-                  const leftSpaceWidth = (50 * vwToPx) - (brownBoxWidth / 2);
-                  const leftSpaceOffset = -(50 * vwToPx) + (leftSpaceWidth / 2);
-                  finalX = -boxCenterXVw * vwToPx + leftSpaceOffset;
-                  // Y uses vw units but needs to center in vh viewport
-                  finalY = -boxCenterYVw * vwToPx;
-                }
+                // Brown box width: 100% * 349 / 1024, positioned at 50%
+                // Left space = 50vw - (brown box width / 2)
+                const brownBoxWidth = window.innerHeight * 349 / 1024;
+                const leftSpaceWidth = (50 * vwToPx) - (brownBoxWidth / 2);
+                const leftSpaceOffset = -(50 * vwToPx) + (leftSpaceWidth / 2);
+                const finalX = -boxCenterXVw * vwToPx + leftSpaceOffset;
+                // Y uses vw units but needs to center in vh viewport
+                const finalY = -boxCenterYVw * vwToPx;
                 
                 gsap.to(moduleRef.current, {
                   x: finalX,
@@ -914,7 +899,7 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
           data-panel-wrapper
           className="fixed top-0 h-screen transition-all duration-700 ease-out"
           style={{ 
-            pointerEvents: isPanelOpen ? 'none' : 'none',
+            pointerEvents: isPanelOpen ? 'auto' : 'none',
             backgroundColor: isMobile ? 'rgba(0, 0, 0, 0.8)' : 'transparent',
             zIndex: 101,
             left: '0',
