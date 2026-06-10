@@ -463,7 +463,7 @@ The <em>Book of Changes</em> is unquestionably a quintessential Chinese cultural
           {/* Section 1 */}
           <div className="ex-section radius-15" style={{ minHeight: isMobile ? 'auto' : '100vh', position: 'relative', flexShrink: 0, backgroundColor: "#DDDDDD", overflow: "hidden" }}>
 
-            <div style={{ paddingTop: isMobile ? '30px' : '90px', paddingBottom: isMobile ? '15px' : '60px', paddingLeft: isMobile ? '15px' : '60px', paddingRight: isMobile ? '15px' : '0px', gap: isMobile ? '20px' : '30px', display: 'flex', flexDirection: isMobile ? 'column' : 'row', alignItems: isMobile ? 'stretch' : 'center', flex: isMobile ? 'none' : 1 }}>
+            <div style={{ paddingTop: isMobile ? '20px' : '90px', paddingBottom: isMobile ? '20px' : '60px', paddingLeft: isMobile ? '15px' : '60px', paddingRight: isMobile ? '15px' : '0px', gap: isMobile ? '20px' : '30px', display: 'flex', flexDirection: isMobile ? 'column' : 'row', alignItems: isMobile ? 'stretch' : 'center', flex: isMobile ? 'none' : 1 }}>
               <div 
                 ref={(el) => { 
                   innerSectionRefs.current[0] = el;
@@ -636,7 +636,7 @@ Ever since I was introduced to the book 50 years ago, the <em>Yijing</em> has be
 Over the years, I failed repeatedly to create a visual representation of the <em>Yijing</em>. Then in 2007, when I was editing my <em>China Revealed</em> book, I finally found the perfect vehicle in a series of closeup details of weather-beaten walls that I had photographed from all over the country. Over time, the elements had created intricate patterns and wonderful textures on man's most basic structure. The strikingly contemporary form of the 64 hexagrams from an ancient binary system, with its echoes of the computer age, combined well with the abstract expressionist creations of nature both visually and conceptually, and the result is <em>The Great Walls of China</em> series.                </div>
               </div>
             </div>
-            <div style={{ paddingTop: isMobile ? '30px' : '90px', paddingBottom: isMobile ? '15px' : '60px', paddingLeft: isMobile ? '15px' : '30px', paddingRight: isMobile ? '15px' : '30px', gap: isMobile ? '20px' : '30px', display: 'flex', flexDirection: isMobile ? 'column' : 'row', alignItems: isMobile ? 'stretch' : 'center', flex: isMobile ? 'none' : 1 }}>
+            <div style={{ paddingTop: isMobile ? '30px' : '90px', paddingBottom: isMobile ? '20px' : '60px', paddingLeft: isMobile ? '15px' : '30px', paddingRight: isMobile ? '15px' : '30px', gap: isMobile ? '20px' : '30px', display: 'flex', flexDirection: isMobile ? 'column' : 'row', alignItems: isMobile ? 'stretch' : 'center', flex: isMobile ? 'none' : 1 }}>
               <div 
                 ref={(el) => { innerSectionRefs.current[3] = el; }}
                 className="flex-shrink-0 radius-15" 
@@ -691,7 +691,7 @@ Over the years, I failed repeatedly to create a visual representation of the <em
 
 
           {/* Section 3 */}
-          <div className="ex-section radius-15" style={{ minHeight: isMobile ? 'auto' : '100vh', position: 'relative', flexShrink: 0, backgroundColor: "#000000", overflow: "hidden" , marginTop: isMobile ? '-40px' : '', zIndex: isMobile ? '1' : '2' }}>
+          <div className="ex-section radius-15" style={{ minHeight: isMobile ? 'auto' : '100vh', position: 'relative', flexShrink: 0, backgroundColor: "#000000", overflow: "hidden" , marginTop: isMobile ? '-40px' : '',paddingTop: isMobile ? '25px' : '', zIndex: isMobile ? '1' : '2' }}>
             <div className="yj-padding-section ex-section-inner" style={{  minHeight: isMobile ? 'auto' : '100vh', position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               {/* Vertical line on the right */}
               <div className="right-30 ex-vertical-line"
@@ -768,7 +768,7 @@ Historical accounts show a common use of yarrow stalk divination with the hexagr
 Nowadays, with the advance of digital technologies, an online consultation of the <em>Book of Changes</em> can simply involve throwing or clicking virtual coins six times to create a full hexagram.                </div>
               </div>
             </div>
-            <div style={{ paddingTop: isMobile ? '30px' : '90px', paddingBottom: isMobile ? '15px' : '60px', paddingLeft: isMobile ? '15px' : '30px', paddingRight: isMobile ? '15px' : '30px', gap: isMobile ? '20px' : '30px', display: 'flex', flexDirection: isMobile ? 'column' : 'row', alignItems: isMobile ? 'stretch' : 'center', flex: isMobile ? 'none' : 1 }}>
+            <div style={{ paddingTop: isMobile ? '30px' : '90px', paddingBottom: isMobile ? '20px' : '60px', paddingLeft: isMobile ? '15px' : '30px', paddingRight: isMobile ? '15px' : '30px', gap: isMobile ? '20px' : '30px', display: 'flex', flexDirection: isMobile ? 'column' : 'row', alignItems: isMobile ? 'stretch' : 'center', flex: isMobile ? 'none' : 1 }}>
               <div 
                 ref={(el) => { innerSectionRefs.current[7] = el; }}
                 className="flex-shrink-0 radius-15" 

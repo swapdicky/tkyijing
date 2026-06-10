@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 export default function Yijing() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [shouldOpenMenu, setShouldOpenMenu] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const scrollLockRef = useRef(false);
   const [isMobileDetected, setIsMobileDetected] = useState(false);
   const [mounted, setMounted] = useState(false);
@@ -125,7 +126,7 @@ export default function Yijing() {
             </div>
 
             {/* English description */}
-            <div className={`yj-en-20 text-black fw-300  mb-30-bottom`}  style={{ lineHeight: '1.2',
+            <div className={`yj-en-20 text-black fw-300 `}  style={{ lineHeight: '1.2',
 
               
               fontStyle: 'normal' }}>
@@ -991,7 +992,7 @@ Hence, the ancient Chinese developed a comprehensive scheme of symbolic correlat
             <div className="yj-en-18 text-white fw-500"  style={{ marginBottom: '10px' }}>
               The <em>Book of Changes</em> and Numerology
             </div>
-            <div className="yj-en-14 text-white fw-300 mb-30-bottom"  style={{ lineHeight: '1.4' }}>
+            <div className="yj-en-14 text-white fw-300 "  style={{ lineHeight: '1.4' }}>
               <p style={{ marginBottom: '10px' }}>The <em>Book of Changes</em> reveals how the ancient Chinese developed a numerical system that could be used for divination and explaining the operations of nature.</p>
               <p>Two ancient Chinese diagrams, <em>Yellow River Chart</em> and <em>Writing from the Luo River</em>, represent the numerical interpretations of the natural order. Both diagrams, as received from antiquity, had been appended to the Book of Changes by the Song period (960–1279). They were linked to the five phases (<em>wuxing</em>) and the different correlational systems—such as, cardinal point, colour, and the stem-branch system of Chinese calendar—to represent the interconnectedness of all things in a holistic totality of order.</p>
             </div>
@@ -1024,7 +1025,7 @@ Hence, the ancient Chinese developed a comprehensive scheme of symbolic correlat
           </div>
 
           {/* English text at bottom */}
-          <div className="yj-en-14 text-white fw-300 mb-30-bottom"  style={{ lineHeight: '1.4' }}>
+          <div className="yj-en-14 text-white fw-300 "  style={{ lineHeight: '1.4' }}>
 The <em>Yellow River Chart</em> has been traditionally attributed to the legendary emperor Fu Xi. Here, the numbers 1 to 10 are so arranged that an odd number (<em>yang</em>) is paired with an even number (<em>yin</em>). All the odd numbers add up to 25, the even numbers to 30, and all the numbers to 55. This chart shows how these numbers are linked to the <em>wuxing</em> and the correlating cardinal points and colours.
           </div>
         </div>
@@ -1056,7 +1057,7 @@ The <em>Yellow River Chart</em> has been traditionally attributed to the legenda
           </div>
 
           {/* English text at bottom */}
-          <div className="yj-en-14 text-white fw-300 mb-30-bottom"  style={{ lineHeight: '1.4' }}>
+          <div className="yj-en-14 text-white fw-300 "  style={{ lineHeight: '1.4' }}>
 The <em>Writing from the Luo River</em> is attributed to a mythical turtle with a diagram on its back emerging from the Luo River. This diagram is a magic square of the order of three, in which all the numbers in any row, column, or diagonal add up to 15. It is the earliest known magic square in the world.           </div>
         </div>
       );
@@ -1276,12 +1277,12 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
         backgroundColor: 'black',
         opacity: isLoaded ? 0 : 1,
         transition: 'opacity 1s ease-out',
-        zIndex: 9999,
+        zIndex: 2,
         pointerEvents: 'none'
       }}></div>
           {/* Mobile navigation dots - outside border div */}
-          {mounted && isMobile && (
-            <div className="yj-nav-dots-mobile" style={{ position: 'fixed', bottom: '12px', left: '15px',zIndex : '99' }}>
+          {mounted && isMobile && !isMenuOpen && (
+            <div className="yj-nav-dots-mobile" style={{ position: 'fixed', bottom: '12px', left: '15px',zIndex : '80' }}>
               {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((index) => (
                 <div
                   key={index}
@@ -1296,16 +1297,16 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
           )}
 
               {/* Mobile: Scroll to explore text */}
-            {mounted && isMobile && (
+            {mounted && isMobile && !isMenuOpen && (
               <div
                 className="yj-en-12 text-gray fw-400"
                  style={{ position: 'fixed',
                   right: '15px',
                   bottom: '5px',
-                  
-                  
+
+
                   whiteSpace: 'nowrap',
-                  zIndex: 200,
+                  zIndex: 80,
                   pointerEvents: 'none',
                   opacity: 1 }}
               >
@@ -1313,7 +1314,7 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
               </div>
             )}    
       <div className={`${!mounted || !isMobile ? "min-h-screen pt-16" : ""} ${isLoaded ? 'page-fade-in' : ''}`} style={{ opacity: isLoaded ? 1 : 0, overflow: mounted && isMobile ? 'hidden' : 'auto', height: mounted && isMobile ? '100%' : 'auto' }}>
-        <Header forceOpenMenu={shouldOpenMenu} onMenuChange={(isOpen) => { if (!isOpen) setShouldOpenMenu(false); }} />
+        <Header forceOpenMenu={shouldOpenMenu} onMenuChange={(isOpen) => { setIsMenuOpen(isOpen); if (!isOpen) setShouldOpenMenu(false); }} />
       
       {isMobile ? (
         <>
