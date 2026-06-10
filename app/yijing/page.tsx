@@ -125,9 +125,8 @@ export default function Yijing() {
             </div>
 
             {/* English description */}
-            <div className={`yj-en-20 text-black fw-300 `}  style={{ lineHeight: '1.2',
-              
-              textAlign: 'left',
+            <div className={`yj-en-20 text-black fw-300  mb-30-bottom`}  style={{ lineHeight: '1.2',
+
               
               fontStyle: 'normal' }}>
               The <em>Book of Changes</em> is an ancient divination text that holds great significance in the history of Chinese philosophy. The term <em>yi</em> refers to change and transformation. Presenting a world of changing reality, this book represents an early effort to explain the Chinese view of humanity’s place in the universe, which stresses unity and dynamic interaction between the cosmos and the human self.  As a classical divination document and a philosophical exposition, it has an enduring imprint on many aspects of Chinese life.
@@ -217,12 +216,12 @@ export default function Yijing() {
           </div>
 
           {/* English text at bottom */}
-          <div>
+          <div className="">
             <div className="yj-en-24 text-black fw-500"  style={{ marginBottom: '10px',
               lineHeight: '1.3' }}>
               What Are the Fundamental Concepts<br/>in the Philosophy of the <em>Book of Changes</em>?
             </div>
-            <div className="yj-en-20 text-black fw-300"  style={{ lineHeight: '1.2' }}>
+            <div className="yj-en-20 text-black fw-300 mb-30-bottom"  style={{ lineHeight: '1.2' }}>
 The divination system in the <em>Book of Changes</em> was formalised to observe the conditions of all things, based on a correlative cosmology formed around the notions of <em>yinyang</em> and <em>wuxing</em>. These concepts were identified with the processes of cosmic creativity and transformation, as well as the interconnectedness of all things in a holistic totality of order.             </div>
           </div>
         </div>
@@ -573,8 +572,7 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
           {/* English text at bottom */}
           <div>
               <div className="yj-en-18 text-black fw-500"  style={{ marginBottom: '10px' }}>Living Legacy</div>
-            <div className="yj-en-14 text-black fw-300"  style={{ lineHeight: '1.25' ,
-              marginBottom: isMobile ? '60px' : '0'}}>
+            <div className="yj-en-14 text-black fw-300 mb-30-bottom"  style={{ lineHeight: '1.25' }}>
 
               <p style={{ marginBottom: '10px' }}>The <em>Book of Changes</em> was embraced and appropriated by later Chinese thinkers, giving rise to specialised studies of its commentarial traditions. approached the divination judgements based on images and numbers; others took the classic to be an explanation of meanings and principles. The book’s impact spanned the entire cultural history of China, and it continues to exert influence in the present.</p>
               <p>The book's reception in the international world has been remarkable. Respective translations by Thomas McClatchie (1814-1885), James Legge (1815-1897), and Richard Wilhelm (1873-1930) introduced the ancient Chinese text to the world. The psychologist Carl Jung (1875-1961) linked it to his concept of synchronicity. The avant-garde composer John Cage (1912-1992) referred to the book’s sequences of events for determining randomness in music composition. Espen Aarseth (b. 1965) regarded it as “possibly the best-known example of cybertext in antiquity” when exploring cybertext theory in digital literary studies.</p>
@@ -677,7 +675,7 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
               <div className="yj-en-18 text-white fw-500"  style={{ marginBottom: '10px' }}>
                 One of the Five Classics of Confucianism
               </div>
-              <div className="yj-en-16 text-white fw-300" >
+              <div className="yj-en-16 text-white fw-300 mb-30-bottom" >
                 <p style={{marginBottom:"10px"}}>
                 First set down as a book with divination statements for various hexagrams, the main body of the work was originally known as the <em>Changes of Zhou</em> attributed to King Wen of the Zhou (c.11th century BCE). The basic text was gradually expanded to include a number of philosophical commentaries (the "Ten Wings") that are believed to be the works by authors during the Warring States period (475–221 BCE).
                 </p>
@@ -800,7 +798,7 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
             <div className="yj-en-18 text-white fw-500"  style={{ marginBottom: '10px' }}>
               <em>Yinyand</em> and  <em>Wuxing</em>
             </div>
-            <div className="yj-en-14 text-white fw-300"  style={{ lineHeight: '1.5' }}>
+            <div className="yj-en-14 text-white fw-300 mb-30-bottom"  style={{ lineHeight: '1.5' }}>
               <p style={{marginBottom:'10px'}}>
 
 The terms <em>yin</em>, the dark, and <em>yang</em>, the light, originally denote the shadowed and the light sides of a mountain or a river. <em>Yin</em> conveys the idea of coldness, clouds, rain, and anything feminine; while <em>yang</em> conveys the opposite idea of warmth, a clear sky, sunshine, and anything masculine.
@@ -857,7 +855,7 @@ Hence, the ancient Chinese developed a comprehensive scheme of symbolic correlat
             <div className="yj-en-18 text-white fw-500"  style={{ marginBottom: '10px' }}>
               Change and Transformation
             </div>
-            <div className="yj-en-14 text-white fw-300"  style={{ lineHeight: '1.4' }}>
+            <div className="yj-en-14 text-white fw-300 mb-30-bottom"  style={{ lineHeight: '1.4' }}>
               <p style={{ marginBottom: '10px' }}>The Supreme Ultimate <em>(taiji)</em> as primal source is both the starting point and the ending point of all things. The power of creative initiation leads to the power of completion and fulfilment.</p>
               <p style={{ marginBottom: '10px' }}><em>Yin</em> and <em>yang</em> animate the natural processes of cosmic change. They are represented by a broken line – – and a full line — respectively. All things and phenomena arise spontaneously from this dualism of forces and are interconnected and constantly changing.</p>
               <p>By combining <em>yin</em> and <em>yang</em> in four possible ways, there are the four images. By adding <em>yin<em> and </em>yang</em> separately to each of the four images, there are the eight trigrams. By the same process of doubling the eight trigrams, there are the sixty-four hexagrams.</p>
@@ -903,7 +901,7 @@ Hence, the ancient Chinese developed a comprehensive scheme of symbolic correlat
             <div className="yj-en-18 text-white fw-500"  style={{ marginBottom: '10px' }}>
               The 64 Hexagrams
             </div>
-            <div className="yj-en-14 text-white fw-300"  style={{ lineHeight: '1.4' }}>
+            <div className="yj-en-14 text-white fw-300 mb-30-bottom"  style={{ lineHeight: '1.4' }}>
               <p style={{ marginBottom: '10px' }}>The 64 hexagrams in the <em>Book of Changes</em> represent symbolically the images and the structures of change in the universe. This system of symbols has been used for divination.</p>
               <p style={{ marginBottom: '10px' }}>In the original <em>Changes of Zhou</em>, each of the 64 hexagrams is given an image, a name, a short, cryptic description called a “judgement”, and a reading for each line.</p>
               <p style={{ marginBottom: '10px' }}>Each hexagram contains a pair of trigrams that have individual names and symbolic associations. As each of the six lines is thought of as capable of change, each hexagram expresses a series of situations that can change from one into another.</p>
@@ -949,7 +947,7 @@ Hence, the ancient Chinese developed a comprehensive scheme of symbolic correlat
             <div className="yj-en-18 text-white fw-500"  style={{ marginBottom: '10px' }}>
               Heaven, Earth, and Humanity
             </div>
-            <div className="yj-en-14 text-white fw-300"  style={{ lineHeight: '1.4' }}>
+            <div className="yj-en-14 text-white fw-300 mb-30-bottom"  style={{ lineHeight: '1.4' }}>
               <p style={{ marginBottom: '10px' }}>The <em>Book of Changes</em> stresses the unity and dynamic interaction between the three cosmic powers of Heaven, Earth, and Humanity—the way Humanity finds its place between Heaven and Earth. It further emphasizes morality as the key to cosmic order and individual wellbeing.</p>
               <p style={{ marginBottom: '10px' }}>The practice of divination offers the opportunity for humans to relate their situations to the natural phenomena of the hexagrams. The images and the lines guide human actions for self-realisation in each divine situation. They provide a moral relevance to the judgements of fortune and misfortune.</p>
               <p>In this way, the counsels for actions enable human participation in the totality of cosmic change for harmony and unity. This way of thinking underlines the importance of human agency in the art of knowing and mastering the future.</p>
@@ -993,7 +991,7 @@ Hence, the ancient Chinese developed a comprehensive scheme of symbolic correlat
             <div className="yj-en-18 text-white fw-500"  style={{ marginBottom: '10px' }}>
               The <em>Book of Changes</em> and Numerology
             </div>
-            <div className="yj-en-14 text-white fw-300"  style={{ lineHeight: '1.4' }}>
+            <div className="yj-en-14 text-white fw-300 mb-30-bottom"  style={{ lineHeight: '1.4' }}>
               <p style={{ marginBottom: '10px' }}>The <em>Book of Changes</em> reveals how the ancient Chinese developed a numerical system that could be used for divination and explaining the operations of nature.</p>
               <p>Two ancient Chinese diagrams, <em>Yellow River Chart</em> and <em>Writing from the Luo River</em>, represent the numerical interpretations of the natural order. Both diagrams, as received from antiquity, had been appended to the Book of Changes by the Song period (960–1279). They were linked to the five phases (<em>wuxing</em>) and the different correlational systems—such as, cardinal point, colour, and the stem-branch system of Chinese calendar—to represent the interconnectedness of all things in a holistic totality of order.</p>
             </div>
@@ -1026,7 +1024,7 @@ Hence, the ancient Chinese developed a comprehensive scheme of symbolic correlat
           </div>
 
           {/* English text at bottom */}
-          <div className="yj-en-14 text-white fw-300"  style={{ lineHeight: '1.4' }}>
+          <div className="yj-en-14 text-white fw-300 mb-30-bottom"  style={{ lineHeight: '1.4' }}>
 The <em>Yellow River Chart</em> has been traditionally attributed to the legendary emperor Fu Xi. Here, the numbers 1 to 10 are so arranged that an odd number (<em>yang</em>) is paired with an even number (<em>yin</em>). All the odd numbers add up to 25, the even numbers to 30, and all the numbers to 55. This chart shows how these numbers are linked to the <em>wuxing</em> and the correlating cardinal points and colours.
           </div>
         </div>
@@ -1058,7 +1056,7 @@ The <em>Yellow River Chart</em> has been traditionally attributed to the legenda
           </div>
 
           {/* English text at bottom */}
-          <div className="yj-en-14 text-white fw-300"  style={{ lineHeight: '1.4' }}>
+          <div className="yj-en-14 text-white fw-300 mb-30-bottom"  style={{ lineHeight: '1.4' }}>
 The <em>Writing from the Luo River</em> is attributed to a mythical turtle with a diagram on its back emerging from the Luo River. This diagram is a magic square of the order of three, in which all the numbers in any row, column, or diagonal add up to 15. It is the earliest known magic square in the world.           </div>
         </div>
       );
@@ -1106,7 +1104,7 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
               textOrientation: 'mixed',
               lineHeight: '1.4',
               letterSpacing: '0.25em' }}>
-              <span className="space-before-bracket"></span>︽算命師︾<span className="space-after-bracket"></span><br/>羅伯特·魯克斯頓<br/><span className="space-before-paren"></span>︵<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1876–1946</span>年︶<span className="space-after-paren"></span><br/><span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1902</span>年 <br/>倫敦大學<br/>亞非學院圖書館
+              <span className="space-before-bracket"></span>︽算命師︾<span className="space-after-bracket"></span><br/>羅伯特·魯克斯頓<br/><span className="space-before-paren"></span>︵<span style={{ fontFamily: '"neue-haas-unica", sans-serif', letterSpacing: '0.04em' }}>1876–1946</span>年︶<span className="space-after-paren"></span><br/><span style={{ fontFamily: '"neue-haas-unica", sans-serif' , letterSpacing: '0.04em'}}>1902</span>年 <br/>倫敦大學<br/>亞非學院圖書館
             </div>
           </div>
         </div>
@@ -1148,7 +1146,7 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
             <div className="yj-en-18 text-white fw-500"  style={{ marginBottom: '10px' }}>
               Relations to Modern Sciences
             </div>
-            <div className="yj-en-14 text-white fw-300"  style={{ lineHeight: '1.4' }}>
+            <div className="yj-en-14 text-white fw-300 mb-30-bottom"  style={{ lineHeight: '1.4' }}>
               <p style={{ marginBottom: '10px' }}>The 64 hexagrams in the <em>Book of Changes</em> have been linked with the binary notation developed by Gottfried Wilhelm Leibniz (1646–1716), used nowadays in digital computation.</p>
               <p style={{ marginBottom: '10px' }}>Leibniz, a German philosopher and mathematician who made great contributions to calculus, was introduced to the <em>Book of Changes</em> by Joachim Bouvet (1656–1730), a French Jesuit missionary working in China. Fascinated by how the abstract structures of the hexagrams resembled his binary number system, he linked the ancient symbols with binary arithmetic.</p>
               <p>The illustrations demonstrate the arrangement of the 64 hexagrams in the Former Heaven sequence attributed to Fu Xi. By replacing a <em>yin</em> symbol with the number 0 and a yang symbol with the number 1, we get the binary notation for the numbers 0 to 63.</p>
@@ -1269,17 +1267,18 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
   return (
     <>
       {/* Loading overlay */}
-      {!isLoaded && (
-        <div style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
-          backgroundColor: '#000',
-          zIndex: 9
-        }} />
-      )}
+      <div style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        backgroundColor: 'black',
+        opacity: isLoaded ? 0 : 1,
+        transition: 'opacity 1s ease-out',
+        zIndex: 9999,
+        pointerEvents: 'none'
+      }}></div>
           {/* Mobile navigation dots - outside border div */}
           {mounted && isMobile && (
             <div className="yj-nav-dots-mobile" style={{ position: 'fixed', bottom: '12px', left: '15px',zIndex : '99' }}>

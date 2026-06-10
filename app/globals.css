@@ -35,18 +35,25 @@ html {
   opacity: 1;
 }
 
+/* ============================================================
+   Base Utilities
+   ============================================================ */
 .w-6{width: 20px;}
 .gap-1\.5{gap:5px}
+
+/* Margin negative utilities */
 .mt-n-28{margin-top: -28px;}
 .mt-n-14{margin-top: -14px;}
 .mt-n-12{margin-top: -12px;}
 .mt-n-8{margin-top: -8px;}
 .mt-n-6{margin-top: -6px;}
+.margin-n-40{margin-top: -40px;}
+
+/* Text spacing utilities */
 .space-before-bracket{margin-top: -8px;}
 .space-after-bracket{margin-top: -6px;}
 .space-before-paren{margin-top: -8px;}
 .space-after-paren{margin-top: -6px;}
-
 
 @layer utilities {
   .text-balance {
@@ -55,13 +62,7 @@ html {
 }
 
 /* ============================================================
-   Yijing page responsive text sizes
-   Desktop = original sizes. iPad (768-1380px) scaled to ~70%.
-   To tweak iPad sizes, edit the @media block below.
-   ============================================================ */
-
-/* ============================================================
-   Site-wide utility classes - color & font-weight
+   Color & Font Weight Utilities
    ============================================================ */
 .text-black { color: #000; }
 .text-white { color: #FFF; }
@@ -75,8 +76,9 @@ html {
 .fw-bold  { font-weight: 600; }
 .fw-normal { font-weight: normal; }
 
-
-/* Chinese text (default Chiron Sung HK font) */
+/* ============================================================
+   Typography - Chinese Text Sizes
+   ============================================================ */
 .yj-cn-110 { font-size: 110px; }
 .yj-cn-40  { font-size: 40px; }
 .yj-cn-36  { font-size: 36px; }
@@ -88,7 +90,9 @@ html {
 .yj-cn-15  { font-size: 15px; }
 .yj-cn-14  { font-size: 14px; }
 
-/* English text (neue-haas-unica font) */
+/* ============================================================
+   Typography - English Text Sizes
+   ============================================================ */
 .yj-en-24 { font-size: 24px; font-family: "neue-haas-unica", sans-serif; }
 .yj-en-20 { font-size: 20px; font-family: "neue-haas-unica", sans-serif; }
 .yj-en-18 { font-size: 18px; font-family: "neue-haas-unica", sans-serif; }
@@ -96,26 +100,35 @@ html {
 .yj-en-14 { font-size: 14px; font-family: "neue-haas-unica", sans-serif; }
 .yj-en-12 { font-size: 12px; font-family: "neue-haas-unica", sans-serif;}
 
+/* ============================================================
+   Section Titles
+   ============================================================ */
 .section-title-row {height: 90px;min-height: 90px;padding-left: 30px;display: flex;align-items: center;text-align: left;
 border-bottom: 1px solid #888;}
 .section-title-text { margin: 0; font-size: 40px;}
 
 
+/* ============================================================
+   Layout & Spacing
+   ============================================================ */
 /* Responsive padding classes */
 .yj-padding-large   { padding: 90px 40px 60px; }
 .yj-padding-medium  { padding: 80px 60px; }
 .yj-padding-small   { padding: 60px 40px; }
 .yj-padding-section { padding: 90px 60px 60px 60px; }
 
-/* Space */
+/* Position & spacing */
 .home-info-top{padding-top: 7.5em;}
-.bottom-60{bottom: 60px;left: 60px;;}
-.margin-n-40{margin-top: -40px;}
+.bottom-60{bottom: 60px;left: 60px;}
 .right-30{right: 30px;}
 .yj-height-half{height: 50%;}
 .yj-bottom-gap{gap: 2rem;}
 .yj-bottom-bar{padding: 0 3rem 3rem 3rem;}
-  .main-menu .border-t{min-height: 91px;}
+.main-menu .border-t{min-height: 91px;}
+
+/* Viewport utilities */
+.yj-full-viewport{width: 100vw;height: 100%;}
+.h-screen{height: 100vh;}
 
 /* Exhibition section responsive classes */
 .ex-section { display: flex; flex-direction: row; margin-left: -40px; padding-right: 90px;padding-left: 40px;z-index: 2; }
@@ -126,43 +139,46 @@ border-bottom: 1px solid #888;}
 .yj-scroll-height-sm { height: 170px; }
 .yj-scroll-height-lg { height: 200px; }
 
-/* Yijing hexagram container size classes */
-.yj-hexagram-size { width: 80px; height: 80px; margin-bottom: 24px;}
-
-/* Logo size classes */
+/* ============================================================
+   Logo & Branding
+   ============================================================ */
 .logo-size { width: 215px; height: 36px; background-size: 215px auto; background-repeat: no-repeat; background-position: left center; }
 .logo-top { top: 30px; }
 
-/* Info box logo container */
-.info-box-logo {  position: absolute;  top: 30px;  left: 30px;  width: 36px;  height: 36px;  z-index: 2;}
-.info-box-logo img {  width: 100%;  height: 100%;}
+/* ============================================================
+   Info Box Component
+   ============================================================ */
+/* Info box logo */
+.info-box-logo { position: absolute; top: 30px; left: 30px; width: 36px; height: 36px; z-index: 2;}
+.info-box-logo img { width: 100%; height: 100%;}
 
-/* Info box width classes */
+/* Info box dimensions */
 .info-box-width { width: 50vw; }
 .info-box-width-expanded { width: 50vw; }
 
-
-
-/* Info box title font size classes */
+/* Info box title sizes */
 .info-title-sm { font-size: 32px; line-height: 1.2; }
 .info-title-lg { font-size: 36px; line-height: 1; }
-
-/* Info box English title font size classes */
 .info-en-title-sm { font-size: 16px; line-height: 1.2; }
 .info-en-title-lg { font-size: 18px; line-height: 1.2; }
 
-/* Homepage overlay title font size classes */
-.home-title { font-size: 36px; line-height: 1.2; }
-
-/* Info box English content font size classes */
+/* Info box content sizes */
 .info-en-content-sm { font-size: 12px; line-height: 1.2; }
 .info-en-content-lg { font-size: 16px; line-height: 1.2; }
-
-/* Info box Chinese content font size class */
 .info-content { font-size: 18px; line-height: 1.4; }
 
-/* Yijing box font size classes */
-.yj-box-text-sm { font-size: 16px;  }
+/* Info box scale transforms */
+.info-scale-sm { transform: scale(0.8); }
+.info-scale-lg { transform: scale(1.2); }
+
+/* ============================================================
+   Yijing Box Component
+   ============================================================ */
+/* Yijing hexagram container */
+.yj-hexagram-size { width: 80px; height: 80px; margin-bottom: 24px;}
+
+/* Yijing box text sizes */
+.yj-box-text-sm { font-size: 16px; }
 .yj-box-text-md { font-size: 20px; line-height: 1.2; }
 .yj-box-text-lg { font-size: 56px; line-height: 1; }
 .yj-box-text-xs { font-size: 12px; line-height: 1.67; }
@@ -170,13 +186,11 @@ border-bottom: 1px solid #888;}
 .yj-box-text-xl { font-size: 22px; line-height: 1.2; }
 .yj-box-text-base { font-size: 14px; line-height: 1.2; }
 
-/* Info box scale transform classes */
-.info-scale-sm { transform: scale(0.8); }
-.info-scale-lg { transform: scale(1.2); }
-
 .yj-height-half-inner-over .yj-height-half-inner{max-height: calc(50vh - 60px);overflow: hidden;}
 
-/* Yijing navigation styles */
+/* ============================================================
+   Yijing Navigation
+   ============================================================ */
 .yj-right-border{position: fixed;top: 0;right: 0;width: 90px;height: 100vh;border-left: 1px solid #888;display: flex;align-items: center;justify-content: flex-end;flex-direction: column;padding-bottom: 55px;z-index: 20;}
 .yj-nav-dots-desktop{position: absolute;bottom: 155px;gap: 10px;margin-bottom: 25px;z-index: 20;}
 .yj-nav-dots-mobile{position: fixed;left: 15px;bottom: 5px;display: flex;flex-direction: row;gap: 5px;z-index: 200;pointer-events: none;}
@@ -191,6 +205,9 @@ border-bottom: 1px solid #888;}
 .yj-nav-button-en-text{font-family: "neue-haas-unica", sans-serif;margin-top: 15px;line-height: 1;display: inline-block;margin-left: 6px;font-weight: 300;}
 .yj-mobile-left-content{padding: 40px 20px;}
 
+/* ============================================================
+   Creative Team & About Sections
+   ============================================================ */
 .ct-left-content{display: flex;flex-direction: column;justify-content: flex-end;padding-left: 80px;padding-bottom: 60px;padding-right: 30px;padding-top: 60px;}
 .ct-team-section{display: flex;flex-direction: column;align-items: center;justify-content: center;padding: 60px 60px;background-color: #000;border-bottom: 1px solid #888;}
 .about-program-section{display: flex;flex-direction: column;align-items: center;justify-content: center;padding: 80px 40px;background-color: #000;border-bottom: 1px solid #888;}
@@ -201,19 +218,20 @@ border-bottom: 1px solid #888;}
 .ct-name{line-height: 1.2;color: #fff;font-weight: 400;}
 .ct-name-en{line-height: 1.2;color: #fff;font-weight: 300;}
 
+/* ============================================================
+   Fixed Text Labels
+   ============================================================ */
 .move-over-text{position: fixed;right: -18px;top: 50%;transform: rotate(90deg);transform-origin: center center;font-size: 12px;font-family: "neue-haas-unica", sans-serif !important;white-space: nowrap;z-index: 20;pointer-events: none;transition: opacity 0.5s ease-out;}
 .scroll-to-explore-text{position: fixed;right: -4px;top: 50%;transform: rotate(90deg);transform-origin: center center;font-size: 12px;font-family: "neue-haas-unica", sans-serif !important;white-space: nowrap;z-index: 99;pointer-events: none;transition: opacity 0.5s ease-out;}
+.home-title { font-size: 36px; line-height: 1.2; }
 
-.yj-full-viewport{width: 100vw;height: 100%;}
-.h-screen{height: 100vh;}
+/* ============================================================
+   Animations
+   ============================================================ */
 /* Page fade-in animation */
 @keyframes page-fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .page-fade-in {
@@ -222,14 +240,8 @@ border-bottom: 1px solid #888;}
 
 /* Vertical fade-in animation for text lines */
 @keyframes v-fade-in {
-  from {
-    opacity: 0;
-    transform: translateY(0);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(0); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .v-fade {
@@ -237,133 +249,48 @@ border-bottom: 1px solid #888;}
   opacity: 0;
 }
 
+.v-fade-delay-1 { animation: v-fade-in 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.7s forwards; opacity: 0; }
+.v-fade-delay-2 { animation: v-fade-in 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.9s forwards; opacity: 0; }
+.v-fade-delay-3 { animation: v-fade-in 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.1s forwards; opacity: 0; }
+.v-fade-delay-4 { animation: v-fade-in 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.3s forwards; opacity: 0; }
+.v-fade-delay-5 { animation: v-fade-in 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.5s forwards; opacity: 0; }
+.v-fade-delay-6 { animation: v-fade-in 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.7s forwards; opacity: 0; }
+.v-fade-delay-7 { animation: v-fade-in 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.9s forwards; opacity: 0; }
+.v-fade-delay-8 { animation: v-fade-in 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 2.1s forwards; opacity: 0; }
+
 @media (max-width: 980px) {
-  .v-fade {
+  .v-fade, .v-fade-delay-1, .v-fade-delay-2, .v-fade-delay-3,
+  .v-fade-delay-4, .v-fade-delay-5, .v-fade-delay-6,
+  .v-fade-delay-7, .v-fade-delay-8 {
     animation: none;
     opacity: 1;
   }
 }
 
-.v-fade-delay-1 {
-  animation: v-fade-in 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.7s forwards;
-  opacity: 0;
-}
-
-@media (max-width: 980px) {
-  .v-fade-delay-1 {
-    animation: none;
-    opacity: 1;
-  }
-}
-
-.v-fade-delay-2 {
-  animation: v-fade-in 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.9s forwards;
-  opacity: 0;
-}
-
-@media (max-width: 980px) {
-  .v-fade-delay-2 {
-    animation: none;
-    opacity: 1;
-  }
-}
-
-.v-fade-delay-3 {
-  animation: v-fade-in 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.1s forwards;
-  opacity: 0;
-}
-
-@media (max-width: 980px) {
-  .v-fade-delay-3 {
-    animation: none;
-    opacity: 1;
-  }
-}
-
-.v-fade-delay-4 {
-  animation: v-fade-in 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.3s forwards;
-  opacity: 0;
-}
-
-@media (max-width: 980px) {
-  .v-fade-delay-4 {
-    animation: none;
-    opacity: 1;
-  }
-}
-
-.v-fade-delay-5 {
-  animation: v-fade-in 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.5s forwards;
-  opacity: 0;
-}
-
-@media (max-width: 980px) {
-  .v-fade-delay-5 {
-    animation: none;
-    opacity: 1;
-  }
-}
-
-.v-fade-delay-6 {
-  animation: v-fade-in 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.7s forwards;
-  opacity: 0;
-}
-
-@media (max-width: 980px) {
-  .v-fade-delay-6 {
-    animation: none;
-    opacity: 1;
-  }
-}
-
-.v-fade-delay-7 {
-  animation: v-fade-in 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.9s forwards;
-  opacity: 0;
-}
-
-@media (max-width: 980px) {
-  .v-fade-delay-7 {
-    animation: none;
-    opacity: 1;
-  }
-}
-
-.v-fade-delay-8 {
-  animation: v-fade-in 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 2.1s forwards;
-  opacity: 0;
-}
-
-@media (max-width: 980px) {
-  .v-fade-delay-8 {
-    animation: none;
-    opacity: 1;
-  }
-}
-
-/* Custom scrollbar for slide 3 */
+/* ============================================================
+   Custom Scrollbar
+   ============================================================ */
 .yj-custom-scrollbar {
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 255, 255, 0.4) rgba(255, 255, 255, 0.1);
 }
 
-.yj-custom-scrollbar::-webkit-scrollbar {
-  width: 6px;
-}
-
+.yj-custom-scrollbar::-webkit-scrollbar { width: 6px; }
 .yj-custom-scrollbar::-webkit-scrollbar-track {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 3px;
 }
-
 .yj-custom-scrollbar::-webkit-scrollbar-thumb {
   background-color: rgba(255, 255, 255, 0.4);
   border-radius: 3px;
 }
-
 .yj-custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background-color: rgba(255, 255, 255, 0.6);
 }
-/* Border Radius Utilities */
+
+/* ============================================================
+   Border Radius Utilities
+   ============================================================ */
 .radius-15{border-radius: 15px;}
 .radius-top-left-15{border-top-left-radius: 15px;}
 .radius-bottom-left-15{border-bottom-left-radius: 15px;}
@@ -372,7 +299,9 @@ border-bottom: 1px solid #888;}
 
 
 
-/* Hover underline effect */
+/* ============================================================
+   Hover Effects
+   ============================================================ */
 .hover-underline {
   position: relative;
   display: inline-block;
@@ -394,64 +323,67 @@ a:hover .hover-underline::after {
   width: 100%;
 }
 
-/* Screen size warning overlay */
+/* ============================================================
+   Screen Size Warning Overlay
+   ============================================================ */
+.screen-size-warning {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.95);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
 
-  .screen-size-warning {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.95);
-    z-index: 9999;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-  }
-  
-  .screen-size-warning-box {
-    border: 1px solid #888;
-    padding: 0;
-    text-align: left;
-    width: 645px;
-    text-align: center;
-  }
-  
-  .screen-size-warning-title {
-    font-size: 14px;
-    color: #888;
-    padding: 15px 30px;
-    border-bottom: 1px solid #888;
-    font-weight: 400;
-    text-align: left;
-  }
-  
-  .screen-size-warning-content {
-    padding: 60px 30px;
-    font-size: 20px;
-    color: #fff;
-    line-height: 1.6;
-  }
-  
-  .screen-size-warning-content-cn {
-    margin-bottom: 5px;
-    font-weight: 400;
-        font-size: 20px;
+.screen-size-warning-box {
+  border: 1px solid #888;
+  padding: 0;
+  text-align: center;
+  width: 645px;
+}
 
-  }
-  
-  .screen-size-warning-content-en {
-    font-family: "neue-haas-unica", sans-serif;
-    font-weight: 300;
-  }
+.screen-size-warning-title {
+  font-size: 14px;
+  color: #888;
+  padding: 15px 30px;
+  border-bottom: 1px solid #888;
+  font-weight: 400;
+  text-align: left;
+}
 
+.screen-size-warning-content {
+  padding: 60px 30px;
+  font-size: 20px;
+  color: #fff;
+  line-height: 1.6;
+}
+
+.screen-size-warning-content-cn {
+  margin-bottom: 5px;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.screen-size-warning-content-en {
+  font-family: "neue-haas-unica", sans-serif;
+  font-weight: 300;
+}
 
 
 
+
+/* ============================================================
+   Responsive Breakpoints
+   ============================================================ */
+
+/* iPad & Small Desktop (980px - 1380px, or max-height 879px) */
 @media (min-width: 980px) and (max-width: 1380px), (max-height: 879px) {
-
-  /* Chinese - iPad sizes (adjusted for full-width vertical layout) */
+  /* Typography - Chinese */
   .yj-cn-110 { font-size: 72px; }
   .yj-cn-40  { font-size: 28px; }
   .yj-cn-36  { font-size: 26px; }
@@ -463,7 +395,7 @@ a:hover .hover-underline::after {
   .yj-cn-15  { font-size: 15px; }
   .yj-cn-14  { font-size: 14px; }
 
-  /* English - iPad sizes */
+  /* Typography - English */
   .yj-en-24 { font-size: 20px; }
   .yj-en-20 { font-size: 16px; }
   .yj-en-18 { font-size: 14px; }
@@ -471,30 +403,23 @@ a:hover .hover-underline::after {
   .yj-en-14 { font-size: 13px; }
   .yj-en-12 { font-size: 12px; }
 
-  /* Responsive padding for iPad full-width layout */
+  /* Layout & Spacing */
   .yj-padding-large   { padding: 90px 50px 30px }
   .yj-padding-medium  { padding: 40px 50px 30px  }
   .yj-padding-small   { padding: 30px 50px 30px }
   .yj-padding-section { padding: 90px 40px 60px 40px  }
-
-
-  /* Section title row - iPad */
   .section-title-row {height: 70px;min-height: 70px;}
   .section-title-text {font-size: 34px;}
-
-  /* Space */
   .home-info-top{padding-top: 80px;padding-left: 30px;padding-right: 30px;}
-  .bottom-60{bottom: 30px;left: 50px;;}
+  .bottom-60{bottom: 30px;left: 50px;}
   .margin-n-40{margin-top: -30px;}
   .right-30{right: 15px;}
   .yj-bottom-gap{gap: .5rem;}
   .yj-bottom-bar{padding: 0 2rem 60px 2rem;}
   .main-menu .border-t{min-height: 71px;}
 
-  /* Info box width - iPad */
+  /* Info Box */
   .info-box-width { width: 524px; }
-
-  /* Info box font sizes - iPad */
   .info-title-sm { font-size: 20px; }
   .info-title-lg { font-size: 28px; }
   .info-en-title-sm { font-size: 14px; }
@@ -502,8 +427,9 @@ a:hover .hover-underline::after {
   .info-en-content-sm { font-size: 11px; }
   .info-en-content-lg { font-size: 14px; }
   .info-content { font-size: 16px; }
+  .info-box-logo { width: 36px; height: 36px; top: 30px; left: 30px; }
 
-  /* Yijing box font sizes - iPad */
+  /* Yijing Box */
   .yj-box-text-sm { font-size: 14px; }
   .yj-box-text-md { font-size: 18px; }
   .yj-box-text-lg { font-size: 48px; }
@@ -511,22 +437,21 @@ a:hover .hover-underline::after {
   .yj-box-text-2xs { font-size: 12px; }
   .yj-box-text-xl { font-size: 20px; }
   .yj-box-text-base { font-size: 13px; }
-
-  /* Yijing scroll content height - iPad */
   .yj-scroll-height-sm { height: 150px; }
   .yj-scroll-height-lg { height: 180px; }
-
-  /* Yijing hexagram container size - iPad */
   .yj-hexagram-size { width: 64px; height: 64px; margin-bottom: 20px; }
-
-  /* Info box logo - iPad */
-  .info-box-logo { width: 36px; height: 36px; top: 30px; left: 30px; }
-
 }
 
-/* Extra small height (< 780px) - further reduce font sizes */
+/* Extra Small Height (< 780px) */
 @media (max-height: 779px) {
-  /* Chinese - further reduced sizes */
+  /* Margin negative utilities */
+  .mt-n-28{margin-top: -24px;}
+  .mt-n-14{margin-top: -12px;}
+  .mt-n-12{margin-top: -10px;}
+  .mt-n-8{margin-top: -8px;}
+  .mt-n-6{margin-top: -4px;}
+
+  /* Typography - Chinese */
   .yj-cn-110 { font-size: 64px; }
   .yj-cn-40  { font-size: 24px; }
   .yj-cn-36  { font-size: 22px; }
@@ -538,7 +463,7 @@ a:hover .hover-underline::after {
   .yj-cn-15  { font-size: 13px; }
   .yj-cn-14  { font-size: 12px; }
 
-  /* English - further reduced sizes */
+  /* Typography - English */
   .yj-en-24 { font-size: 18px; }
   .yj-en-20 { font-size: 14px; }
   .yj-en-18 { font-size: 13px; }
@@ -546,28 +471,22 @@ a:hover .hover-underline::after {
   .yj-en-14 { font-size: 12px; }
   .yj-en-12 { font-size: 11px; }
 
-  /* Further reduced padding */
+  /* Layout & Spacing */
   .yj-padding-large   { padding: 90px 30px 30px }
   .yj-padding-medium  { padding: 30px 30px 30px  }
   .yj-padding-small   { padding: 20px 30px 30px }
   .yj-padding-section { padding: 90px 30px 40px 30px  }
-
-  /* Section title row */
   .section-title-row {height: 60px;min-height: 60px;}
   .section-title-text {font-size: 30px;}
-
-  /* Space */
   .home-info-top{padding-top:60px;}
   .bottom-60{bottom: 20px;left: 15px;}
   .margin-n-40{margin-top: -20px;}
   .right-30{right: 10px;}
   .main-menu .border-t{min-height: 51px !important;}
 
-  /* Info box width - small height */
+  /* Info Box */
   .info-box-width { width: 750px; }
   .info-box-max-height { max-height: calc(100vh - 180px); }
-
-  /* Info box font sizes - small height */
   .info-title-sm { font-size: 24px; }
   .info-title-lg { font-size: 26px; }
   .info-en-title-sm { font-size: 15px; }
@@ -575,8 +494,11 @@ a:hover .hover-underline::after {
   .info-en-content-sm { font-size: 12px; }
   .info-en-content-lg { font-size: 15px; }
   .info-content { font-size: 15px; }
+  .info-box-logo { width: 28px; height: 28px; top: 10px; left: 10px; }
+  .info-scale-sm { transform: scale(1); transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1); transform-origin: right top; }
+  .info-scale-lg { transform: scale(1.2); transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1); transform-origin: right top; }
 
-  /* Yijing box font sizes - small height */
+  /* Yijing Box */
   .yj-box-text-sm { font-size: 13px; }
   .yj-box-text-md { font-size: 16px; }
   .yj-box-text-lg { font-size: 40px; }
@@ -584,137 +506,125 @@ a:hover .hover-underline::after {
   .yj-box-text-2xs { font-size: 11px; }
   .yj-box-text-xl { font-size: 18px; }
   .yj-box-text-base { font-size: 12px; }
-
-  /* Yijing scroll content height - small height */
   .yj-scroll-height-sm { height: 135px; }
   .yj-scroll-height-lg { height: 156px; }
-
-  /* Yijing hexagram container size - small height */
   .yj-hexagram-size { width: 56px; height: 56px; margin-bottom: 16px;}
 
-  /* Logo size - small height (only for Yijing and Exhibition pages) */
-  .logo-size-small-height { width: 38px; }
-
-  /* Info box logo - small height */
-  .info-box-logo { width: 28px; height: 28px; top: 10px; left: 10px; }
-
-  /* Info box scale transform classes */
-  .info-scale-sm { transform: scale(1); transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1); transform-origin: right top; }
-  .info-scale-lg { transform: scale(1.2); transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1); transform-origin: right top; }
-
+  /* Exhibition */
   .ex-section-inner { width: calc(70vw + 60px); }
-
+  .logo-size-small-height { width: 38px; }
 }
 
 
 
-/* Mobile: 320px - 979px */
+/* Mobile (320px - 979px) */
 @media (min-width: 320px) and (max-width: 979px) {
+  /* Controls */
   .zoom-controls { display: none; }
   .zoom-separator { display: none; }
-.yj-padding-large ,
-.yj-padding-medium ,
-.yj-padding-small { padding: 20px 15px; }
-.yj-padding-section { padding: 90px 15px 60px 15px; }
-.yj-height-half { height: auto; overflow: visible; }
-.mt-n-14{margin-top: -10px;}
-.mt-n-12{margin-top: -10px;}
-.mt-n-28{margin-top: -21px;}
 
+  /* Margin negative utilities */
+  .mt-n-28{margin-top: -22px;}
+  .mt-n-14{margin-top: -10px;}
+  .mt-n-12{margin-top: -10px;}
+  .mt-n-8{margin-top: -8px;}
+  .mt-n-6{margin-top: -2px;}
+  .mb-30-bottom{margin-bottom: 60px;}
 
-.mt-n-6{margin-top: -2px;}
-.space-before-bracket{margin-top: -8px;}
-.space-after-bracket{margin-top: -6px;}
-.space-before-paren{margin-top: -8px;}
-.space-after-paren{margin-top: -6px;}
+  /* Text spacing utilities */
+  .space-before-bracket{margin-top: -8px;}
+  .space-after-bracket{margin-top: -6px;}
+  .space-before-paren{margin-top: -8px;}
+  .space-after-paren{margin-top: -6px;}
 
-/* Exhibition section - mobile */
-.ex-section { flex-direction: column; margin-left: 0; padding-right: 0;padding-left: 0; }
-.ex-section-inner { width: 100%;  }
-.ex-vertical-line { display: none; }
-.ex-padding-large{padding-top: 80px;}
+  /* Typography - Chinese */
+  .yj-cn-110 { font-size: 72px; }
+  .yj-cn-40  { font-size: 22px; }
+  .yj-cn-36  { font-size: 20px; }
+  .yj-cn-28  { font-size: 18px; }
+  .yj-cn-24  { font-size: 18px; }
+  .yj-cn-20  { font-size: 18px; }
+  .yj-cn-18  { font-size: 16px; }
+  .yj-cn-16  { font-size: 16px; }
+  .yj-cn-15  { font-size: 14px; }
+  .yj-cn-14  { font-size: 14px; }
 
-/* Creative team left content */
-.ct-left-content{display: flex;flex-direction: column;justify-content: flex-end;padding-left: 80px;padding-bottom: 60px;padding-right: 15px;padding-top: 30px;}
-.ct-team-section{padding: 30px 15px;}
-.about-program-section{padding: 30px 15px;}
-.about-program-block{margin-bottom: 40px;}
-.about-video-section{padding: 30px 15px;}
+  /* Typography - English */
+  .yj-en-24 { font-size: 18px; }
+  .yj-en-20 { font-size: 16px; }
+  .yj-en-18 { font-size: 16px; }
+  .yj-en-16 { font-size: 16px; }
+  .yj-en-14 { font-size: 14px; }
+  .yj-en-12 { font-size: 12px; }
 
-/* Mobile font sizes */
-.yj-cn-110 { font-size: 72px; }
-.yj-cn-40  { font-size: 22px; }
-.yj-cn-36  { font-size: 20px; }
-.yj-cn-28  { font-size: 18px; }
-.yj-cn-24  { font-size: 18px; }
-.yj-cn-20  { font-size: 18px; }
-.yj-cn-18  { font-size: 16px; }
-.yj-cn-16  { font-size: 16px; }
-.yj-cn-15  { font-size: 14px; }
-.yj-cn-14  { font-size: 14px; }
+  /* Layout & Spacing */
+  .yj-padding-large, .yj-padding-medium, .yj-padding-small { padding: 20px 15px; }
+  .yj-padding-section { padding: 90px 15px 60px 15px; }
+  .yj-height-half { height: auto; overflow: visible; }
+  .section-title-row {height: 50px !important;min-height: 50px;padding-left: 15px;}
+  .section-title-text {font-size: 25px;}
+  .yj-full-viewport{width: 100vw;height: 100%;}
+  .h-screen{height: 100vh;}
 
-.yj-en-24 { font-size: 18px; }
-.yj-en-20 { font-size: 16px; }
-.yj-en-18 { font-size: 16px; }
-.yj-en-16 { font-size: 16px; }
-.yj-en-14 { font-size: 14px; }
-.yj-en-12 { font-size: 12px; }
+  /* Logo */
+  .logo-size { width: 170px; height: 30px; background-size: 170px auto; }
+  .logo-top { top: 10px; transform: translateX(0) !important;}
 
-.section-title-row {height: 50px !important;min-height: 50px;padding-left: 15px;}
-.section-title-text {font-size: 25px;}
-
-/* Logo size - mobile */
-.logo-size { width: 170px; height: 30px; background-size: 170px auto; }
-.logo-top { top: 10px; transform: translateX(0) !important;}
+  /* Menu */
   .main-menu .border-t{min-height: 81px !important;}
   .menu-panel .section-title-row{height: 80px !important;}
   .px-6{padding-left: 15px;padding-right: 15px;}
   .menu-panel{height: 100% !important;}
 
-/* landing */
-.info-box-width{width: calc(100% - 30px);padding: 20px 15px !important;}
-.info-box-logo { width: 30px; height: 30px; top: 10px; left: 15px; }
-.info-box-max-height-expanded{width: 100vw;height: 100% !important;padding:50px 15px !important;border-radius: 15px !important;}
-.info-scale-lg{transform: scale(.9);}
-.w-full{}
-.w-full.h-screen{margin: 0;padding:0;}
-.yj-height-half-inner-over .yj-height-half-inner{max-height: 10000px;}
-.yj-max-width-25vw{max-width: 90vw;transform: scale(.75);transform-origin: left bottom;left: 15px;}
-.yj-full-viewport{width: 100vw;height: 100%;}
-.h-screen{height: 100vh;}
+  /* Info Box */
+  .info-box-width{width: calc(100% - 30px);padding: 20px 15px !important;}
+  .info-box-logo { width: 30px; height: 30px; top: 10px; left: 15px; }
+  .info-box-max-height-expanded{width: 100vw;height: 100% !important;padding:50px 15px !important;border-radius: 15px !important;}
+  .info-box-max-height{height: 80% !important;margin-top: -10%;}
+  .info-scale-sm { transform: scale(0.7); margin-bottom: -60px;}
+  .info-scale-lg { transform: scale(.9); }
+  .info-en-content-lg{font-size: 14px !important;}
 
+  /* Yijing */
+  .yj-height-half-inner-over .yj-height-half-inner{max-height: 10000px;}
+  .yj-max-width-25vw{max-width: 90vw;transform: scale(.75);transform-origin: left bottom;left: 15px;}
+  .yj-mobile-left-content{padding: 20px 20px;}
+  .yj-mobile-left-content .yj-en-24{margin-top: 120px;}
 
-/* Info box scale transform classes */
-.info-scale-sm { transform: scale(0.7); margin-bottom: -60px;}
-.info-scale-lg { transform: scale(.9); }
-.yj-mobile-left-content{padding: 20px 20px;}
+  /* Fixed Text Labels */
+  .move-over-text{position: fixed;right: -35px;top: 50%;transform: rotate(90deg);transform-origin: center center;font-size: 12px;font-family: "neue-haas-unica", sans-serif !important;white-space: nowrap;z-index: 20;pointer-events: none;transition: opacity 0.5s ease-out;color:#FFF}
+  .scroll-to-explore-text{position: fixed;right: -23px;top: 50%;transform: rotate(90deg);transform-origin: center center;font-size: 12px;font-family: "neue-haas-unica", sans-serif !important;white-space: nowrap;z-index: 99;pointer-events: none;transition: opacity 0.5s ease-out;color:#FFF;display: none !important;}
+  .home-title { font-size: 20px !important;line-height: 1.6; }
 
-.info-box-max-height{height: 80% !important;margin-top: -10%;}
-.info-en-content-lg{font-size: 14px !important;}
-.move-over-text{position: fixed;right: -35px;top: 50%;transform: rotate(90deg);transform-origin: center center;font-size: 12px;font-family: "neue-haas-unica", sans-serif !important;white-space: nowrap;z-index: 20;pointer-events: none;transition: opacity 0.5s ease-out;color:#FFF}
-.scroll-to-explore-text{position: fixed;right: -23px;top: 50%;transform: rotate(90deg);transform-origin: center center;font-size: 12px;font-family: "neue-haas-unica", sans-serif !important;white-space: nowrap;z-index: 99;pointer-events: none;transition: opacity 0.5s ease-out;color:#FFF;display: none !important;}
+  /* Exhibition */
+  .ex-section { flex-direction: column; margin-left: 0; padding-right: 0;padding-left: 0; }
+  .ex-section-inner { width: 100%; }
+  .ex-vertical-line { display: none; }
+  .ex-padding-large{padding-top: 80px;}
 
-.yj-mobile-left-content .yj-en-24{margin-top: 120px;}
+  /* Creative Team */
+  .ct-left-content{display: flex;flex-direction: column;justify-content: flex-end;padding-left: 80px;padding-bottom: 60px;padding-right: 15px;padding-top: 30px;}
+  .ct-team-section{padding: 30px 15px;}
+  .about-program-section{padding: 30px 15px;}
+  .about-program-block{margin-bottom: 40px;}
+  .about-video-section{padding: 30px 15px;}
 
-.home-title { font-size: 20px !important;;line-height: 1.6; }
+  /* Border Radius */
+  .radius-15{border-radius: 15px;}
+  .radius-top-left-15{border-top-left-radius: 15px;border-top-right-radius: 15px;}
+  .radius-bottom-left-15{border-bottom-left-radius: 15px;border-bottom-right-radius: 15px;}
+  .radius-top-right-15{border-top-right-radius: 15px;border-top-left-radius: 15px;}
+  .radius-bottom-right-15{border-bottom-right-radius: 15px;border-bottom-left-radius: 15px;}
+  .h-screen.flex-shrink-0{margin-top: -15px;border-top-left-radius: 15px;border-top-right-radius: 15px;margin-bottom: -15px;}
 
-/* Border Radius Utilities */
-.radius-15{border-radius: 15px;}
-.radius-top-left-15{border-top-left-radius: 15px;border-top-right-radius: 15px;}
-.radius-bottom-left-15{border-bottom-left-radius: 15px;border-bottom-right-radius: 15px;}
-.radius-top-right-15{border-top-right-radius: 15px;border-top-left-radius: 15px;}
-.radius-bottom-right-15{border-bottom-right-radius: 15px;border-bottom-left-radius: 15px;}
-.h-screen.flex-shrink-0{margin-top: -15px;border-top-left-radius: 15px;border-top-right-radius: 15px;margin-bottom: -15px;}
-
-/* Reverse z-index for mobile */
-.h-screen.flex-shrink-0[style*="z-index: 1"]{z-index: 2 !important;}
-.h-screen.flex-shrink-0[style*="z-index: 2"]{z-index: 2 !important;}
-.h-screen.flex-shrink-0[style*="z-index: 4"]{z-index: 2 !important;}
-.ex-section[style*="z-index: 2"]{z-index: 3 !important;}
-.ex-section[style*="z-index: 3"]{z-index: 3 !important;}
-.ex-section[style*="z-index: 4"]{z-index: 3 !important;}
-.ex-section[style*="z-index: 5"]{z-index: 3 !important;}
-
+  /* Z-index overrides */
+  .h-screen.flex-shrink-0[style*="z-index: 1"]{z-index: 2 !important;}
+  .h-screen.flex-shrink-0[style*="z-index: 2"]{z-index: 2 !important;}
+  .h-screen.flex-shrink-0[style*="z-index: 4"]{z-index: 2 !important;}
+  .ex-section[style*="z-index: 2"]{z-index: 3 !important;}
+  .ex-section[style*="z-index: 3"]{z-index: 3 !important;}
+  .ex-section[style*="z-index: 4"]{z-index: 3 !important;}
+  .ex-section[style*="z-index: 5"]{z-index: 3 !important;}
 }
 
 /* Ultra-wide desktop (2000px+) - reserved for future use */

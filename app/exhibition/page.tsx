@@ -292,12 +292,24 @@ export default function Exhibition() {
   }, [isMobile, isLoaded]);
 
   return (
-    <div 
-      className={`bg-black transition-opacity duration-1000 ${isLoaded ? 'page-fade-in' : ''}`} 
-      style={{ 
+    <>
+    <div style={{
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      width: '100%',
+      height: '100%',
+      backgroundColor: 'black',
+      opacity: isLoaded ? 0 : 1,
+      transition: 'opacity 1s ease-out',
+      zIndex: 9999,
+      pointerEvents: 'none'
+    }}></div>
+    <div
+      className="bg-black"
+      style={{
         height: isMobile ? 'auto' : '100vh',
         overflow: isMobile ? 'visible' : 'hidden',
-        opacity: isLoaded ? 1 : 0,
         minHeight: isMobile ? '100vh' : 'auto'
       }}
     >
@@ -371,7 +383,7 @@ export default function Exhibition() {
                 
                 letterSpacing: '0.1em',
                 marginBottom: isMobile ? "120px" : 0  }}>
-                 <span style={{marginTop: "-10px"}}></span>︽易經︾<span style={{marginTop:'-10px'}}></span>無疑是中國文化遺產<br/>之精髓。儒家與道家思想同樣<br/>根植於此。是次展覽呈獻<br/>香港攝影藝術家鮑皓昕兩個<br/>系列作品：︽中國牆城︾<br/>和︽觀靜錄︾，探究文化遺產<br/>與藝術創作之間的關係。
+                 <span className="mt-n-12"></span>︽易經︾<span className="mt-n-12"></span>無疑是中國文化遺產<br/>之精髓。儒家與道家思想同樣<br/>根植於此。是次展覽呈獻<br/>香港攝影藝術家鮑皓昕兩個<br/>系列作品：︽中國牆城︾<br/>和︽觀靜錄︾，探究文化遺產<br/>與藝術創作之間的關係。
               </div>
             </div>
 
@@ -398,12 +410,14 @@ The <em>Book of Changes</em> is unquestionably a quintessential Chinese cultural
           </div>
 
           {/* Section Break 0 */}
-          <div 
-            className="h-screen relative flex-shrink-0" 
-            style={{ 
-              width: isMobile ? '100%' : '80vw', 
+          <div
+            className="h-screen relative flex-shrink-0"
+            style={{
+              width: isMobile ? '100%' : '80vw',
               backgroundColor: "#000",
               overflow: "hidden",
+              position: isMobile ? 'sticky' : 'relative',
+              top: isMobile ? 0 : 'auto'
             }}
           >
             <div
@@ -475,12 +489,14 @@ The <em>Book of Changes</em> is unquestionably a quintessential Chinese cultural
           </div>
 
           {/* Section Break 1 */}
-          <div 
-            className="h-screen relative flex-shrink-0" 
-            style={{ 
-              width: isMobile ? '100%' : '80vw', 
+          <div
+            className="h-screen relative flex-shrink-0"
+            style={{
+              width: isMobile ? '100%' : '80vw',
               overflow: "hidden",
-              marginLeft: isMobile ? '0' : "-40px"
+              marginLeft: isMobile ? '0' : "-40px",
+              position: isMobile ? 'sticky' : 'relative',
+              top: isMobile ? 0 : 'auto'
             }}
           >
             <div
@@ -534,9 +550,8 @@ The <em>Book of Changes</em> is unquestionably a quintessential Chinese cultural
                   letterSpacing: '0.2em',
                   
                   lineHeight: '1',
-                  marginLeft:isMobile ? "15px" : '20px',
-                  marginTop: isMobile ? "-9px" : '-15px' }}>
-                  ︽中國牆城︾<span style={{marginTop:'-14px'}}></span>系列
+                  marginLeft:isMobile ? "15px" : '20px' }}>
+                  <span className="mt-n-14"></span>︽中國牆城︾<span className="mt-n-14"></span>系列
                 </h2>
                 
                 {/* Description text */}
@@ -554,7 +569,7 @@ The <em>Book of Changes</em> is unquestionably a quintessential Chinese cultural
 指引我如何在困境中揭示我內心深處的想法，曾在我人生的<br/>
 關鍵時刻發揮重要作用，例如當年我在猶豫是否該離開<br/>
 美國荷里活的工作，開啟創作生涯新篇章時，我占得﹁旅﹂<br/>
-<span style={{marginTop: "-8px"}}></span>︵第五十六卦︶，使我下定決心回港，成為旅遊攝影師。<br/><br/>
+<span className="mt-n-6"></span>︵第五十六卦︶，使我下定決心回港，成為旅遊攝影師。<br/><br/>
 
 多年來，我不斷嘗試以視覺形式呈現︽易經︾的精髓，<br/>
 卻始終未能如願。直至<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>2007</span>年我在編輯︽中國探秘︾一書時，<br/>
@@ -567,7 +582,7 @@ The <em>Book of Changes</em> is unquestionably a quintessential Chinese cultural
                   ) : (
                     <>
                       自我在五十年前初次接觸︽易經︾起，它就如<br/>一位睿智的的老朋友，每當我求問指點，它總能<br/>揭示我內心深處的想法，指引我如何在困境中<br/>求變。當中的玄妙箴言，曾在我人生的關鍵<br/>時刻發揮重要作用，例如當年我在猶豫是否該<br/>離開美國荷里活的工作，開啟創作生涯新篇章時，<br/>我占得﹁旅﹂︵第五十六卦︶，使我下定決心<br/>回港，成為旅遊攝影師。<br/><br/>
-                      多年來，我不斷嘗試以視覺形式呈現︽易經︾<br/>的精髓，卻始終未能如願。直至<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>2007</span>我在編輯<br/><span style={{marginTop:'-6px'}}></span>︽中國探秘︾一書時，終於找到完美載體<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>—</span><br/>我在中國各地拍攝的斑駁牆垣特寫細節。歲月<br/>洗禮下，風雨在最基礎的建築上雕琢出繁複紋理<br/>與迷人質感。︽易經︾六十四卦源自古老二元<br/>體系，其形態極具當代感，與電腦時代遙相呼應。<br/>這些影像在視覺與概念上與大自然的抽象表現<br/>完美契合，成就了了︽中國牆城︾系列。
+                      多年來，我不斷嘗試以視覺形式呈現︽易經︾<br/>的精髓，卻始終未能如願。直至<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>2007</span>我在編輯<br/><span className="mt-n-6"></span>︽中國探秘︾一書時，終於找到完美載體<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>—</span><br/>我在中國各地拍攝的斑駁牆垣特寫細節。歲月<br/>洗禮下，風雨在最基礎的建築上雕琢出繁複紋理<br/>與迷人質感。︽易經︾六十四卦源自古老二元<br/>體系，其形態極具當代感，與電腦時代遙相呼應。<br/>這些影像在視覺與概念上與大自然的抽象表現<br/>完美契合，成就了了︽中國牆城︾系列。
                     </>
                   )}
                 </div>
@@ -678,7 +693,7 @@ Over the years, I failed repeatedly to create a visual representation of the <em
                   textOrientation: 'upright',
                   letterSpacing: '0.2em',
                   marginLeft: "20px" }}>
-                 <span style={{marginTop:"-10px"}}></span>︽易經︾<span style={{marginTop:"-10px"}}></span>占卜
+                 <span className="mt-n-12"></span>︽易經︾<span className="mt-n-12"></span>占卜
                 </h3>
                 
                 {/* Description text */}
@@ -771,13 +786,15 @@ Nowadays, with the advance of digital technologies, an online consultation of th
           </div>
 
           {/* Section Break 3 */}
-          <div 
-            className="h-screen relative flex-shrink-0" 
-            style={{ 
-              width: isMobile ? '100%' : '80vw', 
+          <div
+            className="h-screen relative flex-shrink-0"
+            style={{
+              width: isMobile ? '100%' : '80vw',
               backgroundColor: "#FFFFFF",
               overflow: "hidden",
-              marginLeft: isMobile ? '0' : "-40px"
+              marginLeft: isMobile ? '0' : "-40px",
+              position: isMobile ? 'sticky' : 'relative',
+              top: isMobile ? 0 : 'auto'
             }}
           >
             <div
@@ -831,9 +848,8 @@ Nowadays, with the advance of digital technologies, an online consultation of th
                   letterSpacing: '0.2em',
                   
                   lineHeight: '1',
-                  marginLeft: "20px",
-                  marginTop: isMobile ? "-9px" : "-15px" }}>
-                  ︽觀靜錄︾
+                  marginLeft: "20px"}}>
+                  <span className="mt-n-12"></span>︽觀靜錄︾
                 </h2>
 
                 
@@ -844,7 +860,7 @@ Nowadays, with the advance of digital technologies, an online consultation of th
                   
                   letterSpacing: '0.1em',
                   marginBottom: isMobile ? "120px" : 0  }}>
-                  <span style={{marginTop: "-7px"}}></span>︽易經︾<span style={{marginTop:'-6px'}}></span>的核心概念是﹁天人合一﹂。<br /><span style={{marginTop: "-7px"}}></span>︽觀靜錄︾<span style={{marginTop:'-6px'}}></span>系列收錄了無人機尚<br/>未普及之前的航拍作品，以及其他<br/>人跡罕至的遼闊景觀，嘗試以此攝影<br/>作品集詮釋此概念。過去四十年來，<br/>我有幸踏遍世界邊陲進行拍攝，<br/>我希望能與新一代的觀眾分享這批<br/>作品，讓他們欣賞地球的壯麗風采，<br/>進而踏上更新與保護的道路，而非<br/>重蹈我輩自我毀滅的覆轍。
+                  <span className="mt-n-8"></span>︽易經︾<span className="mt-n-8"></span>的核心概念是﹁天人合一﹂。<br /><span className="mt-n-8"></span>︽觀靜錄︾<span className="mt-n-8"></span>系列收錄了無人機尚<br/>未普及之前的航拍作品，以及其他<br/>人跡罕至的遼闊景觀，嘗試以此攝影<br/>作品集詮釋此概念。過去四十年來，<br/>我有幸踏遍世界邊陲進行拍攝，<br/>我希望能與新一代的觀眾分享這批<br/>作品，讓他們欣賞地球的壯麗風采，<br/>進而踏上更新與保護的道路，而非<br/>重蹈我輩自我毀滅的覆轍。
                 </div>
               </div>
 
@@ -895,5 +911,6 @@ The central concept of the <em>Book of Changes</em> is "Heaven and Humanity as O
         </div>
       </div>
     </div>
+    </>
   );
 }
