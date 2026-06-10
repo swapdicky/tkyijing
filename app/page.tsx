@@ -75,6 +75,17 @@ export default function Home() {
   const [isLoaded, setIsLoaded] = useState(false);
   const scrollPositionRef = useRef(0);
 
+  // Preload all 64 hexagram images
+  useEffect(() => {
+    const preloadImages = () => {
+      for (let i = 1; i <= 64; i++) {
+        const img = new Image();
+        img.src = `/images/Hex64_IMG/${i}.jpg`;
+      }
+    };
+    preloadImages();
+  }, []);
+
   // Set loaded state for fade-in animation
   useEffect(() => {
     const loadTimer = setTimeout(() => {
@@ -579,22 +590,22 @@ export default function Home() {
       }
     };
 
-    const wrapper = document.querySelector('[data-panel-wrapper]');
-    if (wrapper) {
+    const wrappers = document.querySelectorAll('[data-panel-wrapper]');
+    wrappers.forEach(wrapper => {
       wrapper.addEventListener('touchstart', handleTouchStart, { passive: true });
       wrapper.addEventListener('touchend', handleTouchEnd, { passive: true });
       wrapper.addEventListener('mousedown', handleMouseDown);
       wrapper.addEventListener('mouseup', handleMouseUp);
-    }
+    });
 
     return () => {
-      const wrapper = document.querySelector('[data-panel-wrapper]');
-      if (wrapper) {
+      const wrappers = document.querySelectorAll('[data-panel-wrapper]');
+      wrappers.forEach(wrapper => {
         wrapper.removeEventListener('touchstart', handleTouchStart);
         wrapper.removeEventListener('touchend', handleTouchEnd);
         wrapper.removeEventListener('mousedown', handleMouseDown);
         wrapper.removeEventListener('mouseup', handleMouseUp);
-      }
+      });
     };
   }, [isPanelOpen]);
 
@@ -887,13 +898,41 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
                 setPreviousZoom(zoom);
                 
                 if (!moduleRef.current) return;
-                
-                // Mobile: Just open panel, don't change mode or center grid
+
+                // Mobile: Move grid to center of 8x8 grid only in explore mode
                 if (isMobile) {
-                  // No mode/zoom changes, no grid animations
+                  if (mode === "overview") {
+                    // In overview mode, don't move the grid
+                    return;
+                  }
+
+                  // Explore mode: Move to center of 8x8 grid
+                  gsap.killTweensOf(moduleRef.current);
+
+                  const vwToPx = window.innerWidth / 100;
+                  const boxSizeVw = 20;
+
+                  // Mobile: Calculate position to center the 8x8 grid
+                  // Center of 8x8 grid is at (3.5, 3.5) which is already the center
+                  const boxCenterXVw = 0; // Center is at 0,0 relative to center
+                  const boxCenterYVw = 0;
+
+                  const finalX = -boxCenterXVw * vwToPx;
+                  const finalY = -boxCenterYVw * vwToPx;
+
+                  gsap.to(moduleRef.current, {
+                    x: finalX,
+                    y: finalY,
+                    xPercent: -50,
+                    yPercent: -50,
+                    scale: 1,
+                    duration: 1.5,
+                    ease: "power3.inOut",
+                    overwrite: true
+                  });
                   return;
                 }
-                
+
                 // Desktop only: Switch to explore mode and center the clicked box
                 // Use flushSync to force React to re-render synchronously before scrollTo
                 // This prevents jump when at 100% (page is 180vh, scroll is mid)
@@ -981,7 +1020,7 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
           data-panel-wrapper
           className="fixed top-0 h-screen transition-all duration-700 ease-out"
           style={{
-            pointerEvents: isPanelOpen ? 'auto' : 'none',
+            pointerEvents: isMobile && isPanelOpen ? 'auto' : 'none',
             backgroundColor: isMobile ? 'rgba(0, 0, 0, 0.8)' : 'transparent',
             zIndex: 100,
             left: '0',
@@ -995,7 +1034,7 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
           data-panel-wrapper
           className="fixed top-0 h-screen transition-all duration-700 ease-out"
           style={{
-            pointerEvents: isPanelOpen ? 'auto' : 'none',
+            pointerEvents: isMobile && isPanelOpen ? 'auto' : 'none',
             zIndex: 101,
             left: '0',
             width: '100%',
@@ -1068,7 +1107,7 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
           <div
             className={`fixed top-0 z-40 ${!isMobile ? 'transition-all duration-700 ease-out' : ''}`}
             style={{
-              pointerEvents: isPanelOpen ? 'auto' : 'none',
+              pointerEvents: isMobile && isPanelOpen ? 'none' : (isPanelOpen ? 'auto' : 'none'),
               left: isMobile
                 ? (activePanel === 'image' ? '0' : '-100%')
                 : (isPanelOpen ? '50%' : 'calc(100% + 300px)'),
@@ -1093,7 +1132,7 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
               }
             }}
             style={{
-              pointerEvents: isPanelOpen ? 'auto' : 'none',
+              pointerEvents: isMobile && isPanelOpen ? 'none' : (isPanelOpen ? 'auto' : 'none'),
               right: 0,
               zIndex: 110,
               left: isMobile
