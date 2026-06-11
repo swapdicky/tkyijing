@@ -115,7 +115,8 @@ border-bottom: 1px solid #888;}
 .yj-padding-large   { padding: 90px 40px 60px; }
 .yj-padding-medium  { padding: 80px 60px; }
 .yj-padding-small   { padding: 60px 40px; }
-.yj-padding-section { padding: 60px 60px 60px 60px; }
+.yj-padding-section { padding: 90px 60px 60px 60px; }
+.ex-vertical-line{  position: absolute;  top: 90px;  width: 1px;  height: calc(100vh - 160px);  background-color: #888;}
 
 /* Position & spacing */
 .home-info-top{padding-top: 7.5em;}
@@ -408,6 +409,8 @@ a:hover .hover-underline::after {
   .yj-padding-medium  { padding: 40px 50px 30px  }
   .yj-padding-small   { padding: 30px 50px 30px }
   .yj-padding-section { padding: 90px 40px 60px 40px  }
+  .ex-vertical-line{  position: absolute;  top: 90px;  width: 1px;  height: calc(100vh - 160px);  background-color: #888;}
+
   .section-title-row {height: 70px;min-height: 70px;}
   .section-title-text {font-size: 34px;}
   .home-info-top{padding-top: 60px;padding-left: 30px;padding-right: 30px;}
@@ -476,6 +479,8 @@ a:hover .hover-underline::after {
   .yj-padding-medium  { padding: 30px 30px 30px  }
   .yj-padding-small   { padding: 20px 30px 30px }
   .yj-padding-section { padding: 90px 30px 40px 30px  }
+  .ex-vertical-line{  position: absolute;  top: 90px;  width: 1px;  height: calc(100vh - 160px);  background-color: #888;}
+
   .section-title-row {height: 60px;min-height: 60px;}
   .section-title-text {font-size: 30px;}
   .home-info-top{padding-top:90px;}
@@ -565,6 +570,8 @@ a:hover .hover-underline::after {
   /* Layout & Spacing */
   .yj-padding-large, .yj-padding-medium, .yj-padding-small { padding: 20px 15px; }
   .yj-padding-section { padding: 90px 15px 60px 15px; }
+  .ex-vertical-line{  position: absolute;  top: 90px;  width: 1px;  height: calc(100vh - 160px);  background-color: #888;}
+
   .yj-height-half { height: auto; overflow: visible; }
   .section-title-row {height: 50px !important;min-height: 50px;padding-left: 15px;}
   .section-title-text {font-size: 25px;}

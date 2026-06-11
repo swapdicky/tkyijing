@@ -543,14 +543,8 @@ The <em>Book of Changes</em> is unquestionably a quintessential Chinese cultural
           <div className="ex-section radius-15" style={{ minHeight: isMobile ? 'auto' : '100vh', position: 'relative', flexShrink: 0, backgroundColor: "#330E07",  overflow: "hidden" }}>
             <div className="yj-padding-section ex-section-inner" style={{  minHeight: isMobile ? 'auto' : '100vh', position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               {/* Vertical line on the right */}
-              <div className="right-30 ex-vertical-line"
-              style={{
-                position: 'absolute',
-                top: '90px',
-                width: '1px',
-                height: 'calc(100vh - 160px)',
-                backgroundColor: '#888'
-              }}></div>
+              <div className="right-30 ex-vertical-line"></div>
+
               {/* Chinese text section */}
               <div style={{
                 display: 'flex',
@@ -694,14 +688,8 @@ Over the years, I failed repeatedly to create a visual representation of the <em
           <div className="ex-section radius-15" style={{ minHeight: isMobile ? 'auto' : '100vh', position: 'relative', flexShrink: 0, backgroundColor: "#000000", overflow: "hidden" , marginTop: isMobile ? '-40px' : '',paddingTop: isMobile ? '25px' : '', zIndex: isMobile ? '1' : '2' }}>
             <div className="yj-padding-section ex-section-inner" style={{  minHeight: isMobile ? 'auto' : '100vh', position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               {/* Vertical line on the right */}
-              <div className="right-30 ex-vertical-line"
-              style={{
-                position: 'absolute',
-                top: '90px',
-                width: '1px',
-                height: 'calc(100vh - 160px)',
-                backgroundColor: '#888'
-              }}></div>
+              <div className="right-30 ex-vertical-line"></div>
+
               {/* Chinese text section */}
               <div style={{
                 display: 'flex',
@@ -841,14 +829,7 @@ Nowadays, with the advance of digital technologies, an online consultation of th
           <div className="ex-section radius-15" style={{ minHeight: isMobile ? 'auto' : '100vh', position: 'relative', flexShrink: 0, backgroundColor: "#1A3B45",  overflow: "hidden",borderBottomLeftRadius: isMobile ? '0' : '', borderBottomRightRadius: isMobile ? '0' : '' }}>
             <div className="yj-padding-section ex-section-inner" style={{  minHeight: isMobile ? 'auto' : '100vh', position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               {/* Vertical line on the right */}
-              <div className="right-30 ex-vertical-line"
-              style={{
-                position: 'absolute',
-                top: '90px',
-                width: '1px',
-                height: 'calc(100vh - 160px)',
-                backgroundColor: '#888'
-              }}></div>
+              <div className="right-30 ex-vertical-line"></div>
               {/* Chinese text section */}
               <div style={{
                 display: 'flex',
