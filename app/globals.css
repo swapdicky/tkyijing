@@ -165,7 +165,7 @@ border-bottom: 1px solid #888;}
 /* Info box content sizes */
 .info-en-content-sm { font-size: 12px; line-height: 1.2; }
 .info-en-content-lg { font-size: 16px; line-height: 1.2; }
-.info-content { font-size: 18px; line-height: 1.4; }
+.info-content { font-size: 18px; line-height: 1.3; }
 
 /* Info box scale transforms */
 .info-scale-sm { transform: scale(0.8); }
@@ -410,7 +410,7 @@ a:hover .hover-underline::after {
   .yj-padding-section { padding: 90px 40px 60px 40px  }
   .section-title-row {height: 70px;min-height: 70px;}
   .section-title-text {font-size: 34px;}
-  .home-info-top{padding-top: 80px;padding-left: 30px;padding-right: 30px;}
+  .home-info-top{padding-top: 60px;padding-left: 30px;padding-right: 30px;}
   .bottom-60{bottom: 30px;left: 50px;}
   .margin-n-40{margin-top: -30px;}
   .right-30{right: 15px;}
@@ -584,7 +584,7 @@ a:hover .hover-underline::after {
   /* Info Box */
   .info-box-width{width: calc(100% - 30px);padding: 20px 15px !important;}
   .info-box-logo { width: 30px; height: 30px; top: 10px; left: 15px; }
-  .info-box-max-height-expanded{width: 100vw;height: 100% !important;padding:50px 15px !important;border-radius: 15px !important;}
+  .info-box-max-height-expanded{width: 100vw;height: 100% !important;padding:20px 15px !important;border-radius: 15px !important;}
   .info-box-max-height{height: 80% !important;margin-top: -10%;}
   .info-scale-sm { transform: scale(0.7); margin-bottom: -60px;}
   .info-scale-lg { transform: scale(1); }
@@ -596,9 +596,10 @@ a:hover .hover-underline::after {
   .yj-mobile-left-content{padding: 20px 20px;}
 
   /* Fixed Text Labels */
-  .move-over-text{position: fixed;right: -35px;top: 50%;transform: rotate(90deg);transform-origin: center center;font-size: 12px;font-family: "neue-haas-unica", sans-serif !important;white-space: nowrap;z-index: 20;pointer-events: none;transition: opacity 0.5s ease-out;color:#FFF}
+  .move-over-text{position: fixed;right: -35px;top: 50%;transform: rotate(90deg);transform-origin: center center;font-size: 12px;font-family: "neue-haas-unica", sans-serif !important;white-space: nowrap;z-index: 2;pointer-events: none;transition: opacity 0.5s ease-out;color:#FFF}
   .scroll-to-explore-text{position: fixed;right: -23px;top: 50%;transform: rotate(90deg);transform-origin: center center;font-size: 12px;font-family: "neue-haas-unica", sans-serif !important;white-space: nowrap;z-index: 99;pointer-events: none;transition: opacity 0.5s ease-out;color:#FFF;display: none !important;}
-  .home-title { font-size: 20px !important;line-height: 1.6; }
+  .home-title { font-size: 22px !important;line-height: 1.6; }
+  .home-title-en{font-size: 18px !important;}
 
   /* Exhibition */
   .ex-section { flex-direction: column; margin-left: 0; padding-right: 0;padding-left: 0; }

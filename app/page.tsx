@@ -74,6 +74,7 @@ export default function Home() {
   const [activePanel, setActivePanel] = useState<'image' | 'info'>('image'); // Track which panel is visible on mobile
   const [isLoaded, setIsLoaded] = useState(false);
   const scrollPositionRef = useRef(0);
+  const panelTouchStartYRef = useRef(0);
 
   // Preload all 64 hexagram images
   useEffect(() => {
@@ -691,7 +692,7 @@ export default function Home() {
       }}>
         <div className="flex flex-col items-center justify-center">
            <h1 className="text-white fw-300 home-title" style={{marginBottom: isMobile ? '5px' : '10px'}}>易經：鮑皓昕攝影藝術</h1>
-           <h1 className="text-white fw-300 home-title" style={{ fontFamily: '"neue-haas-unica", sans-serif' ,marginBottom: isMobile ? '30px' : '0'}}><em>Book of Changes</em>: The Art of Basil Pao</h1>
+           <h1 className="text-white fw-300 home-title home-title-en" style={{ fontFamily: '"neue-haas-unica", sans-serif' ,marginBottom: isMobile ? '30px' : '0'}}><em>Book of Changes</em>: The Art of Basil Pao</h1>
             {isMobile && <h5 className="text-white  yj-en-14 fw-300">Scroll to explore</h5>}
         
         
@@ -1129,6 +1130,20 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
             onWheel={(e) => {
               if (scrollContentRef.current) {
                 scrollContentRef.current.scrollTop += e.deltaY;
+              }
+            }}
+            onTouchStart={(e) => {
+              if (isMobile) {
+                panelTouchStartYRef.current = e.touches[0].clientY;
+              }
+            }}
+            onTouchMove={(e) => {
+              if (scrollContentRef.current && isMobile) {
+                const touchEndY = e.touches[0].clientY;
+                const deltaY = panelTouchStartYRef.current - touchEndY;
+                scrollContentRef.current.scrollTop += deltaY;
+                panelTouchStartYRef.current = touchEndY;
+                e.preventDefault();
               }
             }}
             style={{
