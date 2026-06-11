@@ -1116,7 +1116,7 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
               height: '100%',
               width: isMobile ? '100%' : 'calc(100vh * 698 / 2048)',
               backgroundImage: selectedBox ? `url(/images/Hex64_IMG/${selectedBox}.jpg)` : 'none',
-              backgroundSize: isMobile ? '50% auto' : 'cover',
+              backgroundSize: isMobile ? '55% auto' : 'cover',
               backgroundPosition: 'center center',
               backgroundRepeat: 'no-repeat',
               transition: isMobile && isPanelOpen ? 'left 0.3s ease-out' : undefined

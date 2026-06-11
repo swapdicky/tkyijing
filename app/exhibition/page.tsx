@@ -390,20 +390,16 @@ export default function Exhibition() {
               alignSelf: 'flex-end'
             }}>
               {/* Title */}
-              <h2 className="text-white fw-600 yj-cn-40"  style={{ writingMode: 'vertical-rl',
+              <h2 className="text-white fw-600 yj-cn-40 ex-ml-15 yj-lh-10"  style={{ writingMode: 'vertical-rl',
                 textOrientation: 'upright',
                 
-                letterSpacing: '0.2em',
-                
-                margin: 0 }}>
+                letterSpacing: '0.2em' }}>
                 展覽簡介
               </h2>
               
               {/* Description text */}
-              <div className="text-white fw-300 yj-cn-28"  style={{ writingMode: 'vertical-rl',
+              <div className="text-white fw-300 yj-cn-28 yj-lh-14 yj-lh-13-m"  style={{ writingMode: 'vertical-rl',
                 textOrientation: 'upright',
-                lineHeight: '1.4',
-                
                 letterSpacing: '0.1em',
                 marginBottom: isMobile ? "120px" : 0  }}>
                  <span className="mt-n-12"></span>︽易經︾<span className="mt-n-12"></span>無疑是中國文化遺產<br/>之精髓。儒家與道家思想同樣<br/>根植於此。是次展覽呈獻<br/>香港攝影藝術家鮑皓昕兩個<br/>系列作品：︽中國牆城︾<br/>和︽觀靜錄︾，探究文化遺產<br/>與藝術創作之間的關係。
@@ -414,17 +410,15 @@ export default function Exhibition() {
               <div style={{width: '100%'}}>
               {/* Title */}
               <div 
-                className="neue-haas-unica text-white fw-500 yj-en-24"
-                 style={{ marginBottom: '20px',
-                lineHeight: '1.2' }}>
+                className="neue-haas-unica text-white fw-500 yj-en-24 yj-lh-12"
+                 style={{ marginBottom: '20px' }}>
                 Exhibition Introduction
               </div>
 
               {/* English description */}
               <div 
-                className="neue-haas-unica text-white fw-300 yj-en-20"
-                 style={{ lineHeight: '1.2',
-                
+                className="neue-haas-unica text-white fw-300 yj-en-20 yj-lh-12"
+                 style={{
                 textAlign: 'left' }}>
 The <em>Book of Changes</em> is unquestionably a quintessential Chinese cultural heritage. Two series of works by Hong Kong photo artist Basil Pao—<em>The Great Walls of China</em> and <em>Glimpses of Silence</em>—are presented here to explore the relation between heritage and artistic creation.
 
@@ -561,20 +555,18 @@ The <em>Book of Changes</em> is unquestionably a quintessential Chinese cultural
                   letterSpacing: '0.2em' }}>
                   藝術家的話
                 </h3>
-                <h2 className="text-white fw-600 yj-cn-36"  style={{ writingMode: 'vertical-rl',
+                <h2 className="text-white fw-600 yj-cn-36 ex-ml-15"  style={{ writingMode: 'vertical-rl',
                   textOrientation: 'upright',
                   
                   letterSpacing: '0.2em',
                   
-                  lineHeight: '1',
-                  marginLeft:isMobile ? "15px" : '20px' }}>
+                  lineHeight: '1' }}>
                   <span className="mt-n-14"></span>︽中國牆城︾<span className="mt-n-14"></span>系列
                 </h2>
                 
                 {/* Description text */}
-                <div className="text-white fw-300 yj-cn-18"  style={{ writingMode: 'vertical-rl',
+                <div className="text-white fw-300 yj-cn-18 yj-lh-14 yj-lh-13-m yj-lh-13-m"  style={{ writingMode: 'vertical-rl',
                   textOrientation: 'mixed',
-                  lineHeight:  isMobile ? '1.3' : '1.4',
                   fontFamily: '"Noto Serif TC", serif',
                   letterSpacing: '0.2em',
                   marginBottom: isMobile ? "120px" : 0 ,
@@ -586,8 +578,8 @@ The <em>Book of Changes</em> is unquestionably a quintessential Chinese cultural
 指引我如何在困境中揭示我內心深處的想法，曾在我人生的<br/>
 關鍵時刻發揮重要作用，例如當年我在猶豫是否該離開<br/>
 美國荷里活的工作，開啟創作生涯新篇章時，我占得﹁旅﹂<br/>
-<span className="mt-n-6"></span>︵第五十六卦︶，使我下定決心回港，成為旅遊攝影師。<br/><br/>
-
+<span className="mt-n-6"></span>︵第五十六卦︶，使我下定決心回港，成為旅遊攝影師。
+<div className="ex-ml-15"></div>
 多年來，我不斷嘗試以視覺形式呈現︽易經︾的精髓，<br/>
 卻始終未能如願。直至<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>2007</span>年我在編輯︽中國探秘︾一書時，<br/>
 終於找到完美載體｜我在中國各地拍攝的斑駁牆垣特寫細節。<br/>
@@ -608,9 +600,7 @@ The <em>Book of Changes</em> is unquestionably a quintessential Chinese cultural
               {/* English section - aligned to bottom */}
               <div style={{width: '100%'}}>
                 {/* Title */}
-                <div className="text-white fw-300 yj-en-18"  style={{ marginBottom: '15px',
-                  lineHeight: '1.2',
-                  
+                <div className="text-white fw-300 yj-en-18 yj-lh-12"  style={{ marginBottom: '15px',
                   fontFamily: '"neue-haas-unica", sans-serif',
                   
                   fontStyle: 'normal' }}>
@@ -619,10 +609,7 @@ The <em>Book of Changes</em> is unquestionably a quintessential Chinese cultural
                 </div>
 
                 {/* English description */}
-                <div className="text-white fw-300 yj-en-14"  style={{
-                  lineHeight: '1.2',
-                  
-                  textAlign: 'left',
+                <div className="text-white fw-300 yj-en-14 yj-lh-12"  style={{
                   fontFamily: '"neue-haas-unica", sans-serif',
                   
                   fontStyle: 'normal' }}>
@@ -700,31 +687,31 @@ Over the years, I failed repeatedly to create a visual representation of the <em
                 alignSelf: 'flex-end'
               }}>
                 {/* Title */}
-                <h3 className="text-white fw-600 yj-cn-36"  style={{ writingMode: 'vertical-rl',
+                <h3 className="text-white fw-600 yj-cn-36 ex-ml-15"  style={{ writingMode: 'vertical-rl',
                   textOrientation: 'upright',
-                  letterSpacing: '0.2em',
-                  marginLeft: "20px" }}>
+                  letterSpacing: '0.2em' }}>
                  <span className="mt-n-12"></span>︽易經︾<span className="mt-n-12"></span>占卜
                 </h3>
                 
                 {/* Description text */}
-                <div className="text-white fw-300 yj-cn-24"  style={{ writingMode: 'vertical-rl',
+                <div className="text-white fw-300 yj-cn-24 yj-lh-14 yj-lh-13-m"  style={{ writingMode: 'vertical-rl',
                   textOrientation: 'upright',
 
-                  lineHeight: '1.25',
                   
                   letterSpacing: '0.1em',
                   marginBottom: isMobile ? "120px" : 0 ,
               height: isMobile ? '420px' : 'auto' }}>
                   人類對預知未來的渴求，可被視為在複雜<br/>
                   世道中駕馭變化的一種嘗試，以掌握生命，<br/>
-                  使它充滿意義。<br/><br/>
+                  使它充滿意義。<div className="ex-ml-15"></div>
+
 
                   據史實記載，古人使用蓍草與︽易經︾<br/>
                   六十四卦作占卜。卜卦過程需要分出蓍草<br/>
                   計算數值以定每一爻︵連線<span style={{writingMode: 'horizontal-tb', display: 'inline-block', transform: 'rotate(-180deg)', transformOrigin: 'center', margin: '0 -2px', letterSpacing: '-1px',fontSize:"20px"}}>—</span>或<span style={{writingMode: 'horizontal-tb', display: 'inline-block', transform: 'rotate(-180deg)', transformOrigin: 'center', margin: '0 -2px', letterSpacing: '-1px'}}>- -</span>斷線︶，<br/>
                   然後重覆此過程六次，得出完整的一卦。後來，<br/>
-                  金錢卦逐漸普及，並沿襲至今。<br/><br/>
+                  金錢卦逐漸普及，並沿襲至今。<div className="ex-ml-15"></div>
+
 
                   隨著數碼科技突破，今時今日在網上<br/>
                   進行︽易經︾占卜僅需點擊虛擬銅錢六次，<br/>
@@ -735,9 +722,7 @@ Over the years, I failed repeatedly to create a visual representation of the <em
               {/* English section - aligned to bottom */}
               <div style={{width: '100%'}}>
                 {/* Title */}
-                <div className="text-white fw-500 yj-en-18"  style={{ marginBottom: '10px',
-                  lineHeight: '1.2',
-                  
+                <div className="text-white fw-500 yj-en-18 yj-lh-12"  style={{ marginBottom: '10px',
                   fontFamily: '"neue-haas-unica", sans-serif',
                   
                   fontStyle: 'normal' }}>
@@ -745,8 +730,7 @@ Over the years, I failed repeatedly to create a visual representation of the <em
                 </div>
 
                 {/* English description */}
-                <div className="text-white fw-300 yj-en-14"  style={{ lineHeight: '1.2',
-                  
+                <div className="text-white fw-300 yj-en-14 yj-lh-12"  style={{
                   textAlign: 'left',
                   fontFamily: '"neue-haas-unica", sans-serif',
                   
@@ -846,22 +830,17 @@ Nowadays, with the advance of digital technologies, an online consultation of th
                   letterSpacing: '0.2em' }}>
                   藝術家的話
                 </h3>
-                <h2 className="text-white fw-600 yj-cn-36"  style={{ writingMode: 'vertical-rl',
+                <h2 className="text-white fw-600 yj-cn-36 ex-ml-15 yj-lh-10"  style={{ writingMode: 'vertical-rl',
                   textOrientation: 'upright',
                   
-                  letterSpacing: '0.2em',
-                  
-                  lineHeight: '1',
-                  marginLeft: "20px"}}>
+                  letterSpacing: '0.2em'}}>
                   <span className="mt-n-12"></span>︽觀靜錄︾
                 </h2>
 
                 
                 {/* Description text */}
-                <div className="text-white fw-300 yj-cn-24"  style={{ writingMode: 'vertical-rl',
+                <div className="text-white fw-300 yj-cn-24 yj-lh-14 yj-lh-13-m"  style={{ writingMode: 'vertical-rl',
                   textOrientation: 'upright',
-                  lineHeight: '1.4',
-                  
                   letterSpacing: '0.1em',
                   marginBottom: isMobile ? "120px" : 0  }}>
                   <span className="mt-n-8"></span>︽易經︾<span className="mt-n-8"></span>的核心概念是﹁天人合一﹂。<br /><span className="mt-n-8"></span>︽觀靜錄︾<span className="mt-n-8"></span>系列收錄了無人機尚<br/>未普及之前的航拍作品，以及其他<br/>人跡罕至的遼闊景觀，嘗試以此攝影<br/>作品集詮釋此概念。過去四十年來，<br/>我有幸踏遍世界邊陲進行拍攝，<br/>我希望能與新一代的觀眾分享這批<br/>作品，讓他們欣賞地球的壯麗風采，<br/>進而踏上更新與保護的道路，而非<br/>重蹈我輩自我毀滅的覆轍。
@@ -871,9 +850,7 @@ Nowadays, with the advance of digital technologies, an online consultation of th
               {/* English section - aligned to bottom */}
               <div style={{width: '100%'}}>
                 {/* Title */}
-                <div className="text-white fw-300 yj-en-18"  style={{ marginBottom: '15px',
-                  lineHeight: '1.2',
-                  
+                <div className="text-white fw-300 yj-en-18 yj-lh-12"  style={{ marginBottom: '15px',
                   fontFamily: '"neue-haas-unica", sans-serif',
                   
                   fontStyle: 'normal' }}>
@@ -882,8 +859,7 @@ Artist Statement<br/>
                   <span className="fw-500"><em>Glimpses of Silence</em></span>
                 </div>
                 {/* English description */}
-                <div className="text-white fw-300 yj-en-14"  style={{ lineHeight: '1.2',
-                  
+                <div className="text-white fw-300 yj-en-14 yj-lh-12"  style={{
                   textAlign: 'left',
                   fontFamily: '"neue-haas-unica", sans-serif',
                   

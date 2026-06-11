@@ -80,28 +80,24 @@ export default function Yijing() {
           height: '100%'
         }}>
           {/* Chinese text section */}
-          <div style={{
+          <div className="yj-gap-0" style={{
             display: 'flex',
             flexDirection: 'row-reverse',
-            gap: '0px',
             justifyContent: 'flex-start',
             alignItems: 'flex-start',
             alignSelf: 'flex-end'
           }}>
             {/* 易經 title */}
-            <h2 className={`yj-cn-40 text-black fw-600 ${currentSlide === 0 ? 'v-fade' : ''}`}  style={{ writingMode: 'vertical-rl',
+            <h2 className={`yj-cn-40 text-black fw-600 yj-lh-10 ex-ml-15 ${currentSlide === 0 ? 'v-fade' : ''}`}  style={{ writingMode: 'vertical-rl',
               textOrientation: 'upright',
               
-              letterSpacing: '0.2em',
-              
-              margin: 0 }}>
+              letterSpacing: '0.2em' }}>
               <span className="mt-n-14"></span>︽易經︾<span className="mt-n-14"></span>是什麼？
             </h2>
             
             {/* Description text */}
-            <div className="yj-cn-24 text-black fw-300" style={{ writingMode: 'vertical-rl',
+            <div className="yj-cn-24 text-black fw-300 yj-lh-14 yj-lh-13-m" style={{ writingMode: 'vertical-rl',
               textOrientation: 'upright',
-              lineHeight: '1.4',
               letterSpacing: '0.1em' }}>
               <span className={currentSlide === 0 ? 'v-fade-delay-2' : ''}><span className="space-before-bracket"></span>︽易經︾<span className="space-after-bracket"></span>是一本古代卜辭書，在中國</span><br />
               <span className={currentSlide === 0 ? 'v-fade-delay-3' : ''}>哲學歷史中具有重要地位。<span className="space-before-bracket"></span>﹁易﹂<span className="space-after-bracket"></span></span><br />
@@ -117,14 +113,13 @@ export default function Yijing() {
           {/* English section - aligned to bottom */}
           <div>
             {/* Title */}
-            <div className={`yj-en-24 text-black fw-500 yj-en-16-mb`}  style={{ marginBottom: '10px',
-              lineHeight: '1.2',
+            <div className={`yj-en-24 text-black fw-500 yj-en-16-mb yj-lh-12`}  style={{ marginBottom: '10px',
               fontStyle: 'normal' }}>
               What is the <em>Yijing</em>, <em>Book of Changes</em>？
             </div>
 
             {/* English description */}
-            <div className={`yj-en-20 text-black fw-300 yj-en-14-mb `}  style={{ lineHeight: '1.2',
+            <div className={`yj-en-20 text-black fw-300 yj-en-14-mb yj-lh-12`}  style={{
 
               
               fontStyle: 'normal' }}>
@@ -166,7 +161,6 @@ export default function Yijing() {
               border: 'none',
               color: '#000',
               fontSize: '44px',
-              lineHeight: '1',
               cursor: 'pointer',
               display: 'flex',
               alignItems: 'center',
@@ -193,22 +187,18 @@ export default function Yijing() {
             height: '100%'
           }}>
           {/* Vertical Chinese text */}
-          <div style={{
+          <div className="" style={{
             display: 'flex',
             flexDirection: 'row-reverse',
-            gap: '20px',
             alignSelf: 'flex-end'
           }}>
-            <div className="yj-cn-40 text-black fw-600"  style={{ writingMode: 'vertical-rl',
+            <div className="yj-cn-40 text-black fw-600 yj-lh-12 ex-ml-15"  style={{ writingMode: 'vertical-rl',
               textOrientation: 'upright',
-              lineHeight: '1.2',
               letterSpacing: '0.15em' }}>
               <span className={currentSlide === 2 ? 'v-fade' : ''}><span className="mt-n-6"></span><span className="space-before-bracket"></span>︽易經︾<span className="space-after-bracket"></span>哲學的</span><br/><span className={currentSlide === 2 ? 'v-fade-delay-2' : ''}>基礎概念是什麼？</span>
             </div>
-            <div className="yj-cn-24 text-black fw-300"  style={{ writingMode: 'vertical-rl',
+            <div className="yj-cn-24 text-black fw-300 yj-lh-14 yj-lh-13-m"  style={{ writingMode: 'vertical-rl',
               textOrientation: 'upright',
-              lineHeight: '1.4',
-              
               letterSpacing: '0.1em' }}>
                <span className={currentSlide === 2 ? 'v-fade-delay-3' : ''}><span className="space-before-bracket"></span>︽易經︾<span className="space-after-bracket"></span>六十四卦體系的確立，</span><br/><span className={currentSlide === 2 ? 'v-fade-delay-4' : ''}>乃基於<span className="space-before-bracket"></span>﹁陰陽﹂<span className="space-after-bracket"></span>和<span className="space-before-bracket"></span>﹁五行﹂<span className="space-after-bracket"></span></span><br/><span className={currentSlide === 2 ? 'v-fade-delay-5' : ''}>觀念所形成的關聯性宇宙觀，</span><br/><span className={currentSlide === 2 ? 'v-fade-delay-6' : ''}>以觀萬物之態。這些概念被認為</span><br/><span className={currentSlide === 2 ? 'v-fade-delay-7' : ''}>是宇宙創造與變化的過程，</span><br/><span className={currentSlide === 2 ? 'v-fade-delay-8' : ''}>同時也體現萬物在整體規律中</span><br/><span className={currentSlide === 2 ? 'v-fade-delay-8' : ''}>相互依存的本質。</span>
             </div>
@@ -216,11 +206,10 @@ export default function Yijing() {
 
           {/* English text at bottom */}
           <div className="">
-            <div className="yj-en-24 text-black fw-500 yj-en-16-mb"  style={{ marginBottom: '10px',
-              lineHeight: '1.3' }}>
+            <div className="yj-en-24 text-black fw-500 yj-en-16-mb yj-lh-13"  style={{ marginBottom: '10px' }}>
               What Are the Fundamental Concepts<br/>in the Philosophy of the <em>Book of Changes</em>?
             </div>
-            <div className="yj-en-20 text-black fw-300  yj-en-14-mb"  style={{ lineHeight: '1.2' }}>
+            <div className="yj-en-20 text-black fw-300 yj-en-14-mb yj-lh-12">
 The divination system in the <em>Book of Changes</em> was formalised to observe the conditions of all things, based on a correlative cosmology formed around the notions of <em>yinyang</em> and <em>wuxing</em>. These concepts were identified with the processes of cosmic creativity and transformation, as well as the interconnectedness of all things in a holistic totality of order.             </div>
           </div>
         </div>
@@ -260,7 +249,6 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
               border: 'none',
               color: '#000',
               fontSize: '44px',
-              lineHeight: '1',
               cursor: 'pointer',
               display: 'flex',
               alignItems: 'center',
@@ -310,7 +298,6 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
               border: 'none',
               color: '#000',
               fontSize: '44px',
-              lineHeight: '1',
               cursor: 'pointer',
               display: 'flex',
               alignItems: 'center',
@@ -337,21 +324,18 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
             height: '100%'
           }}>
           {/* Vertical Chinese text */}
-          <div style={{
+          <div className="" style={{
             display: 'flex',
             flexDirection: 'row-reverse',
-            gap: '20px',
             alignSelf: 'flex-end'
           }}>
-            <div className="yj-cn-36 text-black fw-300"  style={{ writingMode: 'vertical-rl',
+            <div className="yj-cn-36 text-black fw-600 yj-lh-12 ex-ml-15"  style={{ writingMode: 'vertical-rl',
               textOrientation: 'upright',
-              lineHeight: '1.2',
               letterSpacing: '0.1em' }}>
               <span className={currentSlide === 5 ? 'v-fade' : ''}><span className="mt-n-12"></span>︽易︾<span className="space-after-bracket"></span>有太極，是生兩儀，</span><br/><span className={currentSlide === 5 ? 'v-fade-delay-2' : ''}>兩儀生四象，四象生八卦。</span><br/><span className={currentSlide === 5 ? 'v-fade-delay-3' : ''}>八卦定吉凶，吉凶生大業。</span>
             </div>
-            <div className={`yj-cn-20 text-black fw-300 ${currentSlide === 5 ? 'v-fade-delay-4' : ''}`}  style={{ writingMode: 'vertical-rl',
+            <div className={`yj-cn-20 text-black fw-300 ${currentSlide === 5 ? 'v-fade-delay-4' : ''} yj-lh-12`}  style={{ writingMode: 'vertical-rl',
               textOrientation: 'upright',
-              lineHeight: '1.2',
               letterSpacing: '0.1em' }}>
               <span className="space-before-bracket"></span>︽繫辭︾<span className="space-after-bracket"></span>上傳，第十一章
             </div>
@@ -363,7 +347,7 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
             position: 'absolute',
             width: '400px'
           }}>
-            <div className="yj-en-16 text-black fw-500"  style={{ lineHeight: '1.2' }}>
+            <div className="yj-en-16 text-black fw-500 yj-lh-12">
               <p style={{ marginBottom: '10px' }}>There is, in the <em>Changes</em>, <br/><span style={{marginLeft: '20px'}}></span>the Supreme Ultimate <em>(taiji)</em>.</p>
               <p style={{ marginBottom: '10px' }}>This generates the two primal forces.</p>
               <p style={{ marginBottom: '10px' }}>The two primal forces  <br/><span style={{marginLeft: '20px'}}></span>generate the four images.</p>
@@ -387,21 +371,18 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
             height: '100%'
           }}>
           {/* Vertical Chinese text */}
-          <div style={{
+          <div className="" style={{
             display: 'flex',
             flexDirection: 'row-reverse',
-            gap: '20px',
             alignSelf: 'flex-end'
           }}>
-            <div className="yj-cn-36 text-black fw-300"  style={{ writingMode: 'vertical-rl',
+            <div className="yj-cn-36 text-black fw-600 yj-lh-12 ex-ml-15"  style={{ writingMode: 'vertical-rl',
               textOrientation: 'upright',
-              lineHeight: '1.2',
               letterSpacing: '0.1em' }}>
               <span className={currentSlide === 6 ? 'v-fade' : ''}>天一，地二；天三，地四；天五，</span><br/><span className={currentSlide === 6 ? 'v-fade-delay-2' : ''}>地六；天七，地八；天九，地十。</span><br/><span className={currentSlide === 6 ? 'v-fade-delay-3' : ''}>天數五，地數五，五位相得而</span><br/><span className={currentSlide === 6 ? 'v-fade-delay-4' : ''}>各有合。天數二十有五，地數三十，</span><br/><span className={currentSlide === 6 ? 'v-fade-delay-5' : ''}>凡天地之數，五十有五，此所以</span><br/><span className={currentSlide === 6 ? 'v-fade-delay-6' : ''}>成變化而行鬼神也。</span>
             </div>
-            <div className={`yj-cn-20 text-black fw-300 ${currentSlide === 6 ? 'v-fade-delay-7' : ''}`}  style={{ writingMode: 'vertical-rl',
+            <div className={`yj-cn-20 text-black fw-300 ${currentSlide === 6 ? 'v-fade-delay-7' : ''} yj-lh-12`}  style={{ writingMode: 'vertical-rl',
               textOrientation: 'upright',
-              lineHeight: '1.2',
               letterSpacing: '0.1em' }}>
               <span className="space-before-bracket"></span>︽繫辭︾<span className="space-after-bracket"></span>上傳，第九章
             </div>
@@ -413,7 +394,7 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
             position: 'absolute',
             width: '400px'
           }}>
-            <div className="yj-en-16 text-black fw-500"  style={{ lineHeight: '1.2' }}>
+            <div className="yj-en-16 text-black fw-500 yj-lh-12">
               <p style={{ marginBottom: '10px' }}>Heaven in one, Earth is two; Heaven is three,<br/> Earth is four; Heaven is five, Earth is six;<br/> Heaven is seven, Earth is eight; Heaven is <br/>nine, Earth in ten. There are thus five<br/>heavenly numbers and five earthly numbers.<br/> When these numbers are distributed among<br/>the five places, each finds its complement.<br/> The sum of the heavenly numbers is 25 and <br/>that of the earthly numbers is 30. The sum <br/>total of heavenly numbers and earthly <br/>numbers is 55. It is this which completes the <br/>changes and transformation and sets the <br/>spirits in motion.</p>
               <p className="yj-en-14 fw-300">"Great Commentary", Part I, Ch. 9</p>
             </div>
@@ -456,7 +437,6 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
               border: 'none',
               color: '#000',
               fontSize: '44px',
-              lineHeight: '1',
               cursor: 'pointer',
               display: 'flex',
               alignItems: 'center',
@@ -507,7 +487,6 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
               border: 'none',
               color: '#000',
               fontSize: '44px',
-              lineHeight: '1',
               cursor: 'pointer',
               display: 'flex',
               alignItems: 'center',
@@ -534,29 +513,26 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
               height: isMobile ? 'auto' : '100%' 
           }}>
           {/* Vertical Chinese text */}
-          <div style={{
+          <div className="" style={{
             display: 'flex',
             flexDirection: 'row-reverse',
-            gap: '20px',
             alignSelf: 'flex-end',
             flex: 1
           }}>
-            <div className={`yj-cn-40 text-black fw-600 ${currentSlide === 9 ? 'v-fade' : ''}`}  style={{ writingMode: 'vertical-rl',
+            <div className={`yj-cn-40 text-black fw-600 ex-ml-15 ${currentSlide === 9 ? 'v-fade' : ''} yj-lh-12`}  style={{ writingMode: 'vertical-rl',
               textOrientation: 'upright',
-              lineHeight: '1.2',
               letterSpacing: '0.12em' }}>
               活著的傳承
             </div>
-            <div className={`yj-cn-16 text-black fw-300 ${currentSlide === 9 ? 'v-fade' : ''}`}  style={{ writingMode: 'vertical-rl',
+            <div className={`yj-cn-16 text-black fw-300 yj-lh-14 yj-lh-13-m ${currentSlide === 9 ? 'v-fade' : ''}`}  style={{ writingMode: 'vertical-rl',
               textOrientation: 'mixed',
-              lineHeight: '1.4',
               letterSpacing: '0.05em',
               fontFamily: '"Noto Serif TC", serif',
               marginBottom: isMobile ? '120px' : '0',
               height: isMobile ? '510px' : 'auto' }}>
               {isMobile ? (
                 <>
-                  <span className="space-before-bracket"></span>︽易經︾<span className="space-after-bracket"></span>被中國歷代思想家不斷詮釋和修訂，並發展了對其註釋<br/>傳統的專門研究和派別。一些思想家著重卜卦的<span className="space-before-bracket"></span>﹁象數﹂<span className="space-after-bracket"></span>；<br/>另一些深入考究經典的<span className="space-before-bracket"></span>﹁義理﹂<span className="space-after-bracket"></span>。此書的影響貫穿整個中國<br/>文化史，持續發揮影響至今。<br/><br/>
+                  <span className="space-before-bracket"></span>︽易經︾<span className="space-after-bracket"></span>被中國歷代思想家不斷詮釋和修訂，並發展了對其註釋<br/>傳統的專門研究和派別。一些思想家著重卜卦的<span className="space-before-bracket"></span>﹁象數﹂<span className="space-after-bracket"></span>；<br/>另一些深入考究經典的<span className="space-before-bracket"></span>﹁義理﹂<span className="space-after-bracket"></span>。此書的影響貫穿整個中國<br/>文化史，持續發揮影響至今。<div className="ex-ml-15"></div>
                   
                   <span className="space-before-bracket"></span>︽易經︾<span className="space-after-bracket"></span>在國際世界亦備受尊崇。分別出自馬克萊奇<br/><span className="space-before-paren"></span>︵<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Thomas McClatchie</span>，<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1814–1885</span>年︶<span className="space-after-paren"></span>、理雅各<span className="space-before-paren"></span>︵<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>James Legge</span>，<br/><span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1815–1897</span>年︶<span className="space-after-paren"></span>、尉禮賢<span className="space-before-paren"></span>︵<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Richard Wilhelm</span>，<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1873–1930</span>年︶<span className="space-after-paren"></span>之手的<br/>譯本，將此中國經典傳播至世界。心理學家卡爾‧榮格<span className="space-before-paren"></span>︵<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Carl Jung</span>，<br/><span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1875–1961</span>年︶<span className="space-after-paren"></span>將此古籍與他提出的<span className="space-before-bracket"></span>﹁共時性﹂<span className="space-after-bracket"></span>概念結合。<br/>先鋒派作曲家約翰‧基治<span className="space-before-paren"></span>︵<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>John Cage</span>，<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1912–1992</span>年︶<span className="space-after-paren"></span>根據<br/><span className="space-before-bracket"></span>︽易經︾<span className="space-after-bracket"></span>的處境次序決定音樂創作的隨機性。艾斯班‧艾瑟特<br/><span className="space-before-paren"></span>︵<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Espen Aarseth</span>，<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1965</span>年生︶<span className="space-after-paren"></span>在進行數碼文學研究時，將<span className="space-before-bracket"></span>︽易經︾<span className="space-after-bracket"></span><br/>視為<span className="space-before-bracket"></span>﹁可能是古代最著名的制動文本範例﹂<span className="space-after-bracket"></span>。
                 </>
@@ -571,7 +547,7 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
           {/* English text at bottom */}
           <div>
               <div className="yj-en-18 text-black fw-500"  style={{ marginBottom: '10px' }}>Living Legacy</div>
-            <div className="yj-en-14 text-black fw-300 mb-30-bottom"  style={{ lineHeight: '1.25' }}>
+            <div className="yj-en-14 text-black fw-300 mb-30-bottom yj-lh-12">
 
               <p style={{ marginBottom: '10px' }}>The <em>Book of Changes</em> was embraced and appropriated by later Chinese thinkers, giving rise to specialised studies of its commentarial traditions. approached the divination judgements based on images and numbers; others took the classic to be an explanation of meanings and principles. The book’s impact spanned the entire cultural history of China, and it continues to exert influence in the present.</p>
               <p>The book's reception in the international world has been remarkable. Respective translations by Thomas McClatchie (1814-1885), James Legge (1815-1897), and Richard Wilhelm (1873-1930) introduced the ancient Chinese text to the world. The psychologist Carl Jung (1875-1961) linked it to his concept of synchronicity. The avant-garde composer John Cage (1912-1992) referred to the book’s sequences of events for determining randomness in music composition. Espen Aarseth (b. 1965) regarded it as “possibly the best-known example of cybertext in antiquity” when exploring cybertext theory in digital literary studies.</p>
@@ -614,7 +590,6 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
               border: 'none',
               color: '#000',
               fontSize: '44px',
-              lineHeight: '1',
               cursor: 'pointer',
               display: 'flex',
               alignItems: 'center',
@@ -651,7 +626,7 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
               <div className="yj-cn-18 text-white fw-600"  style={{ marginBottom: '10px' }}>
                 儒家五經之一
               </div>
-              <div className="yj-cn-16 text-white fw-300"  style={{ lineHeight: '1.4', fontFamily: '"Noto Serif TC", serif' }}>
+              <div className="yj-cn-16 text-white fw-300 yj-lh-14"  style={{ fontFamily: '"Noto Serif TC", serif' }}>
                 <p style={{marginBottom:'10px'}}>
                 最初，此書將六十四卦的卦象、卦名與卦爻辭集結，名為《周易》，相傳為周文王（公元前十一世紀）所著。《周易》正文逐漸擴展至包含一系列為經作註解和闡釋哲理的「傳」（又稱《十翼》），相信是戰國時期（公元前<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>475-221</span>年）不同作者所撰注。
                 </p>
@@ -701,16 +676,11 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
             }}>
             <div className={`yj-cn-20 text-white fw-300 ${currentSlide === 1 ? 'v-fade-delay-3' : ''}`}  style={{ writingMode: 'vertical-rl',
               textOrientation: 'upright',
-              letterSpacing: '0.2em',
-              
-              lineHeight: '1.8' }}>
+              letterSpacing: '0.2em' }}>
               ︽繫辭︾上傳，第五章
             </div>
-            <div className="yj-cn-110 text-white fw-300"  style={{ writingMode: 'vertical-rl',
+            <div className="yj-cn-110 text-white fw-300 yj-lh-12"  style={{ writingMode: 'vertical-rl',
               textOrientation: 'mixed',
-              
-              
-              lineHeight: '1.2',
               letterSpacing: '0.05em' }}>
               <span className={currentSlide === 1 ? 'v-fade' : ''}>一陰一陽</span><br/><span className={currentSlide === 1 ? 'v-fade-delay-2' : ''}>之謂道。</span>
             </div>
@@ -743,7 +713,7 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
               <div className="yj-cn-18 text-white fw-600"  style={{ marginBottom: '10px' }}>
                 <span style={{marginLeft:"-6px"}}></span>「陰陽」與「五行」
               </div>
-              <div className="yj-cn-15 text-white fw-300"  style={{ lineHeight: '1.4' }}>
+              <div className="yj-cn-15 text-white fw-300 yj-lh-14">
                 <p style={{marginBottom:'10px'}}>
 <span style={{marginLeft:"-4px"}}></span>「陰」與「陽」最初指的是山川的背日和向陽面。「陰」代表冰冷、雲、雨及任何具陰性特質的事物；<br/><span style={{marginLeft:"-4px"}}></span>「陽」代表相反的概念，如温暖、晴天、陽光及任何具陽性特質的事物。
                 </p>
@@ -797,7 +767,7 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
             <div className="yj-en-18 text-white fw-500"  style={{ marginBottom: '10px' }}>
               <em>Yinyand</em> and  <em>Wuxing</em>
             </div>
-            <div className="yj-en-14 text-white fw-300 mb-30-bottom"  style={{ lineHeight: '1.5' }}>
+            <div className="yj-en-14 text-white fw-300 mb-30-bottom yj-lh-15">
               <p style={{marginBottom:'10px'}}>
 
 The terms <em>yin</em>, the dark, and <em>yang</em>, the light, originally denote the shadowed and the light sides of a mountain or a river. <em>Yin</em> conveys the idea of coldness, clouds, rain, and anything feminine; while <em>yang</em> conveys the opposite idea of warmth, a clear sky, sunshine, and anything masculine.
@@ -835,7 +805,7 @@ Hence, the ancient Chinese developed a comprehensive scheme of symbolic correlat
             <div className="yj-cn-20 text-white fw-600"  style={{ marginBottom: '10px' }}>
               易
             </div>
-            <div className="yj-cn-15 text-white fw-300"  style={{ lineHeight: '1.4' }}>
+            <div className="yj-cn-15 text-white fw-300 yj-lh-14">
               <p style={{ marginBottom: '10px' }}>「太極」作為本源，是一切事物的起源和終結，開造化之力，最終引導事物的圓滿成就。</p>
               <p style={{ marginBottom: '10px' }}>陰陽交替，為宇宙變化的自然過程賦予動力。他們分別以斷線––與連線——代表。萬物萬象皆由此二元力量自然生成，互相依存且持續變化。</p>
               <p>將「陰」與「陽」以四種不同組合排列，由此得出四象；四象各加一陰一陽，遂成八卦；將八卦以同樣方式排列，衍得六十四卦。</p>
@@ -854,7 +824,7 @@ Hence, the ancient Chinese developed a comprehensive scheme of symbolic correlat
             <div className="yj-en-18 text-white fw-500"  style={{ marginBottom: '10px' }}>
               Change and Transformation
             </div>
-            <div className="yj-en-14 text-white fw-300 mb-30-bottom"  style={{ lineHeight: '1.4' }}>
+            <div className="yj-en-14 text-white fw-300 mb-30-bottom yj-lh-14">
               <p style={{ marginBottom: '10px' }}>The Supreme Ultimate <em>(taiji)</em> as primal source is both the starting point and the ending point of all things. The power of creative initiation leads to the power of completion and fulfilment.</p>
               <p style={{ marginBottom: '10px' }}><em>Yin</em> and <em>yang</em> animate the natural processes of cosmic change. They are represented by a broken line – – and a full line — respectively. All things and phenomena arise spontaneously from this dualism of forces and are interconnected and constantly changing.</p>
               <p>By combining <em>yin</em> and <em>yang</em> in four possible ways, there are the four images. By adding <em>yin<em> and </em>yang</em> separately to each of the four images, there are the eight trigrams. By the same process of doubling the eight trigrams, there are the sixty-four hexagrams.</p>
@@ -880,7 +850,7 @@ Hence, the ancient Chinese developed a comprehensive scheme of symbolic correlat
             <div className="yj-cn-20 text-white fw-600"  style={{ marginBottom: '10px' }}>
               六十四卦
             </div>
-            <div className="yj-cn-15 text-white fw-300"  style={{ lineHeight: '1.4' }}>
+            <div className="yj-cn-15 text-white fw-300 yj-lh-14">
               <p style={{ marginBottom: '10px' }}>《易經》中的六十四卦，象徵了宇宙變化的結構與形象。這個符號系統被運用於占卜中。</p>
               <p style={{ marginBottom: '10px' }}>《周易》原文記錄了六十四卦各有的卦象、卦名、卦辭，以及說明每一爻變化的爻辭。</p>
               <p style={{ marginBottom: '10px' }}>六十四卦中每一卦包含兩個單卦，單卦有各自的名稱與象徵意義。由於六爻皆具變動可能，因此每一卦皆呈現一系列可變化的處境序列。</p>
@@ -900,7 +870,7 @@ Hence, the ancient Chinese developed a comprehensive scheme of symbolic correlat
             <div className="yj-en-18 text-white fw-500"  style={{ marginBottom: '10px' }}>
               The 64 Hexagrams
             </div>
-            <div className="yj-en-14 text-white fw-300 mb-30-bottom"  style={{ lineHeight: '1.4' }}>
+            <div className="yj-en-14 text-white fw-300 mb-30-bottom yj-lh-14">
               <p style={{ marginBottom: '10px' }}>The 64 hexagrams in the <em>Book of Changes</em> represent symbolically the images and the structures of change in the universe. This system of symbols has been used for divination.</p>
               <p style={{ marginBottom: '10px' }}>In the original <em>Changes of Zhou</em>, each of the 64 hexagrams is given an image, a name, a short, cryptic description called a “judgement”, and a reading for each line.</p>
               <p style={{ marginBottom: '10px' }}>Each hexagram contains a pair of trigrams that have individual names and symbolic associations. As each of the six lines is thought of as capable of change, each hexagram expresses a series of situations that can change from one into another.</p>
@@ -927,7 +897,7 @@ Hence, the ancient Chinese developed a comprehensive scheme of symbolic correlat
             <div className="yj-cn-20 text-white fw-600"  style={{ marginBottom: '10px' }}>
               天、地、人
             </div>
-            <div className="yj-cn-15 text-white fw-300"  style={{ lineHeight: '1.4' }}>
+            <div className="yj-cn-15 text-white fw-300 yj-lh-14">
               <p style={{ marginBottom: '10px' }}>《易經》的內容強調了「天、地、人」三才的互動和合一，亦即在天地之間讓人類安身立命。它更着重提出德行是達致宇宙秩序與個人福祉的關鍵。</p>
               <p style={{ marginBottom: '10px' }}>卜卦問事因此讓人們把自身處境與六十四卦的自然現象相互參照，通過分析卦象、卦辭與爻辭指引人們如何行事，藉以在不同處境中實現自我。這為判斷占卜結果的吉凶賦予了道德層面的意義。</p>
               <p>如此一來，占卜以尋求啟示，使人得以參與天地變化的整體過程中，以達致和諧合一。這種思維方式彰顯了人類的能動力在掌握未來的重要性。</p>
@@ -946,7 +916,7 @@ Hence, the ancient Chinese developed a comprehensive scheme of symbolic correlat
             <div className="yj-en-18 text-white fw-500"  style={{ marginBottom: '10px' }}>
               Heaven, Earth, and Humanity
             </div>
-            <div className="yj-en-14 text-white fw-300 mb-30-bottom"  style={{ lineHeight: '1.4' }}>
+            <div className="yj-en-14 text-white fw-300 mb-30-bottom yj-lh-14">
               <p style={{ marginBottom: '10px' }}>The <em>Book of Changes</em> stresses the unity and dynamic interaction between the three cosmic powers of Heaven, Earth, and Humanity—the way Humanity finds its place between Heaven and Earth. It further emphasizes morality as the key to cosmic order and individual wellbeing.</p>
               <p style={{ marginBottom: '10px' }}>The practice of divination offers the opportunity for humans to relate their situations to the natural phenomena of the hexagrams. The images and the lines guide human actions for self-realisation in each divine situation. They provide a moral relevance to the judgements of fortune and misfortune.</p>
               <p>In this way, the counsels for actions enable human participation in the totality of cosmic change for harmony and unity. This way of thinking underlines the importance of human agency in the art of knowing and mastering the future.</p>
@@ -972,7 +942,7 @@ Hence, the ancient Chinese developed a comprehensive scheme of symbolic correlat
             <div className="yj-cn-20 text-white fw-600"  style={{ marginBottom: '10px' }}>
               《易經》與術數
             </div>
-            <div className="yj-cn-15 text-white fw-300"  style={{ lineHeight: '1.4', fontFamily: '"Noto Serif TC", serif' }}>
+            <div className="yj-cn-15 text-white fw-300 yj-lh-14"  style={{ fontFamily: '"Noto Serif TC", serif' }}>
               <p style={{ marginBottom: '10px' }}>《易經》揭示出古代中國人如何建構出一套數字體系，用作命理占卜以及解釋自然運行規律。</p>
               <p>「河圖」與「洛書」是兩幅中國古代的圖像，代表了對自然秩序的數字詮釋。這兩幅圖像自古流傳，至宋代（<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>960–1279</span>年）增補至《易經》之中。它們與「五行」以及各種對應系統如方位、顏色、干支曆法等相互關聯，以呈現天地萬物在整體規律中的相互依存性。</p>
             </div>
@@ -990,7 +960,7 @@ Hence, the ancient Chinese developed a comprehensive scheme of symbolic correlat
             <div className="yj-en-18 text-white fw-500"  style={{ marginBottom: '10px' }}>
               The <em>Book of Changes</em> and Numerology
             </div>
-            <div className="yj-en-14 text-white fw-300 "  style={{ lineHeight: '1.4' }}>
+            <div className="yj-en-14 text-white fw-300 yj-lh-14">
               <p style={{ marginBottom: '10px' }}>The <em>Book of Changes</em> reveals how the ancient Chinese developed a numerical system that could be used for divination and explaining the operations of nature.</p>
               <p>Two ancient Chinese diagrams, <em>Yellow River Chart</em> and <em>Writing from the Luo River</em>, represent the numerical interpretations of the natural order. Both diagrams, as received from antiquity, had been appended to the Book of Changes by the Song period (960–1279). They were linked to the five phases (<em>wuxing</em>) and the different correlational systems—such as, cardinal point, colour, and the stem-branch system of Chinese calendar—to represent the interconnectedness of all things in a holistic totality of order.</p>
             </div>
@@ -1014,16 +984,15 @@ Hence, the ancient Chinese developed a comprehensive scheme of symbolic correlat
             display: 'flex',
             justifyContent: 'flex-end'
           }}>
-            <div className="yj-cn-36 text-white fw-300"  style={{ writingMode: 'vertical-rl',
+            <div className="yj-cn-36 text-white fw-300 yj-lh-14 yj-lh-13-m"  style={{ writingMode: 'vertical-rl',
               textOrientation: 'upright',
-              lineHeight: '1.4',
               letterSpacing: '0.1em' }}>
               <span className={currentSlide === 7 ? 'v-fade' : ''}><span className="mt-n-28"></span>﹁河圖﹂相傳是伏羲所創。</span><br/><span className={currentSlide === 7 ? 'v-fade-delay-2' : ''}>圖中一至十以奇數︵陽︶</span><br/><span className={currentSlide === 7 ? 'v-fade-delay-3' : ''}>與偶數︵陰︶成對排列。</span><br/><span className={currentSlide === 7 ? 'v-fade-delay-4' : ''}>所有奇數相加總和是</span><br/><span className={currentSlide === 7 ? 'v-fade-delay-5' : ''}>二十五，偶數相加是三十，</span><br/><span className={currentSlide === 7 ? 'v-fade-delay-6' : ''}>全部數字總和是五十五。</span><br/><span className={currentSlide === 7 ? 'v-fade-delay-7' : ''}>此圖揭示了這些數字</span><br/><span className={currentSlide === 7 ? 'v-fade-delay-8' : ''}>如何與﹁五行﹂及對應的</span><br/><span className={currentSlide === 7 ? 'v-fade-delay-8' : ''}>方位和顏色相互連結。</span>
             </div>
           </div>
 
           {/* English text at bottom */}
-          <div className="yj-en-14 text-white fw-300 "  style={{ lineHeight: '1.4' }}>
+          <div className="yj-en-14 text-white fw-300 yj-lh-14">
 The <em>Yellow River Chart</em> has been traditionally attributed to the legendary emperor Fu Xi. Here, the numbers 1 to 10 are so arranged that an odd number (<em>yang</em>) is paired with an even number (<em>yin</em>). All the odd numbers add up to 25, the even numbers to 30, and all the numbers to 55. This chart shows how these numbers are linked to the <em>wuxing</em> and the correlating cardinal points and colours.
           </div>
         </div>
@@ -1045,9 +1014,8 @@ The <em>Yellow River Chart</em> has been traditionally attributed to the legenda
             display: 'flex',
             justifyContent: 'flex-end'
           }}>
-            <div className="yj-cn-36 text-white fw-300"  style={{ writingMode: 'vertical-rl',
+            <div className="yj-cn-36 text-white fw-300 yj-lh-14 yj-lh-13-m"  style={{ writingMode: 'vertical-rl',
               textOrientation: 'upright',
-              lineHeight: '1.4',
               letterSpacing: '0.1em' }}>
               
               <span className={currentSlide === 8 ? 'v-fade' : ''}><span className="mt-n-28"></span>﹁洛書﹂相傳是一隻從</span><br/><span className={currentSlide === 8 ? 'v-fade-delay-2' : ''}>洛河出現的神龜背上的圖。</span><br/><span className={currentSlide === 8 ? 'v-fade-delay-3' : ''}>此圖為三階幻方，無論</span><br/><span className={currentSlide === 8 ? 'v-fade-delay-4' : ''}>縱、橫、斜向任意行列，</span><br/><span className={currentSlide === 8 ? 'v-fade-delay-5' : ''}>數字之和皆為十五。這是</span><br/><span className={currentSlide === 8 ? 'v-fade-delay-6' : ''}>已知世上最早的幻方。</span>
@@ -1055,7 +1023,7 @@ The <em>Yellow River Chart</em> has been traditionally attributed to the legenda
           </div>
 
           {/* English text at bottom */}
-          <div className="yj-en-14 text-white fw-300 "  style={{ lineHeight: '1.4' }}>
+          <div className="yj-en-14 text-white fw-300 yj-lh-14">
 The <em>Writing from the Luo River</em> is attributed to a mythical turtle with a diagram on its back emerging from the Luo River. This diagram is a magic square of the order of three, in which all the numbers in any row, column, or diagonal add up to 15. It is the earliest known magic square in the world.           </div>
         </div>
       );
@@ -1093,15 +1061,14 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
             justifyContent: 'space-between',
             height: '150px'
           }}>
-            <div className="yj-en-14 text-white fw-300"  style={{ lineHeight: '1.4' }}>
+            <div className="yj-en-14 text-white fw-300 yj-lh-14">
               <span className="fw-500"><em>Fortune Teller</em></span><br/>
               Robert Ruxton (1876–1946)<br/>
               1902<br/>
               SOAS Library
             </div>
-            <div className="yj-cn-14 text-white fw-300"  style={{ writingMode: 'vertical-rl',
+            <div className="yj-cn-14 text-white fw-300 yj-lh-14"  style={{ writingMode: 'vertical-rl',
               textOrientation: 'mixed',
-              lineHeight: '1.4',
               letterSpacing: '0.25em' }}>
               <span className="space-before-bracket"></span>︽算命師︾<span className="space-after-bracket"></span><br/>羅伯特·魯克斯頓<br/><span className="space-before-paren"></span>︵<span style={{ fontFamily: '"neue-haas-unica", sans-serif', letterSpacing: '0.04em' }}>1876–1946</span>年︶<span className="space-after-paren"></span><br/><span style={{ fontFamily: '"neue-haas-unica", sans-serif' , letterSpacing: '0.04em'}}>1902</span>年 <br/>倫敦大學<br/>亞非學院圖書館
             </div>
@@ -1126,7 +1093,7 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
             <div className="yj-cn-20 text-white fw-600"  style={{ marginBottom: '10px' }}>
               與現代科學的關係
             </div>
-            <div className="yj-cn-15 text-white fw-300"  style={{ lineHeight: '1.4', fontFamily: '"Noto Serif TC", serif' }}>
+            <div className="yj-cn-15 text-white fw-300 yj-lh-14"  style={{ fontFamily: '"Noto Serif TC", serif' }}>
               <p style={{ marginBottom: '10px' }}>《易經》六十四卦體系，被認為與哥特弗利德·威廉·萊布尼茲 （<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Gottfried Wilhelm Leibniz</span>，<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1646–1716</span>年） 所創的二進制存在關聯，該系統如今被廣泛應用於數位計算領域。</p>
               <p style={{ marginBottom: '10px' }}>萊布尼茲是一名在微積分學作出重大貢獻的德國哲學家和數學家，他被曾前往中國的法國耶穌會傳教士白晉（<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Joachim Bouvet</span>，<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1656–1730</span>年）引介下認識《易經》。萊布尼茲因中國六十四卦的抽象結構與二進制十分相似而感到著迷，並將此古代符號系統與他的二進制運算建立連結。</p>
               <p>圖例跟據伏羲所創「先天八卦圖」中六十四卦的陣式，將陰以「<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>0</span>」代替，陽以「<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1</span>」代替，即可得到零至<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>63</span>數值的二進制表示法。</p>
@@ -1145,7 +1112,7 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
             <div className="yj-en-18 text-white fw-500"  style={{ marginBottom: '10px' }}>
               Relations to Modern Sciences
             </div>
-            <div className="yj-en-14 text-white fw-300 mb-30-bottom"  style={{ lineHeight: '1.4' }}>
+            <div className="yj-en-14 text-white fw-300 mb-30-bottom yj-lh-14">
               <p style={{ marginBottom: '10px' }}>The 64 hexagrams in the <em>Book of Changes</em> have been linked with the binary notation developed by Gottfried Wilhelm Leibniz (1646–1716), used nowadays in digital computation.</p>
               <p style={{ marginBottom: '10px' }}>Leibniz, a German philosopher and mathematician who made great contributions to calculus, was introduced to the <em>Book of Changes</em> by Joachim Bouvet (1656–1730), a French Jesuit missionary working in China. Fascinated by how the abstract structures of the hexagrams resembled his binary number system, he linked the ancient symbols with binary arithmetic.</p>
               <p>The illustrations demonstrate the arrangement of the 64 hexagrams in the Former Heaven sequence attributed to Fu Xi. By replacing a <em>yin</em> symbol with the number 0 and a yang symbol with the number 1, we get the binary notation for the numbers 0 to 63.</p>
@@ -1631,7 +1598,6 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
               border: 'none',
               color: '#FFF',
               fontSize: '48px',
-              lineHeight: '1',
               cursor: 'pointer',
               display: 'flex',
               alignItems: 'center',
