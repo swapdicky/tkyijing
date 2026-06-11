@@ -117,16 +117,14 @@ export default function Yijing() {
           {/* English section - aligned to bottom */}
           <div>
             {/* Title */}
-            <div className={`yj-en-24 text-black fw-500`}  style={{ marginBottom: '10px',
+            <div className={`yj-en-24 text-black fw-500 yj-en-16-mb`}  style={{ marginBottom: '10px',
               lineHeight: '1.2',
-              
-              
               fontStyle: 'normal' }}>
               What is the <em>Yijing</em>, <em>Book of Changes</em>？
             </div>
 
             {/* English description */}
-            <div className={`yj-en-20 text-black fw-300 `}  style={{ lineHeight: '1.2',
+            <div className={`yj-en-20 text-black fw-300 yj-en-14-mb `}  style={{ lineHeight: '1.2',
 
               
               fontStyle: 'normal' }}>
@@ -218,11 +216,11 @@ export default function Yijing() {
 
           {/* English text at bottom */}
           <div className="">
-            <div className="yj-en-24 text-black fw-500"  style={{ marginBottom: '10px',
+            <div className="yj-en-24 text-black fw-500 yj-en-16-mb"  style={{ marginBottom: '10px',
               lineHeight: '1.3' }}>
               What Are the Fundamental Concepts<br/>in the Philosophy of the <em>Book of Changes</em>?
             </div>
-            <div className="yj-en-20 text-black fw-300 mb-30-bottom"  style={{ lineHeight: '1.2' }}>
+            <div className="yj-en-20 text-black fw-300  yj-en-14-mb"  style={{ lineHeight: '1.2' }}>
 The divination system in the <em>Book of Changes</em> was formalised to observe the conditions of all things, based on a correlative cosmology formed around the notions of <em>yinyang</em> and <em>wuxing</em>. These concepts were identified with the processes of cosmic creativity and transformation, as well as the interconnectedness of all things in a holistic totality of order.             </div>
           </div>
         </div>

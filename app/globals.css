@@ -557,6 +557,11 @@ a:hover .hover-underline::after {
   .yj-en-14 { font-size: 14px; }
   .yj-en-12 { font-size: 12px; }
 
+  .yj-en-16-mb { font-size: 16px; }
+  .yj-en-14-mb { font-size: 14px; }
+
+
+
   /* Layout & Spacing */
   .yj-padding-large, .yj-padding-medium, .yj-padding-small { padding: 20px 15px; }
   .yj-padding-section { padding: 90px 15px 60px 15px; }
