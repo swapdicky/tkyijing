@@ -838,7 +838,7 @@ Nowadays, with the advance of digital technologies, an online consultation of th
           </div>
 
           {/* Section 4 */}
-          <div className="ex-section radius-15" style={{ minHeight: isMobile ? 'auto' : '100vh', position: 'relative', flexShrink: 0, backgroundColor: "#1A3B45",  overflow: "hidden",borderRadius: isMobile ? '0' : '' }}>
+          <div className="ex-section radius-15" style={{ minHeight: isMobile ? 'auto' : '100vh', position: 'relative', flexShrink: 0, backgroundColor: "#1A3B45",  overflow: "hidden",borderBottomLeftRadius: isMobile ? '0' : '', borderBottomRightRadius: isMobile ? '0' : '' }}>
             <div className="yj-padding-section ex-section-inner" style={{  minHeight: isMobile ? 'auto' : '100vh', position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               {/* Vertical line on the right */}
               <div className="right-30 ex-vertical-line"

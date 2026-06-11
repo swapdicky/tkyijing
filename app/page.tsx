@@ -1132,7 +1132,7 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
               }
             }}
             style={{
-              pointerEvents: isMobile && isPanelOpen ? 'none' : (isPanelOpen ? 'auto' : 'none'),
+              pointerEvents: isPanelOpen ? 'auto' : 'none',
               right: 0,
               zIndex: 110,
               left: isMobile
