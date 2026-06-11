@@ -8,7 +8,7 @@ export const yijing = [
     meaning: "象曰：天行健，君子以自強不息。",
     meaningContent: "《象傳》說：天體的運行剛健不已，\n君子因而要求自己不斷奮發上進。",
     thejudgement: "The Creative works sublime success,\nFurthering through perseverance.",
-    theimage: "The movement of heaven is full of power.\nThus the superior man makes himself strong\n<span style=\"padding-left:10px\"></span>>and untiring.",
+    theimage: "The movement of heaven is full of power.\nThus the superior man makes himself strong\n<span style=\"padding-left:10px\"></span>and untiring.",
     above: "Qian /",
     abovetxt: "The Creative,\nHeaven",
     below: "Qian /",

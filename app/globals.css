@@ -577,6 +577,7 @@ a:hover .hover-underline::after {
   .section-title-text {font-size: 25px;}
   .yj-full-viewport{width: 100vw;height: 100%;}
   .h-screen{height: 100vh;}
+  .home-info-top{padding-top:60px;}
 
   /* Logo */
   .logo-size { width: 170px; height: 30px; background-size: 170px auto; }
