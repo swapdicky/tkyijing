@@ -868,7 +868,7 @@ The central concept of the <em>Book of Changes</em> is "Heaven and Humanity as O
                 </div>
               </div>
             </div>
-            <div style={{ paddingTop: isMobile ? '30px' : '90px', paddingBottom: isMobile ? '60px' : '60px', paddingLeft: isMobile ? '15px' : '30px', paddingRight: isMobile ? '15px' : '30px', gap: isMobile ? '20px' : '30px', display: 'flex', flexDirection: isMobile ? 'column' : 'row', alignItems: isMobile ? 'stretch' : 'center', flex: isMobile ? 'none' : 1 }}>
+            <div style={{ paddingTop: isMobile ? '0' : '90px', paddingBottom: isMobile ? '60px' : '60px', paddingLeft: isMobile ? '15px' : '30px', paddingRight: isMobile ? '15px' : '30px', gap: isMobile ? '20px' : '30px', display: 'flex', flexDirection: isMobile ? 'column' : 'row', alignItems: isMobile ? 'stretch' : 'center', flex: isMobile ? 'none' : 1 }}>
               <div 
                 ref={(el) => { 
                   innerSectionRefs.current[10] = el;
@@ -876,10 +876,10 @@ The central concept of the <em>Book of Changes</em> is "Heaven and Humanity as O
                 }}
                 className="flex-shrink-0 radius-15" 
                 style={{ 
-                  aspectRatio: isMobile ? "372/495" : "1748/874", 
+                  aspectRatio: "1748/874", 
                   height: isMobile ? 'auto' : 'calc(50vh - 140px)',
                   backgroundImage: "url('/images/exhibition/ss4a.webp')",
-                  backgroundSize: isMobile ? "auto 100%" : "cover",
+                  backgroundSize: "cover",
                   backgroundPosition: "left center",
                   backgroundRepeat: "no-repeat",
                   overflow: "hidden",

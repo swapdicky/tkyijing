@@ -505,7 +505,58 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
     
     if (index === 9) {
       return (
-        <div
+       
+<div style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          height: '100%',
+          position: 'relative'
+        }}>
+          <img 
+            src="/images/TK_YiJIng_Graphs/yijing-graphs-11.jpg" 
+            alt="64 Hexagrams" 
+            style={{
+              width: '100%',
+              transform: isMobile ? 'scale(1.2)' : 'none',
+              height: 'auto',
+              maxHeight: '120%',
+              objectFit: 'contain'
+            }}
+          />
+          {isMobile && (
+            <button
+              onClick={() => setLightboxImage('/images/TK_YiJIng_Graphs/yijing-graphs-11.jpg')}
+            style={{
+              position: 'absolute',
+              top: '5px',
+              right: '-10px',
+              width: '30px',
+              height: '30px',
+              backgroundColor: 'transparent',
+              border: 'none',
+              color: '#000',
+              fontSize: '44px',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              zIndex: 10,
+              transition: 'all 0.3s'
+            }}
+
+            >
+              +
+            </button>
+          )}
+        </div>
+
+      );
+    }
+    
+    if (index === 10) {
+      return (
+  <div
           style={{
             display: 'flex',
             flexDirection: 'column',
@@ -553,56 +604,7 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
               <p>The book's reception in the international world has been remarkable. Respective translations by Thomas McClatchie (1814-1885), James Legge (1815-1897), and Richard Wilhelm (1873-1930) introduced the ancient Chinese text to the world. The psychologist Carl Jung (1875-1961) linked it to his concept of synchronicity. The avant-garde composer John Cage (1912-1992) referred to the book’s sequences of events for determining randomness in music composition. Espen Aarseth (b. 1965) regarded it as “possibly the best-known example of cybertext in antiquity” when exploring cybertext theory in digital literary studies.</p>
             </div>
           </div>
-        </div>
-      );
-    }
-    
-    if (index === 10) {
-      return (
-        <div style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          height: '100%',
-          position: 'relative'
-        }}>
-          <img 
-            src="/images/TK_YiJIng_Graphs/yijing-graphs-11.jpg" 
-            alt="64 Hexagrams" 
-            style={{
-              width: '100%',
-              transform: isMobile ? 'scale(1.2)' : 'none',
-              height: 'auto',
-              maxHeight: '120%',
-              objectFit: 'contain'
-            }}
-          />
-          {isMobile && (
-            <button
-              onClick={() => setLightboxImage('/images/TK_YiJIng_Graphs/yijing-graphs-11.jpg')}
-            style={{
-              position: 'absolute',
-              top: '5px',
-              right: '-10px',
-              width: '30px',
-              height: '30px',
-              backgroundColor: 'transparent',
-              border: 'none',
-              color: '#000',
-              fontSize: '44px',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              zIndex: 10,
-              transition: 'all 0.3s'
-            }}
-
-            >
-              +
-            </button>
-          )}
-        </div>
+        </div>       
       );
     }
     
@@ -1031,6 +1033,53 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
     
     if (index === 9) {
       return (
+
+        <>
+          {/* Top section - Chinese */}
+          <div
+            className="yj-padding-small"
+            style={{
+              flex: 1,
+              borderBottom: '1px solid #888',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'flex-end'
+            }}>
+            <div className="yj-cn-20 text-white fw-600"  style={{ marginBottom: '10px' }}>
+              與現代科學的關係
+            </div>
+            <div className="yj-cn-15 text-white fw-300 yj-lh-14"  style={{ fontFamily: '"Noto Serif TC", serif' }}>
+              <p style={{ marginBottom: '10px' }}>《易經》六十四卦體系，被認為與哥特弗利德·威廉·萊布尼茲 （<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Gottfried Wilhelm Leibniz</span>，<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1646–1716</span>年） 所創的二進制存在關聯，該系統如今被廣泛應用於數位計算領域。</p>
+              <p style={{ marginBottom: '10px' }}>萊布尼茲是一名在微積分學作出重大貢獻的德國哲學家和數學家，他被曾前往中國的法國耶穌會傳教士白晉（<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Joachim Bouvet</span>，<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1656–1730</span>年）引介下認識《易經》。萊布尼茲因中國六十四卦的抽象結構與二進制十分相似而感到著迷，並將此古代符號系統與他的二進制運算建立連結。</p>
+              <p>圖例跟據伏羲所創「先天八卦圖」中六十四卦的陣式，將陰以「<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>0</span>」代替，陽以「<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1</span>」代替，即可得到零至<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>63</span>數值的二進制表示法。</p>
+            </div>
+          </div>
+
+          {/* Bottom section - English */}
+          <div
+            className="yj-padding-small"
+            style={{
+              flex: 1,
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'flex-end'
+            }}>
+            <div className="yj-en-18 text-white fw-500"  style={{ marginBottom: '10px' }}>
+              Relations to Modern Sciences
+            </div>
+            <div className="yj-en-14 text-white fw-300 mb-30-bottom yj-lh-14">
+              <p style={{ marginBottom: '10px' }}>The 64 hexagrams in the <em>Book of Changes</em> have been linked with the binary notation developed by Gottfried Wilhelm Leibniz (1646–1716), used nowadays in digital computation.</p>
+              <p style={{ marginBottom: '10px' }}>Leibniz, a German philosopher and mathematician who made great contributions to calculus, was introduced to the <em>Book of Changes</em> by Joachim Bouvet (1656–1730), a French Jesuit missionary working in China. Fascinated by how the abstract structures of the hexagrams resembled his binary number system, he linked the ancient symbols with binary arithmetic.</p>
+              <p>The illustrations demonstrate the arrangement of the 64 hexagrams in the Former Heaven sequence attributed to Fu Xi. By replacing a <em>yin</em> symbol with the number 0 and a <em>yang</em> symbol with the number 1, we get the binary notation for the numbers 0 to 63.</p>
+            </div>
+          </div>
+        </>
+
+      );
+    }
+    
+    if (index === 10) {
+      return (
         <div style={{
           display: 'flex',
           flexDirection: 'column',
@@ -1074,51 +1123,6 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
             </div>
           </div>
         </div>
-      );
-    }
-    
-    if (index === 10) {
-      return (
-        <>
-          {/* Top section - Chinese */}
-          <div
-            className="yj-padding-small"
-            style={{
-              flex: 1,
-              borderBottom: '1px solid #888',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'flex-end'
-            }}>
-            <div className="yj-cn-20 text-white fw-600"  style={{ marginBottom: '10px' }}>
-              與現代科學的關係
-            </div>
-            <div className="yj-cn-15 text-white fw-300 yj-lh-14"  style={{ fontFamily: '"Noto Serif TC", serif' }}>
-              <p style={{ marginBottom: '10px' }}>《易經》六十四卦體系，被認為與哥特弗利德·威廉·萊布尼茲 （<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Gottfried Wilhelm Leibniz</span>，<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1646–1716</span>年） 所創的二進制存在關聯，該系統如今被廣泛應用於數位計算領域。</p>
-              <p style={{ marginBottom: '10px' }}>萊布尼茲是一名在微積分學作出重大貢獻的德國哲學家和數學家，他被曾前往中國的法國耶穌會傳教士白晉（<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Joachim Bouvet</span>，<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1656–1730</span>年）引介下認識《易經》。萊布尼茲因中國六十四卦的抽象結構與二進制十分相似而感到著迷，並將此古代符號系統與他的二進制運算建立連結。</p>
-              <p>圖例跟據伏羲所創「先天八卦圖」中六十四卦的陣式，將陰以「<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>0</span>」代替，陽以「<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1</span>」代替，即可得到零至<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>63</span>數值的二進制表示法。</p>
-            </div>
-          </div>
-
-          {/* Bottom section - English */}
-          <div
-            className="yj-padding-small"
-            style={{
-              flex: 1,
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'flex-end'
-            }}>
-            <div className="yj-en-18 text-white fw-500"  style={{ marginBottom: '10px' }}>
-              Relations to Modern Sciences
-            </div>
-            <div className="yj-en-14 text-white fw-300 mb-30-bottom yj-lh-14">
-              <p style={{ marginBottom: '10px' }}>The 64 hexagrams in the <em>Book of Changes</em> have been linked with the binary notation developed by Gottfried Wilhelm Leibniz (1646–1716), used nowadays in digital computation.</p>
-              <p style={{ marginBottom: '10px' }}>Leibniz, a German philosopher and mathematician who made great contributions to calculus, was introduced to the <em>Book of Changes</em> by Joachim Bouvet (1656–1730), a French Jesuit missionary working in China. Fascinated by how the abstract structures of the hexagrams resembled his binary number system, he linked the ancient symbols with binary arithmetic.</p>
-              <p>The illustrations demonstrate the arrangement of the 64 hexagrams in the Former Heaven sequence attributed to Fu Xi. By replacing a <em>yin</em> symbol with the number 0 and a <em>yang</em> symbol with the number 1, we get the binary notation for the numbers 0 to 63.</p>
-            </div>
-          </div>
-        </>
       );
     }
     
