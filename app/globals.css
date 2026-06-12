@@ -642,6 +642,7 @@ a:hover .hover-underline::after {
   .yj-hexagram-size { width: 42px; height: 42px; margin-bottom: 12px;}
   .mb-4{margin-bottom: 12px;}
   .yj-scroll-height-lg { height: 128px; }
+  .home-info-top,.yj-bottom-bar{padding-left: 15px;padding-right: 15px;}
 
   /* Logo */
   .logo-size { width: 170px; height: 30px; background-size: 170px auto; }
@@ -779,6 +780,8 @@ a:hover .hover-underline::after {
 
   .ex-ml-15{margin-left: 15px;}
   .ex-ml-10{margin-left: 10px;}
+  .ml-4{margin-left: 5px;}
+  .home-info-top,.yj-bottom-bar{padding-left: 15px;padding-right: 15px;}
 
     /* Yijing Box */
   .yj-box-text-sm { font-size: 12px; }
