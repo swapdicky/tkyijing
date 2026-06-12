@@ -1,8 +1,11 @@
 /** @type {import('next').NextConfig} */
-
 const nextConfig = {
 
   output: "export",
+
+  //basePath: "/clients/yijing",
+
+  //assetPrefix: "/clients/yijing",
 
   images: {
 
@@ -11,12 +14,10 @@ const nextConfig = {
   },
 
   eslint: {
+
     ignoreDuringBuilds: true,
+
   },
-
-  // basePath: "/clients/yijing/out",
-
-  // assetPrefix: "/clients/yijing/out/",
 
 };
 

@@ -671,7 +671,7 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
                   marginBottom: '6px',
                   fontWeight: 400
                 }}>
-                  適頎系統有限公司
+                  適碩系統有限公司
                 </div>
                 <div className="yj-cn-16 yj-lh-12" style={{
                   color: '#fff',

@@ -549,7 +549,7 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
               <div className="yj-en-18 text-black fw-500"  style={{ marginBottom: '10px' }}>Living Legacy</div>
             <div className="yj-en-14 text-black fw-300 mb-30-bottom yj-lh-12">
 
-              <p style={{ marginBottom: '10px' }}>The <em>Book of Changes</em> was embraced and appropriated by later Chinese thinkers, giving rise to specialised studies of its commentarial traditions. approached the divination judgements based on images and numbers; others took the classic to be an explanation of meanings and principles. The book’s impact spanned the entire cultural history of China, and it continues to exert influence in the present.</p>
+              <p style={{ marginBottom: '10px' }}>The <em>Book of Changes</em> was embraced and appropriated by later Chinese thinkers, giving rise to specialised studies of its commentarial traditions. Some thinkers approached the divination judgements based on images and numbers; others took the classic to be an explanation of meanings and principles. The book’s impact spanned the entire cultural history of China, and it continues to exert influence in the present.</p>
               <p>The book's reception in the international world has been remarkable. Respective translations by Thomas McClatchie (1814-1885), James Legge (1815-1897), and Richard Wilhelm (1873-1930) introduced the ancient Chinese text to the world. The psychologist Carl Jung (1875-1961) linked it to his concept of synchronicity. The avant-garde composer John Cage (1912-1992) referred to the book’s sequences of events for determining randomness in music composition. Espen Aarseth (b. 1965) regarded it as “possibly the best-known example of cybertext in antiquity” when exploring cybertext theory in digital literary studies.</p>
             </div>
           </div>
@@ -715,7 +715,7 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
               </div>
               <div className="yj-cn-15 text-white fw-300 yj-lh-14">
                 <p style={{marginBottom:'10px'}}>
-<span style={{marginLeft:"-4px"}}></span>「陰」與「陽」最初指的是山川的背日和向陽面。「陰」代表冰冷、雲、雨及任何具陰性特質的事物；<br/><span style={{marginLeft:"-4px"}}></span>「陽」代表相反的概念，如温暖、晴天、陽光及任何具陽性特質的事物。
+<span style={{marginLeft:"-4px"}}></span>「陰」與「陽」最初指的是山川的背日和向陽面。「陰」代表冰冷、雲、雨及任何具陰性特質的事物；<span style={{marginLeft:"-4px"}}></span>「陽」代表相反的概念，如温暖、晴天、陽光及任何具陽性特質的事物。
                 </p>
                 <p style={{marginBottom:'10px'}}>
 <span style={{marginLeft:"-4px"}}></span>「陰」與「陽」是兩股對立的原始力量，彼此依存方能臻於完整。這是既對立又互相依賴的和諧平衡，此即構成「道」。
@@ -1115,7 +1115,7 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
             <div className="yj-en-14 text-white fw-300 mb-30-bottom yj-lh-14">
               <p style={{ marginBottom: '10px' }}>The 64 hexagrams in the <em>Book of Changes</em> have been linked with the binary notation developed by Gottfried Wilhelm Leibniz (1646–1716), used nowadays in digital computation.</p>
               <p style={{ marginBottom: '10px' }}>Leibniz, a German philosopher and mathematician who made great contributions to calculus, was introduced to the <em>Book of Changes</em> by Joachim Bouvet (1656–1730), a French Jesuit missionary working in China. Fascinated by how the abstract structures of the hexagrams resembled his binary number system, he linked the ancient symbols with binary arithmetic.</p>
-              <p>The illustrations demonstrate the arrangement of the 64 hexagrams in the Former Heaven sequence attributed to Fu Xi. By replacing a <em>yin</em> symbol with the number 0 and a yang symbol with the number 1, we get the binary notation for the numbers 0 to 63.</p>
+              <p>The illustrations demonstrate the arrangement of the 64 hexagrams in the Former Heaven sequence attributed to Fu Xi. By replacing a <em>yin</em> symbol with the number 0 and a <em>yang</em> symbol with the number 1, we get the binary notation for the numbers 0 to 63.</p>
             </div>
           </div>
         </>

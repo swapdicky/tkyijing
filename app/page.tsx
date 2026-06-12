@@ -1126,7 +1126,7 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
 
           {/* White info panel */}
           <div
-            className={`fixed top-0 h-screen bg-white border-l border-[#888888] ${!isMobile ? 'transition-all duration-700 ease-out' : ''}`}
+            className={`fixed top-0 h-screen bg-white  open-panel ${!isMobile ? 'transition-all duration-700 ease-out' : ''}`}
             onWheel={(e) => {
               if (scrollContentRef.current) {
                 scrollContentRef.current.scrollTop += e.deltaY;
@@ -1160,10 +1160,10 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
               transition: isMobile && isPanelOpen ? 'left 0.3s ease-out' : undefined
             }}
           >
-          <div className="h-full overflow-hidden text-black">
+          <div className="overflow-hidden text-black">
             
-            <div className="px-12 min-h-screen flex flex-col relative home-info-top" style={{ paddingBottom: '280px' }}>
-              <div className="flex items-start justify-between mb-8">
+            <div className="px-12 min-h-screen flex flex-col relative home-info-top" >
+              <div className="flex items-start justify-between mb-8 panel-zh">
                 <div className="text-[24px] font-medium leading-none neue-haas-unica">{selectedBox || '--'}</div>
                 <div className="flex gap-3 items-start">
                   {selectedBox && yijing[selectedBox - 1] && (
