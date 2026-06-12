@@ -642,7 +642,7 @@ a:hover .hover-underline::after {
   .yj-hexagram-size { width: 42px; height: 42px; margin-bottom: 12px;}
   .mb-4{margin-bottom: 12px;}
   .yj-scroll-height-lg { height: 128px; }
-  .home-info-top,.yj-bottom-bar{padding-left: 15px;padding-right: 15px;}
+  .home-info-top,.yj-bottom-bar{padding-left: 15px;padding-right: 15px;padding-bottom: 60px;}
 
   /* Logo */
   .logo-size { width: 170px; height: 30px; background-size: 170px auto; }
