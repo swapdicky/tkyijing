@@ -634,7 +634,7 @@ a:hover .hover-underline::after {
   .section-title-text {font-size: 25px;}
   .yj-full-viewport{width: 100vw;height: 100%;}
   .h-screen{height: 100vh;}
-  .home-info-top{padding-top:60px;}
+  .home-info-top{padding-top:50px;}
   .min-h-screen{min-height: 100%;}
   .open-panel{height: 100%;}
   .panel-zh{min-height: 300px;}
