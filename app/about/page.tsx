@@ -22,7 +22,7 @@ export default function About() {
     {
 
       thumbnail: '/images/about/1.jpg',
-      youtubeId: 'YOUR_YOUTUBE_ID_1'
+      youtubeId: 'rv8JewKH91M'
     },
     {
 
@@ -541,18 +541,16 @@ Basil Pao began his photographic career in 1980 upon his return to Hong Kong aft
             </button>
             
             {/* Video player */}
-            <video
-              controls
-              autoPlay
+            <iframe
+              src={`https://www.youtube.com/embed/${videos[currentVideoIndex].youtubeId}?autoplay=1`}
               style={{
                 width: '100%',
                 height: '100%',
-                backgroundColor: '#000'
+                border: 'none'
               }}
-            >
-              <source src="/videos/demo.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
           </div>
         </div>
       )}

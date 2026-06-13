@@ -32,10 +32,10 @@ export default function RootLayout({
             </div>
             <div className="screen-size-warning-content">
               <div className="screen-size-warning-content-cn">
-                為讓瀏覽達到最佳體驗，建議使用較寬的瀏覽器視窗。
+                請使用較大視窗瀏覽
               </div>
               <div className="screen-size-warning-content-en">
-                For the best experience, please expand your browser window.
+                Please use a larger window
               </div>
             </div>
           </div>
