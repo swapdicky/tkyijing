@@ -735,7 +735,7 @@ a:hover .hover-underline::after {
   .space-after-paren{margin-top: -6px;}
 
   /* Typography - Chinese */
-  .yj-cn-110 { font-size: 72px; }
+  .yj-cn-110 { font-size: 62px; }
   .yj-cn-40  { font-size: 22px; }
   .yj-cn-36  { font-size: 20px; }
   .yj-cn-28  { font-size: 18px; }
@@ -757,7 +757,9 @@ a:hover .hover-underline::after {
   .yj-en-16-mb { font-size: 15px; }
   .yj-en-14-mb { font-size: 13px; }
 
-  .yj-max-width-25vw {width: 100vw !important;}
+  .yj-max-width-25vw {width: 68vw !important;}
+  .yj-max-width-25vw-br br{display: none;}
+  .yj-max-width-25vw-br {width: 60vw !important;}
 
   .section-title-text {font-size: 20px;}
   /* Layout & Spacing */

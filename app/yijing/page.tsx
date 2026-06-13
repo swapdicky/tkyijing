@@ -342,7 +342,7 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
           </div>
 
           {/* English text at bottom */}
-          <div   className="bottom-60 yj-max-width-25vw"
+          <div   className="bottom-60 yj-max-width-25vw "
           style={{
             position: 'absolute',
             width: '400px'
@@ -394,7 +394,7 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
             position: 'absolute',
             width: '400px'
           }}>
-            <div className="yj-en-16 text-black fw-500 yj-lh-12">
+            <div className="yj-en-16 text-black fw-500 yj-lh-12 yj-max-width-25vw-br">
               <p style={{ marginBottom: '10px' }}>Heaven in one, Earth is two; Heaven is three,<br/> Earth is four; Heaven is five, Earth is six;<br/> Heaven is seven, Earth is eight; Heaven is <br/>nine, Earth in ten. There are thus five<br/>heavenly numbers and five earthly numbers.<br/> When these numbers are distributed among<br/>the five places, each finds its complement.<br/> The sum of the heavenly numbers is 25 and <br/>that of the earthly numbers is 30. The sum <br/>total of heavenly numbers and earthly <br/>numbers is 55. It is this which completes the <br/>changes and transformation and sets the <br/>spirits in motion.</p>
               <p className="yj-en-14 fw-300">"Great Commentary", Part I, Ch. 9</p>
             </div>
