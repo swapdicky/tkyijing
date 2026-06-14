@@ -89,7 +89,7 @@ export default function About() {
           top: 0,
           left: 0,
           width: '100%',
-          height: isMobile ? '50px' : '90px',
+          height: isMobile ? '51px' : '90px',
           borderBottom: '1px solid #888',
           backgroundColor: '#000 ',
           zIndex: 12
