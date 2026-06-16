@@ -629,7 +629,7 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
               </div>
               <div className="yj-cn-16 text-white fw-300 yj-lh-14"  style={{ fontFamily: '"Noto Serif TC", serif' }}>
                 <p style={{marginBottom:'10px'}}>
-                最初，此書將六十四卦的卦象、卦名與卦爻辭集結，名為《周易》，相傳為周文王（公元前十一世紀）所著。《周易》正文逐漸擴展至包含一系列為經作註解和闡釋哲理的「傳」（又稱《十翼》），相信是戰國時期（公元前<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>475-221</span>年）不同作者所撰注。
+                最初，此書將六十四卦的卦象、卦名與卦爻辭集結，名為《周易》，相傳為周文王（公元前十一世紀）所著。《周易》正文逐漸擴展至包含一系列為經作註解和闡釋哲理的「傳」（又稱《十翼》），相信是戰國時期（公元前<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>475–221</span>年）不同作者所撰注。
                 </p>
                 <p>
                 為《周易》所作的「傳」闡述八卦及六十四卦的象徵意義，解釋卦象、卦辭和爻辭，並就卦義作進一步解釋和延伸意義。隨着儒家觀念和道家自然哲學的融入，時至公元前一至二世紀的漢朝，此書包含「易傳」在內，被正式確立為一本儒家經典，稱為《易經》。
@@ -652,7 +652,7 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
               </div>
               <div className="yj-en-16 text-white fw-300 mb-30-bottom" >
                 <p style={{marginBottom:"10px"}}>
-                First set down as a book with divination statements for various hexagrams, the main body of the work was originally known as the <em>Changes of Zhou</em> attributed to King Wen of the Zhou (c.11th century BCE). The basic text was gradually expanded to include a number of philosophical commentaries (the "Ten Wings") that are believed to be the works by authors during the Warring States period (475–221 BCE).
+                First set down as a book with divination statements for various hexagrams, the main body of the work was originally known as the <em>Changes of Zhou</em> attributed to King Wen of the Zhou (c.11th century BCE). The basic text was gradually expanded to include a number of philosophical commentaries (the "Ten Wings") that are believed to be the works by authors during the Warring States period (475-221 BCE).
                 </p>
                 <p>
                 The commentaries clarified the symbolism of the hexagrams and their constituent trigrams, explained the divinatory judgements and line readings, and invested them with meanings beyond their original significations. Confucian values and Daoist naturalism found their way into the text and, by the Han dynasty, around the 1st to 2nd century BCE, the book had become a Confucian classic, referred to as the <em>Book of Changes</em>.
