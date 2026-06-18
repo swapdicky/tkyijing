@@ -21,13 +21,15 @@ export default function About() {
   const videos = [
     {
 
-      thumbnail: '/images/about/1.jpg',
-      youtubeId: 'rv8JewKH91M'
+      thumbnail: '/images/about/2.jpg',
+      youtubeId: '0M2szPItrqo'
+
     },
     {
 
-      thumbnail: '/images/about/2.jpg',
-      youtubeId: 'YOUR_YOUTUBE_ID_2'
+      thumbnail: '/images/about/1.jpg',
+      youtubeId: 'rv8JewKH91M'
+
     }
   ];
   
@@ -403,7 +405,7 @@ We hope the immersive experiences of this show will allow abstract ideas to take
                 position: 'relative',
                 width: '100%',
                 aspectRatio: '16 / 9',
-                backgroundImage: 'url(/images/about/3.jpg)',
+                backgroundImage: 'url(/images/about/260112_Taikwun_TKConv_BasilPao_1920x960_AF.gif)',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 borderRadius: '15px',
@@ -542,7 +544,7 @@ Basil Pao began his photographic career in 1980 upon his return to Hong Kong aft
             
             {/* Video player */}
             <iframe
-              src={`https://www.youtube.com/embed/${videos[currentVideoIndex].youtubeId}?autoplay=1`}
+              src={`https://www.youtube.com/embed/${videos[currentVideoIndex].youtubeId}?autoplay=1&rel=0&modestbranding=1`}
               style={{
                 width: '100%',
                 height: '100%',

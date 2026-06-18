@@ -420,7 +420,7 @@ export default function Exhibition() {
                 className="neue-haas-unica text-white fw-300 yj-en-20 yj-lh-12"
                  style={{
                 textAlign: 'left' }}>
-The <em>Book of Changes</em> is unquestionably a quintessential Chinese cultural heritage. Two series of works by Hong Kong photo artist Basil Pao—<em>The Great Walls of China</em> and <em>Glimpses of Silence</em>—are presented here to explore the relation between heritage and artistic creation.
+The <em>Book of Changes</em> is unquestionably a quintessential Chinese cultural heritage. Confucianism and Daoism have their common roots here. Ancient Chinese philosophy, science, and statecraft and even modern living have all drawn inspiration from it. Two series of works by Hong Kong photo artist Basil Pao—<em>The Great Walls of China</em> and <em>Glimpses of Silence</em>—are presented here to explore the relation between heritage and artistic creation.
 
 </div>
             </div>

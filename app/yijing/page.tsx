@@ -142,10 +142,10 @@ export default function Yijing() {
           <img 
             src="/images/TK_YiJIng_Graphs/yijing-graphs-02.jpg" 
             alt="Yin Yang" 
+            className={isMobile ? 'yj-mobile-scale' : ''}
             style={{
               width: '100%',
-              height: 'auto',
-              transform: isMobile ? 'scale(1.2)' : 'none'
+              height: 'auto'
             }}
           />
           {isMobile && (
@@ -228,11 +228,11 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
           <img 
             src="/images/TK_YiJIng_Graphs/yijing-graphs-04.jpg" 
             alt="8 Trigrams" 
+            className={isMobile ? 'yj-mobile-scale' : ''}
             style={{
               width: '100%',
               height: 'auto',
               maxHeight: '120%',
-              transform: isMobile ? 'scale(1.2)' : 'none',
               objectFit: 'contain'
             }}
           />
@@ -277,10 +277,10 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
           <img 
             src="/images/TK_YiJIng_Graphs/yijing-graphs-05.jpg" 
             alt="64 Hexagrams" 
+            className={isMobile ? 'yj-mobile-scale' : ''}
             style={{
               width: '100%',
               height: 'auto',
-              transform: isMobile ? 'scale(1.2)' : 'none',
               maxHeight: '120%',
               objectFit: 'contain'
             }}
@@ -416,11 +416,11 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
           <img 
             src="/images/TK_YiJIng_Graphs/yijing-graphs-08.jpg" 
             alt="Luo River Diagram" 
+            className={isMobile ? 'yj-mobile-scale' : ''}
             style={{
               width: '100%',
               height: 'auto',
               maxHeight: '130%',
-              transform: isMobile ? 'scale(1.2)' : 'none',
               objectFit: 'contain'
             }}
           />
@@ -466,10 +466,10 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
           <img 
             src="/images/TK_YiJIng_Graphs/yijing-graphs-09.jpg" 
             alt="Yellow River Chart" 
+            className={isMobile ? 'yj-mobile-scale' : ''}
             style={{
               width: '100%',
               height: 'auto',
-              transform: isMobile ? 'scale(1.2)' : 'none',
               maxHeight: '130%',
               objectFit: 'contain'
             }}
@@ -516,9 +516,9 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
           <img 
             src="/images/TK_YiJIng_Graphs/yijing-graphs-11.jpg" 
             alt="64 Hexagrams" 
+            className={isMobile ? 'yj-mobile-scale' : ''}
             style={{
               width: '100%',
-              transform: isMobile ? 'scale(1.2)' : 'none',
               height: 'auto',
               maxHeight: '120%',
               objectFit: 'contain'
@@ -589,7 +589,7 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
                 </>
               ) : (
                 <>
-                  <span className="mt-n-6"></span>︽易經︾被中國歷代思想家不斷詮釋和修訂，<br/>並發展了對其註釋傳統的專門研究和派別。一些<br/>思想家著重卜卦的<span className="mt-n-6"></span>﹁象數﹂<span className="mt-n-6"></span>；另一些深入考究<br/>經典的<span className="mt-n-6"></span>﹁義理﹂<span className="mt-n-6"></span>。此書的影響貫穿整個中國文化史，<br/>持續發揮影響至今。<br/><br/><span className="mt-n-6"></span>︽易經︾在國際世界亦備受尊崇。分別出自<br/>馬克萊奇<span className="mt-n-6"></span>︵<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Thomas McClatchie</span>，<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1814–1885</span>年︶<span className="mt-n-6"></span>、<br/>理雅各<span className="mt-n-6"></span>︵<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>James Legge</span>，<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1815–1897</span>年︶<span className="mt-n-6"></span>、尉禮賢<br/><span className="mt-n-6"></span>︵<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Richard Wilhelm</span>，<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1873–1930</span>年︶<span className="mt-n-6"></span>之手的譯本，<br/>將此中國經典傳播至世界。心理學家卡爾‧榮格<br/><span className="mt-n-6"></span>︵<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Carl Jung</span>，<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1875–1961</span>年︶<span className="mt-n-6"></span>將此古籍與他提出的<br/><span className="mt-n-6"></span>﹁共時性﹂<span className="mt-n-6"></span>概念結合。先鋒派作曲家約翰‧基治<br/><span className="mt-n-6"></span>︵<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>John Cage</span>，<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1912–1992</span>年︶<span className="mt-n-6"></span>根據<span className="mt-n-6"></span>︽易經︾的處境<br/>次序決定音樂創作的隨機性。艾斯班‧艾瑟特<br/><span className="mt-n-6"></span>︵<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Espen Aarseth</span>，<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1965</span>年生︶<span className="mt-n-6"></span>在進行數碼文學<br/>研究時，將<span className="mt-n-6"></span>︽易經︾視為<span className="mt-n-6"></span>﹁可能是古代最著名的<br/>制動文本範例﹂<span className="mt-n-6"></span>。
+                  <span className="mt-n-6"></span>︽易經︾被中國歷代思想家不斷詮釋和修訂，<br/>並發展了對其註釋傳統的專門研究和派別。一些<br/>思想家著重卜卦的<span className="mt-n-6"></span>﹁象數﹂<span className="mt-n-6"></span><span style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}>；</span>另一些深入考究<br/>經典的<span className="mt-n-6"></span>﹁義理﹂<span className="mt-n-6"></span>。此書的影響貫穿整個中國文化史，<br/>持續發揮影響至今。<br/><br/><span className="mt-n-6"></span>︽易經︾在國際世界亦備受尊崇。分別出自<br/>馬克萊奇<span className="mt-n-6"></span>︵<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Thomas McClatchie</span>，<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1814–1885</span>年︶<span className="mt-n-6"></span>、<br/>理雅各<span className="mt-n-6"></span>︵<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>James Legge</span>，<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1815–1897</span>年︶<span className="mt-n-6"></span>、尉禮賢<br/><span className="mt-n-6"></span>︵<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Richard Wilhelm</span>，<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1873–1930</span>年︶<span className="mt-n-6"></span>之手的譯本，<br/>將此中國經典傳播至世界。心理學家卡爾‧榮格<br/><span className="mt-n-6"></span>︵<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Carl Jung</span>，<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1875–1961</span>年︶<span className="mt-n-6"></span>將此古籍與他提出的<br/><span className="mt-n-6"></span>﹁共時性﹂<span className="mt-n-6"></span>概念結合。先鋒派作曲家約翰‧基治<br/><span className="mt-n-6"></span>︵<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>John Cage</span>，<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1912–1992</span>年︶<span className="mt-n-6"></span>根據<span className="mt-n-6"></span>︽易經︾的處境<br/>次序決定音樂創作的隨機性。艾斯班‧艾瑟特<br/><span className="mt-n-6"></span>︵<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Espen Aarseth</span>，<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1965</span>年生︶<span className="mt-n-6"></span>在進行數碼文學<br/>研究時，將<span className="mt-n-6"></span>︽易經︾視為<span className="mt-n-6"></span>﹁可能是古代最著名的<br/>制動文本範例﹂<span className="mt-n-6"></span>。
                 </>
               )}
             </div>
@@ -963,7 +963,7 @@ Hence, the ancient Chinese developed a comprehensive scheme of symbolic correlat
             </div>
             <div className="yj-en-14 text-white fw-300 yj-lh-14">
               <p style={{ marginBottom: '10px' }}>The <em>Book of Changes</em> reveals how the ancient Chinese developed a numerical system that could be used for divination and explaining the operations of nature.</p>
-              <p>Two ancient Chinese diagrams, <em>Yellow River Chart</em> and <em>Writing from the Luo River</em>, represent the numerical interpretations of the natural order. Both diagrams, as received from antiquity, had been appended to the Book of Changes by the Song period (960–1279). They were linked to the five phases (<em>wuxing</em>) and the different correlational systems—such as, cardinal point, colour, and the stem-branch system of Chinese calendar—to represent the interconnectedness of all things in a holistic totality of order.</p>
+              <p>Two ancient Chinese diagrams, <em>Yellow River Chart</em> and <em>Writing from the Luo River</em>, represent the numerical interpretations of the natural order. Both diagrams, as received from antiquity, had been appended to the <em>Book of Changes</em> by the Song period (960–1279). They were linked to the five phases (<em>wuxing</em>) and the different correlational systems—such as, cardinal point, colour, and the stem-branch system of Chinese calendar—to represent the interconnectedness of all things in a holistic totality of order.</p>
             </div>
           </div>
         </>

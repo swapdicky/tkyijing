@@ -280,6 +280,10 @@ border-bottom: 1px solid #888;}
     animation: none;
     opacity: 1;
   }
+
+  .yj-mobile-scale {
+    transform: scale(1.05);
+  }
 }
 
 /* ============================================================

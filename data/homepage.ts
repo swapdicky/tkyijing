@@ -903,7 +903,7 @@ export const yijing = [
     id: 51,
     titletc: "震",
     title: "Zhen /\nThe Arousing (Shock, Thunder)",
-    message: "震：亨。震來處處，笑言啞啞。\n震驚百里，不喪匕鬯。",
+    message: "震：亨。震來虩虩，笑言啞啞。\n震驚百里，不喪匕鬯。",
     messageContent: "震卦。通達。震動起來驚慌不安，談話笑聲穩定\n合宜。震動驚傳百里之遠，祭器祭酒卻不失手。",
     meaning: "象曰：洊雷，震。君子以恐懼修省。",
     meaningContent: "《象傳》說：接二連三打雷，這就是震卦。\n君子由此領悟，要有所恐懼，修正省察自己。",
