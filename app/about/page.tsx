@@ -236,7 +236,7 @@ We hope the immersive experiences of this show will allow abstract ideas to take
                       style={{
                         flexShrink: 0,
                         width: '100%',
-                        aspectRatio: '16 / 9',
+                        aspectRatio: '640/320',
                         backgroundImage: `url(${video.thumbnail})`,
                         backgroundSize: 'cover',
                         backgroundPosition: 'center',
@@ -345,8 +345,8 @@ We hope the immersive experiences of this show will allow abstract ideas to take
                 <div style={{
                   position: 'relative',
                   width: '100%',
-                  aspectRatio: '16 / 9',
-                  backgroundImage: 'url(/images/about/2.jpg)',
+                  aspectRatio: '640/320',
+                  backgroundImage: 'url(/images/about/4.jpg)',
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
                   borderRadius: '15px',
@@ -404,7 +404,7 @@ We hope the immersive experiences of this show will allow abstract ideas to take
               <div style={{
                 position: 'relative',
                 width: '100%',
-                aspectRatio: '16 / 9',
+                aspectRatio: '640/320',
                 backgroundImage: 'url(/images/about/260112_Taikwun_TKConv_BasilPao_1920x960_AF.gif)',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
@@ -517,7 +517,7 @@ Basil Pao began his photographic career in 1980 upon his return to Hong Kong aft
               position: 'relative',
               width: '90%',
               maxWidth: '1280px',
-              aspectRatio: '16 / 9'
+              aspectRatio: '640/320'
             }}
             onClick={(e) => e.stopPropagation()}
           >
