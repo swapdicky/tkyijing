@@ -1,6 +1,7 @@
 'use client';
 
 import Header from "@/components/Header";
+import { assetPath } from "@/lib/asset";
 import { useState, useEffect, useRef } from 'react';
 
 export default function About() {
@@ -21,13 +22,13 @@ export default function About() {
   const videos = [
     {
 
-      thumbnail: '/images/about/2.jpg',
+      thumbnail: assetPath('/images/about/2.jpg'),
       youtubeId: '0M2szPItrqo'
 
     },
     {
 
-      thumbnail: '/images/about/1.jpg',
+      thumbnail: assetPath('/images/about/1.jpg'),
       youtubeId: 'rv8JewKH91M'
 
     }
@@ -346,7 +347,7 @@ We hope the immersive experiences of this show will allow abstract ideas to take
                   position: 'relative',
                   width: '100%',
                   aspectRatio: '640/320',
-                  backgroundImage: 'url(/images/about/4.jpg)',
+                  backgroundImage: `url(${assetPath('/images/about/4.jpg')})`,
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
                   borderRadius: '15px',
@@ -405,7 +406,7 @@ We hope the immersive experiences of this show will allow abstract ideas to take
                 position: 'relative',
                 width: '100%',
                 aspectRatio: '640/320',
-                backgroundImage: 'url(/images/about/260112_Taikwun_TKConv_BasilPao_1920x960_AF.gif)',
+                backgroundImage: `url(${assetPath('/images/about/260112_Taikwun_TKConv_BasilPao_1920x960_AF.gif')})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 borderRadius: '15px',

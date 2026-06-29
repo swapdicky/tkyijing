@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { assetPath } from "@/lib/asset";
 
 export default function Header({ isPanelOpen = false, hideOverlay = false, onMenuChange, forceOpenMenu = false }: { isPanelOpen?: boolean; hideOverlay?: boolean; onMenuChange?: (isOpen: boolean) => void; forceOpenMenu?: boolean }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -12,7 +13,7 @@ export default function Header({ isPanelOpen = false, hideOverlay = false, onMen
   const isYijingPage = pathname === '/yijing';
   const isExhibitionPage = pathname === '/exhibition';
   const isSmallHeightPage = isYijingPage || isExhibitionPage;
-  const logoSrc = isMobile ? '/images/logo.svg' : (isYijingPage ? '/images/logo-b.svg' : '/images/logo.svg');
+  const logoSrc = isMobile ? assetPath('/images/logo.svg') : (isYijingPage ? assetPath('/images/logo-b.svg') : assetPath('/images/logo.svg'));
 
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < 980);
@@ -159,13 +160,13 @@ export default function Header({ isPanelOpen = false, hideOverlay = false, onMen
             <div className="flex justify-between items-start mb-6 px-6" style={{ borderTop: '1px solid #888', paddingTop: '20px'}}>
               <a href="https://www.taikwun.hk" target="_blank" rel="noopener noreferrer">
                 <img 
-                  src="/images/TK-logo.svg" 
+                  src={assetPath("/images/TK-logo.svg")} 
                   alt="Tai Kwun" 
                   style={{ height: '60px', width: 'auto' }}
                 />
               </a>
               <img 
-                src="/images/HKJC-logo.svg" 
+                src={assetPath("/images/HKJC-logo.svg")} 
                 alt="HKJC" 
                 style={{ height: '60px', width: 'auto' }}
               />

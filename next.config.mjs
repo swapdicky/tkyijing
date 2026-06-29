@@ -1,11 +1,19 @@
+const basePath = "/bookofchanges_basilpao";
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
 
   output: "export",
 
-  //basePath: "/clients/yijing",
+  basePath: basePath,
 
-  //assetPrefix: "/clients/yijing",
+  assetPrefix: basePath,
+
+  env: {
+
+    NEXT_PUBLIC_BASE_PATH: basePath,
+
+  },
 
   images: {
 

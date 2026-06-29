@@ -5,6 +5,7 @@ import { flushSync } from "react-dom";
 import { gsap } from "gsap";
 import Header from "@/components/Header";
 import { yijing } from "@/data/homepage";
+import { assetPath } from "@/lib/asset";
 import React from "react";
 
 // I Ching hexagram mapping (1-64) to binary representation
@@ -81,7 +82,7 @@ export default function Home() {
     const preloadImages = () => {
       for (let i = 1; i <= 64; i++) {
         const img = new Image();
-        img.src = `/images/Hex64_IMG/${i}.jpg`;
+        img.src = assetPath(`/images/Hex64_IMG/${i}.jpg`);
       }
     };
     preloadImages();
@@ -684,7 +685,7 @@ export default function Home() {
       >
           {/* Logo inside white box */}
           <div className="info-box-logo">
-            <img src={scrollProgress === 0 ? "/images/logo-icon.svg" : "/images/logo-icon-b.svg"} alt="Logo" />
+            <img src={scrollProgress === 0 ? assetPath("/images/logo-icon.svg") : assetPath("/images/logo-icon-b.svg")} alt="Logo" />
           </div>
       <div className="fixed top-0 flex items-center justify-center yj-full-viewport" style={{
         left: scrollProgress >= 1 ? '-150%' : '0',
@@ -823,12 +824,12 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
    
       }}>
         <img 
-          src="/images/TK-logo.svg" 
+          src={assetPath("/images/TK-logo.svg")} 
           alt="Tai Kwun" 
           style={{ height: '60px', width: 'auto' }}
         />
         <img 
-          src="/images/HKJC-logo.svg" 
+          src={assetPath("/images/HKJC-logo.svg")} 
           alt="HKJC" 
           style={{ height: '60px', width: 'auto' }}
         />
@@ -984,7 +985,7 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
               <div 
                 className="absolute inset-0 transition-all duration-500 ease-out"
                 style={{
-                  backgroundImage: `url('/images/Hex64_SVG/hex-${String(boxNumber).padStart(2, '0')}.svg')`,
+                  backgroundImage: `url('${assetPath(`/images/Hex64_SVG/hex-${String(boxNumber).padStart(2, '0')}.svg`)}')`,
                   backgroundPosition: 'center',
                   backgroundRepeat: 'no-repeat',
                   backgroundSize: '50%',
@@ -1289,7 +1290,7 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
           {/* Left section - Explore/Overview (175px) */}
           <div className="flex items-center" style={{ width: '175px', paddingLeft: '20px', position: 'relative' }}>
             <img 
-              src={mode === "explore" ? "/images/icon-view1.svg" : "/images/icon-view2.svg"} 
+              src={mode === "explore" ? assetPath("/images/icon-view1.svg") : assetPath("/images/icon-view2.svg")} 
               alt="View mode"
               style={{ width: '24px', height: '24px', display: 'block' }}
             />
@@ -1318,7 +1319,7 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
               style={{ opacity: zoom === 150 ? 0.3 : 1 }}
             >
               <img 
-                src="/images/plus-icon.svg" 
+                src={assetPath("/images/plus-icon.svg")} 
                 alt="Zoom in"
                 style={{ width: '20px', height: '20px', display: 'block' }}
               />
@@ -1340,7 +1341,7 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
               style={{ opacity: zoom === 50 ? 0.3 : 1 }}
             >
               <img 
-                src="/images/minus-icon.svg" 
+                src={assetPath("/images/minus-icon.svg")} 
                 alt="Zoom out"
                 style={{ width: '20px', height: '20px', display: 'block' }}
               />

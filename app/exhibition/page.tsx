@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Header from "@/components/Header";
+import { assetPath } from "@/lib/asset";
 import gsap from "gsap";
 
 export default function Exhibition() {
@@ -33,7 +34,7 @@ export default function Exhibition() {
       '/images/exhibition/ss3b.webp',
       '/images/exhibition/ss3c.webp',
       '/images/exhibition/ss4a.webp'
-    ];
+    ].map(assetPath);
 
     let loadedCount = 0;
     const totalImages = imagesToPreload.length;
@@ -446,7 +447,7 @@ The <em>Book of Changes</em> is unquestionably a quintessential Chinese cultural
                 width: isMobile ? "100%" : "130vw",
                 transform: isMobile ? "translateX(-50%)" : "translateX(-30.5083%)",
                 height: "100%",
-                backgroundImage: `url('/images/exhibition/ss1-landing.webp')`,
+                backgroundImage: `url('${assetPath('/images/exhibition/ss1-landing.webp')}')`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat"
@@ -469,7 +470,7 @@ The <em>Book of Changes</em> is unquestionably a quintessential Chinese cultural
                   height: isMobile ? 'auto' : 'calc(100vh - 140px)',
                   overflow: "hidden",
                   position: "relative",
-                  backgroundImage: "url('/images/exhibition/ss1a.webp')",
+                  backgroundImage: `url('${assetPath('/images/exhibition/ss1a.webp')}')`,
                   backgroundSize: "cover",
                   backgroundPosition: "left center",
                   backgroundRepeat: "no-repeat"
@@ -482,7 +483,7 @@ The <em>Book of Changes</em> is unquestionably a quintessential Chinese cultural
                 style={{ 
                   aspectRatio: "1311/874", 
                   height: isMobile ? 'auto' : 'calc(100vh - 140px)',
-                  backgroundImage: "url('/images/exhibition/ss1b.webp')",
+                  backgroundImage: `url('${assetPath('/images/exhibition/ss1b.webp')}')`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                   overflow: "hidden"
@@ -495,7 +496,7 @@ The <em>Book of Changes</em> is unquestionably a quintessential Chinese cultural
                 style={{ 
                   aspectRatio: "656/874", 
                   height: isMobile ? 'auto' : 'calc(100vh - 140px)',
-                  backgroundImage: "url('/images/exhibition/ss1c.webp')",
+                  backgroundImage: `url('${assetPath('/images/exhibition/ss1c.webp')}')`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                   overflow: "hidden"
@@ -525,7 +526,7 @@ The <em>Book of Changes</em> is unquestionably a quintessential Chinese cultural
                 width: isMobile ? "100%" : "130vw",
                 transform: isMobile ? "translateX(-50%)" : "translateX(0%)",
                 height: "100%",
-                backgroundImage: "url('/images/exhibition/ss2-landing.webp')",
+                backgroundImage: `url('${assetPath('/images/exhibition/ss2-landing.webp')}')`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat"
@@ -624,7 +625,7 @@ Over the years, I failed repeatedly to create a visual representation of the <em
                 style={{ 
                   aspectRatio: "1311/874", 
                   height: isMobile ? 'auto' : 'calc(100vh - 140px)',
-                  backgroundImage: "url('/images/exhibition/ss2a.webp')",
+                  backgroundImage: `url('${assetPath('/images/exhibition/ss2a.webp')}')`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                   overflow: "hidden"
@@ -636,7 +637,7 @@ Over the years, I failed repeatedly to create a visual representation of the <em
                 style={{ 
                   aspectRatio: "1311/874", 
                   height: isMobile ? 'auto' : 'calc(100vh - 140px)',
-                  backgroundImage: "url('/images/exhibition/ss2b.webp')",
+                  backgroundImage: `url('${assetPath('/images/exhibition/ss2b.webp')}')`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                       overflow: "hidden"
@@ -648,7 +649,7 @@ Over the years, I failed repeatedly to create a visual representation of the <em
                 style={{ 
                   aspectRatio: "656/874", 
                   height: isMobile ? 'auto' : 'calc(100vh - 140px)',
-                  backgroundImage: "url('/images/exhibition/ss2c.webp')",
+                  backgroundImage: `url('${assetPath('/images/exhibition/ss2c.webp')}')`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                       overflow: "hidden"
@@ -660,7 +661,7 @@ Over the years, I failed repeatedly to create a visual representation of the <em
                 style={{ 
                   aspectRatio: "1311/874", 
                   height: isMobile ? 'auto' : 'calc(100vh - 140px)',
-                  backgroundImage: "url('/images/exhibition/ss2d.webp')",
+                  backgroundImage: `url('${assetPath('/images/exhibition/ss2d.webp')}')`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                       overflow: "hidden"
@@ -747,7 +748,7 @@ Nowadays, with the advance of digital technologies, an online consultation of th
                 style={{ 
                   aspectRatio: "656/874", 
                   height: isMobile ? 'auto' : 'calc(100vh - 140px)',
-                  backgroundImage: "url('/images/exhibition/ss3a.webp')",
+                  backgroundImage: `url('${assetPath('/images/exhibition/ss3a.webp')}')`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                       overflow: "hidden"
@@ -759,7 +760,7 @@ Nowadays, with the advance of digital technologies, an online consultation of th
                 style={{ 
                   aspectRatio: "656/874", 
                   height: isMobile ? 'auto' : 'calc(100vh - 140px)',
-                  backgroundImage: "url('/images/exhibition/ss3b.webp')",
+                  backgroundImage: `url('${assetPath('/images/exhibition/ss3b.webp')}')`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                       overflow: "hidden"
@@ -771,7 +772,7 @@ Nowadays, with the advance of digital technologies, an online consultation of th
                 style={{ 
                   aspectRatio: "656/874", 
                   height: isMobile ? 'auto' : 'calc(100vh - 140px)',
-                  backgroundImage: "url('/images/exhibition/ss3c.webp')",
+                  backgroundImage: `url('${assetPath('/images/exhibition/ss3c.webp')}')`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                       overflow: "hidden"
@@ -801,7 +802,7 @@ Nowadays, with the advance of digital technologies, an online consultation of th
                 width: isMobile ? "100%" : "130vw",
                 transform: isMobile ? "translateX(-50%)" : "translateX(0%)",
                 height: "100%",
-                backgroundImage: "url('/images/exhibition/ss3-landing.jpg')",
+                backgroundImage: `url('${assetPath('/images/exhibition/ss3-landing.jpg')}')`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat"
@@ -878,7 +879,7 @@ The central concept of the <em>Book of Changes</em> is "Heaven and Humanity as O
                 style={{ 
                   aspectRatio: "1748/874", 
                   height: isMobile ? 'auto' : 'calc(50vh - 140px)',
-                  backgroundImage: "url('/images/exhibition/ss4a.webp')",
+                  backgroundImage: `url('${assetPath('/images/exhibition/ss4a.webp')}')`,
                   backgroundSize: "cover",
                   backgroundPosition: "left center",
                   backgroundRepeat: "no-repeat",

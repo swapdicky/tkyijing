@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Header from "@/components/Header";
+import { assetPath } from "@/lib/asset";
 
 export default function Yijing() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -140,7 +141,7 @@ export default function Yijing() {
           position: 'relative'
         }}>
           <img 
-            src="/images/TK_YiJIng_Graphs/yijing-graphs-02.jpg" 
+            src={assetPath("/images/TK_YiJIng_Graphs/yijing-graphs-02.jpg")} 
             alt="Yin Yang" 
             className={isMobile ? 'yj-mobile-scale' : ''}
             style={{
@@ -150,7 +151,7 @@ export default function Yijing() {
           />
           {isMobile && (
             <button
-              onClick={() => setLightboxImage('/images/TK_YiJIng_Graphs/yijing-graphs-02.jpg')}
+              onClick={() => setLightboxImage(assetPath('/images/TK_YiJIng_Graphs/yijing-graphs-02.jpg'))}
             style={{
               position: 'absolute',
               top: '0',
@@ -226,7 +227,7 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
           position: 'relative'
         }}>
           <img 
-            src="/images/TK_YiJIng_Graphs/yijing-graphs-04.jpg" 
+            src={assetPath("/images/TK_YiJIng_Graphs/yijing-graphs-04.jpg")} 
             alt="8 Trigrams" 
             className={isMobile ? 'yj-mobile-scale' : ''}
             style={{
@@ -238,7 +239,7 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
           />
           {isMobile && (
             <button
-              onClick={() => setLightboxImage('/images/TK_YiJIng_Graphs/yijing-graphs-04.jpg')}
+              onClick={() => setLightboxImage(assetPath('/images/TK_YiJIng_Graphs/yijing-graphs-04.jpg'))}
             style={{
               position: 'absolute',
               top: '0',
@@ -275,7 +276,7 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
           position: 'relative'
         }}>
           <img 
-            src="/images/TK_YiJIng_Graphs/yijing-graphs-05.jpg" 
+            src={assetPath("/images/TK_YiJIng_Graphs/yijing-graphs-05.jpg")} 
             alt="64 Hexagrams" 
             className={isMobile ? 'yj-mobile-scale' : ''}
             style={{
@@ -287,7 +288,7 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
           />
           {isMobile && (
             <button
-              onClick={() => setLightboxImage('/images/TK_YiJIng_Graphs/yijing-graphs-05.jpg')}
+              onClick={() => setLightboxImage(assetPath('/images/TK_YiJIng_Graphs/yijing-graphs-05.jpg'))}
             style={{
               position: 'absolute',
               top: '0',
@@ -414,7 +415,7 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
             position: 'relative'
           }}>
           <img 
-            src="/images/TK_YiJIng_Graphs/yijing-graphs-08.jpg" 
+            src={assetPath("/images/TK_YiJIng_Graphs/yijing-graphs-08.jpg")} 
             alt="Luo River Diagram" 
             className={isMobile ? 'yj-mobile-scale' : ''}
             style={{
@@ -426,7 +427,7 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
           />
           {isMobile && (
             <button
-              onClick={() => setLightboxImage('/images/TK_YiJIng_Graphs/yijing-graphs-08.jpg')}
+              onClick={() => setLightboxImage(assetPath('/images/TK_YiJIng_Graphs/yijing-graphs-08.jpg'))}
             style={{
               position: 'absolute',
               top: '5px',
@@ -464,7 +465,7 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
             position: 'relative'
           }}>
           <img 
-            src="/images/TK_YiJIng_Graphs/yijing-graphs-09.jpg" 
+            src={assetPath("/images/TK_YiJIng_Graphs/yijing-graphs-09.jpg")} 
             alt="Yellow River Chart" 
             className={isMobile ? 'yj-mobile-scale' : ''}
             style={{
@@ -476,7 +477,7 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
           />
           {isMobile && (
             <button
-              onClick={() => setLightboxImage('/images/TK_YiJIng_Graphs/yijing-graphs-09.jpg')}
+              onClick={() => setLightboxImage(assetPath('/images/TK_YiJIng_Graphs/yijing-graphs-09.jpg'))}
             style={{
               position: 'absolute',
               top: '0',
@@ -514,7 +515,7 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
           position: 'relative'
         }}>
           <img 
-            src="/images/TK_YiJIng_Graphs/yijing-graphs-11.jpg" 
+            src={assetPath("/images/TK_YiJIng_Graphs/yijing-graphs-11.jpg")} 
             alt="64 Hexagrams" 
             className={isMobile ? 'yj-mobile-scale' : ''}
             style={{
@@ -526,7 +527,7 @@ The divination system in the <em>Book of Changes</em> was formalised to observe 
           />
           {isMobile && (
             <button
-              onClick={() => setLightboxImage('/images/TK_YiJIng_Graphs/yijing-graphs-11.jpg')}
+              onClick={() => setLightboxImage(assetPath('/images/TK_YiJIng_Graphs/yijing-graphs-11.jpg'))}
             style={{
               position: 'absolute',
               top: '5px',
@@ -1093,7 +1094,7 @@ The <em>Writing from the Luo River</em> is attributed to a mythical turtle with 
             flex: 1
           }}>
             <img 
-              src="/images/yijing/image5.png" 
+              src={assetPath("/images/yijing/image5.png")} 
               alt="Fortune Teller" 
               style={{
                 width: isMobile ? '100%' : '80%',
