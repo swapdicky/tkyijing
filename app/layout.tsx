@@ -63,7 +63,7 @@ export default function RootLayout({
         <div className="screen-size-warning">
           <div className="screen-size-warning-box">
             <div className="screen-size-warning-title">
-              提示 <span className="fw-300"  style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Notes</span>
+              提示 <span className="fw-300"  style={{ fontFamily: '"neue-haas-grotesk-display", sans-serif' }}>Notes</span>
             </div>
             <div className="screen-size-warning-content">
               <div className="screen-size-warning-content-cn">

@@ -107,7 +107,7 @@ export default function CreativeTeam() {
             <h1 className="text-white fw-400 section-title-text yj-lh-12">鳴謝</h1>
           </div>
           <div className="section-title-row">
-            <h1 className="text-white fw-300 section-title-text yj-lh-12" style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Acknowledgement</h1>
+            <h1 className="text-white fw-300 section-title-text yj-lh-12" style={{ fontFamily: '"neue-haas-grotesk-display", sans-serif' }}>Acknowledgement</h1>
           </div>
         </div>
 
@@ -131,7 +131,7 @@ export default function CreativeTeam() {
               marginBottom: '1em'
             }}>
               <p style={{ marginBottom: '1em' }}>
-                我們向所有協助及參與本次展覽的人士致以最誠摯的謝意。特別感謝鮑皓昕先生設計的展覽海報，以及<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Teresa Coleman</span>女士借出其收藏的道教宗師法衣。
+                我們向所有協助及參與本次展覽的人士致以最誠摯的謝意。特別感謝鮑皓昕先生設計的展覽海報，以及<span style={{ fontFamily: '"neue-haas-grotesk-display", sans-serif' }}>Teresa Coleman</span>女士借出其收藏的道教宗師法衣。
               </p>
               <p style={{ margin: 0 }}>
                 展覽及其內容並不反映香港賽馬會慈善信託基金或大館的立場或意見。                            
@@ -158,7 +158,7 @@ export default function CreativeTeam() {
               marginBottom: '1em'
             }}>
               <p >
-註: 是次展覽中引用《傅佩榮解讀易經》（台北，<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>2022</span>）的白話中文譯解；英文版本根據衛禮賢（<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Richard Wilhelm</span>）的譯本，由卡利‧貝恩斯（<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Cary F. Baynes</span>）翻譯成英文（普林斯頓，<span style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>1997</span>）。              </p>
+註: 是次展覽中引用《傅佩榮解讀易經》（台北，<span style={{ fontFamily: '"neue-haas-grotesk-display", sans-serif' }}>2022</span>）的白話中文譯解；英文版本根據衛禮賢（<span style={{ fontFamily: '"neue-haas-grotesk-display", sans-serif' }}>Richard Wilhelm</span>）的譯本，由卡利‧貝恩斯（<span style={{ fontFamily: '"neue-haas-grotesk-display", sans-serif' }}>Cary F. Baynes</span>）翻譯成英文（普林斯頓，<span style={{ fontFamily: '"neue-haas-grotesk-display", sans-serif' }}>1997</span>）。              </p>
 
             </div>
             <div className="yj-en-14 yj-lh-14" style={{
@@ -197,7 +197,7 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
               <h1 className="text-white fw-400 section-title-text yj-lh-12">藝術家團隊</h1>
             </div>
             <div className="section-title-row">
-              <h1 className="text-white fw-300 section-title-text yj-lh-12" style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Artist Team</h1>
+              <h1 className="text-white fw-300 section-title-text yj-lh-12" style={{ fontFamily: '"neue-haas-grotesk-display", sans-serif' }}>Artist Team</h1>
             </div>
           </div>
           <div className="ct-team-section">
@@ -235,7 +235,7 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
                 </div>
                 <div className="yj-cn-16 yj-lh-12" style={{
                   color: '#fff',
-                  fontFamily: '"neue-haas-unica", sans-serif',
+                  fontFamily: '"neue-haas-grotesk-display", sans-serif',
                   fontWeight: 300
                 }}>
                   Basil Pao
@@ -259,7 +259,7 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
                 </div>
                 <div className="yj-cn-16 yj-lh-12" style={{
                   color: '#fff',
-                  fontFamily: '"neue-haas-unica", sans-serif',
+                  fontFamily: '"neue-haas-grotesk-display", sans-serif',
                   fontWeight: 400
                 }}>
                   Artwork Production
@@ -277,7 +277,7 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
                 </div>
                 <div className="yj-cn-16 yj-lh-12" style={{
                   color: '#fff',
-                  fontFamily: '"neue-haas-unica", sans-serif',
+                  fontFamily: '"neue-haas-grotesk-display", sans-serif',
                   fontWeight: 300
                 }}>
                   Studio 8 Limited
@@ -300,7 +300,7 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
               <h1 className="text-white fw-400 section-title-text yj-lh-12">大館團隊</h1>
             </div>
             <div className="section-title-row">
-              <h1 className="text-white fw-300 section-title-text yj-lh-12" style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Tai Kwun Team</h1>
+              <h1 className="text-white fw-300 section-title-text yj-lh-12" style={{ fontFamily: '"neue-haas-grotesk-display", sans-serif' }}>Tai Kwun Team</h1>
             </div>
           </div>
           <div className="ct-team-section">
@@ -322,7 +322,7 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
                 </div>
                 <div className="yj-cn-16 yj-lh-12" style={{
                   color: '#fff',
-                  fontFamily: '"neue-haas-unica", sans-serif',
+                  fontFamily: '"neue-haas-grotesk-display", sans-serif',
                   fontWeight: 400
                 }}>
                   Curatorial
@@ -341,7 +341,7 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
                 </div>
                 <div className="yj-cn-16 yj-lh-12" style={{
                   color: '#fff',
-                  fontFamily: '"neue-haas-unica", sans-serif',
+                  fontFamily: '"neue-haas-grotesk-display", sans-serif',
                   fontWeight: 300
                 }}>
                   Anita Chung
@@ -367,7 +367,7 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
                 </div>
                 <div className="yj-cn-16 yj-lh-12" style={{
                   color: '#fff',
-                  fontFamily: '"neue-haas-unica", sans-serif',
+                  fontFamily: '"neue-haas-grotesk-display", sans-serif',
                   fontWeight: 400
                 }}>
                   Project Management
@@ -386,7 +386,7 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
                 </div>
                 <div className="yj-cn-16 yj-lh-12" style={{
                   color: '#fff',
-                  fontFamily: '"neue-haas-unica", sans-serif',
+                  fontFamily: '"neue-haas-grotesk-display", sans-serif',
                   fontWeight: 300,
                   marginBottom: '6px'
                 }}>
@@ -402,7 +402,7 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
                 </div>                
                 <div className="yj-cn-16 yj-lh-12" style={{
                   color: '#fff',
-                  fontFamily: '"neue-haas-unica", sans-serif',
+                  fontFamily: '"neue-haas-grotesk-display", sans-serif',
                   fontWeight: 300
                 }}>
                   Queenie Hui
@@ -428,7 +428,7 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
                 </div>
                 <div className="yj-cn-16 yj-lh-12" style={{
                   color: '#fff',
-                  fontFamily: '"neue-haas-unica", sans-serif',
+                  fontFamily: '"neue-haas-grotesk-display", sans-serif',
                   fontWeight: 400
                 }}>
                   Design Management
@@ -448,7 +448,7 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
                 </div>
                 <div className="yj-cn-16 yj-lh-12" style={{
                   color: '#fff',
-                  fontFamily: '"neue-haas-unica", sans-serif',
+                  fontFamily: '"neue-haas-grotesk-display", sans-serif',
                   fontWeight: 300
                 }}>
                   Addison Yick
@@ -472,7 +472,7 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
               <h1 className="text-white fw-400 section-title-text yj-lh-12">展覽設計與製作</h1>
             </div>
             <div className="section-title-row">
-              <h1 className="text-white fw-300 section-title-text yj-lh-12" style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Exhibition Design and Production</h1>
+              <h1 className="text-white fw-300 section-title-text yj-lh-12" style={{ fontFamily: '"neue-haas-grotesk-display", sans-serif' }}>Exhibition Design and Production</h1>
             </div>
           </div>
           <div className="ct-team-section" style={{border:'none'}}>
@@ -494,7 +494,7 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
                 </div>
                 <div className="yj-cn-16 yj-lh-12" style={{
                   color: '#fff',
-                  fontFamily: '"neue-haas-unica", sans-serif',
+                  fontFamily: '"neue-haas-grotesk-display", sans-serif',
                   fontWeight: 400
                 }}>
                   Exhibition Design
@@ -511,7 +511,7 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
                 </div>                
                 <div className="yj-cn-16 yj-lh-12" style={{
                   color: '#fff',
-                  fontFamily: '"neue-haas-unica", sans-serif',
+                  fontFamily: '"neue-haas-grotesk-display", sans-serif',
                   fontWeight: 300
                 }}>
                   Atelier Nuno Limited
@@ -536,7 +536,7 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
                 </div>
                 <div className="yj-cn-16 yj-lh-12" style={{
                   color: '#fff',
-                  fontFamily: '"neue-haas-unica", sans-serif',
+                  fontFamily: '"neue-haas-grotesk-display", sans-serif',
                   fontWeight: 400
                 }}>
                   Graphic Production
@@ -552,7 +552,7 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
                 </div>
                 <div className="yj-cn-16 yj-lh-12" style={{
                   color: '#fff',
-                  fontFamily: '"neue-haas-unica", sans-serif',
+                  fontFamily: '"neue-haas-grotesk-display", sans-serif',
                   fontWeight: 300
                 }}>
                   HATO
@@ -577,7 +577,7 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
                 </div>
                 <div className="yj-cn-16 yj-lh-12" style={{
                   color: '#fff',
-                  fontFamily: '"neue-haas-unica", sans-serif',
+                  fontFamily: '"neue-haas-grotesk-display", sans-serif',
                   fontWeight: 400
                 }}>
                   Exhibition Production
@@ -593,7 +593,7 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
                 </div>
                 <div className="yj-cn-16 yj-lh-12" style={{
                   color: '#fff',
-                  fontFamily: '"neue-haas-unica", sans-serif',
+                  fontFamily: '"neue-haas-grotesk-display", sans-serif',
                   fontWeight: 300
                 }}>
                   Hattrick Creative Limited
@@ -618,7 +618,7 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
                 </div>
                 <div className="yj-cn-16 yj-lh-12" style={{
                   color: '#fff',
-                  fontFamily: '"neue-haas-unica", sans-serif',
+                  fontFamily: '"neue-haas-grotesk-display", sans-serif',
                   fontWeight: 400
                 }}>
                   Interactive Design
@@ -634,7 +634,7 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
                 </div>                
                 <div className="yj-cn-16 yj-lh-12" style={{
                   color: '#fff',
-                  fontFamily: '"neue-haas-unica", sans-serif',
+                  fontFamily: '"neue-haas-grotesk-display", sans-serif',
                   fontWeight: 300
                 }}>
                   WARE
@@ -659,7 +659,7 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
                 </div>
                 <div className="yj-cn-16 yj-lh-12" style={{
                   color: '#fff',
-                  fontFamily: '"neue-haas-unica", sans-serif',
+                  fontFamily: '"neue-haas-grotesk-display", sans-serif',
                   fontWeight: 400
                 }}>
                   AV Installation
@@ -675,7 +675,7 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
                 </div>
                 <div className="yj-cn-16 yj-lh-12" style={{
                   color: '#fff',
-                  fontFamily: '"neue-haas-unica", sans-serif',
+                  fontFamily: '"neue-haas-grotesk-display", sans-serif',
                   fontWeight: 300
                 }}>
                   Komstadt Systems Limited
@@ -699,7 +699,7 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
                 </div>
                 <div className="yj-cn-16 yj-lh-12" style={{
                   color: '#fff',
-                  fontFamily: '"neue-haas-unica", sans-serif',
+                  fontFamily: '"neue-haas-grotesk-display", sans-serif',
                   fontWeight: 400
                 }}>
                   Website Design
@@ -715,7 +715,7 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
                 </div>               
                 <div className="yj-cn-16 yj-lh-12" style={{
                   color: '#fff',
-                  fontFamily: '"neue-haas-unica", sans-serif',
+                  fontFamily: '"neue-haas-grotesk-display", sans-serif',
                   fontWeight: 300
                 }}>
                   Toby Ng Design
@@ -767,7 +767,7 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
                 color: '#fff',
                 fontSize: '40px',
                 cursor: 'pointer',
-                fontFamily: '"neue-haas-unica", sans-serif',
+                fontFamily: '"neue-haas-grotesk-display", sans-serif',
                 fontWeight: 300,
                 display: 'flex',
                 alignItems: 'center',

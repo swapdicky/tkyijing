@@ -94,7 +94,7 @@ export default function Header({ isPanelOpen = false, hideOverlay = false, onMen
               <div className="group section-title-row border-t cursor-pointer transition-opacity" style={{ borderTopColor: '#888' }}>
                 <div className="flex items-baseline gap-3">
                   <h2 className="font-normal text-white group-hover:text-[#888] transition-colors section-title-text">展覽</h2>
-                  <h2 className="font-light text-white group-hover:text-[#888] transition-colors section-title-text" style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Exhibition</h2>
+                  <h2 className="font-light text-white group-hover:text-[#888] transition-colors section-title-text" style={{ fontFamily: '"neue-haas-grotesk-display", sans-serif' }}>Exhibition</h2>
                 </div>
               </div>
             </Link>
@@ -102,7 +102,7 @@ export default function Header({ isPanelOpen = false, hideOverlay = false, onMen
               <div className="group section-title-row cursor-pointer transition-opacity">
                 <div className="flex items-baseline gap-3">
                   <h2 className="font-normal text-white group-hover:text-[#888] transition-colors section-title-text">易經</h2>
-                  <h2 className="font-light text-white group-hover:text-[#888] transition-colors section-title-text" style={{ fontFamily: '"neue-haas-unica", sans-serif', fontStyle: "italic" }}>Yijing</h2>
+                  <h2 className="font-light text-white group-hover:text-[#888] transition-colors section-title-text" style={{ fontFamily: '"neue-haas-grotesk-display", sans-serif', fontStyle: "italic" }}>Yijing</h2>
                 </div>
               </div>
             </Link>
@@ -110,7 +110,7 @@ export default function Header({ isPanelOpen = false, hideOverlay = false, onMen
               <div className="group section-title-row cursor-pointer transition-opacity">
                 <div className="flex items-baseline gap-3">
                   <h2 className="font-normal text-white group-hover:text-[#888] transition-colors section-title-text">關於</h2>
-                  <h2 className="font-light text-white group-hover:text-[#888] transition-colors section-title-text" style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>About</h2>
+                  <h2 className="font-light text-white group-hover:text-[#888] transition-colors section-title-text" style={{ fontFamily: '"neue-haas-grotesk-display", sans-serif' }}>About</h2>
                 </div>
               </div>
             </Link>
@@ -118,7 +118,7 @@ export default function Header({ isPanelOpen = false, hideOverlay = false, onMen
               <div className="group section-title-row cursor-pointer transition-opacity">
                 <div className="flex items-baseline gap-3">
                   <h2 className="font-normal text-white group-hover:text-[#888] transition-colors section-title-text">團隊</h2>
-                  <h2 className="font-light text-white group-hover:text-[#888] transition-colors section-title-text" style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Creative Team</h2>
+                  <h2 className="font-light text-white group-hover:text-[#888] transition-colors section-title-text" style={{ fontFamily: '"neue-haas-grotesk-display", sans-serif' }}>Creative Team</h2>
                 </div>
               </div>
             </Link>
@@ -130,7 +130,7 @@ export default function Header({ isPanelOpen = false, hideOverlay = false, onMen
 
             {/* Footer links and copyright */}
               <div className="flex justify-between items-center px-6" style={{ height: '60px', borderTop: '1px solid #888', borderBottom: '1px solid #888' }}>
-                <div className="flex gap-4 text-xs" style={{ fontFamily: '"neue-haas-unica", sans-serif', color: '#888', fontWeight: '300' }}>
+                <div className="flex gap-4 text-xs" style={{ fontFamily: '"neue-haas-grotesk-display", sans-serif', color: '#888', fontWeight: '300' }}>
                   <a href="https://www.taikwun.hk/en/terms_of_use" className="hover:text-white transition-colors underline">Terms of Use</a>
                   <a href="https://www.taikwun.hk/en/privacy_policy" className="hover:text-white transition-colors underline">Privacy Policy</a>
                   <a href="https://www.taikwun.hk/en/adjust_font_size" className="hover:text-white transition-colors underline">Adjust Font Size</a>
@@ -153,7 +153,7 @@ export default function Header({ isPanelOpen = false, hideOverlay = false, onMen
                   </a>
                 </div>
               </div>
-            <div className="flex justify-between items-center px-6" style={{ height: '60px', fontFamily: '"neue-haas-unica", sans-serif', color: '#888', fontSize: '12px', fontWeight: '300' }}>
+            <div className="flex justify-between items-center px-6" style={{ height: '60px', fontFamily: '"neue-haas-grotesk-display", sans-serif', color: '#888', fontSize: '12px', fontWeight: '300' }}>
               <div>© 2026 The Jockey Club CPS Limited All rights reserved.</div>
             </div>
             {/* Logos */}

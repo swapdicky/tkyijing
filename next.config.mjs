@@ -1,4 +1,5 @@
-const basePath = "/bookofchanges_basilpao";
+// Local 開發用空字串；部署到 Tai Kwun 時改返 "/bookofchanges_basilpao"
+const basePath = "";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
