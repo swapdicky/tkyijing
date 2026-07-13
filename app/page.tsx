@@ -693,7 +693,7 @@ export default function Home() {
       }}>
         <div className="flex flex-col items-center justify-center">
            <h1 className="text-white fw-300 home-title" style={{marginBottom: isMobile ? '5px' : '10px'}}>易經：鮑皓昕攝影藝術</h1>
-           <h1 className="text-white fw-300 home-title home-title-en" style={{ fontFamily: '"neue-haas-grotesk-display", sans-serif' ,marginBottom: isMobile ? '30px' : '0'}}><em>Book of Changes</em>: The Art of Basil Pao</h1>
+           <h1 className="text-white fw-300 home-title home-title-en" style={{ fontFamily: '"neue-haas-grotesk-text", sans-serif' ,marginBottom: isMobile ? '30px' : '0'}}><em>Book of Changes</em>: The Art of Basil Pao</h1>
             {isMobile && <h5 className="text-white  yj-en-14 fw-300">Scroll to explore</h5>}
         
         
@@ -770,7 +770,7 @@ export default function Home() {
             {/* English Title */}
             <div className={`text-black fw-300 ${scrollProgress === 0 ? 'info-en-title-lg' : 'info-en-title-lg'}`}  style={{
               marginBottom: '10px',
-              fontFamily: '"neue-haas-grotesk-display", sans-serif',
+              fontFamily: '"neue-haas-grotesk-text", sans-serif',
               fontStyle: 'normal',
 
               transition: 'font-size 0.8s cubic-bezier(0.4, 0, 0.2, 1)' }}>
@@ -780,7 +780,7 @@ export default function Home() {
             {/* English Content */}
             <div className={`text-black fw-300 ${scrollProgress === 0 ? 'info-en-content-lg' : 'info-en-content-lg'}`}  style={{
               textAlign: 'left',
-              fontFamily: '"neue-haas-grotesk-display", sans-serif',
+              fontFamily: '"neue-haas-grotesk-text", sans-serif',
 
               fontStyle: 'normal',
               transition: 'font-size 0.8s cubic-bezier(0.4, 0, 0.2, 1)' }}>
@@ -1004,7 +1004,7 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
                 }}
               />
               <span 
-                className="absolute neue-haas-grotesk-display font-light" 
+                className="absolute neue-haas-grotesk-text font-light" 
                 style={{ 
                   fontSize: isMobile ? '10px' : '30px',
                   top: isMobile ? '5px' : '8px',
@@ -1165,7 +1165,7 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
             
             <div className="px-12 min-h-screen flex flex-col relative home-info-top" >
               <div className="flex items-start justify-between mb-8 panel-zh">
-                <div className="text-[24px] font-medium leading-none neue-haas-grotesk-display">{selectedBox || '--'}</div>
+                <div className="text-[24px] font-medium leading-none neue-haas-grotesk-text">{selectedBox || '--'}</div>
                 <div className="flex gap-3 items-start">
                   {selectedBox && yijing[selectedBox - 1] && (
                     <>
@@ -1211,18 +1211,18 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
 
                         <div className="yj-box-text-2xs">
                           <div className="mb-4">
-                            <p className="font-normal leading-tight neue-haas-grotesk-display">
+                            <p className="font-normal leading-tight neue-haas-grotesk-text">
                               above <em>{yijing[selectedBox - 1].above}</em>
                             </p>
-                            <p className="font-normal neue-haas-grotesk-display leading-tight italic">{yijing[selectedBox - 1].abovetxt.split('\n').map((line, i) => (
+                            <p className="font-normal neue-haas-grotesk-text leading-tight italic">{yijing[selectedBox - 1].abovetxt.split('\n').map((line, i) => (
                               <span key={i}>{line}{i < yijing[selectedBox - 1].abovetxt.split('\n').length - 1 && <br/>}</span>
                             ))}</p>
                           </div>
                           <div>
-                            <p className="font-normal leading-tight neue-haas-grotesk-display">
+                            <p className="font-normal leading-tight neue-haas-grotesk-text">
                               below <em>{yijing[selectedBox - 1].below}</em>
                             </p>
-                            <p className="font-normal neue-haas-grotesk-display leading-tight italic">{yijing[selectedBox - 1].belowtxt.split('\n').map((line, i) => (
+                            <p className="font-normal neue-haas-grotesk-text leading-tight italic">{yijing[selectedBox - 1].belowtxt.split('\n').map((line, i) => (
                               <span key={i}>{line}{i < yijing[selectedBox - 1].belowtxt.split('\n').length - 1 && <br/>}</span>
                             ))}</p>
                           </div>
@@ -1233,7 +1233,7 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
                   <div className="flex-1">
                     {selectedBox && yijing[selectedBox - 1] && (
                       <>
-                        <h3 ref={titleH3Ref} className="yj-box-text-xl font-normal leading-tight mb-4 neue-haas-grotesk-display">
+                        <h3 ref={titleH3Ref} className="yj-box-text-xl font-normal leading-tight mb-4 neue-haas-grotesk-text">
                           {yijing[selectedBox - 1].title.split('\n').map((line, i, arr) => (
                             <span key={i}>
                               {i === 0 && line.includes('/') ? (
@@ -1250,17 +1250,17 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
 
                         <div ref={scrollContentRef} className={`space-y-4 custom-scrollbar ${titleH3Tall ? 'yj-scroll-height-sm' : 'yj-scroll-height-lg'}`} style={{ overflowY: 'auto', paddingRight: '12px' }}>
                           <div>
-                            <h4 className="fw-600 yj-box-text-xs mb-1 neue-haas-grotesk-display">The Judgement</h4>
+                            <h4 className="fw-600 yj-box-text-xs mb-1 neue-haas-grotesk-text">The Judgement</h4>
                             <p
-                              className="text-black yj-box-text-base neue-haas-grotesk-display font-normal"
+                              className="text-black yj-box-text-base neue-haas-grotesk-text font-normal"
                               dangerouslySetInnerHTML={{ __html: yijing[selectedBox - 1].thejudgement.replace(/\n/g, '<br />') }}
                             />
                           </div>
 
                           <div>
-                            <h4 className="fw-600 yj-box-text-xs mb-1 neue-haas-grotesk-display">The Image</h4>
+                            <h4 className="fw-600 yj-box-text-xs mb-1 neue-haas-grotesk-text">The Image</h4>
                             <p
-                              className="text-black yj-box-text-base font-normal neue-haas-grotesk-display"
+                              className="text-black yj-box-text-base font-normal neue-haas-grotesk-text"
                               dangerouslySetInnerHTML={{ __html: yijing[selectedBox - 1].theimage.replace(/\n/g, '<br />') }}
                             />
                           </div>
@@ -1296,7 +1296,7 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
             />
             <button
               onClick={toggleMode}
-              className="text-[18px] neue-haas-grotesk-display flex items-center justify-center fw-400 text-white"
+              className="text-[18px] neue-haas-grotesk-text flex items-center justify-center fw-400 text-white"
                style={{ transform: 'translateY(1px)', position: 'absolute', left: '0', right: '0', textAlign: 'center',
                 paddingLeft: '45px' }}
             >
@@ -1308,7 +1308,7 @@ The current exhibition highlights the continued relevance of the <em>Book of Cha
           <div className="zoom-separator" style={{ width: '2px', height: '50px', backgroundColor: '#333333' }}></div>
 
           {/* Right section - Zoom controls (175px) */}
-          <div className="zoom-controls flex items-center justify-center gap-3 neue-haas-grotesk-display text-[18px] fw-400 text-white" style={{ width: '175px' }}>
+          <div className="zoom-controls flex items-center justify-center gap-3 neue-haas-grotesk-text text-[18px] fw-400 text-white" style={{ width: '175px' }}>
             <button
               onClick={() => {
                 if (zoom === 50) setZoom(100);

@@ -373,7 +373,7 @@ export default function Exhibition() {
           transform: 'rotate(90deg)',
           transformOrigin: 'center center',
           
-          fontFamily: '"neue-haas-grotesk-display", sans-serif',
+          fontFamily: '"neue-haas-grotesk-text", sans-serif',
           
           whiteSpace: 'nowrap',
           zIndex: 99,
@@ -411,14 +411,14 @@ export default function Exhibition() {
               <div style={{width: '100%'}}>
               {/* Title */}
               <div 
-                className="neue-haas-grotesk-display text-white fw-500 yj-en-24 yj-lh-12"
+                className="neue-haas-grotesk-text text-white fw-500 yj-en-24 yj-lh-12"
                  style={{ marginBottom: '20px' }}>
                 Exhibition Introduction
               </div>
 
               {/* English description */}
               <div 
-                className="neue-haas-grotesk-display text-white fw-300 yj-en-20 yj-lh-12"
+                className="neue-haas-grotesk-text text-white fw-300 yj-en-20 yj-lh-12"
                  style={{
                 textAlign: 'left' }}>
 The <em>Book of Changes</em> is unquestionably a quintessential Chinese cultural heritage. Confucianism and Daoism have their common roots here. Ancient Chinese philosophy, science, and statecraft and even modern living have all drawn inspiration from it. Two series of works by Hong Kong photo artist Basil Pao—<em>The Great Walls of China</em> and <em>Glimpses of Silence</em>—are presented here to explore the relation between heritage and artistic creation.
@@ -582,7 +582,7 @@ The <em>Book of Changes</em> is unquestionably a quintessential Chinese cultural
 <span className="mt-n-6"></span>︵第五十六卦︶，使我下定決心回港，成為旅遊攝影師。
 <div className="ex-ml-15"></div>
 多年來，我不斷嘗試以視覺形式呈現︽易經︾的精髓，<br/>
-卻始終未能如願。直至<span style={{ fontFamily: '"neue-haas-grotesk-display", sans-serif' }}>2007</span>年我在編輯︽中國探秘︾一書時，<br/>
+卻始終未能如願。直至<span style={{ fontFamily: '"neue-haas-grotesk-text", sans-serif' }}>2007</span>年我在編輯︽中國探秘︾一書時，<br/>
 終於找到完美載體－我在中國各地拍攝的斑駁牆垣特寫細節。<br/>
 歲月洗禮下，風雨在最基礎的建築上雕琢出繁複紋理與<br/>
 迷人質感。︽易經︾六十四卦源自古老二元體系，其形態<br/>
@@ -592,7 +592,7 @@ The <em>Book of Changes</em> is unquestionably a quintessential Chinese cultural
                   ) : (
                     <>
                       自我在五十年前初次接觸︽易經︾起，它就如<br/>一位睿智的的老朋友，每當我求問指點，它總能<br/>揭示我內心深處的想法，指引我如何在困境中<br/>求變。當中的玄妙箴言，曾在我人生的關鍵<br/>時刻發揮重要作用，例如當年我在猶豫是否該<br/>離開美國荷里活的工作，開啟創作生涯新篇章時，<br/>我占得﹁旅﹂︵第五十六卦︶，使我下定決心<br/>回港，成為旅遊攝影師。<br/><br/>
-                      多年來，我不斷嘗試以視覺形式呈現︽易經︾<br/>的精髓，卻始終未能如願。直至<span style={{ fontFamily: '"neue-haas-grotesk-display", sans-serif' }}>2007</span>我在編輯<br/><span className="mt-n-6"></span>︽中國探秘︾一書時，終於找到完美載體<span style={{ fontFamily: '"neue-haas-grotesk-display", sans-serif' }}>—</span><br/>我在中國各地拍攝的斑駁牆垣特寫細節。歲月<br/>洗禮下，風雨在最基礎的建築上雕琢出繁複紋理<br/>與迷人質感。︽易經︾六十四卦源自古老二元<br/>體系，其形態極具當代感，與電腦時代遙相呼應。<br/>這些影像在視覺與概念上與大自然的抽象表現<br/>完美契合，成就了︽中國牆城︾系列。
+                      多年來，我不斷嘗試以視覺形式呈現︽易經︾<br/>的精髓，卻始終未能如願。直至<span style={{ fontFamily: '"neue-haas-grotesk-text", sans-serif' }}>2007</span>我在編輯<br/><span className="mt-n-6"></span>︽中國探秘︾一書時，終於找到完美載體<span style={{ fontFamily: '"neue-haas-grotesk-text", sans-serif' }}>—</span><br/>我在中國各地拍攝的斑駁牆垣特寫細節。歲月<br/>洗禮下，風雨在最基礎的建築上雕琢出繁複紋理<br/>與迷人質感。︽易經︾六十四卦源自古老二元<br/>體系，其形態極具當代感，與電腦時代遙相呼應。<br/>這些影像在視覺與概念上與大自然的抽象表現<br/>完美契合，成就了︽中國牆城︾系列。
                     </>
                   )}
                 </div>
@@ -602,7 +602,7 @@ The <em>Book of Changes</em> is unquestionably a quintessential Chinese cultural
               <div style={{width: '100%'}}>
                 {/* Title */}
                 <div className="text-white fw-300 yj-en-18 yj-lh-12"  style={{ marginBottom: '15px',
-                  fontFamily: '"neue-haas-grotesk-display", sans-serif',
+                  fontFamily: '"neue-haas-grotesk-text", sans-serif',
                   
                   fontStyle: 'normal' }}>
                  Artist Statement<br/>
@@ -611,7 +611,7 @@ The <em>Book of Changes</em> is unquestionably a quintessential Chinese cultural
 
                 {/* English description */}
                 <div className="text-white fw-300 yj-en-14 yj-lh-12"  style={{
-                  fontFamily: '"neue-haas-grotesk-display", sans-serif',
+                  fontFamily: '"neue-haas-grotesk-text", sans-serif',
                   
                   fontStyle: 'normal' }}>
 Ever since I was introduced to the book 50 years ago, the <em>Yijing</em> has been the wise old friend who always revealed the secrets in the shadows of my heart and offered sagely guidance on how to bring about changes to my predicament each time I sought its advice. Its cryptic council had been crucial at critical turning points in my life, e.g. I drew "The Wanderer" (hexagram 56) when I was weighing the decision to quit my Hollywood corporate life and seek a new creative path, which subsequently led to my return to Hong Kong and eventually becoming a travel photographer.<br/><br/>
@@ -724,7 +724,7 @@ Over the years, I failed repeatedly to create a visual representation of the <em
               <div style={{width: '100%'}}>
                 {/* Title */}
                 <div className="text-white fw-500 yj-en-18 yj-lh-12"  style={{ marginBottom: '10px',
-                  fontFamily: '"neue-haas-grotesk-display", sans-serif',
+                  fontFamily: '"neue-haas-grotesk-text", sans-serif',
                   
                   fontStyle: 'normal' }}>
                   Divination with the <em>Book of Changes</em>
@@ -733,7 +733,7 @@ Over the years, I failed repeatedly to create a visual representation of the <em
                 {/* English description */}
                 <div className="text-white fw-300 yj-en-14 yj-lh-12"  style={{
                   textAlign: 'left',
-                  fontFamily: '"neue-haas-grotesk-display", sans-serif',
+                  fontFamily: '"neue-haas-grotesk-text", sans-serif',
                   
                   fontStyle: 'normal' }}>
 The human desire to know the future can be viewed as an attempt to navigate the changes of our complicated world and to make life manageable and meaningful. <br/><br/>
@@ -852,7 +852,7 @@ Nowadays, with the advance of digital technologies, an online consultation of th
               <div style={{width: '100%'}}>
                 {/* Title */}
                 <div className="text-white fw-300 yj-en-18 yj-lh-12"  style={{ marginBottom: '15px',
-                  fontFamily: '"neue-haas-grotesk-display", sans-serif',
+                  fontFamily: '"neue-haas-grotesk-text", sans-serif',
                   
                   fontStyle: 'normal' }}>
 Artist Statement<br/>
@@ -862,7 +862,7 @@ Artist Statement<br/>
                 {/* English description */}
                 <div className="text-white fw-300 yj-en-14 yj-lh-12"  style={{
                   textAlign: 'left',
-                  fontFamily: '"neue-haas-grotesk-display", sans-serif',
+                  fontFamily: '"neue-haas-grotesk-text", sans-serif',
                   
                   fontStyle: 'normal' }}>
 The central concept of the <em>Book of Changes</em> is "Heaven and Humanity as One". <em>Glimpses of Silence</em>, a collection of pre-drone aerials and other vast landscapes with minimal human presence, is an attempt at elucidating that idea. It is my hope that by sharing these images from the far corners of our world that I've had the privilege to experience and photograph over the past 40 years, viewers from new generations will appreciate the splendour of our magnificent planet and embark on a path of renewal and preservation instead of following in our footsteps of self-destruction.

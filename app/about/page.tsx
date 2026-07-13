@@ -128,7 +128,7 @@ export default function About() {
             <h1 className="text-white fw-400 section-title-text yj-lh-12">策展人的話</h1>
           </div>
           <div className="section-title-row">
-            <h1 className="text-white fw-300 section-title-text yj-lh-12" style={{ fontFamily: '"neue-haas-grotesk-display", sans-serif' }}>Curatorial Statement</h1>
+            <h1 className="text-white fw-300 section-title-text yj-lh-12" style={{ fontFamily: '"neue-haas-grotesk-text", sans-serif' }}>Curatorial Statement</h1>
           </div>
         </div>
 
@@ -206,7 +206,7 @@ We hope the immersive experiences of this show will allow abstract ideas to take
               <h1 className="text-white fw-400 section-title-text yj-lh-12">影片</h1>
             </div>
             <div className="section-title-row">
-              <h1 className="text-white fw-300 section-title-text yj-lh-12" style={{ fontFamily: '"neue-haas-grotesk-display", sans-serif' }}>Video</h1>
+              <h1 className="text-white fw-300 section-title-text yj-lh-12" style={{ fontFamily: '"neue-haas-grotesk-text", sans-serif' }}>Video</h1>
             </div>
           </div>
           
@@ -311,9 +311,9 @@ We hope the immersive experiences of this show will allow abstract ideas to take
                     onMouseLeave={(e) => e.currentTarget.style.color = '#888'}
                   >
                     {currentVideoIndex < videos.length - 1 ? (
-                      <>觀看更多 <span className="neue-haas-grotesk-display">Next Video</span></>
+                      <>觀看更多 <span className="neue-haas-grotesk-text">Next Video</span></>
                     ) : (
-                      <>觀看更多 <span className="neue-haas-grotesk-display">Next Video</span></>
+                      <>觀看更多 <span className="neue-haas-grotesk-text">Next Video</span></>
                     )}
                   </button>
                 </div>
@@ -335,7 +335,7 @@ We hope the immersive experiences of this show will allow abstract ideas to take
               <h1 className="text-white fw-400 section-title-text yj-lh-12">公眾節目</h1>
             </div>
             <div className="section-title-row">
-              <h1 className="text-white fw-300 section-title-text yj-lh-12" style={{ fontFamily: '"neue-haas-grotesk-display", sans-serif' }}>Public Programmes</h1>
+              <h1 className="text-white fw-300 section-title-text yj-lh-12" style={{ fontFamily: '"neue-haas-grotesk-text", sans-serif' }}>Public Programmes</h1>
             </div>
           </div>
           <div className="about-program-section">
@@ -471,7 +471,7 @@ We hope the immersive experiences of this show will allow abstract ideas to take
               <h1 className="text-white fw-400 section-title-text yj-lh-12">藝術家簡介</h1>
             </div>
             <div className="section-title-row">
-              <h1 className="text-white fw-300 section-title-text yj-lh-12" style={{ fontFamily: '"neue-haas-grotesk-display", sans-serif' }}>Artist Bio</h1>
+              <h1 className="text-white fw-300 section-title-text yj-lh-12" style={{ fontFamily: '"neue-haas-grotesk-text", sans-serif' }}>Artist Bio</h1>
             </div>
           </div>
           <div style={{
@@ -485,7 +485,7 @@ We hope the immersive experiences of this show will allow abstract ideas to take
           <div className="ct-left-content" style={{border:'none'}}>
 
             <div className="text-white fw-300 yj-cn-16 yj-lh-14" style={{ textAlign: 'left', fontFamily: '"Noto Serif TC", serif', marginBottom: '1em' }}>
-              鮑皓昕自<span style={{ fontFamily: '"neue-haas-grotesk-display", sans-serif' }}>1980</span>年從美國回流返港，開展其攝影生涯。旅美十年期間，他曾為紐約的大西洋唱片公司及唱片封套設計公司、洛杉磯的華納兄弟唱片公司擔任美術總監。他為電影《踎低噴飯：萬世魔星》設計書籍、唱片封套及海報時，首次與米高沛林合作。自此，兩人攜手製作了<span style={{ fontFamily: '"neue-haas-grotesk-display", sans-serif' }}>11</span>本以英國廣播公司<span style={{ fontFamily: '"neue-haas-grotesk-display", sans-serif' }}>BBC</span>旅遊特輯為藍本的圖冊，包括《兩極之旅》、《環太平洋之旅》、《海明威歷險記》、《撒哈拉》、《喜馬拉雅》、《新歐洲》，以及《巴西》等。鮑氏本人的著作包括《手》、《中國探秘》、《易經—中國牆城》、《山水》、《環球吶喊》、《平凡時刻》、《夢之旅》，以及《末代皇帝．幕後剪影》。鮑氏為其於倫敦的福克斯·塔爾博特博物館及皇家地理學會的展覽出版了圖錄《與米高沛林同遊世界》，以及香港海事博物館的展覽圖錄《八千日環遊世界》。他還為公司企業製作的限量版書籍，包括華光海運的《雙船記》，安縵度假酒店的《安縵》、《不丹》及《安縵<span style={{ fontFamily: '"neue-haas-grotesk-display", sans-serif' }}>2</span>》，意大利書籍印刷商特蘭提諾的《平凡時刻》、《四原色—中國》及《耀眼的陰影—黑白光影之國度》。鮑氏的旅行遊記及其他攝影作品曾在世界各大出版物及展覽中亮相，包括為貝托魯奇的電影《末代皇帝溥儀》及《小活佛》、泰利鍾斯的《海盗埃里克》、泰利基咸的《殺了堂吉訶德的男人》等拍攝的特別劇照。
+              鮑皓昕自<span style={{ fontFamily: '"neue-haas-grotesk-text", sans-serif' }}>1980</span>年從美國回流返港，開展其攝影生涯。旅美十年期間，他曾為紐約的大西洋唱片公司及唱片封套設計公司、洛杉磯的華納兄弟唱片公司擔任美術總監。他為電影《踎低噴飯：萬世魔星》設計書籍、唱片封套及海報時，首次與米高沛林合作。自此，兩人攜手製作了<span style={{ fontFamily: '"neue-haas-grotesk-text", sans-serif' }}>11</span>本以英國廣播公司<span style={{ fontFamily: '"neue-haas-grotesk-text", sans-serif' }}>BBC</span>旅遊特輯為藍本的圖冊，包括《兩極之旅》、《環太平洋之旅》、《海明威歷險記》、《撒哈拉》、《喜馬拉雅》、《新歐洲》，以及《巴西》等。鮑氏本人的著作包括《手》、《中國探秘》、《易經—中國牆城》、《山水》、《環球吶喊》、《平凡時刻》、《夢之旅》，以及《末代皇帝．幕後剪影》。鮑氏為其於倫敦的福克斯·塔爾博特博物館及皇家地理學會的展覽出版了圖錄《與米高沛林同遊世界》，以及香港海事博物館的展覽圖錄《八千日環遊世界》。他還為公司企業製作的限量版書籍，包括華光海運的《雙船記》，安縵度假酒店的《安縵》、《不丹》及《安縵<span style={{ fontFamily: '"neue-haas-grotesk-text", sans-serif' }}>2</span>》，意大利書籍印刷商特蘭提諾的《平凡時刻》、《四原色—中國》及《耀眼的陰影—黑白光影之國度》。鮑氏的旅行遊記及其他攝影作品曾在世界各大出版物及展覽中亮相，包括為貝托魯奇的電影《末代皇帝溥儀》及《小活佛》、泰利鍾斯的《海盗埃里克》、泰利基咸的《殺了堂吉訶德的男人》等拍攝的特別劇照。
             </div>
 
             <div className="text-white fw-300 yj-en-16 yj-lh-14" style={{ textAlign: 'left' }}>
