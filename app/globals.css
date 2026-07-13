@@ -5,8 +5,8 @@
 @tailwind utilities;
 
 /* Adobe Fonts Configuration */
-.neue-haas-grotesk-text {
-  font-family: neue-haas-grotesk-text, sans-serif;
+.neue-haas-grotesk-display {
+  font-family: neue-haas-grotesk-display, sans-serif;
   font-weight: 500;
   font-style: normal;
 }
@@ -25,10 +25,10 @@ body {
   color: var(--foreground);
   background: var(--background);
   /* Default: Chinese content */
-  font-family: neue-haas-grotesk-text,  "Noto Serif TC", "Noto Serif SC", 'Songti TC', serif;
+  font-family: neue-haas-grotesk-display,  "Noto Serif TC", "Noto Serif SC", 'Songti TC', serif;
   font-style: normal;
   font-display: swap;
-    font-weight: 400;
+    font-weight: 600;
 
 }
 
@@ -96,12 +96,12 @@ html {
 /* ============================================================
    Typography - English Text Sizes
    ============================================================ */
-.yj-en-24 { font-size: 24px; font-family: neue-haas-grotesk-text, sans-serif; }
-.yj-en-20 { font-size: 20px; font-family: neue-haas-grotesk-text, sans-serif; }
-.yj-en-18 { font-size: 18px; font-family: neue-haas-grotesk-text, sans-serif; }
-.yj-en-16 { font-size: 16px; font-family: neue-haas-grotesk-text, sans-serif; }
-.yj-en-14 { font-size: 14px; font-family: neue-haas-grotesk-text, sans-serif; }
-.yj-en-12 { font-size: 12px; font-family: neue-haas-grotesk-text, sans-serif;}
+.yj-en-24 { font-size: 24px; font-family: neue-haas-grotesk-display, sans-serif; }
+.yj-en-20 { font-size: 20px; font-family: neue-haas-grotesk-display, sans-serif; }
+.yj-en-18 { font-size: 18px; font-family: neue-haas-grotesk-display, sans-serif; }
+.yj-en-16 { font-size: 16px; font-family: neue-haas-grotesk-display, sans-serif; }
+.yj-en-14 { font-size: 14px; font-family: neue-haas-grotesk-display, sans-serif; }
+.yj-en-12 { font-size: 12px; font-family: neue-haas-grotesk-display, sans-serif;}
 
 /* ============================================================
    Section Titles
@@ -220,7 +220,7 @@ border-bottom: 1px solid #888;}
 .yj-nav-button{writing-mode: vertical-rl;text-orientation: mixed;font-size: 14px;letter-spacing: 0.1em;cursor: pointer;position: absolute;z-index: 20;}
 .yj-nav-button-cn{bottom: 110px;}
 .yj-nav-button-en{bottom: 55px;}
-.yj-nav-button-en-text{font-family: neue-haas-grotesk-text, sans-serif;margin-top: 15px;line-height: 1;display: inline-block;margin-left: 6px;font-weight: 300;}
+.yj-nav-button-en-text{font-family: neue-haas-grotesk-display, sans-serif;margin-top: 15px;line-height: 1;display: inline-block;margin-left: 6px;font-weight: 300;}
 .yj-mobile-left-content{padding: 40px 20px;}
 
 /* ============================================================
@@ -239,8 +239,8 @@ border-bottom: 1px solid #888;}
 /* ============================================================
    Fixed Text Labels
    ============================================================ */
-.move-over-text{position: fixed;right: -18px;top: 50%;transform: rotate(90deg);transform-origin: center center;font-size: 12px;font-family: neue-haas-grotesk-text, sans-serif !important;white-space: nowrap;z-index: 20;pointer-events: none;transition: opacity 0.5s ease-out;}
-.scroll-to-explore-text{position: fixed;right: -4px;top: 50%;transform: rotate(90deg);transform-origin: center center;font-size: 12px;font-family: neue-haas-grotesk-text, sans-serif !important;white-space: nowrap;z-index: 99;pointer-events: none;transition: opacity 0.5s ease-out;}
+.move-over-text{position: fixed;right: -18px;top: 50%;transform: rotate(90deg);transform-origin: center center;font-size: 12px;font-family: neue-haas-grotesk-display, sans-serif !important;white-space: nowrap;z-index: 20;pointer-events: none;transition: opacity 0.5s ease-out;}
+.scroll-to-explore-text{position: fixed;right: -4px;top: 50%;transform: rotate(90deg);transform-origin: center center;font-size: 12px;font-family: neue-haas-grotesk-display, sans-serif !important;white-space: nowrap;z-index: 99;pointer-events: none;transition: opacity 0.5s ease-out;}
 .home-title { font-size: 36px; line-height: 1.2; }
 
 /* ============================================================
@@ -392,7 +392,7 @@ a:hover .hover-underline::after {
 }
 
 .screen-size-warning-content-en {
-  font-family: neue-haas-grotesk-text, sans-serif;
+  font-family: neue-haas-grotesk-display, sans-serif;
   font-weight: 300;
 }
 
@@ -676,8 +676,8 @@ a:hover .hover-underline::after {
   .yj-mobile-left-content{padding: 20px 20px;}
 
   /* Fixed Text Labels */
-  .move-over-text{position: fixed;right: -35px;top: 50%;transform: rotate(90deg);transform-origin: center center;font-size: 12px;font-family: neue-haas-grotesk-text, sans-serif !important;white-space: nowrap;z-index: 2;pointer-events: none;transition: opacity 0.5s ease-out;color:#FFF}
-  .scroll-to-explore-text{position: fixed;right: -23px;top: 50%;transform: rotate(90deg);transform-origin: center center;font-size: 12px;font-family: neue-haas-grotesk-text, sans-serif !important;white-space: nowrap;z-index: 99;pointer-events: none;transition: opacity 0.5s ease-out;color:#FFF;display: none !important;}
+  .move-over-text{position: fixed;right: -35px;top: 50%;transform: rotate(90deg);transform-origin: center center;font-size: 12px;font-family: neue-haas-grotesk-display, sans-serif !important;white-space: nowrap;z-index: 2;pointer-events: none;transition: opacity 0.5s ease-out;color:#FFF}
+  .scroll-to-explore-text{position: fixed;right: -23px;top: 50%;transform: rotate(90deg);transform-origin: center center;font-size: 12px;font-family: neue-haas-grotesk-display, sans-serif !important;white-space: nowrap;z-index: 99;pointer-events: none;transition: opacity 0.5s ease-out;color:#FFF;display: none !important;}
   .home-title { font-size: 22px !important;line-height: 1.6; }
   .home-title-en{font-size: 18px !important;}
 
