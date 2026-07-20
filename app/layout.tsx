@@ -53,17 +53,7 @@ export default function RootLayout({
   return (
     <html lang="en" style={{ overscrollBehavior: 'none' }}>
       <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(d) {
-    var config = {
-      kitId: 'pen4qeo',
-      scriptTimeout: 3000,
-      async: true
-    },
-    h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\\bwf-loading\\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)})(document);`,
-          }}
-        />
+        <link rel="stylesheet" href="https://use.typekit.net/pen4qeo.css" />
       </head>
       <body style={{ overscrollBehavior: 'none' }}>
         {/* <Navigation /> */}
@@ -73,7 +63,7 @@ export default function RootLayout({
         <div className="screen-size-warning">
           <div className="screen-size-warning-box">
             <div className="screen-size-warning-title">
-              提示 <span className="fw-300"  style={{ fontFamily: '"neue-haas-grotesk-display", sans-serif' }}>Notes</span>
+              提示 <span className="fw-300"  style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Notes</span>
             </div>
             <div className="screen-size-warning-content">
               <div className="screen-size-warning-content-cn">
