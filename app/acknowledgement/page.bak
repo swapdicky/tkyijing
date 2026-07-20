@@ -176,7 +176,557 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
       </div> 
 
       {/* Right scrollable content block */}
+      
+      <div
+        style={{
+          paddingTop: isMobile ? 0 : '90px',
+          paddingLeft: isMobile ? 0 : '50vw',
+          minHeight: '100vh',
+          backgroundColor: '#000'
+        }}
+      >
+        {/* Content goes here */}
+        <div>
+          {/* Section Title: Artist Team */}
+          <div className="section-title" style={{
+            position: 'sticky',
+            top: isMobile ? '50px' : '90px',
+            backgroundColor: '#000',
+            zIndex: 2
+          }}>
+            <div className="section-title-row">
+              <h1 className="text-white fw-400 section-title-text yj-lh-12">藝術家團隊</h1>
+            </div>
+            <div className="section-title-row">
+              <h1 className="text-white fw-300 section-title-text yj-lh-12" style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Artist Team</h1>
+            </div>
+          </div>
+          <div className="ct-team-section">
+            <div style={{
+              width: '100%',
+              display: 'flex',
+              gap: '30px',
+              marginBottom: '30px'
+            }}>
+              {/* Left column */}
+              <div style={{ flex: 1 }}>
+                <div className="yj-cn-16 yj-lh-12" style={{
+                  color: '#fff',
+                  marginBottom: '6px',
+                  fontWeight: 500
+                }}>
+                  藝術家
+                </div>
+                <div className="yj-en-16 yj-lh-12" style={{
+                  color: '#fff',
+                  fontWeight: 400
+                }}>
+                  Artist
+                </div>
+              </div>
 
+              {/* Right column */}
+              <div style={{ flex: 1 }}>
+                <div className="yj-cn-16 yj-lh-12" style={{
+                  color: '#fff',
+                  marginBottom: '6px',
+                  fontWeight: 400
+                }}>
+                  鮑皓昕
+                </div>
+                <div className="yj-cn-16 yj-lh-12" style={{
+                  color: '#fff',
+                  fontFamily: '"neue-haas-unica", sans-serif',
+                  fontWeight: 300
+                }}>
+                  Basil Pao
+                </div>
+              </div>
+            </div>
+            <div style={{
+              width: '100%',
+              display: 'flex',
+              gap: '30px'
+            }}>
+              {/* Left column */}
+              <div style={{ flex: 1 }}>
+                <div className="yj-cn-16 yj-lh-12" style={{
+                  color: '#fff',
+                  marginBottom: '6px',
+                  fontWeight: 500
+                }}>
+                  展品製作
+
+                </div>
+                <div className="yj-cn-16 yj-lh-12" style={{
+                  color: '#fff',
+                  fontFamily: '"neue-haas-unica", sans-serif',
+                  fontWeight: 400
+                }}>
+                  Artwork Production
+                </div>
+              </div>
+
+              {/* Right column */}
+              <div style={{ flex: 1 }}>
+                <div className="yj-cn-16 yj-lh-12" style={{
+                  color: '#fff',
+                  marginBottom: '6px',
+                  fontWeight: 500
+                }}>
+                  　
+                </div>
+                <div className="yj-cn-16 yj-lh-12" style={{
+                  color: '#fff',
+                  fontFamily: '"neue-haas-unica", sans-serif',
+                  fontWeight: 300
+                }}>
+                  Studio 8 Limited
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Content goes here */}
+        <div>
+          {/* Section Title: Tai Kwun Team */}
+          <div className="section-title" style={{
+            position: 'sticky',
+            top: isMobile ? '50px' : '90px',
+            backgroundColor: '#000',
+            zIndex: 2
+          }}>
+            <div className="section-title-row">
+              <h1 className="text-white fw-400 section-title-text yj-lh-12">大館團隊</h1>
+            </div>
+            <div className="section-title-row">
+              <h1 className="text-white fw-300 section-title-text yj-lh-12" style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Tai Kwun Team</h1>
+            </div>
+          </div>
+          <div className="ct-team-section">
+
+            <div style={{
+              width: '100%',
+              display: 'flex',
+              gap: '30px',
+              marginBottom: '30px'
+            }}>
+              {/* Left column */}
+              <div style={{ flex: 1 }}>
+                <div className="yj-cn-16 yj-lh-12" style={{
+                  color: '#fff',
+                  marginBottom: '6px',
+                  fontWeight: 500
+                }}>
+                  策展
+                </div>
+                <div className="yj-cn-16 yj-lh-12" style={{
+                  color: '#fff',
+                  fontFamily: '"neue-haas-unica", sans-serif',
+                  fontWeight: 400
+                }}>
+                  Curatorial
+                </div>
+              </div>
+
+              {/* Right column */}
+              <div style={{ flex: 1 }}>
+                <div className="yj-cn-16 yj-lh-12" style={{
+                  color: '#fff',
+                  marginBottom: '6px',
+                  fontWeight: 400
+                }}>
+                  鍾妙芬
+
+                </div>
+                <div className="yj-cn-16 yj-lh-12" style={{
+                  color: '#fff',
+                  fontFamily: '"neue-haas-unica", sans-serif',
+                  fontWeight: 300
+                }}>
+                  Anita Chung
+                </div>
+              </div>
+            </div>
+            <div style={{
+              width: '100%',
+              display: 'flex',
+              gap: '30px',
+              marginBottom: '30px'
+            }}>
+              {/* Left column */}
+              <div style={{ flex: 1 }}>
+                <div className="yj-cn-16 yj-lh-12" style={{
+                  color: '#fff',
+                  marginBottom: '6px',
+                  fontWeight: 500
+                }}>
+                  項目管理
+
+
+                </div>
+                <div className="yj-cn-16 yj-lh-12" style={{
+                  color: '#fff',
+                  fontFamily: '"neue-haas-unica", sans-serif',
+                  fontWeight: 400
+                }}>
+                  Project Management
+                </div>
+              </div>
+
+              {/* Right column */}
+              <div style={{ flex: 1 }}>
+                <div className="yj-cn-16 yj-lh-12" style={{
+                  color: '#fff',
+                  marginBottom: '6px',
+                  fontWeight: 400
+                }}>
+                 張晴晴
+
+                </div>
+                <div className="yj-cn-16 yj-lh-12" style={{
+                  color: '#fff',
+                  fontFamily: '"neue-haas-unica", sans-serif',
+                  fontWeight: 300,
+                  marginBottom: '6px'
+                }}>
+                  Ching Ching Cheung
+                </div>
+                <div className="yj-cn-16 yj-lh-12" style={{
+                  color: '#fff',
+                  marginBottom: '6px',
+                  fontWeight: 400
+                }}>
+                 許曉昕
+
+                </div>                
+                <div className="yj-cn-16 yj-lh-12" style={{
+                  color: '#fff',
+                  fontFamily: '"neue-haas-unica", sans-serif',
+                  fontWeight: 300
+                }}>
+                  Queenie Hui
+                </div>
+              </div>
+            </div>
+            <div style={{
+              width: '100%',
+              display: 'flex',
+              gap: '30px'
+            }}>
+              {/* Left column */}
+              <div style={{ flex: 1 }}>
+                <div className="yj-cn-16 yj-lh-12" style={{
+                  color: '#fff',
+                  marginBottom: '6px',
+                  fontWeight: 500
+                }}>
+                  設計管理
+
+
+
+                </div>
+                <div className="yj-cn-16 yj-lh-12" style={{
+                  color: '#fff',
+                  fontFamily: '"neue-haas-unica", sans-serif',
+                  fontWeight: 400
+                }}>
+                  Design Management
+                </div>
+              </div>
+
+              {/* Right column */}
+              <div style={{ flex: 1 }}>
+                <div className="yj-cn-16 yj-lh-12" style={{
+                  color: '#fff',
+                  marginBottom: '6px',
+                  fontWeight: 400
+                }}>
+                 易卓嵐
+
+
+                </div>
+                <div className="yj-cn-16 yj-lh-12" style={{
+                  color: '#fff',
+                  fontFamily: '"neue-haas-unica", sans-serif',
+                  fontWeight: 300
+                }}>
+                  Addison Yick
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Content goes here */}
+        <div>
+          {/* Section Title: Exhibition Design and Production */}
+          <div className="section-title" style={{
+            position: 'sticky',
+            top: isMobile ? '50px' : '90px',
+            backgroundColor: '#000',
+            zIndex: 2
+          }}>
+            <div className="section-title-row">
+              <h1 className="text-white fw-400 section-title-text yj-lh-12">展覽設計與製作</h1>
+            </div>
+            <div className="section-title-row">
+              <h1 className="text-white fw-300 section-title-text yj-lh-12" style={{ fontFamily: '"neue-haas-unica", sans-serif' }}>Exhibition Design and Production</h1>
+            </div>
+          </div>
+          <div className="ct-team-section" style={{border:'none'}}>
+
+            {/* Row 1: Exhibition Design */}
+            <div style={{
+              width: '100%',
+              display: 'flex',
+              gap: '30px',
+              marginBottom: '30px'
+            }}>
+              <div style={{ flex: 1 }}>
+                <div className="yj-cn-16 yj-lh-12" style={{
+                  color: '#fff',
+                  marginBottom: '6px',
+                  fontWeight: 500
+                }}>
+                  展覽設計
+                </div>
+                <div className="yj-cn-16 yj-lh-12" style={{
+                  color: '#fff',
+                  fontFamily: '"neue-haas-unica", sans-serif',
+                  fontWeight: 400
+                }}>
+                  Exhibition Design
+                </div>
+              </div>
+              
+              <div style={{ flex: 1 }}>
+                <div className="yj-cn-16 yj-lh-12" style={{
+                  color: '#fff',
+                  marginBottom: '6px',
+                  fontWeight: 500
+                }}>
+                  　
+                </div>                
+                <div className="yj-cn-16 yj-lh-12" style={{
+                  color: '#fff',
+                  fontFamily: '"neue-haas-unica", sans-serif',
+                  fontWeight: 300
+                }}>
+                  Atelier Nuno Limited
+                </div>
+              </div>
+            </div>
+
+            {/* Row 2: Graphic Production */}
+            <div style={{
+              width: '100%',
+              display: 'flex',
+              gap: '30px',
+              marginBottom: '30px'
+            }}>
+              <div style={{ flex: 1 }}>
+                <div className="yj-cn-16 yj-lh-12" style={{
+                  color: '#fff',
+                  marginBottom: '6px',
+                  fontWeight: 500
+                }}>
+                  平面製作
+                </div>
+                <div className="yj-cn-16 yj-lh-12" style={{
+                  color: '#fff',
+                  fontFamily: '"neue-haas-unica", sans-serif',
+                  fontWeight: 400
+                }}>
+                  Graphic Production
+                </div>
+              </div>
+              <div style={{ flex: 1 }}>
+                <div className="yj-cn-16 yj-lh-12" style={{
+                  color: '#fff',
+                  marginBottom: '6px',
+                  fontWeight: 500
+                }}>
+                  　
+                </div>
+                <div className="yj-cn-16 yj-lh-12" style={{
+                  color: '#fff',
+                  fontFamily: '"neue-haas-unica", sans-serif',
+                  fontWeight: 300
+                }}>
+                  HATO
+                </div>
+              </div>
+            </div>
+
+            {/* Row 3: Exhibition Production */}
+            <div style={{
+              width: '100%',
+              display: 'flex',
+              gap: '30px',
+              marginBottom: '30px'
+            }}>
+              <div style={{ flex: 1 }}>
+                <div className="yj-cn-16 yj-lh-12" style={{
+                  color: '#fff',
+                  marginBottom: '6px',
+                  fontWeight: 500
+                }}>
+                  展覽製作
+                </div>
+                <div className="yj-cn-16 yj-lh-12" style={{
+                  color: '#fff',
+                  fontFamily: '"neue-haas-unica", sans-serif',
+                  fontWeight: 400
+                }}>
+                  Exhibition Production
+                </div>
+              </div>
+              <div style={{ flex: 1 }}>
+                <div className="yj-cn-16 yj-lh-12" style={{
+                  color: '#fff',
+                  marginBottom: '6px',
+                  fontWeight: 400
+                }}>
+                  雅卓創意有限公司
+                </div>
+                <div className="yj-cn-16 yj-lh-12" style={{
+                  color: '#fff',
+                  fontFamily: '"neue-haas-unica", sans-serif',
+                  fontWeight: 300
+                }}>
+                  Hattrick Creative Limited
+                </div>
+              </div>
+            </div>
+
+            {/* Row 4: Interactive Design */}
+            <div style={{
+              width: '100%',
+              display: 'flex',
+              gap: '30px',
+              marginBottom: '30px'
+            }}>
+              <div style={{ flex: 1 }}>
+                <div className="yj-cn-16 yj-lh-12" style={{
+                  color: '#fff',
+                  marginBottom: '6px',
+                  fontWeight: 500
+                }}>
+                  互動設計
+                </div>
+                <div className="yj-cn-16 yj-lh-12" style={{
+                  color: '#fff',
+                  fontFamily: '"neue-haas-unica", sans-serif',
+                  fontWeight: 400
+                }}>
+                  Interactive Design
+                </div>
+              </div>
+              <div style={{ flex: 1 }}>
+                <div className="yj-cn-16 yj-lh-12" style={{
+                  color: '#fff',
+                  marginBottom: '6px',
+                  fontWeight: 500
+                }}>
+                  　
+                </div>                
+                <div className="yj-cn-16 yj-lh-12" style={{
+                  color: '#fff',
+                  fontFamily: '"neue-haas-unica", sans-serif',
+                  fontWeight: 300
+                }}>
+                  WARE
+                </div>
+              </div>
+            </div>
+
+            {/* Row 5: AV */}
+            <div style={{
+              width: '100%',
+              display: 'flex',
+              gap: '30px',
+              marginBottom: '30px'
+            }}>
+              <div style={{ flex: 1 }}>
+                <div className="yj-cn-16 yj-lh-12" style={{
+                  color: '#fff',
+                  marginBottom: '6px',
+                  fontWeight: 500
+                }}>
+                  影音裝置
+                </div>
+                <div className="yj-cn-16 yj-lh-12" style={{
+                  color: '#fff',
+                  fontFamily: '"neue-haas-unica", sans-serif',
+                  fontWeight: 400
+                }}>
+                  AV Installation
+                </div>
+              </div>
+              <div style={{ flex: 1 }}>
+                <div className="yj-cn-16 yj-lh-12" style={{
+                  color: '#fff',
+                  marginBottom: '6px',
+                  fontWeight: 400
+                }}>
+                  適碩系統有限公司
+                </div>
+                <div className="yj-cn-16 yj-lh-12" style={{
+                  color: '#fff',
+                  fontFamily: '"neue-haas-unica", sans-serif',
+                  fontWeight: 300
+                }}>
+                  Komstadt Systems Limited
+                </div>
+              </div>
+            </div>
+
+            {/* Row 6: Website Design */}
+            <div style={{
+              width: '100%',
+              display: 'flex',
+              gap: '30px'
+            }}>
+              <div style={{ flex: 1 }}>
+                <div className="yj-cn-16 yj-lh-12" style={{
+                  color: '#fff',
+                  marginBottom: '6px',
+                  fontWeight: 500
+                }}>
+                  網頁設計
+                </div>
+                <div className="yj-cn-16 yj-lh-12" style={{
+                  color: '#fff',
+                  fontFamily: '"neue-haas-unica", sans-serif',
+                  fontWeight: 400
+                }}>
+                  Website Design
+                </div>
+              </div>
+              <div style={{ flex: 1 }}>
+                 <div className="yj-cn-16 yj-lh-12" style={{
+                  color: '#fff',
+                  marginBottom: '6px',
+                  fontWeight: 500
+                }}>
+                  　
+                </div>               
+                <div className="yj-cn-16 yj-lh-12" style={{
+                  color: '#fff',
+                  fontFamily: '"neue-haas-unica", sans-serif',
+                  fontWeight: 300
+                }}>
+                  Toby Ng Design
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
 
       {/* Lightbox */}
       {showLightbox && (
