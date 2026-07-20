@@ -78,6 +78,9 @@ export default function CreativeTeam() {
         }}
         />
 
+
+
+
       {/* Left fixed content block */}
       <div
         style={{
@@ -175,6 +178,37 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
         </div>
       </div> 
 
+
+      {/* right fixed content block */}
+      <div
+        style={{
+          position: isMobile ? 'relative' : 'fixed',
+          top: isMobile ? 0 : '90px',
+          right: 0,
+          width: isMobile ? '100%' : '50vw',
+          height: isMobile ? 'auto' : 'calc(100vh - 90px)',
+          backgroundColor: '#000',
+          zIndex: 1,
+          display: 'flex',
+          flexDirection: 'column',
+          overflow: isMobile ? 'visible' : 'hidden',
+
+        }}
+      >
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover'
+          }}
+        >
+          <source src="/images/yijing_vertical_clean.mp4" type="video/mp4" />
+        </video>
+      </div>
 
 
       {/* Lightbox */}
