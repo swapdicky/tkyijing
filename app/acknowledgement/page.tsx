@@ -168,10 +168,20 @@ export default function CreativeTeam() {
             <div className="yj-en-14 yj-lh-14" style={{
               fontWeight: 300,
               color: '#888',
-              textAlign: 'left'
+              textAlign: 'left',
+              marginBottom: '1em'
             }}>
               <p>
 Notes: In this exhibition, the modern Chinese interpretation of the classical text is cited from <em>Fu Peirong jiedu Yijing (Fu Peirong's Interpretation of the Yijing)</em> (Taibei, 2022) and the English version is based on Richard Wilhelm's translation which was rendered into English by Cary F. Baynes (Princeton, 1997).              </p>
+            
+            </div>
+            <div className="yj-en-14 yj-lh-14" style={{
+              fontWeight: 300,
+              color: '#888',
+              textAlign: 'left',
+            }}>
+            
+              <p>Site by Toby Ng Design</p>
             </div>
 
 
