@@ -53,7 +53,6 @@ export default function RootLayout({
   return (
     <html lang="en" style={{ overscrollBehavior: 'none' }}>
       <head>
-        <link rel="stylesheet" href="https://use.typekit.net/pen4qeo.css" />
       </head>
       <body style={{ overscrollBehavior: 'none' }}>
         {/* <Navigation /> */}
