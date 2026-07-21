@@ -7,6 +7,7 @@ export default function CreativeTeam() {
   const [showLightbox, setShowLightbox] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const leftContentRef = useRef<HTMLDivElement>(null);
   const stickyTitlesRef = useRef<HTMLDivElement>(null);
 
@@ -62,7 +63,7 @@ export default function CreativeTeam() {
   }, [isMobile]);
   return (
     <div className="min-h-screen">
-      <Header />
+      <Header onMenuChange={setIsMenuOpen} />
       
       {/* Fixed header */}
       <div
@@ -91,7 +92,7 @@ export default function CreativeTeam() {
           height: isMobile ? 'auto' : 'calc(100vh - 90px)',
           backgroundColor: '#000',
           zIndex: 1,
-          borderRight: isMobile ? 'none' : '1px solid #888',
+          borderRight: (!isMobile && isMenuOpen) ? '1px solid #888' : 'none',
           borderBottom: isMobile ? '1px solid #888' : 'none',
           display: 'flex',
           flexDirection: 'column',
@@ -183,12 +184,12 @@ Notes: In this exhibition, the modern Chinese interpretation of the classical te
       <div
         style={{
           position: isMobile ? 'relative' : 'fixed',
-          top: isMobile ? 0 : '90px',
+          top: isMobile ? 0 : '0',
           right: 0,
           width: isMobile ? '100%' : '50vw',
-          height: isMobile ? 'auto' : 'calc(100vh - 90px)',
+          height: isMobile ? 'auto' : '100vh',
           backgroundColor: '#000',
-          zIndex: 1,
+          zIndex: 20,
           display: 'flex',
           flexDirection: 'column',
           overflow: isMobile ? 'visible' : 'hidden',
